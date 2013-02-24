@@ -9,11 +9,11 @@
 #     Daten eines Fahrzeuges (ein Fahrzeug entspricht einer Beobachtung).
 
 
-# 1a) Daten einlesen
+# 1a) einlesen der Daten
 t.file <- "http://stat.ethz.ch/Teaching/Datasets/NDK/d.fuel.dat"
 d.fuel <- read.table(t.file,header=T,sep=",")
 
-# 1b) Betrachten der eingelesenen Daten
+# 1b) betrachten der eingelesenen Daten 
 d.fuel
 
 # 1c) fünften Eintrag auswählen aus d.fuel
@@ -23,10 +23,7 @@ d.fuel[5,]
 d.fuel[1:5,]
 
 # 1e) zeige 1. bis 3. und 57. bis 60. Beobachtung des Datensatzes
-d.fuel[1:3,]; d.fuel[57:60,]
-# Frage: Kann man diese Kommandos zusammenfassen?
-#        Etwa in der Form 
-#        d.fuel[(1:3):(57:60),]
+d.fuel[c(1:3,57:60),]
 
 # 1f) Berechne Mittelwert der Reichweiten aller Autos im Miles/Gallon
 mean(apply(d.fuel[3], 1, mean))
@@ -99,13 +96,25 @@ mad(t.lp100km)
 #     t.x1 mit den Werten 0,1,...,9,10. Erzeugen Sie dann die Vektoren t.y und 
 #     t.y1, deren Elemente die Quadratwerte der entsprechenden Elemente von t.x
 #     bzw. t.x1 enthalten.
-
+t.x <- c(-10:10)
+t.x1 <- c(0:10)
+t.y <- t.x^2
+t.y1 <- t.x1^2
 
 # 2b) Zeichnen Sie die Streudiagramme t.y vs. t.x und t.y1 vs t.x1 .
+plot(t.x, t.y)
+plot(t.x1, t.y1)
 
 # 2c) Berechnen Sie die Korrelationskoeffizienten zwischen t.x und t.y bzw. 
 #     zwischen t.x1 und t.y1. Warum sind die beiden Korrelationen so verschieden
 #     (vgl. Stat. Datenanalyse, Abschnitt 3.2.h)?
+cor(t.x, t.y)
+cor(t.x1, t.y1)
+# Der Korrelationskoeffizient beschreibt den Grad des 'linearen Zusammenhangs'.
+# Dieser kann im Bereich -1 bis +1 liegen. Ist der Wert 0 so besteht kein 
+# Zusammenhang.
+#
+# Frage: Das Buch haben wir immer noch nicht... (siehe Aufgabe 1n)
 
 # Kommentare
 #
