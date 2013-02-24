@@ -110,7 +110,8 @@ mad(t.lp100km)
 # Kommentare
 #
 # A) Das Aufgabenblatt hat im TeX-Code keine Anpassung für die deutschen Umlaute
-#    Mögliche Lösung:
+#    Mögliche Lösung: Folgende Zeilen in die Präambel einfügen
+#
 #       \usepackage[utf8]{inputenc}     % für input utf8
 #       \usepackage[T1]{fontenc}        % Schriftcodierung mit UTF-8
 #       \usepackage{textcomp}           % Erweiterung von fontenc
