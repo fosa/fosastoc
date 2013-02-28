@@ -40,6 +40,7 @@ mean(mpg[7:22])
 #     1 Gallon  = 3.78541178 Liter
 #     1 Pound   = 0.45359    kg
 #     => 1 Mile/Gallon = 1.609344/3.78541178 km/Liter = 0.425143708 km/Liter
+weight <- d.fuel[,2]
 mpg2kml <- 0.425143708
 p2kg <- 0.45359
 t.kml <- mpg * mpg2kml
