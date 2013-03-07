@@ -119,3 +119,8 @@ schlamm  <- schlamm.all[,-1]
 
 summary(schlamm)
 boxplot(schlamm)
+
+# >>> Ausreisser: gibt es bei allen ausser bei schlamm[,5]
+
+
+# 6b)
