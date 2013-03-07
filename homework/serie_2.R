@@ -79,7 +79,7 @@ sum(d.paare[,2] - (a + b*d.paare[,1])^2)
 verssum <- c(10,20,30,40,80,120)
 versanz <- c(20,160,80,40,88,12)
 
-# dies aufgabe 4 kann ausgelassen werde (siehe Mail)
+# die aufgabe 4 kann ausgelassen werde (siehe Mail)
 
 # 5a) Zeichnen Sie Histogramme von der Zeitspanne zwischen zwei Ausbrüchen:
 
@@ -105,3 +105,17 @@ hist(geysir[,"Eruptionsdauer"], breaks=20)
 #     Gruppierungen oder ausreisseische punkte verloren gehen in der 
 #     Grafik
 
+# 6) 21 Labors bestimmten den Kupfergehalt von 9 verschiedenen 
+#    Klärschlammproben. Die Daten stehen im Data Frame klaerschlamm zur
+#    Verfügung. Die erste Spalte bezeichnet das Labor, die restlichen 9
+#    Spalten sind die verschiedenen Klärschlammprobe. Die Daten (in mg/kg)
+#    kann man mit dem Befehl
+
+url  <- "http://stat.ethz.ch/Teaching/Datasets/klaerschlamm.dat"
+schlamm.all  <- read.table(url, header=TRUE)
+schlamm  <- schlamm.all[,-1] 
+
+# 6a)
+
+summary(schlamm)
+boxplot(schlamm)
