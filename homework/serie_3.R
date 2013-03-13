@@ -121,7 +121,7 @@ length(Filter(function(x) x==7, combosums))
 # 4d) Wie gross ist die Wahrscheinlichkeit, dass das Ereignis E_2 "Die Augen-
 # summe ist kleiner als 4" eintritt.
 
-length(Filter(function(x) x<4, combosums))
+E_2  <- length(Filter(function(x) x<4, combosums))
 
 # E_2 = {(1,1),(1,2),(2,1)} somit gibt es 3 Ereignisse welche die Augensumme
 # kleiner 4 haben. D.h. P(E_3) = 3/36 = 1/12
@@ -132,7 +132,7 @@ length(Filter(function(x) x<4, combosums))
 is.even <- function(combos) combos %% 2 == 0
 Map(function(x,y) x==TRUE && y==TRUE, is.even(combos[,1]), is.even(combos[,2]))
 evencombo <- c(Map(function(x,y) x==TRUE && y==TRUE, is.even(combos[,1]), is.even(combos[,2])))
-length(evencombo[evencombo==TRUE])
+E_3  <- length(evencombo[evencombo==TRUE])
 
 # E_3 = {(1,1),(1,3),(1,5),(3,1),(3,3),(3,5),(5,1),(5,3),(5,5)} somit gibt es
 # 9 Ereignisse bei denen beide Augenzahlen ungerade sind. Somit ergibt sich 
@@ -140,14 +140,73 @@ length(evencombo[evencombo==TRUE])
 
 # 4f) Berechnen Sie P(E_2 ODER E_3).
 
+((E_2/36) + (E_3/36) - ((E_2/36)*(E_3/36)))
+
 # P(E_2 ODER E_3) = P(E_2) + P(E_3) - P(E_2 * E_3)
 #                 = 1/12   + 1/4    - (1/12 * 1/4) 
-#                 =  
+#                 = 17/48 
 
 ################################################################################
 
-################################################################################
+# Aufgabe 5 - Wo steckt in den folgenden Aussagen der Fehler? Begründen Sie!
+
+# 5a) Bei einer gezinkten Münze wurde festgestellt, dass P(Kopf)=0.32 und 
+# P(Zahl)=0.73 ist.
+
+prob.k <- 0.32
+prob.z <- 0.73
+prob.k + prob.z
+
+# Da beim Münzwurf die Ereignisse Unabhängig sind kann man sagen dass die Wahr-
+# scheinlichkeit P = P(Kopf) + P(Zahl) ist. Diese ist aber per Definition 
+# grösser/gleich 0 und kleiner/gleich 1. Die Summer der gegebenen Zahlen ergibt
+# allerdings 1.05 und ist somit "stochastischer Blödsinn". Das 2. Axiom von 
+# Kolmogorow besagt, dass die Wahrscheinlichkeit von Omega gleich 1 ist also
+# P(Omega)=1
+
+# 5b) Die Wahrscheinlichkeit für einen "Sechser" im Zahlenlotto ist -3*10^(-6).
+
+# Diese Aussage widerspricht dem 1. Axiom von Kolmogorow welches besagt, dass
+# die Wahrscheinlichkeit eines beliebigen Ereignisses grösser/gleich 0 ist also
+# P(A)>=0. Somit ist auch diese Aussage "stochastischer Blödsinn"
+
+# 5c) Bei einer Befragung wurden die Ergebnisse
+#       S: Befragte Person ist Schwanger
+#       M: Befragte Person ist männlich 
+# unterucht. Man findet P(S)=0.1, P(M)=0.5 und P(S ODER M)=0.7
+
+# Die Ereignisse S und M sind  unabhängig, denn P(S|M)=0 und P(M|S)=0 da
+# bekanntlich männliche Personen nicht schwanger sein können und umgekehrt.
+# Die Wahrscheinlichkeit dass jemand männlich oder schwanger ist setzt sich 
+# aber lediglich aus den Einzelwerten P(S) und P(M) zusammen und ist somit
+# legitim. P(S ODER M) ist dann lediglich die Summe der beiden und müsste
+# 0.6 betragen. Die Aussage ist somit nicht korrekt.
 
 ################################################################################
+
+# Aufgabe 6 - Im Wahscheinlichkeitsbaum (Abbildung 1) wird für eine zufällig
+# ausgewählte Person zuerst das Merkmal Geschlecht (w = weiblich, m = männlich)
+# und danach das Merkmal Erwerbstätigkeit (E = erwerbstätig, N = nicht erwerbs-
+# tätig) betrachtet. Aus dem Baum können nun zum Beispiel folgende Wahrschein-
+# lichkeiten heruasgelesen werden:
+#       - Wahrscheinlichkeit, dass die Person weiblich ist; P(w)=0.514
+#       - Wahrscheinlichkeit, dass eine Person erwerbstätig ist, wenn man schon
+#         weiss, dass sie männlich ist; P(E|m)=0.578
+
+# 6a) Füllen Sie obenstehende Tabelle aus.
+
+#                       E                       N
+#       w=0.514         P(w UND E)=0.409        P(w UND N)=0.591
+#       m=0.486         P(m UND E)=0.578        P(m UND N)=0.422
+
+# bin mir bei dieser Tabelle nicht sicher :S
+
+# 6b) Berechnen Sie die Wahrscheinlichkeit P(w|E)
+
+# P(w|E) = P(w UND E)/P(E) =
+
+################################################################################
+
+
 
 ################################################################################
