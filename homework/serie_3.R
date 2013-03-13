@@ -103,18 +103,46 @@ prob.kalarm <- 0.01     # W. dass kein Alarm ausgelöst wird bei Brand
 
 # 4b) Wie gross ist die Wahscheinlichkeit eines einzelnen Elementarereignisses?
 
-
+# Da die Wahscheinlichkeiten für jede Augenzahl gleich ist gibt es eine line-
+# are verteilung d.h. 1:(6*6) bzw. 1/36 bzw. 1/"Anzhal Möglicher Ereignisse"
 
 # 4c) Berechnen Die die Wahrscheinlichkeit, dass das Ereignis E_1 "Die Augen-
 # summe ist 7" eintritt.
 
+wurf.A <- c(1:6)
+wurf.B <- c(1:6)
+combos  <- expand.grid(wurf.A, wurf.B)
+combosums <- c(combos[,1] + combos[,2])
+length(Filter(function(x) x==7, combosums))
+
+# E_1 = {(1,6),(2,5),(3,4),(4,3),(5,2),(6,1)} somit gibt es 6 Ereignisse die
+# die Augnesumme 7 ergeben. Somit ist P(E_1) = 6/36 = 1/6
+
 # 4d) Wie gross ist die Wahrscheinlichkeit, dass das Ereignis E_2 "Die Augen-
 # summe ist kleiner als 4" eintritt.
+
+length(Filter(function(x) x<4, combosums))
+
+# E_2 = {(1,1),(1,2),(2,1)} somit gibt es 3 Ereignisse welche die Augensumme
+# kleiner 4 haben. D.h. P(E_3) = 3/36 = 1/12
 
 # 4e) bestimmen Sie P(E_3) für das Ereignis E_3 "Beide Augenzahlen sind unge-
 # rade".
 
+is.even <- function(combos) combos %% 2 == 0
+Map(function(x,y) x==TRUE && y==TRUE, is.even(combos[,1]), is.even(combos[,2]))
+evencombo <- c(Map(function(x,y) x==TRUE && y==TRUE, is.even(combos[,1]), is.even(combos[,2])))
+length(evencombo[evencombo==TRUE])
+
+# E_3 = {(1,1),(1,3),(1,5),(3,1),(3,3),(3,5),(5,1),(5,3),(5,5)} somit gibt es
+# 9 Ereignisse bei denen beide Augenzahlen ungerade sind. Somit ergibt sich 
+# eine Wahrscheinlichkeit von P(E_3) = 9/36 = 1/4
+
 # 4f) Berechnen Sie P(E_2 ODER E_3).
+
+# P(E_2 ODER E_3) = P(E_2) + P(E_3) - P(E_2 * E_3)
+#                 = 1/12   + 1/4    - (1/12 * 1/4) 
+#                 =  
 
 ################################################################################
 
