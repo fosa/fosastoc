@@ -3,9 +3,9 @@ Verwende R um folgende Grössen zu berechnen. Es sei $X \sim$ Poisson(200) die
 Zufallsvariable, die die Anzahl Unfälle in einem Jahr beschreibt.
 
 \begin{enumerate}[(a)]
-	\item Wie gross ist die Wahrscheinlichkeit, dass in einem Jahr genau
+    \item Wie gross ist die Wahrscheinlichkeit, dass in einem Jahr genau
           200 Unfälle passieren?
-	\item Wie gross ist die Wahrscheinlichkeit, dass in einem Jahr höchstens
+    \item Wie gross ist die Wahrscheinlichkeit, dass in einem Jahr höchstens
           210 Unfälle passieren?
     \item Wie gross ist die Wahrscheinlichkeit, dass in einem Jahr zwischen
           190 und 210 Unfälle passieren (beide Grenzen eingeschlossen)?
@@ -75,7 +75,7 @@ Sie folgt einer Poissonverteilung mit Erwartngswert $\lambda = 2$, d.h.
 $X \sim$ Poisson($\lambda$).
 
 \begin{enumerate}[(a)]
-	\item Wie gross ist die Wahrscheinlichkeit, dass es in einer 
+    \item Wie gross ist die Wahrscheinlichkeit, dass es in einer 
           bestimmten 10-Minuten-Periode keinen einzigen Anruf gibt?
     \item Wie gross ist die Wahrscheinlichkeit, dass es nicht mehr als drei 
           Telefonanrufe in einer bestimmten 10-Minuten-Periode gibt?
@@ -163,6 +163,63 @@ und zu jedem dieser Abschnitte das ``Ursprungs-$\lambda$'' gilt.
 \end{figure}
 
 \section{Aufgabe 3}
+In der Vorlesung haben wir gesehen, wie man die Erfolgswahrscheinlichkeit
+$\pi$ einer Binomialverteilung mit der Maximum-Likelihood-Methode schätzen 
+kann, wenn man die Anzahl Versuche und die Anzahl Gewinne kennt. In dieser 
+Aufgabe kombinieren wir mehrere solcher Beobachtungen zu einer Schätzung.
+Angenommen Sie gehen über den Jahrmarkt und kaufen bei einer Losbude 30 Lose. 
+Unter den 30 Losen sind 2 Gewinne. Am nächsten Tag erzählt Ihnen Ihr 
+Studienkollege, dass er am Vorabend bei der gleichen Losbude 50 Lose gekauft
+hat und darunter 4 Gewinne hatte. Wie kombinieren Sie die beiden Ergebnisse, 
+um mit der Maximum-Likelihood-Methode eine möglichst gute Schätzung der 
+Erfolgswahrscheinlichkeit zu erhalten?
+
+\subsection*{Allgemeines}
+Was wissen wir? Nun, wir wissen, dass wir eine Binominalverteilung haben
+und nehmen mal vorerst die Schätzung mittels der ``Momentenmethode'' an. 
+\[X_1 \sim \text{Bin}(n_1=30, \widehat{\pi_1})$ 
+  wobei $\widehat{\pi_1} = \frac{2}{30}\]
+Zudem haben wir eine weitere Binominalveteilung durch unseren Kollegen mit
+den vier Gewinnen.
+\[X_2 \sim \text{Bin}(n_2=50, \widehat{\pi_2})$ 
+  wobei $\widehat{\pi_2} = \frac{4}{50}\]
+Mit der sog. ``Maximum-Likelihood'' Methode ist die Abschätzung der
+Variable $\widehat{\pi}$ nicht ganz so einfach. Bei dieser Methode geht
+es darum eine (eigentlich beliebige) Anzhal von möglichen Werten von 
+$\widehat{\pi}$ zu verlgeichen und den ``passendsten'' Wert zu finden.
+Um dies für alle möglichen Werte zu tun kann der folgende Ausdruck aufgestellt
+werden.
+\[  P[X=x] = {n \choose x} \cdot \pi^x \cdot (1-n)^{n-x} \]
+$n$ steht hier für die Anzahl gekaufter Loose und $x$ für die Gewinne.
+Um nun auf $\pi$ zu gelangen, muss die Ableitung dieses Ausdrucks zu Null
+gleichgesetzt werden und natürlich nach $\pi$ aufgelöst werden.
+Falls der Ausdruck kompliziert und mühsam zum Ableiten ist, kann versucht 
+werden über eine \emph{Trick} zur Lösung zu gelangen. Der Trick basiert
+darauf, dass jedes Extremum der Funktion $f(x)$ auch ein Extremum der 
+Fuktion $\log(f(x))$ ist.
+\[ \log\left(P[X=x]\right) = 
+   \log\left({n \choose x} \cdot \pi^x \cdot (1-n)^{n-x}\right) \]
+Der eignetliche Trick besteht darin, aus den Faktoren Summen zu bilden.
+Diese können dann einzeln und unabhängig abgeleitet werden. Das ist natürlich
+angenehmer zum Ableiten.
+\[ 0 \stackrel{!}{=} \frac{d}{d\pi} \log\left( {n \choose x} \right) +
+   x \cdot \log( \pi ) + (n-x)\cdot \log(1-\pi) \]
+Wenn wir dies nun auflösen nach $\pi$ erhalten wir
+\[ \pi = \frac{x}{n} \]
+Dies stellt einen einfachen Fall dar in welchem das Ergebnis für $\pi$
+mit dem übereinstimmt, welches man für die Momnetenmethode erhalen würde.
+
+\subsection*{a)}
+Die Anzahl Gewinne ist unabhängig und wird beschrieben durch
+\[ P(X_1 = x_1 \cap X_2 = x_2 ) \]
+was wie immer durch die Multiplikation der beiden Wahrscheinlichkeiten
+entsteht.
+\[ P(X_1 = x_1 \cap X_2 = x_2 ) = P(X_1 = x_1) \cdot P(X_2=x_2) \]
+
+\subsection*{b)}
+\subsection*{c)}
+
+
 \section{Aufgabe 4}
 \section{Aufgabe 5}
 \section{Aufgabe 6}
