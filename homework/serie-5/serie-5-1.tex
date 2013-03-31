@@ -214,11 +214,28 @@ Die Anzahl Gewinne ist unabhängig und wird beschrieben durch
 \[ P(X_1 = x_1 \cap X_2 = x_2 ) \]
 was wie immer durch die Multiplikation der beiden Wahrscheinlichkeiten
 entsteht.
-\[ P(X_1 = x_1 \cap X_2 = x_2 ) = P(X_1 = x_1) \cdot P(X_2=x_2) \]
 
 \subsection*{b)}
-\subsection*{c)}
+\[ P(X_1 = x_1 \cap X_2 = x_2 ) =  P(X_1 = x_1) \cdot P(X_2=x_2)\]
+\[ \log(P(X_1=x_1 \cap X_2=x_2)) = \log( P(X_1 = x_1) \cdot P(X_2=x_2)) \]
+\[ \log(P(X_1=x_1 \cap X_2=x_2)) = \log( P(X_1 = x_1)) + \log(P(X_2=x_2)) \]
 
+\[ = \log\left({n_1 \choose x_1} \cdot \pi^{x_1} \cdot (1-\pi)^{n_1-x_1}\right)
+   + \log\left({n_2 \choose x_2} \cdot \pi^{x_2} \cdot (1-\pi)^{n_2-x_2}\right)   \]
+
+\[ = \log\left( {n_1 \choose x_1} \right) + x_1 \cdot log(\pi) +
+     (n_1-x_1) \cdot \log(1-\pi) \]
+\[ + \log\left( {n_2 \choose x_2} \right) + x_2 \cdot log(\pi) +
+     (n_2-x_2) \cdot \log(1-\pi) \]
+Nun kann man sehen, dass $\pi$ nicht in allen Termen der Summe vorkommnt.
+
+\subsection*{c)}
+Der ermittelte Ausdruck bei 2-b) kann nun abgeleitet, gleich Null gesetzt
+und nach $\pi$ aufgelöst werden.
+\[ 0 \stackrel{!}{=} 0 + \frac{x_1}{\pi} + \frac{n_1-x_1}{\pi-1}
+   + 0 + \frac{x_2}{\pi} + \frac{n_2-x_2}{\pi-1} \]
+\[ 0 \stackrel{!}{=} \frac{x_1+x_2}{\pi} + \frac{(n_1-x_1)+(n_2-x_2)}{\pi-1} \]
+\emph{Habe gerade keine Ahnung wie weiter rechnen \ldots}
 
 \section{Aufgabe 4}
 \section{Aufgabe 5}
