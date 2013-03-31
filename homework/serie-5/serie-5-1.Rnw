@@ -16,6 +16,7 @@ Um dies zu berechnen kann in R der Befehl \verb!dpois()! verwendet werden.
 <<>>=
 dpois(200,200)
 @
+Erläuterung zur Funktion: \verb!dpois(!Erwartungwert, $\lambda$\verb!)!
 
 \subsection*{b)}
 Um dies zu berechnen werden alle Ergebnisse der Wahrscheinlichkeiten addiert
@@ -60,6 +61,56 @@ $X \sim$ Poisson($\lambda$).
           Die Zufallsvariable, die die Anzahl Anrufe in einer Stunde 
           beschreibt bezeichnen wir mit Y . Welcher Verteilung folgt Y ?
 \end{enumerate}
+
+\subsection{a)}
+Es gilt zunächst mal $\lambda = 2 \rightarrow X \sim \text{Pois}(\lambda)$\\
+
+\noindent
+Hier kann wieder wie in Aufgabe 1 die Funktion \verb!dpois()! verwendet 
+werden.
+<<>>=
+dpois(0,2)
+@
+
+\subsection*{b)}
+Hier müssen wieder alle Wert für $0$ bis $3$ aufsummiert werden
+<<>>=
+sum(dpois(0:3,2))
+@
+oder man verwendet die Implementierung von R 
+<<>>=
+ppois(3,2)
+@
+
+\subsection*{c)}
+Die Wahrscheinlichkeit, dass es in einer bestimmten 10-Minuten-Periode
+mehr als drei Anrufe gibt, ist doch genau der Wert den man erhält, wenn
+man die maximale Wahrscheinlichkeit ($\Omega = 1$) nimmt und den Wert für 
+die Wahrscheinlichkeit von maximal $3$ Anrufen subtrahiert.
+<<>>=
+1 - sum(dpois(0:3,2))
+@
+oder mit der vorbereiteten Funtkion
+<<>>=
+1 - ppois(3,2)
+@
+
+\subsection*{d)}
+Da die Ereignisse unabhängig sind, folgt $Y$ einer Poissonverteilung mit
+einem $\lambda = 6 \cdot 2$ da es in einer Stunde 6 10-Minuten-Abschnitte gibt
+und zu jedem dieser Abschnitte das ``Ursprungs-$\lambda$'' gilt.
+<<label=fig1plot,include=FALSE>>=
+Wahrscheinlichkeit <- dpois(0:40,12)
+plot(Wahrscheinlichkeit, type='l')
+@
+\begin{figure}[h]
+\begin{center}
+<<label=fig1,fig=TRUE,echo=FALSE>>=
+<<fig1plot>>
+@
+\caption{Poissonverteilung von $Y$ (Aufgabe 2-d)}
+\end{center}
+\end{figure}
 
 \section{Aufgabe 3}
 \section{Aufgabe 4}
