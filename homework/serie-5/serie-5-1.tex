@@ -1,5 +1,5 @@
 \section{Aufgabe 1}
-Verwende R um folgende Grössen zu berechnen. Es sei $X ~$ Poisson(200) die
+Verwende R um folgende Grössen zu berechnen. Es sei $X \sim$ Poisson(200) die
 Zufallsvariable, die die Anzahl Unfälle in einem Jahr beschreibt.
 
 \begin{enumerate}[(a)]
@@ -12,6 +12,7 @@ Zufallsvariable, die die Anzahl Unfälle in einem Jahr beschreibt.
 \end{enumerate}
 
 \subsection*{a)}
+Um dies zu berechnen kann in R der Befehl \verb!dpois()! verwendet werden.
 \begin{Schunk}
 \begin{Sinput}
 > dpois(200,200)
@@ -21,11 +22,56 @@ Zufallsvariable, die die Anzahl Unfälle in einem Jahr beschreibt.
 \end{Soutput}
 \end{Schunk}
 
+\subsection*{b)}
+Um dies zu berechnen werden alle Ergebnisse der Wahrscheinlichkeiten addiert
+für die Werte von $0$ bis $210$ Unfällen.
+\begin{Schunk}
+\begin{Sinput}
+> sum(dpois(0:210,200))
+\end{Sinput}
+\begin{Soutput}
+[1] 0.772708
+\end{Soutput}
+\end{Schunk}
+In R gibt es dafür aber auch einen eigenen Befehl \verb!ppois()!, dieser
+summiert von $0$ bis zur angegebnen Zahl (erster Parameter der Funktion).
+\begin{Schunk}
+\begin{Sinput}
+> ppois(210,200)
+\end{Sinput}
+\begin{Soutput}
+[1] 0.772708
+\end{Soutput}
+\end{Schunk}
+
+\subsection*{c)}
+Hier wird wie in Aufgabe 1b) die Summe aller Werte im Bereich $190$ bis $210$
+gebildet um die Wahrscheinlichkeit zu berechnen.
+\begin{Schunk}
+\begin{Sinput}
+> sum(dpois(190:210,200))
+\end{Sinput}
+\begin{Soutput}
+[1] 0.5422097
+\end{Soutput}
+\end{Schunk}
+Arbeitet man mit \verb!ppois()! muss man die Differenz bilden von der 
+höheren zur tieferen Grenze. Die untere Grenze ist hier nicht $190$ sondern
+eine Zahl Tiefer, sonst wird dieser Wert abgezogen!
+\begin{Schunk}
+\begin{Sinput}
+> ppois(210,200) - ppois(189,200)
+\end{Sinput}
+\begin{Soutput}
+[1] 0.5422097
+\end{Soutput}
+\end{Schunk}
+
 \section{Aufgabe 2}
 Die Zufallsvariable, die die Anzahl eingehender Telefonanrufe in einer 
 Telefonzentrale innerhalb von 10 Minuten beschreibt, nennen wie $X$.
 Sie folgt einer Poissonverteilung mit Erwartngswert $\lambda = 2$, d.h.
-$X ~$ Poisson($\lambda$).
+$X \sim$ Poisson($\lambda$).
 
 \begin{enumerate}[(a)]
 	\item Wie gross ist die Wahrscheinlichkeit, dass es in einer 
