@@ -1,0 +1,121 @@
+\section{Aufgabe 4}
+Das Pharmaunternehmen Life Co. hat ein neues Medikament zur Bekämpfung
+von ADHS entwickelt. Um die Wirksamkeit festzustellen wurde das Medikament 
+mit n = 10 Patienten getestet. Die derzeitige Standardmethode zeigt bei 30\% 
+der behandelten Patienten eine Wirkung.
+
+\begin{enumerate}[(a)]
+    \item Angenommen das neue Medikament ist genauso wirksam wie die 
+          Standardmethode, wie gross ist die Wahrscheinlichkeit, dass die 
+          Behandlung bei genau 2 Patienten eine Wirkung zeigt? Wie gross 
+          ist die Wahrscheinlichkeit, dass sie bei höchstens 2 Patienten 
+          eine Wirkung zeigt?
+    \item Die Behandlung mit dem neuen Medikament war bei 4 Patienten 
+          erfolgreich. Führen Sie einen einseitigen Hypothesentest durch um 
+          festzustellen ob das neue Medikament wirksamer ist als die 
+          Standardmethode (bei einem Signifikanzniveau von 5\%). 
+          Geben Sie explizit alle Schritte an.
+    \item Wie ist die Macht eines Hypothesentests definiert? 
+          Geben Sie die Macht an für den Test $H_0: \pi = 0.3$ vs. 
+          $H_A:\pi=0.6$ ($\pi$ ist die Wirksamkeit).
+\end{enumerate}
+
+\subsection*{a)}
+Die Wahrscheinlichkeit, dass das Medikament bei 2 behandelten Patienten
+eine Wirkung zeigt liegt bei
+\begin{Schunk}
+\begin{Sinput}
+> dbinom(2,size=10,0.3)
+\end{Sinput}
+\begin{Soutput}
+[1] 0.2334744
+\end{Soutput}
+\end{Schunk}
+Die Wahrscheinlichkeit, dass das Medikament bei höchstens 2 behandelten 
+Patienten eine Wirkung zeigt liegt bei
+\begin{Schunk}
+\begin{Sinput}
+> sum(dbinom(0:2,size=10,0.3))
+\end{Sinput}
+\begin{Soutput}
+[1] 0.3827828
+\end{Soutput}
+\end{Schunk}
+Die kann auch mit der Funtkion \verb!pbinom! gerechnet werden
+\begin{Schunk}
+\begin{Sinput}
+> pbinom(2,size=10,0.3)
+\end{Sinput}
+\begin{Soutput}
+[1] 0.3827828
+\end{Soutput}
+\end{Schunk}
+
+\subsection*{b)}
+Um einen Hypothesentest durchzuführen muss zuerst ein Modell erstellt werden.
+\[ X = \text{ Anzahl erfolgreich behandelte Patienten}\]
+\[ X \sim Bin(10,\pi) \]
+Weiter muss die Null-Hypothese
+und die Alternativ-Hypothese definiert werden.
+\[ H_0: \pi_0 = 0.3 \text{ Neues Medikament hat die selbe Wirkung} \]
+\[ H_A: \pi_A > \pi_0 = 0.3 \text{ Neues Medikament hat höhere Wirkung} \]
+Als nächstes wird die Teststatistik definiert.
+\[ T: P(T=t|H_0)=({10 \choose t}) \cdot 0.3^t \cdot 0.7^10-t \]
+Weiter muss das Signifikanzniveau bestimmt werden (aus der Aufgabenstellung
+geht hervor dass dieses 5\% beträgt).
+\[ \alpha = 0.05 \]
+Nun fehlt noch der sog. ``Verwerfungsbereich''. Dieser Bereich gibt die
+Werte wieder in welchem die Hypothese, wie der Name schon sagt, verworfen
+wird. Wir suchen also nach dem Wert, bei welchem die in der Hypothese geltende
+Wahrscheinlichkeit nicht unterschritten wird. Erstellt man alle Werte im
+geltenden Bereich d.h. vom $0$ bis $10$ so erhält man folgende Werte.
+\begin{Schunk}
+\begin{Sinput}
+> 1-pbinom(0:10,size=10,0.3)
+\end{Sinput}
+\begin{Soutput}
+ [1] 0.9717524751 0.8506916541 0.6172172136 0.3503892816 0.1502683326
+ [6] 0.0473489874 0.0105920784 0.0015903864 0.0001436859 0.0000059049
+[11] 0.0000000000
+\end{Soutput}
+\end{Schunk}
+Hier kann man nun erkennen, dass ab dem 6. Element (da von 1 aus Nummeriert
+wird ist dies das 5. Element) der Wert unter 
+den spezifizierten 5\% liegt. Somit ist unser Verwerfungsbereich definiert als
+\[ K = [6,7,8,9,10] \]
+Nun muss das Ergebnis interpretiert bzw. ausgewertet werden:
+Liegt der beobachtete Wert im Verwerfungsbereich? Nein das tut er nicht.
+Was heisst das nun für unseren Test? Nun ja dies sagt uns, dass die
+Nullhypothese noch gilt für diese Beobachtung und diese somit nicht
+verworfen wird.
+
+\subsection*{c)}
+Die Macht eines statistischen Tests ist die Wahrscheinlichkeit, dass
+die Nullhypothese verworfen wird, wenn die Alternative stimmt, d.h.
+$P(T \in K|H_A)$ oder ander formuliert: 
+$\text{Macht}=1-P(\text{Fehler 2. Art})$.
+
+Um die Macht für den den Test aus der Aufgabenstellung zu errechnen
+kann R benutzt werden.
+\begin{Schunk}
+\begin{Sinput}
+> pbinom(10,size=10,prob=0.6)-pbinom(5,size=10,prob=0.6)
+\end{Sinput}
+\begin{Soutput}
+[1] 0.6331033
+\end{Soutput}
+\end{Schunk}
+
+\begin{Schunk}
+\begin{Sinput}
+> plot(dbinom(0:10,size=10,prob=0.3),type='l',ylab="P()")
+> lines(dbinom(0:10,size=10,prob=0.6),type='l')
+\end{Sinput}
+\end{Schunk}
+
+\begin{figure}[h]
+	\begin{center}
+\includegraphics{serie-5-4-fig2}
+	\end{center}
+\end{figure}
+

@@ -1,0 +1,44 @@
+\section{Aufgabe 1}
+
+\subsection*{a)}
+\[ H_0: \pi_0 = 0.15 \]
+\[ H_A: \pi_A > 0.15 \]
+\[ P_{H_0}(T \geq c) = 1- P(T \leq (c-1))\]
+
+<<>>=
+1-pbinom(0:16, size=16, prob=0.15)
+plot(1-pbinom(0:16, size=16, prob=0.15), type='l')
+@
+Hier sieht man, dass es ab dem 6. Glied das Signifikanzniveau unterschreitet
+aber Achtung: R nummeriert diese Ergebnisse von 1 aus, d.h. das hier 
+angeschriebene 6. Resultat ist eigentlich das 5.
+<<>>=
+1-pbinom(5,size=16,prob=0.15)
+@
+Da wir aber $c-1$ berechnen mit dem, ist es halt das $(5+1)$. Glied, also das 
+6. Glied.
+
+\subsection*{b)}
+Das Signifikanzniveau muss so gewählt werden, dass es unter dem 5. Glied 
+unterschritten wird. Dies ist hier ca. 21\% also 0.2
+
+\subsection{c)}
+Die Frage ist eigentlich ``Wie gross ist die Wahrscheinlichkeit, dass
+wir grösser das 6. Glied sind bei einer Ansprechwahscheinlichkeit von 30\%''.
+
+Um dies zu berechnen summieren wir alle Wahrscheinlichkeiten ab dem 6. Glied.
+<<>>=
+sum(dbinom(6:16, size=16, prob=0.30))
+@
+
+
+\section{Aufgabe 3}
+
+\subsection*{a)}
+<<>>=
+binom.test(x=7,n=50,p=0.5,alternative="greater",conf.level=0.95)
+binom.test(7,50)
+@
+
+\subsection*{b)}
+Siehe a)

@@ -1,0 +1,101 @@
+\usepackage[utf8]{inputenc} % für input utf8
+\usepackage[T1]{fontenc} %Schriftcodierung mit UTF-8
+\usepackage{textcomp} %Erweiterung von fontenc
+\usepackage{lmodern} %Erweiterung des Zeichensatzes
+
+\usepackage{graphics}
+\usepackage{graphicx}
+\usepackage[ngerman]{babel}
+\usepackage{amsmath}
+%\usepackage[all]{xy}
+%\usepackage[xindy]{glossaries}
+\usepackage{makeidx}
+\usepackage{pdfpages}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{amssymb}
+\usepackage{ifthen}
+%\usepackage{uhrzeit}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{tikz}
+\usetikzlibrary{circuits.ee.IEC}
+\usetikzlibrary{circuits.logic.IEC}
+\usepackage{tikz-timing}
+\usepackage{venndiagram}
+\usepackage{Sweave}
+
+\usepackage{color}
+\usepackage{colortbl}
+\definecolor{gray}{gray}{0.749}
+\definecolor{lgray}{gray}{0.85}
+\definecolor{red}{rgb}{1, 0, 0}
+\definecolor{green}{rgb}{0, 1, 0}
+\definecolor{blue}{rgb}{0, 0, 1}
+
+% Source-Code Paket
+\definecolor{darkgreen}{rgb}{0,0.6,0}
+\usepackage{listings}
+\lstset{language=[LaTeX]TeX}
+\lstloadlanguages{TeX}
+\lstset{basicstyle=\ttfamily,
+        numbers=left,
+        numberstyle=\tiny,
+        numbersep=5pt,
+        breaklines=true,
+        texcsstyle=\color{black},
+        backgroundcolor=\color{gray!10},
+        commentstyle=\color{darkgreen},
+        %keywordstyle=\color{red}\bfseries,
+        %stringstyle=\color{blue}\bfseries,
+        frame=single,
+        tabsize=2,
+        rulecolor=\color{black!30},
+        title=\lstname,
+        escapeinside={\%*}{*)},
+        breaklines=true,
+        breakatwhitespace=true,
+        framextopmargin=2pt,
+        framexbottommargin=2pt,
+        inputencoding=utf8,
+        extendedchars=true,
+        literate={Ö}{{\"O}}1
+                 {Ä}{{\"A}}1
+                 {Ü}{{\"U}}1
+                 {ü}{{\"u}}1
+                 {ä}{{\"a}}1
+                 {ö}{{\"o}}1 }
+
+% \newboolean{ti}
+% \newboolean{nspire}
+% \newboolean{tiboth}
+
+\newcommand{\schscale}{0.70}
+\newcommand{\schscalesmall}{0.55}
+
+\DeclareMathOperator{\arccot}{arccot}
+
+\usepackage{fancyhdr} % http://en.wikibooks.org/wiki/LaTeX/Page_Layout#Customising_with_fancyhdr
+
+\pagestyle{fancy} %eigener Seitenstil
+\fancyhf{} %alle Kopf- und Fusszeilenfelder bereinigen
+
+\addtolength{\textwidth}{4cm}
+\addtolength{\evensidemargin}{-20mm}
+\addtolength{\oddsidemargin}{-20mm}
+
+\addtolength{\headwidth}{4cm} % Kopfzeilenbreite um 3cm
+\addtolength{\headheight}{1cm} % Kopfzeilenhöhe um 1cm
+\addtolength{\textheight}{2cm} % Texthöhe um 2cm
+\addtolength{\voffset}{-2cm} % Einzug Vertikal um -2cm
+
+\renewcommand{\headrulewidth}{0.4pt} % Kopfzeilenlinie
+
+\fancyhead[L]{Stochastik} %Kopfzeile links
+\fancyhead[C]{FS-2013} %zentrierte Kopfzeile
+\fancyhead[R]{HSLU-T\&A}
+\renewcommand{\headrulewidth}{0.4pt} %obere Trennlinie
+\fancyfoot[L]{Ervin Mazlagi\'c}
+\fancyfoot[C]{\today}
+\fancyfoot[R]{\thepage}
+\renewcommand{\footrulewidth}{0.4pt} %untere Trennlinie

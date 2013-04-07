@@ -3,5 +3,3 @@
 \contentsline {section}{\numberline {2}Aufgabe 2}{4}{section.2}
 \contentsline {section}{\numberline {3}Aufgabe 3}{5}{section.3}
 \contentsline {section}{\numberline {4}Aufgabe 4}{7}{section.4}
-\contentsline {section}{\numberline {5}Aufgabe 5}{8}{section.5}
-\contentsline {section}{\numberline {6}Aufgabe 6}{8}{section.6}
