@@ -1,0 +1,50 @@
+\section{Aufgabe 2}
+Monte Carlo Algorithmen sind randomisierte Algorithmen und stellen ein gutes
+Werkzeug für Simulationen von stochastischen Prozessen dar. Auch die Zahl 
+$\pi$ lässt sich mit Hilfe von Monte Carlo Simulationen bestimmen. Im
+folgenden möchten wir ein Coputerprogramm erstellen, mit welchem man die Zahl
+$\pi$ aufgrund von Monte Carlo Methoden simulieren kann. Man generiert
+hierzu zufällige Punkte $P \in \{(x,y)|x\in[-1,1]\}$ und $y \in [-1,1]$ und
+überprüft ob diese innerhalb des Einheitskreises mit Kreismittelpunkt 
+$M_K = (0,0)$ und Radius $r=1$ liegen. Die sich ergebende 
+Wahrscheinlichkeitsverteilung $P[(x,y) \in Kreis]$ stellt die Fläche eines
+Viertels des Einheitskreises dar. $\pi$ kann mit folgender Formel berechnet
+werden
+
+\[ \frac{\text{Kreisfläche}}{\text{Quadratfläche}} =
+\frac{r^2\cdot \pi}{(2\cdot r)^2} \stackrel{r=1}{=} 
+\frac{\text{Treffer in Kreisfläche}}{\text{generierte Punkte im Rechteck}} =
+P[(x,y)\in \text{Kreis}]\]
+
+Bestimmen Sie mit Hilfe dieser Überlegung die Zahl $\pi$.
+
+\subsection*{R-Hinweise}
+\emph{Generieren von 100 gleichmässig verteilten Zufallszahlen im Intervall
+$[-1,1]$}
+<<>>=
+runif(100,min=-1,max=1)
+@
+\emph{Bestimmen der Anzahl Zahlen die kleiner als Eins sind. Beispiel;
+Anzahl von 100 zufällig im Intervall $[0,10]$ generierten Zahlen, die kleiner
+als 1 sind:}
+<<>>=
+sum(runif(100,min=0,max=10)<1)
+@
+
+\subsection*{Lösungsvorschlag}
+<<>>=
+# Punkte berechnen die innerhalb der Grenzen des Einheitskreises sind
+x.grenze <- runif(100000000,min=-1,max=1)
+y.grenze <- runif(100000000,min=-1,max=1)
+# Nun die Punkte ermitteln die sowohl in x- und y-wert innerhalb sind
+kreis <- sqrt(x.grenze^2 + y.grenze^2)
+# die Kreiszahl ermitteln aus allen Punkten mit Radius kleiner 1
+# und die Flöäche durch vier teilen
+my.pi <- sum(kreis<1)/100000000*4
+my.pi
+@
+
+\emph{Ich weiss nicht wieso genau aber mit jeder neuen durchführung von Sweave
+verändern sich die Resultate der Zahl $\pi$. Es scheint so als ob es mit jeder
+Sweave-Durchführung sich immer mehr an die Zahl $\pi$ annähert (desshalb so
+viele Versuche $100000000$)}

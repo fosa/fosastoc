@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Arch Linux) (format=pdflatex 2013.3.29)  17 APR 2013 16:38
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Arch Linux) (format=pdflatex 2013.3.29)  18 APR 2013 00:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1341,39 +1341,47 @@ File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 ) [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
 
-])) [2]
+]) (./serie-7-2.tex
+LaTeX Font Info:    Try loading font information for T1+aett on input line 25.
+
+(/usr/share/texmf-dist/tex/latex/ae/t1aett.fd
+File: t1aett.fd 1997/11/16 Font definitions for T1/aett.
+) [2]) (./serie-7-3.tex [3]))
+[4]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 9.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 9.
  (./serie-7.aux (./content-7.aux))
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 9.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 9.
 Package rerunfilecheck Info: File `serie-7.out' has not changed.
-(rerunfilecheck)             Checksum: 600B262963C84D69979C03C8D107B20D;44.
+(rerunfilecheck)             Checksum: FEFCC6BA11ACDD60E20892712B62DE60;132.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 9.
  ) 
 Here is how much of TeX's memory you used:
- 22408 strings out of 493488
- 403345 string characters out of 3146892
- 587681 words of memory out of 3000000
- 25141 multiletter control sequences out of 15000+200000
- 36713 words of font info for 59 fonts, out of 3000000 for 9000
+ 22458 strings out of 493488
+ 403986 string characters out of 3146892
+ 587679 words of memory out of 3000000
+ 25163 multiletter control sequences out of 15000+200000
+ 37693 words of font info for 63 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
- 65i,12n,124p,961b,365s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 65i,12n,124p,961b,497s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf-dis
 t/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm
 -rm.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}</usr/share/tex
 mf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf-dist/fonts/
 type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti
-10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/share/texm
-f-dist/fonts/type1/public/lm/lmmi10.pfb></usr/share/texmf-dist/fonts/type1/publ
-ic/lm/lmmi7.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/sh
-are/texmf-dist/fonts/type1/public/lm/lmr7.pfb></usr/share/texmf-dist/fonts/type
-1/public/lm/lmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy7.pfb>
-Output written on serie-7.pdf (2 pages, 125246 bytes).
+msfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl
+tt10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr
+/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texmf-d
+ist/fonts/type1/public/lm/lmex10.pfb></usr/share/texmf-dist/fonts/type1/public/
+lm/lmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi7.pfb></usr/shar
+e/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf-dist/fonts/type1
+/public/lm/lmr7.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></u
+sr/share/texmf-dist/fonts/type1/public/lm/lmsy7.pfb>
+Output written on serie-7.pdf (4 pages, 174660 bytes).
 PDF statistics:
- 96 PDF objects out of 1000 (max. 8388607)
- 80 compressed objects within 1 object stream
- 23 named destinations out of 1000 (max. 500000)
- 21 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 137 PDF objects out of 1000 (max. 8388607)
+ 116 compressed objects within 2 object streams
+ 38 named destinations out of 1000 (max. 500000)
+ 37 words of extra memory for PDF output out of 10000 (max. 10000000)
 

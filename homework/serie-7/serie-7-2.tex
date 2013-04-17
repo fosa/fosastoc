@@ -1,0 +1,84 @@
+\section{Aufgabe 2}
+Monte Carlo Algorithmen sind randomisierte Algorithmen und stellen ein gutes
+Werkzeug für Simulationen von stochastischen Prozessen dar. Auch die Zahl 
+$\pi$ lässt sich mit Hilfe von Monte Carlo Simulationen bestimmen. Im
+folgenden möchten wir ein Coputerprogramm erstellen, mit welchem man die Zahl
+$\pi$ aufgrund von Monte Carlo Methoden simulieren kann. Man generiert
+hierzu zufällige Punkte $P \in \{(x,y)|x\in[-1,1]\}$ und $y \in [-1,1]$ und
+überprüft ob diese innerhalb des Einheitskreises mit Kreismittelpunkt 
+$M_K = (0,0)$ und Radius $r=1$ liegen. Die sich ergebende 
+Wahrscheinlichkeitsverteilung $P[(x,y) \in Kreis]$ stellt die Fläche eines
+Viertels des Einheitskreises dar. $\pi$ kann mit folgender Formel berechnet
+werden
+
+\[ \frac{\text{Kreisfläche}}{\text{Quadratfläche}} =
+\frac{r^2\cdot \pi}{(2\cdot r)^2} \stackrel{r=1}{=} 
+\frac{\text{Treffer in Kreisfläche}}{\text{generierte Punkte im Rechteck}} =
+P[(x,y)\in \text{Kreis}]\]
+
+Bestimmen Sie mit Hilfe dieser Überlegung die Zahl $\pi$.
+
+\subsection*{R-Hinweise}
+\emph{Generieren von 100 gleichmässig verteilten Zufallszahlen im Intervall
+$[-1,1]$}
+\begin{Schunk}
+\begin{Sinput}
+> runif(100,min=-1,max=1)
+\end{Sinput}
+\begin{Soutput}
+  [1]  0.293303136  0.252285493 -0.511360832  0.221595446 -0.433094147
+  [6] -0.380394506  0.185494593 -0.629246279  0.005298032 -0.091904954
+ [11] -0.450648750 -0.519612524 -0.961254559 -0.535350169 -0.715593869
+ [16] -0.698631496  0.024673367  0.874726356 -0.250469875  0.489096812
+ [21]  0.128081447  0.741530967  0.227473013 -0.997383171  0.341320340
+ [26]  0.183948306  0.297369509  0.493759362  0.869075510 -0.877784347
+ [31] -0.774597901 -0.319494008  0.600321830  0.851210922  0.459394308
+ [36]  0.654002727 -0.966738819  0.115382323  0.772705388 -0.119948466
+ [41]  0.945852546  0.364521837  0.067405710 -0.663717043  0.110878991
+ [46] -0.557667727  0.750874742  0.558801940  0.652024109 -0.534447795
+ [51]  0.250492516 -0.757329533 -0.145014107 -0.309041584  0.363789978
+ [56]  0.456313374  0.390709062  0.180324906  0.782221419 -0.942286048
+ [61] -0.878977387  0.419507094  0.864456390 -0.191206773  0.843168562
+ [66]  0.162887458  0.193042846 -0.778591896 -0.552269533 -0.072496875
+ [71]  0.555943059 -0.426381263  0.427546335  0.150976805  0.108892525
+ [76]  0.552407106  0.769777689  0.675423159 -0.342379903  0.763055801
+ [81]  0.143727367  0.251790399 -0.910468590 -0.941514170  0.449515221
+ [86] -0.224184609 -0.221449813 -0.974102150 -0.570577623  0.030129983
+ [91]  0.167591250  0.715954801  0.325889031  0.356417773 -0.942434844
+ [96]  0.716242312  0.824929562  0.420772235  0.734431196  0.307365970
+\end{Soutput}
+\end{Schunk}
+\emph{Bestimmen der Anzahl Zahlen die kleiner als Eins sind. Beispiel;
+Anzahl von 100 zufällig im Intervall $[0,10]$ generierten Zahlen, die kleiner
+als 1 sind:}
+\begin{Schunk}
+\begin{Sinput}
+> sum(runif(100,min=0,max=10)<1)
+\end{Sinput}
+\begin{Soutput}
+[1] 9
+\end{Soutput}
+\end{Schunk}
+
+\subsection*{Lösungsvorschlag}
+\begin{Schunk}
+\begin{Sinput}
+> # Punkte berechnen die innerhalb der Grenzen des Einheitskreises sind
+> x.grenze <- runif(100000000,min=-1,max=1)
+> y.grenze <- runif(100000000,min=-1,max=1)
+> # Nun die Punkte ermitteln die sowohl in x- und y-wert innerhalb sind
+> kreis <- sqrt(x.grenze^2 + y.grenze^2)
+> # die Kreiszahl ermitteln aus allen Punkten mit Radius kleiner 1
+> # und die Flöäche durch vier teilen
+> my.pi <- sum(kreis<1)/100000000*4
+> my.pi
+\end{Sinput}
+\begin{Soutput}
+[1] 3.141568
+\end{Soutput}
+\end{Schunk}
+
+\emph{Ich weiss nicht wieso genau aber mit jeder neuen durchführung von Sweave
+verändern sich die Resultate der Zahl $\pi$. Es scheint so als ob es mit jeder
+Sweave-Durchführung sich immer mehr an die Zahl $\pi$ annähert (desshalb so
+viele Versuche $100000000$)}
