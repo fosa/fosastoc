@@ -1,0 +1,161 @@
+\section{Artihmetisches Mittel}
+Das arithmetische Mittel beschreibt den Mittelwert der Summe aller Elemente.
+
+\[ \bar{x} = \frac{1}{n} \sum\limits_{i=1}^{n} x_i \]
+
+\subsection{R-Tipps}
+\subsubsection{Zahlenfolgen definieren}
+Vektor für eine lineare Zahlenfolge definieren mit Intervall = 1
+\begin{Schunk}
+\begin{Sinput}
+> x <- 1:10
+> x
+\end{Sinput}
+\begin{Soutput}
+ [1]  1  2  3  4  5  6  7  8  9 10
+\end{Soutput}
+\end{Schunk}
+Vektor für eine Zahlenfolge mit beliebigem Intervall (z.B. 3)
+\begin{Schunk}
+\begin{Sinput}
+> x <- seq(1,20,3)
+> x
+\end{Sinput}
+\begin{Soutput}
+[1]  1  4  7 10 13 16 19
+\end{Soutput}
+\end{Schunk}
+Eine spezielle Zahlenfolge kann auch manuell definiert werden
+\begin{Schunk}
+\begin{Sinput}
+> x <- c(3,2,5,8,9,10,55,1,12)
+> x
+\end{Sinput}
+\begin{Soutput}
+[1]  3  2  5  8  9 10 55  1 12
+\end{Soutput}
+\end{Schunk}
+\subsubsection{Artihmetisches Mittel mit R berechnen}
+Mit R kann das arithmetische Mittel mit der Funktion \verb!mean()! 
+ermittelt werden
+\begin{Schunk}
+\begin{Sinput}
+> x <- c(2,5,1,7,8,9)
+> mean(x)
+\end{Sinput}
+\begin{Soutput}
+[1] 5.333333
+\end{Soutput}
+\end{Schunk}
+
+\section{Standardabweichung}
+Die Standardabweichung beschreibt wie gross die mittlere Abweichung der
+Beobachtungen vom arithmetischen Mittel derselben Beobachtungen ist.
+\[ s_x = \sqrt{ \frac{1}{n-1} \sum\limits_{i=1}^{n} (x_i - \bar{x})^2 } \]
+Bsp.: Wir nehmen eine zufällige Zahlenfolge innerhalb $(1,10)$ und
+rechnen das arithmetische Mittel als auch die Standardabweichung (\verb!sd()!).
+\begin{Schunk}
+\begin{Sinput}
+> x <- round(x=runif(n=10, min=1, max=10), digits=0)
+> x
+\end{Sinput}
+\begin{Soutput}
+ [1] 8 9 7 2 9 4 6 5 6 8
+\end{Soutput}
+\begin{Sinput}
+> mean(x)
+\end{Sinput}
+\begin{Soutput}
+[1] 6.4
+\end{Soutput}
+\begin{Sinput}
+> sd(x)
+\end{Sinput}
+\begin{Soutput}
+[1] 2.270585
+\end{Soutput}
+\end{Schunk}
+
+\section{Quantile}
+Quantile beschreiben folgenden Zusammenhang: Hat man z.B. 20 Messungen gemacht
+und sortiert diese, dann beschreibt ein x\%-iges Qantil eine Punkt oder Grenze
+in der Messreihe, wo x\% der Werte darunter liegen.
+
+\[ \alpha: \text{ Prozentwert} \quad \alpha \in [0,1] \]
+\[ x_1 - x_n \text{ sortiert nach grösse}  \]
+\[ \alpha \cdot n \]
+\[ \text{hier müssen 2 Fälle unterschieden werden: ganze Zahlen und gebrochene} \]
+\[ \text{ganze Zahlen:} \quad \frac{1}{2} 
+\cdot (x_{\alpha \cdot n} + x_{\alpha \cdot (n+1)}) \]
+\[ \begin{array}{@{}@{}ll}
+	\text{gebrochene Zahlen:} & k=\alpha \cdot n + \frac{1}{2} \\
+	                          & k \text{ runden} \\
+				  & \Rightarrow x_{(k)}
+\end{array}\]
+
+\begin{Schunk}
+\begin{Sinput}
+> x<-round(x=runif(n=20, min=1, max=20), digits=0)
+> x<-sort(x)
+> x
+\end{Sinput}
+\begin{Soutput}
+ [1]  1  2  4  6  6  6  7  7  8  9 11 11 12 15 16 17 17 19 19 20
+\end{Soutput}
+\begin{Sinput}
+> quantile(x, prob=0.2)
+\end{Sinput}
+\begin{Soutput}
+20% 
+  6 
+\end{Soutput}
+\begin{Sinput}
+> quantile(x, prob=0.2, type=1)
+\end{Sinput}
+\begin{Soutput}
+20% 
+  6 
+\end{Soutput}
+\begin{Sinput}
+> quantile(x, prob=0.2, type=2)
+\end{Sinput}
+\begin{Soutput}
+20% 
+  6 
+\end{Soutput}
+\end{Schunk}
+Im obigen Beispiel wird mit R das 20\%-Quantil bestimmt. Hier ist aber 
+Vorsicht geboten, denn R hat 9 verschiedene \verb!type! für die Funktion
+\verb!quantile()! (default-Wert ist 7). Für uns aus dem 
+Stochastik-Modul ist der \verb!type=2! 
+der einzig richtige Wert!
+
+\section{Median}
+Der Median ist ein Spezialfall der Quantile, nämlich ist dies jenes Quantil,
+welches die 50\%-Marke beschreibt.
+
+Bsp.: Wir haben 5 Personen, und messen deren Höhe. Danach sortieren wir die
+Ergebnisse. Der Median ist nun jene Person in der Mitte (unabhängig von seiner
+genauen Höhe!). Interssant oder eben speziell am Median ist,
+dass es immer die selbe Person bleibt auch wenn die kleineren und grösseren
+noch grösser und noch kleiner werden. Dies bedeutet, dass der Median 
+unempfindlich gegenüber sog. Ausreissern ist (denke an Durchschnittsvermögen
+in einem Land mit vielen Armen und wenigen aber extrem Reichen).
+\begin{Schunk}
+\begin{Sinput}
+> x <- c(1.6, 1.7, 1.75, 1.87, 1.94)
+> median(x)
+\end{Sinput}
+\begin{Soutput}
+[1] 1.75
+\end{Soutput}
+\begin{Sinput}
+> x <- c(1.2, 1.4, 1.75, 1.99, 2.14)
+> median(x)
+\end{Sinput}
+\begin{Soutput}
+[1] 1.75
+\end{Soutput}
+\end{Schunk}
+
+\section{}
