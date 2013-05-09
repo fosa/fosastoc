@@ -107,3 +107,24 @@ cov(x,y)
 cor(x,y)
 @
 
+\section{Binomialverteilung}
+Die Binomialverteilung kann bei Ereignissen eingesetzt werden, die zwei 
+mögliche Ergebnisse zeigen können. 
+\footnote{Beispiele für Ereignisse mit zwei möglichen Ergebnissen: 
+  \begin{itemize} 
+    \item Münzwurf $\Rightarrow$ Kopf $\leftrightarrow$ Zahl
+    \item Würfeln $\Rightarrow$ Sechser $\leftrightarrow$ kein Sechser
+  \end{itemize}}
+Die Wahrscheinlichkeit ist dann wie folgt gegeben: 
+\[ P(X) = 
+\left( \begin{array}{c}n\\x\end{array} \right) \cdot p^x \cdot (1-p)^{n-x} 
+= \frac{n!}{x! (n-x)!} \cdot p^x \cdot (1-p)^{n-x} \]
+\begin{tabular}{@{}ll}
+  $n$: & Anzahl Versuche \\
+  $x$: & Anzahl Versuche mit positivem Ergebnis \\
+  $p$: & Wahrscheinlichkeit für ein positives Ergebnis jedem einzelnen Versuch
+\end{tabular} 
+<<>>=
+dbinom(x=1,size=2,prob=0.2)
+@
+
