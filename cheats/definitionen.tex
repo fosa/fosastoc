@@ -60,19 +60,19 @@ rechnen das arithmetische Mittel als auch die Standardabweichung (\verb!sd()!).
 > x
 \end{Sinput}
 \begin{Soutput}
- [1] 8 9 7 2 9 4 6 5 6 8
+ [1] 6 5 8 8 5 8 2 7 8 3
 \end{Soutput}
 \begin{Sinput}
 > mean(x)
 \end{Sinput}
 \begin{Soutput}
-[1] 6.4
+[1] 6
 \end{Soutput}
 \begin{Sinput}
 > sd(x)
 \end{Sinput}
 \begin{Soutput}
-[1] 2.270585
+[1] 2.211083
 \end{Soutput}
 \end{Schunk}
 
@@ -100,21 +100,21 @@ in der Messreihe, wo x\% der Werte darunter liegen.
 > x
 \end{Sinput}
 \begin{Soutput}
- [1]  1  2  4  6  6  6  7  7  8  9 11 11 12 15 16 17 17 19 19 20
+ [1]  2  2  5  5  7  8  9  9 10 10 10 11 12 14 15 17 17 17 17 19
 \end{Soutput}
 \begin{Sinput}
 > quantile(x, prob=0.2)
 \end{Sinput}
 \begin{Soutput}
 20% 
-  6 
+6.6 
 \end{Soutput}
 \begin{Sinput}
 > quantile(x, prob=0.2, type=1)
 \end{Sinput}
 \begin{Soutput}
 20% 
-  6 
+  5 
 \end{Soutput}
 \begin{Sinput}
 > quantile(x, prob=0.2, type=2)
@@ -158,4 +158,35 @@ in einem Land mit vielen Armen und wenigen aber extrem Reichen).
 \end{Soutput}
 \end{Schunk}
 
-\section{}
+\section{Varianz}
+\begin{Schunk}
+\begin{Sinput}
+> x=runif(n=10)
+> y=runif(n=10)
+> var(x)
+\end{Sinput}
+\begin{Soutput}
+[1] 0.04123665
+\end{Soutput}
+\end{Schunk}
+
+\section{Kovarianz}
+\begin{Schunk}
+\begin{Sinput}
+> cov(x,y)
+\end{Sinput}
+\begin{Soutput}
+[1] -0.01539569
+\end{Soutput}
+\end{Schunk}
+
+\section{Korrelationskoeffizient}
+\begin{Schunk}
+\begin{Sinput}
+> cor(x,y)
+\end{Sinput}
+\begin{Soutput}
+[1] -0.2209846
+\end{Soutput}
+\end{Schunk}
+

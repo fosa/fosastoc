@@ -90,4 +90,20 @@ x <- c(1.2, 1.4, 1.75, 1.99, 2.14)
 median(x)
 @
 
-\section{}
+\section{Varianz}
+<<>>=
+x=runif(n=10)
+y=runif(n=10)
+var(x)
+@
+
+\section{Kovarianz}
+<<>>=
+cov(x,y)
+@
+
+\section{Korrelationskoeffizient}
+<<>>=
+cor(x,y)
+@
+
