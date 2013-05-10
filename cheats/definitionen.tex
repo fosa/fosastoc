@@ -60,19 +60,19 @@ rechnen das arithmetische Mittel als auch die Standardabweichung (\verb!sd()!).
 > x
 \end{Sinput}
 \begin{Soutput}
- [1] 8 9 7 2 9 4 6 5 6 8
+ [1]  6  2 10  2  2  8  8  7  8  1
 \end{Soutput}
 \begin{Sinput}
 > mean(x)
 \end{Sinput}
 \begin{Soutput}
-[1] 6.4
+[1] 5.4
 \end{Soutput}
 \begin{Sinput}
 > sd(x)
 \end{Sinput}
 \begin{Soutput}
-[1] 2.270585
+[1] 3.306559
 \end{Soutput}
 \end{Schunk}
 
@@ -100,28 +100,28 @@ in der Messreihe, wo x\% der Werte darunter liegen.
 > x
 \end{Sinput}
 \begin{Soutput}
- [1]  1  2  4  6  6  6  7  7  8  9 11 11 12 15 16 17 17 19 19 20
+ [1]  1  2  3  5  5  5  6  7  7  7  8  8 10 11 13 13 13 14 15 19
 \end{Soutput}
 \begin{Sinput}
 > quantile(x, prob=0.2)
 \end{Sinput}
 \begin{Soutput}
 20% 
-  6 
+  5 
 \end{Soutput}
 \begin{Sinput}
 > quantile(x, prob=0.2, type=1)
 \end{Sinput}
 \begin{Soutput}
 20% 
-  6 
+  5 
 \end{Soutput}
 \begin{Sinput}
 > quantile(x, prob=0.2, type=2)
 \end{Sinput}
 \begin{Soutput}
 20% 
-  6 
+  5 
 \end{Soutput}
 \end{Schunk}
 Im obigen Beispiel wird mit R das 20\%-Quantil bestimmt. Hier ist aber 
@@ -158,4 +158,103 @@ in einem Land mit vielen Armen und wenigen aber extrem Reichen).
 \end{Soutput}
 \end{Schunk}
 
-\section{}
+\section{Varianz}
+\begin{Schunk}
+\begin{Sinput}
+> x=runif(n=10)
+> y=runif(n=10)
+> var(x)
+\end{Sinput}
+\begin{Soutput}
+[1] 0.09868725
+\end{Soutput}
+\end{Schunk}
+
+\section{Kovarianz}
+\begin{Schunk}
+\begin{Sinput}
+> cov(x,y)
+\end{Sinput}
+\begin{Soutput}
+[1] 0.02661982
+\end{Soutput}
+\end{Schunk}
+
+\section{Korrelationskoeffizient}
+\begin{Schunk}
+\begin{Sinput}
+> cor(x,y)
+\end{Sinput}
+\begin{Soutput}
+[1] 0.3112526
+\end{Soutput}
+\end{Schunk}
+
+\section{Binomialverteilung}
+Die Binomialverteilung kann bei Ereignissen eingesetzt werden, die zwei 
+mögliche Ergebnisse zeigen können. 
+\footnote{Beispiele für Ereignisse mit zwei möglichen Ergebnissen: 
+  \begin{itemize} 
+    \item Münzwurf $\Rightarrow$ Kopf $\leftrightarrow$ Zahl
+    \item Würfeln $\Rightarrow$ Sechser $\leftrightarrow$ kein Sechser
+  \end{itemize}}
+Die Wahrscheinlichkeit ist dann wie folgt gegeben: 
+\[ P(X=x) = 
+\left( \begin{array}{c}n\\x\end{array} \right) \cdot p^x \cdot (1-p)^{n-x} 
+= \frac{n!}{x! (n-x)!} \cdot p^x \cdot (1-p)^{n-x} \]
+\begin{tabular}{@{}ll}
+  $n$: & Anzahl Versuche \\
+  $x$: & Anzahl Versuche mit positivem Ergebnis \\
+  $p$: & Wahrscheinlichkeit für ein positives Ergebnis jedem einzelnen Versuch
+\end{tabular} 
+\begin{Schunk}
+\begin{Sinput}
+> n=5;
+> x=3;
+> p=0.2;
+> dbinom(x=x,size=n,prob=p)
+\end{Sinput}
+\begin{Soutput}
+[1] 0.0512
+\end{Soutput}
+\end{Schunk}
+\subsection{Kumulative Verteilungsfunktion}
+\begin{Schunk}
+\begin{Sinput}
+> q=3;
+> pbinom(q=q,size=n,prob=p)
+\end{Sinput}
+\begin{Soutput}
+[1] 0.99328
+\end{Soutput}
+\end{Schunk}
+
+\section{Poissonverteilung}
+Die Poissonverteilung wird bei Ereignissen verwendet, deren maximale Anzahl 
+nicht begrenzt ist. Sie ist ein Grenzfall der Binomialverteilung. 
+\[ P(X=x) = \exp(-\lambda) \cdot \frac{\lambda^x}{x!} \]
+\begin{tabular}{@{}ll}
+  $x$: & Anzahl Versuche mit positivem Ergebnis \\
+  $\lambda$: & Erwartungswert
+\end{tabular} 
+\begin{Schunk}
+\begin{Sinput}
+> lambda=2;
+> x=3;
+> dpois(x=x,lambda=lambda)
+\end{Sinput}
+\begin{Soutput}
+[1] 0.180447
+\end{Soutput}
+\end{Schunk}
+
+\subsection{Kumulative Verteilungsfunktion}
+\begin{Schunk}
+\begin{Sinput}
+> q=3;
+> ppois(q=q,lambda=lambda)
+\end{Sinput}
+\begin{Soutput}
+[1] 0.8571235
+\end{Soutput}
+\end{Schunk}

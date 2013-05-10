@@ -3,3 +3,9 @@
 
 # ignore swapped files 
 *.swp
+
+# ignore temporary tex files
+*.aux
+*.log
+*.toc
+*.out

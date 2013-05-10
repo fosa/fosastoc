@@ -90,4 +90,68 @@ x <- c(1.2, 1.4, 1.75, 1.99, 2.14)
 median(x)
 @
 
-\section{}
+\section{Varianz}
+<<>>=
+x=runif(n=10)
+y=runif(n=10)
+var(x)
+@
+
+\section{Kovarianz}
+<<>>=
+cov(x,y)
+@
+
+\section{Korrelationskoeffizient}
+<<>>=
+cor(x,y)
+@
+
+\section{Binomialverteilung}
+Die Binomialverteilung kann bei Ereignissen eingesetzt werden, die zwei 
+mögliche Ergebnisse zeigen können. 
+\footnote{Beispiele für Ereignisse mit zwei möglichen Ergebnissen: 
+  \begin{itemize} 
+    \item Münzwurf $\Rightarrow$ Kopf $\leftrightarrow$ Zahl
+    \item Würfeln $\Rightarrow$ Sechser $\leftrightarrow$ kein Sechser
+  \end{itemize}}
+Die Wahrscheinlichkeit ist dann wie folgt gegeben: 
+\[ P(X=x) = 
+\left( \begin{array}{c}n\\x\end{array} \right) \cdot p^x \cdot (1-p)^{n-x} 
+= \frac{n!}{x! (n-x)!} \cdot p^x \cdot (1-p)^{n-x} \]
+\begin{tabular}{@{}ll}
+  $n$: & Anzahl Versuche \\
+  $x$: & Anzahl Versuche mit positivem Ergebnis \\
+  $p$: & Wahrscheinlichkeit für ein positives Ergebnis jedem einzelnen Versuch
+\end{tabular} 
+<<>>=
+n=5;
+x=3;
+p=0.2;
+dbinom(x=x,size=n,prob=p)
+@
+\subsection{Kumulative Verteilungsfunktion}
+<<>>=
+q=3;
+pbinom(q=q,size=n,prob=p)
+@
+
+\section{Poissonverteilung}
+Die Poissonverteilung wird bei Ereignissen verwendet, deren maximale Anzahl 
+nicht begrenzt ist. Sie ist ein Grenzfall der Binomialverteilung. 
+\[ P(X=x) = \exp(-\lambda) \cdot \frac{\lambda^x}{x!} \]
+\begin{tabular}{@{}ll}
+  $x$: & Anzahl Versuche mit positivem Ergebnis \\
+  $\lambda$: & Erwartungswert
+\end{tabular} 
+<<>>=
+lambda=2;
+x=3;
+dpois(x=x,lambda=lambda)
+@
+
+\subsection{Kumulative Verteilungsfunktion}
+<<>>=
+q=3;
+ppois(q=q,lambda=lambda)
+@
