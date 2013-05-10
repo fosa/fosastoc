@@ -91,6 +91,9 @@ median(x)
 @
 
 \section{Varianz}
+Die Varianz beschreibt die quadratische Abweichung von Daten von ihrem 
+arithmetischen Mittelwert. Sie ist das Quadrat der Standardabweichung. 
+\[ {s_x}^2 = \frac{1}{n-1} \sum\limits_{i=1}^{n} (x_i - \bar{x})^2 \]
 <<>>=
 x=runif(n=10)
 y=runif(n=10)
@@ -98,11 +101,22 @@ var(x)
 @
 
 \section{Kovarianz}
+Die Kovarianz beschreibt, wie stark die Abweichungen von zwei Vektoren von 
+ihren jeweiligen arithmetischen Mittelwerten korrelieren. Die Kovarianz 
+eines Vektors mit sich selbst entspricht der Varianz des Vektors. 
+\[ s_{xy} 
+= \frac{1}{n-1} \sum\limits_{i=1}^{n} (x_i - \bar{x}) (y_i - \bar{y}) \]
 <<>>=
 cov(x,y)
 @
 
 \section{Korrelationskoeffizient}
+Der Korrelationskoeffizient beschreibt die Linearität von zwei Vektoren 
+zueinander. Der Wertebereich des Korrelationskoeffizienten ist $[-1, 1]$. 
+\[ r = \frac{s_{xy}}{s_x \cdot s_y} 
+= \frac{\sum\limits_{i=1}^{n} (x_i - \bar{x}) (y_i - \bar{y})}
+{\sqrt{\sum\limits_{i=1}^{n} (x_i - \bar{x})^2  \cdot 
+\sum\limits_{i=1}^{n} (y_i - \bar{y})^2 }} \]
 <<>>=
 cor(x,y)
 @
