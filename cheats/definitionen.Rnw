@@ -1,4 +1,6 @@
-\section{Artihmetisches Mittel}
+\section{Grundbegriffe}
+
+\subsection{Artihmetisches Mittel}
 Das arithmetische Mittel beschreibt den Mittelwert der Summe aller Elemente.
 
 \[ \bar{x} = \frac{1}{n} \sum\limits_{i=1}^{n} x_i \]
@@ -28,7 +30,7 @@ x <- c(2,5,1,7,8,9)
 mean(x)
 @
 
-\section{Standardabweichung}
+\subsection{Standardabweichung}
 Die Standardabweichung beschreibt wie gross die mittlere Abweichung der
 Beobachtungen vom arithmetischen Mittel derselben Beobachtungen ist.
 \[ s_x = \sqrt{ \frac{1}{n-1} \sum\limits_{i=1}^{n} (x_i - \bar{x})^2 } \]
@@ -41,7 +43,7 @@ mean(x)
 sd(x)
 @
 
-\section{Quantile}
+\subsection{Quantile}
 Quantile beschreiben folgenden Zusammenhang: Hat man z.B. 20 Messungen gemacht
 und sortiert diese, dann beschreibt ein x\%-iges Qantil eine Punkt oder Grenze
 in der Messreihe, wo x\% der Werte darunter liegen.
@@ -72,7 +74,7 @@ Vorsicht geboten, denn R hat 9 verschiedene \verb!type! für die Funktion
 Stochastik-Modul ist der \verb!type=2! 
 der einzig richtige Wert!
 
-\section{Median}
+\subsection{Median}
 Der Median ist ein Spezialfall der Quantile, nämlich ist dies jenes Quantil,
 welches die 50\%-Marke beschreibt.
 
@@ -90,7 +92,7 @@ x <- c(1.2, 1.4, 1.75, 1.99, 2.14)
 median(x)
 @
 
-\section{Varianz}
+\subsection{Varianz}
 Die Varianz beschreibt die quadratische Abweichung von Daten von ihrem 
 arithmetischen Mittelwert. Sie ist das Quadrat der Standardabweichung. 
 \[ {s_x}^2 = \frac{1}{n-1} \sum\limits_{i=1}^{n} (x_i - \bar{x})^2 \]
@@ -100,7 +102,7 @@ y=runif(n=10)
 var(x)
 @
 
-\section{Kovarianz}
+\subsection{Kovarianz}
 Die Kovarianz beschreibt, wie stark die Abweichungen von zwei Vektoren von 
 ihren jeweiligen arithmetischen Mittelwerten korrelieren. Die Kovarianz 
 eines Vektors mit sich selbst entspricht der Varianz des Vektors. 
@@ -110,7 +112,7 @@ eines Vektors mit sich selbst entspricht der Varianz des Vektors.
 cov(x,y)
 @
 
-\section{Korrelationskoeffizient}
+\subsection{Korrelationskoeffizient}
 Der Korrelationskoeffizient beschreibt die Linearität von zwei Vektoren 
 zueinander. Der Wertebereich des Korrelationskoeffizienten ist $[-1, 1]$. 
 \[ r = \frac{s_{xy}}{s_x \cdot s_y} 
@@ -121,7 +123,9 @@ zueinander. Der Wertebereich des Korrelationskoeffizienten ist $[-1, 1]$.
 cor(x,y)
 @
 
-\section{Binomialverteilung}
+\section{Diskrete Verteilungen}
+
+\subsection{Binomialverteilung}
 Die Binomialverteilung kann bei Ereignissen eingesetzt werden, die zwei 
 mögliche Ergebnisse zeigen können. 
 \footnote{Beispiele für Ereignisse mit zwei möglichen Ergebnissen: 
@@ -144,13 +148,13 @@ x=3;
 p=0.2;
 dbinom(x=x,size=n,prob=p)
 @
-\subsection{Kumulative Verteilungsfunktion}
+\subsubsection{Kumulative Verteilungsfunktion}
 <<>>=
 q=3;
 pbinom(q=q,size=n,prob=p)
 @
 
-\section{Poissonverteilung}
+\subsection{Poissonverteilung}
 Die Poissonverteilung wird bei Ereignissen verwendet, deren maximale Anzahl 
 nicht begrenzt ist. Sie ist ein Grenzfall der Binomialverteilung. 
 \[ P(X=x) = \exp(-\lambda) \cdot \frac{\lambda^x}{x!} \]
@@ -164,7 +168,18 @@ x=3;
 dpois(x=x,lambda=lambda)
 @
 
-\subsection{Kumulative Verteilungsfunktion}
+\section{Stetige Verteilungen}
+
+\subsection{Uniform}
+
+
+\subsection{Normalverteilung}
+
+
+\subsection{Exponentialverteilung}
+
+
+\subsubsection{Kumulative Verteilungsfunktion}
 <<>>=
 q=3;
 ppois(q=q,lambda=lambda)
