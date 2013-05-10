@@ -155,3 +155,6 @@ dpois(x=x,lambda=lambda)
 q=3;
 ppois(q=q,lambda=lambda)
 @
+
+\section{Statistischer Test}
+
