@@ -60,19 +60,19 @@ rechnen das arithmetische Mittel als auch die Standardabweichung (\verb!sd()!).
 > x
 \end{Sinput}
 \begin{Soutput}
- [1] 7 2 9 1 9 7 2 3 6 2
+ [1]  6  2 10  2  2  8  8  7  8  1
 \end{Soutput}
 \begin{Sinput}
 > mean(x)
 \end{Sinput}
 \begin{Soutput}
-[1] 4.8
+[1] 5.4
 \end{Soutput}
 \begin{Sinput}
 > sd(x)
 \end{Sinput}
 \begin{Soutput}
-[1] 3.119829
+[1] 3.306559
 \end{Soutput}
 \end{Schunk}
 
@@ -100,28 +100,28 @@ in der Messreihe, wo x\% der Werte darunter liegen.
 > x
 \end{Sinput}
 \begin{Soutput}
- [1]  1  2  2  4  4  5  5  6  7  9 11 11 12 13 14 14 15 15 18 18
+ [1]  1  2  3  5  5  5  6  7  7  7  8  8 10 11 13 13 13 14 15 19
 \end{Soutput}
 \begin{Sinput}
 > quantile(x, prob=0.2)
 \end{Sinput}
 \begin{Soutput}
 20% 
-  4 
+  5 
 \end{Soutput}
 \begin{Sinput}
 > quantile(x, prob=0.2, type=1)
 \end{Sinput}
 \begin{Soutput}
 20% 
-  4 
+  5 
 \end{Soutput}
 \begin{Sinput}
 > quantile(x, prob=0.2, type=2)
 \end{Sinput}
 \begin{Soutput}
 20% 
-  4 
+  5 
 \end{Soutput}
 \end{Schunk}
 Im obigen Beispiel wird mit R das 20\%-Quantil bestimmt. Hier ist aber 
@@ -166,7 +166,7 @@ in einem Land mit vielen Armen und wenigen aber extrem Reichen).
 > var(x)
 \end{Sinput}
 \begin{Soutput}
-[1] 0.0815825
+[1] 0.09868725
 \end{Soutput}
 \end{Schunk}
 
@@ -176,7 +176,7 @@ in einem Land mit vielen Armen und wenigen aber extrem Reichen).
 > cov(x,y)
 \end{Sinput}
 \begin{Soutput}
-[1] 0.0192482
+[1] 0.02661982
 \end{Soutput}
 \end{Schunk}
 
@@ -186,7 +186,7 @@ in einem Land mit vielen Armen und wenigen aber extrem Reichen).
 > cor(x,y)
 \end{Sinput}
 \begin{Soutput}
-[1] 0.1990714
+[1] 0.3112526
 \end{Soutput}
 \end{Schunk}
 
@@ -209,16 +209,25 @@ Die Wahrscheinlichkeit ist dann wie folgt gegeben:
 \end{tabular} 
 \begin{Schunk}
 \begin{Sinput}
-> n=2;
-> x=1;
+> n=5;
+> x=3;
 > p=0.2;
 > dbinom(x=x,size=n,prob=p)
 \end{Sinput}
 \begin{Soutput}
-[1] 0.32
+[1] 0.0512
 \end{Soutput}
 \end{Schunk}
-
+\subsection{Kumulative Verteilungsfunktion}
+\begin{Schunk}
+\begin{Sinput}
+> q=3;
+> pbinom(q=q,size=n,prob=p)
+\end{Sinput}
+\begin{Soutput}
+[1] 0.99328
+\end{Soutput}
+\end{Schunk}
 
 \section{Poissonverteilung}
 Die Poissonverteilung wird bei Ereignissen verwendet, deren maximale Anzahl 
@@ -231,10 +240,21 @@ nicht begrenzt ist. Sie ist ein Grenzfall der Binomialverteilung.
 \begin{Schunk}
 \begin{Sinput}
 > lambda=2;
-> x=1;
+> x=3;
 > dpois(x=x,lambda=lambda)
 \end{Sinput}
 \begin{Soutput}
-[1] 0.2706706
+[1] 0.180447
+\end{Soutput}
+\end{Schunk}
+
+\subsection{Kumulative Verteilungsfunktion}
+\begin{Schunk}
+\begin{Sinput}
+> q=3;
+> ppois(q=q,lambda=lambda)
+\end{Sinput}
+\begin{Soutput}
+[1] 0.8571235
 \end{Soutput}
 \end{Schunk}

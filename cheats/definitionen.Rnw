@@ -125,12 +125,16 @@ Die Wahrscheinlichkeit ist dann wie folgt gegeben:
   $p$: & Wahrscheinlichkeit für ein positives Ergebnis jedem einzelnen Versuch
 \end{tabular} 
 <<>>=
-n=2;
-x=1;
+n=5;
+x=3;
 p=0.2;
 dbinom(x=x,size=n,prob=p)
 @
-
+\subsection{Kumulative Verteilungsfunktion}
+<<>>=
+q=3;
+pbinom(q=q,size=n,prob=p)
+@
 
 \section{Poissonverteilung}
 Die Poissonverteilung wird bei Ereignissen verwendet, deren maximale Anzahl 
@@ -142,6 +146,12 @@ nicht begrenzt ist. Sie ist ein Grenzfall der Binomialverteilung.
 \end{tabular} 
 <<>>=
 lambda=2;
-x=1;
+x=3;
 dpois(x=x,lambda=lambda)
+@
+
+\subsection{Kumulative Verteilungsfunktion}
+<<>>=
+q=3;
+ppois(q=q,lambda=lambda)
 @
