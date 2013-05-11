@@ -125,9 +125,40 @@ cor(x,y)
 
 \section{Diskrete Verteilungen}
 
+\subsection{Hypergeometrische Verteilung}
+Die Hypergeometrische Verteilung beschreibt die Wahrscheinlichkeit beim 
+Ziehen ohne zurücklegen. Im folgenden Beispiel mit farbigen Kugeln. 
+\[ X \sim Hyp(n, r, s) \]
+\begin{tabular}{@{}ll}
+  $n$: & Anzahl Ziehungen \\
+  $r$: & Anzahl rote Kugeln in der Urne (positive Ergebnisse) \\
+  $s$: & Anzahl schwarze Kugeln in der Urne (negative Ergebnisse) \\
+  $N$: & Anzahl Kugeln in der Urne ($N = r + s$)
+\end{tabular}
+\[ P(X=k) 
+= \frac{\left( \begin{array}{c}r\\k\end{array} \right) \cdot 
+\left( \begin{array}{c}s\\n-k\end{array} \right)}
+{\left( \begin{array}{c}r+s\\n\end{array} \right)} 
+= \frac{\left( \begin{array}{c}r\\k\end{array} \right) \cdot 
+\left( \begin{array}{c}N-r\\n-k\end{array} \right)}
+{\left( \begin{array}{c}N\\n\end{array} \right)} \]
+<<>>=
+k=6;
+n=6;
+r=6;
+s=36;
+dhyper(x=k,m=r,n=s,k=n)
+@
+\subsubsection{Kumulative Verteilungsfunktion}
+<<>>=
+q=1;
+phyper(q=q,m=r,n=s,k=n)
+@
+
 \subsection{Binomialverteilung}
 Die Binomialverteilung kann bei Ereignissen eingesetzt werden, die zwei 
-mögliche Ergebnisse zeigen können. 
+mögliche Ergebnisse zeigen können. Sie ist ein Grenzfall der 
+Hypergeometrischen Verteilung. 
 \footnote{Beispiele für Ereignisse mit zwei möglichen Ergebnissen: 
   \begin{itemize} 
     \item Münzwurf $\Rightarrow$ Kopf $\leftrightarrow$ Zahl
