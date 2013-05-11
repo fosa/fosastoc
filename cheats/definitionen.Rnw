@@ -168,21 +168,59 @@ x=3;
 dpois(x=x,lambda=lambda)
 @
 
-\section{Stetige Verteilungen}
-
-\subsection{Uniform}
-
-
-\subsection{Normalverteilung}
-
-
-\subsection{Exponentialverteilung}
-
-
 \subsubsection{Kumulative Verteilungsfunktion}
 <<>>=
 q=3;
 ppois(q=q,lambda=lambda)
+@
+
+\section{Stetige Verteilungen}
+
+\subsection{Uniform}
+<<fig=TRUE>>=
+x=3;
+min=2;
+max=5;
+dunif(x=x,min=min,max=max)
+range=seq(from=0,to=10,by=0.001);
+plot(range,dunif(x=range,min=min,max=max),type='l')
+@
+
+\subsubsection{Kumulative Verteilungsfunktion}
+<<>>=
+q=3;
+punif(q=q,min=min,max=max)
+@
+
+\subsection{Normalverteilung}
+<<fig=TRUE>>=
+x=7;
+mean=5;
+sd=1;
+dnorm(x=x,mean=mean,sd=sd)
+range=seq(from=0,to=10,by=0.001);
+plot(range,dnorm(x=range,mean=mean,sd=sd),type='l')
+@
+
+\subsubsection{Kumulative Verteilungsfunktion}
+<<>>=
+q=7;
+pnorm(q=q,mean=mean,sd=sd)
+@
+
+\subsection{Exponentialverteilung}
+<<fig=TRUE>>=
+x=3;
+lambda=2;
+dexp(x=x,rate=lambda)
+range=seq(from=0,to=10,by=0.001);
+plot(range,dexp(x=range,rate=lambda),type='l')
+@
+
+\subsubsection{Kumulative Verteilungsfunktion}
+<<>>=
+q=3;
+pexp(q=q,rate=lambda)
 @
 
 \section{Statistischer Test}
