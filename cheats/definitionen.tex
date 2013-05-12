@@ -62,19 +62,19 @@ rechnen das arithmetische Mittel als auch die Standardabweichung (\verb!sd()!).
 > x
 \end{Sinput}
 \begin{Soutput}
- [1]  7  1  1  4  6  9  1 10  3  3
+ [1] 9 6 5 6 6 8 7 7 9 9
 \end{Soutput}
 \begin{Sinput}
 > mean(x)
 \end{Sinput}
 \begin{Soutput}
-[1] 4.5
+[1] 7.2
 \end{Soutput}
 \begin{Sinput}
 > sd(x)
 \end{Sinput}
 \begin{Soutput}
-[1] 3.341656
+[1] 1.47573
 \end{Soutput}
 \end{Schunk}
 
@@ -102,28 +102,28 @@ in der Messreihe, wo x\% der Werte darunter liegen.
 > x
 \end{Sinput}
 \begin{Soutput}
- [1]  2  2  2  2  3  3  4  8 10 10 11 12 13 13 16 17 17 17 18 18
+ [1]  3  4  6  6  7  7 10 11 11 12 12 12 16 16 16 18 18 18 20 20
 \end{Soutput}
 \begin{Sinput}
 > quantile(x, prob=0.2)
 \end{Sinput}
 \begin{Soutput}
 20% 
-2.8 
+6.8 
 \end{Soutput}
 \begin{Sinput}
 > quantile(x, prob=0.2, type=1)
 \end{Sinput}
 \begin{Soutput}
 20% 
-  2 
+  6 
 \end{Soutput}
 \begin{Sinput}
 > quantile(x, prob=0.2, type=2)
 \end{Sinput}
 \begin{Soutput}
 20% 
-2.5 
+6.5 
 \end{Soutput}
 \end{Schunk}
 Im obigen Beispiel wird mit R das 20\%-Quantil bestimmt. Hier ist aber 
@@ -171,7 +171,7 @@ arithmetischen Mittelwert. Sie ist das Quadrat der Standardabweichung.
 > var(x)
 \end{Sinput}
 \begin{Soutput}
-[1] 0.1121512
+[1] 0.08093076
 \end{Soutput}
 \end{Schunk}
 
@@ -186,7 +186,7 @@ eines Vektors mit sich selbst entspricht der Varianz des Vektors.
 > cov(x,y)
 \end{Sinput}
 \begin{Soutput}
-[1] 0.04089207
+[1] 0.04662218
 \end{Soutput}
 \end{Schunk}
 
@@ -202,7 +202,7 @@ zueinander. Der Wertebereich des Korrelationskoeffizienten ist $[-1, 1]$.
 > cor(x,y)
 \end{Sinput}
 \begin{Soutput}
-[1] 0.3905393
+[1] 0.498205
 \end{Soutput}
 \end{Schunk}
 
@@ -407,4 +407,21 @@ nicht begrenzt ist. Sie ist ein Grenzfall der Binomialverteilung.
 \end{Schunk}
 
 \section{Statistischer Test}
+Beim statistischen Test wird überprüft, ob eine statistische Verteilung zu 
+ermittelten Daten passt. Dieser Test besteht aus 6 Schritten. 
 
+\subsection{allgemeiner Ablauf}
+\begin{enumerate}
+  \item Modell
+        Verteilung bestimmen
+  \item Nullhypothese
+        Nullhypothese und Alternativhypotese aufstellen
+  \item Teststatistik
+        Teststatistik aus Modell und Nullhypothese erstellen
+  \item Signifikanzniveau
+        Signifikanzniveau festlegen
+  \item Verwerfungsbereich
+        Aus Teststatistik und Signifikanzniveau Verwerfungsbereich berechnen
+  \item Testentscheid
+        Messwert mit Verwerfungsbereich vergleichen
+\end{enumerate}
