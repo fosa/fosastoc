@@ -9,3 +9,7 @@ cheats.pdf
 *.log
 *.toc
 *.out
+
+# ignore temporary r files
+.RData
+.Rhistory
