@@ -260,7 +260,6 @@ ermittelten Daten passt. Dieser Test besteht aus 6 Schritten.
 
 \subsection{allgemeiner Ablauf}
 \begin{enumerate}
-<<<<<<< HEAD
   \item Modell \\
         Verteilung bestimmen
   \item Nullhypothese \\
@@ -272,18 +271,6 @@ ermittelten Daten passt. Dieser Test besteht aus 6 Schritten.
   \item Verwerfungsbereich \\
         Aus Teststatistik und Signifikanzniveau Verwerfungsbereich berechnen
   \item Testentscheid \\
-=======
-  \item Modell
-        Verteilung bestimmen
-  \item Nullhypothese
-        Nullhypothese und Alternativhypotese aufstellen
-  \item Teststatistik
-        Teststatistik aus Modell und Nullhypothese erstellen
-  \item Signifikanzniveau
-        Signifikanzniveau festlegen
-  \item Verwerfungsbereich
-        Aus Teststatistik und Signifikanzniveau Verwerfungsbereich berechnen
-  \item Testentscheid
->>>>>>> 175cea4f2fe30a989f19dade5ad6725be08edc4c
         Messwert mit Verwerfungsbereich vergleichen
 \end{enumerate}
+
