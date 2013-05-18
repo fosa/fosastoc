@@ -274,6 +274,91 @@ ermittelten Daten passt. Dieser Test besteht aus 6 Schritten.
         Messwert mit Verwerfungsbereich vergleichen
 \end{enumerate}
 
+\subsection{Binomial-Test}
+Der Binomial-Test ist immer dann anzuwenden, wenn eine Binomialverteilung
+vorliegt. Der Binomial-Test kann ein- oder zweiseitig erfolgen, d.h. das
+Signifikanzniveau wird entweder von unten oder von oben angewendet (einseitig)
+oder es wird geteilt auf den unteren und oberen Bereich (zweiseitig). 
+Hierbei wird nicht zwingend symmetrisch geteilt, sondern nur dann wenn
+die Verteilung symmetrisch ist.
+
+% Hier das Beispiel mit den m&m's einfügen
+
+\subsection{z-Test}
+Der z-Test ist ein Test für eine Normalverteilung $\mathcal{N}(\mu, \sigma^2)$
+
+
+\begin{enumerate}
+  \item Modell \\
+	  $X_1,...,X_n$ \acs{i.i.d.} $\sim\mathcal{N}(\mu, \sigma_x^2)$ 
+	wobei $\sigma_x$ bekannt ist
+  \item Nullhypothese \\
+       	$H_0$: $ \mu=\mu_0$ \\
+	Alternativhypothese \\
+	$H_A$: $ \mu \neq \mu_0 (\mu < \mu_0, \mu > \mu_0)$
+  \item Teststatistik \\
+	  $Z=\dfrac{\overline{X}_n-\mu_0}{\sigma_{\overline{X}_n}} = 
+	  \dfrac{\sqrt{n}\cdot(\overline{X}_n-\mu_0)}{\sigma_x}
+	  \qquad $ $\overline{X}_n$ ist der Mittelwert der Beobachtungen
+	  \verb!mean()!\\
+	  Verteilung der Teststatistik unter $H_0$\\
+	  $Z\sim\mathcal{N}(0,1)\quad$ (sog. standardisierte Normalverteilung)
+  \item Signifikanzniveau \\
+        $\alpha= $\dots
+  \item Verwerfungsbereich \\
+	Hier ist wichtig zu beachten, dass es drei mögliche Formulierungen
+	gibt:
+	\begin{itemize}
+		\item	Die Alternative kann beidseitig liegen \\
+		$H_A$: $\mu\neq\mu_0 \Rightarrow 
+	 	K=(-\infty, -\Phi^{-1}(1-\frac{\alpha}{2})
+		\cup [\Phi^{-1}(1-\frac{\alpha}{2}), \infty)$ \\
+		\item Die Alternative wird linksseitig vermutet \\
+		$H_A$: $\mu<\mu_0    \Rightarrow 
+		K=(-\infty, -\Phi^{-1}(1-\alpha)] $ \\
+		\item Die Alternative wird rechtsseitig vermutet \\
+		$H_A$: $\mu>\mu_0    \Rightarrow 
+		K=[\underbrace{\Phi^{-1}(1-\alpha)}_{\footnotesize
+		\verb!qnorm(1-!\alpha\verb!,0,1)!}, \infty)$ \\
+	\end{itemize}
+
+  \item Testentscheid \\
+	Wir prüfen ob $Z$ im Verwerfungsbereich $K$ liegt. Falls ja, 
+	dann wird $H_0$ verworfen.
+\end{enumerate}
+
+\subsubsection{Beispiel mit R}
+In R ist der z-Test nicht im Standardumfang dabei, da es ein Spezialfall 
+des t-Test ist und nur zu Schulungszwecken verwendet werden sollte.
+Man kann es aber manuell nachrüsten mit folgenden zwei Zeilen.\\
+\begin{lstlisting}
+install.packages('TeachingDemos')
+library('TeachingDemos')
+\end{lstlisting}
+
+\noindent
+Wir nehmen das Beispiel mit dem Weingeniesser, der prüfen möchte ob die 
+Füllmengen richtig sind. Angeschrieben ist 70cl, desshalb ist unser
+$\mu=70$. Die Standardabweichung ist 2. Beim z-Test kann man aber
+auf drei mögliche Alternativen prüfen (beidseitig und je Seite einseitig), 
+diese sind in R: \verb!less, greater, two.sided!. Im Fall des 
+Weingeniessers müssen wir natürlich auf \verb!less! prüfen. 
+Wir möchten das auf einem Signifikanzniveau von $\alpha=0.05$ testen.
+<<>>=
+weinmenge <- c(71, 69, 67, 68, 73, 72, 71, 71, 68, 72, 69, 72)
+z.test(x=weinmenge, mu=70, sd=2, alternative='less')
+@
+
+\noindent
+Der P-Wert ist hier 0.6675, unser $\alpha$ ist aber 0.05, d.h. 
+die Beobachtungen liegen nicht im Verwerfungsbereich!
+
+
+\subsection{t-Test}
+\subsection{Wilcoxon Rangsummen Test}
+\subsection{Vorzeichen-Test}
+
+
 \section{P-Wert}
 Der P-Wert (engl. oder R \emph{P-Value}) ist die Summe der 
 Wahrscheinlichkeiten, welche die Beobachtung
@@ -285,9 +370,15 @@ plot(dbinom(x=0:30, size=30, prob=0.5), type='h')
 abline(v=20, col='red')
 @
 
+\noindent
 Der P-Value wird also genau gleich wie das $\alpha$-Quantil berechnet.
 Für statistische Tests können wir mit Hilfe des P-Wertes das Berechnen
 des Verwerfungsbereiches auslassen indem wir den P-Wert und unser
 Signifikanzniveau vergleichen. Ist der P-Wert kleiner als das 
 Signifikanzniveau, so liegt die Beobachtung im Verwerfungsbereich
 und umgekehrt.
+
+\section{Abkürzungsverzeichnis}
+\begin{acronym}[SQL]
+	\acro{i.i.d.}{Identically Identipednent Distributed}
+\end{acronym}
