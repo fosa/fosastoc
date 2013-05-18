@@ -274,10 +274,20 @@ ermittelten Daten passt. Dieser Test besteht aus 6 Schritten.
         Messwert mit Verwerfungsbereich vergleichen
 \end{enumerate}
 
-\section{P-Value}
-Der P-Value ist die Summe der Wahrscheinlichkeiten, welche die Beobachtung
-und alle extremeren Beobachtungen vereint.
+\section{P-Wert}
+Der P-Wert (engl. oder R \emph{P-Value}) ist die Summe der 
+Wahrscheinlichkeiten, welche die Beobachtung
+und alle extremeren Beobachtungen vereint. Im folgenden Beispiel wärde dies
+die Summe aller Wahrscheinlichkeiten rechts von der Beobachtung (80).
 
 <<fig=TRUE>>=
-plot(dbinom(x=0:20, size=20, prob=0.5))
+plot(dbinom(x=0:30, size=30, prob=0.5), type='h')
+abline(v=20, col='red')
 @
+
+Der P-Value wird also genau gleich wie das $\alpha$-Quantil berechnet.
+Für statistische Tests können wir mit Hilfe des P-Wertes das Berechnen
+des Verwerfungsbereiches auslassen indem wir den P-Wert und unser
+Signifikanzniveau vergleichen. Ist der P-Wert kleiner als das 
+Signifikanzniveau, so liegt die Beobachtung im Verwerfungsbereich
+und umgekehrt.

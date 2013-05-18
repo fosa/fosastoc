@@ -62,19 +62,19 @@ rechnen das arithmetische Mittel als auch die Standardabweichung (\verb!sd()!).
 > x
 \end{Sinput}
 \begin{Soutput}
- [1] 10 10  7  5  3  4  8  3  4  7
+ [1]  9 10  5  6  1  6  4  9  2  5
 \end{Soutput}
 \begin{Sinput}
 > mean(x)
 \end{Sinput}
 \begin{Soutput}
-[1] 6.1
+[1] 5.7
 \end{Soutput}
 \begin{Sinput}
 > sd(x)
 \end{Sinput}
 \begin{Soutput}
-[1] 2.685351
+[1] 2.983287
 \end{Soutput}
 \end{Schunk}
 
@@ -102,14 +102,14 @@ in der Messreihe, wo x\% der Werte darunter liegen.
 > x
 \end{Sinput}
 \begin{Soutput}
- [1]  2  2  2  3  4  4  4  8 11 11 13 14 15 15 15 16 16 17 17 17
+ [1]  2  2  2  3  3  5  6  7  7  8  8 13 14 15 15 15 16 17 17 19
 \end{Soutput}
 \begin{Sinput}
 > quantile(x, prob=0.2)
 \end{Sinput}
 \begin{Soutput}
 20% 
-3.8 
+  3 
 \end{Soutput}
 \begin{Sinput}
 > quantile(x, prob=0.2, type=1)
@@ -123,7 +123,7 @@ in der Messreihe, wo x\% der Werte darunter liegen.
 \end{Sinput}
 \begin{Soutput}
 20% 
-3.5 
+  3 
 \end{Soutput}
 \end{Schunk}
 Im obigen Beispiel wird mit R das 20\%-Quantil bestimmt. Hier ist aber 
@@ -171,7 +171,7 @@ arithmetischen Mittelwert. Sie ist das Quadrat der Standardabweichung.
 > var(x)
 \end{Sinput}
 \begin{Soutput}
-[1] 0.06067156
+[1] 0.140668
 \end{Soutput}
 \end{Schunk}
 
@@ -186,7 +186,7 @@ eines Vektors mit sich selbst entspricht der Varianz des Vektors.
 > cov(x,y)
 \end{Sinput}
 \begin{Soutput}
-[1] -0.01663267
+[1] -0.03110395
 \end{Soutput}
 \end{Schunk}
 
@@ -202,7 +202,7 @@ zueinander. Der Wertebereich des Korrelationskoeffizienten ist $[-1, 1]$.
 > cor(x,y)
 \end{Sinput}
 \begin{Soutput}
-[1] -0.246995
+[1] -0.3039193
 \end{Soutput}
 \end{Schunk}
 
@@ -426,3 +426,23 @@ ermittelten Daten passt. Dieser Test besteht aus 6 Schritten.
         Messwert mit Verwerfungsbereich vergleichen
 \end{enumerate}
 
+\section{P-Wert}
+Der P-Wert (engl. oder R \emph{P-Value}) ist die Summe der 
+Wahrscheinlichkeiten, welche die Beobachtung
+und alle extremeren Beobachtungen vereint. Im folgenden Beispiel wärde dies
+die Summe aller Wahrscheinlichkeiten rechts von der Beobachtung (80).
+
+\begin{Schunk}
+\begin{Sinput}
+> plot(dbinom(x=0:30, size=30, prob=0.5), type='h')
+> abline(v=20, col='red')
+\end{Sinput}
+\end{Schunk}
+\includegraphics{definitionen-023}
+
+Der P-Value wird also genau gleich wie das $\alpha$-Quantil berechnet.
+Für Statistische Tests können wir mit Hilfe des P-Wertes das Berechnen
+des Verwerfungsbereiches auslassen indem wir den P-Wert und unser
+Signifikanzniveau vergleichen. Ist der P-Wert kleiner als das 
+Signifikanzniveau, so liegt die Beobachtung im Verwerfungsbereich
+und umgekehrt.
