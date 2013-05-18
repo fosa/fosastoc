@@ -274,3 +274,10 @@ ermittelten Daten passt. Dieser Test besteht aus 6 Schritten.
         Messwert mit Verwerfungsbereich vergleichen
 \end{enumerate}
 
+\section{P-Value}
+Der P-Value ist die Summe der Wahrscheinlichkeiten, welche die Beobachtung
+und alle extremeren Beobachtungen vereint.
+
+<<fig=TRUE>>=
+plot(dbinom(x=0:20, size=20, prob=0.5))
+@
