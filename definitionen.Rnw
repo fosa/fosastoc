@@ -123,6 +123,7 @@ zueinander. Der Wertebereich des Korrelationskoeffizienten ist $[-1, 1]$.
 cor(x,y)
 @
 
+
 \section{Diskrete Verteilungen}
 
 \subsection{Hypergeometrische Verteilung}
@@ -274,6 +275,45 @@ ermittelten Daten passt. Dieser Test besteht aus 6 Schritten.
         Messwert mit Verwerfungsbereich vergleichen
 \end{enumerate}
 
+\subsection{Wirkungstabelle}
+Ein Signifikanztest kann zu folgenden Entscheidungen führen.
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{l|lll}
+	Entscheidung & Wirklichkeit: & & \\
+	& $H_0$ ist wahr & $H_0$ ist falsch \\
+	\hline
+	&&& \\
+	$H_0$ nicht verworfen & richtige Entscheidung & Fehler 2. Art \\
+	&&& \\
+	$H_0$ verworfen & Fehler 1. Art & richtige Entscheidung \\
+	&&& \\
+	\end{tabular}
+\end{table}
+
+\subsubsection{Fehler 1. Art}
+Der Fehler 1. Art tritt ein, wenn die Nullhypothese verworfen wird, 
+obwohl sie wahr ist. Der Fehler 1. Art ist die Summe aller
+Wahrscheinlichkeiten die extremer als die Beobachtung sind.
+Der Fehler 1. Art kann also maximal so gross werden wie das
+Signifikanzniveau $\alpha$, denn sonst wäre die Beobachtung ja
+nicht im Verwerfungsbereich gewesen und die Hypothese nicht 
+verworfen worden.
+
+\subsubsection{Fehler 2. Art}
+Der Fehler 2. Art tritt ein, wenn die Nullhypothese nicht verworfen
+wird, obwohl die Alternative wahr ist. Wichtig ist hier zu verstehen,
+dass dieser Fehler nur berechnet werden kann, wenn man eine alternative
+Verteilung explizit bestimmt (denn man testet meist relativ d.h.
+$p_A > p_0$, $p_A < p_0$ oder $p_A \neq p_0$).
+Dabei gibt die sog. \emph{Macht} Auskunft darüber, wie Aussagekräftig
+die annahme ist.
+Der Fehler 2. Art ist die Summe aller Wahrscheinlichkeiten der alternativen
+Verteilung, die weniger extrem als die Beobachtung sind.
+Die Macht entspricht dann der Differenz von 1 zum Fehler 2. Art, 
+d.h. Macht$=1-P(\text{Fehler 2. Art})$
+
 \subsection{Binomial-Test}
 Der Binomial-Test ist immer dann anzuwenden, wenn eine Binomialverteilung
 vorliegt. Der Binomial-Test kann ein- oder zweiseitig erfolgen, d.h. das
@@ -283,6 +323,53 @@ Hierbei wird nicht zwingend symmetrisch geteilt, sondern nur dann wenn
 die Verteilung symmetrisch ist.
 
 % Hier das Beispiel mit den m&m's einfügen
+\subsubsection*{Beispiel}
+Wir haben eine Packung m\&m's gekauft und Jemand behauptet es habe
+mehr gelbe m\&m's als in anderen Farben. Wir wollen das prüfen und
+machen für jede Farbe einen statistischen Test.
+
+\begin{enumerate}
+	\item Modell: Binomial\\
+	$X \sim Bin(n,p)$ mit $n=18$ (wir wissen es hat 18 m\&m's im Pack)\\
+	$X \sim Bin(n=18, p)$
+	\item Nullhypothese: $H_0$: $p_0 = \frac{1}{6}$ (es hat 6 Farben) \\
+	Alternative: $H_A$: $p_A > p_0 = \frac{1}{6}$ 
+	\item Teststatistik: \\
+	$X$: $P(X=x|H_0)={n \choose x} p_0^x (1-p_0)^{n-x}$ \\
+	$X$: $P(X=x|H_0)={18 \choose x} (\frac{1}{6})^x (1-\frac{1}{6})^{n-x}$
+	\item Signifikanzniveau: $\alpha=0.05$
+	\item Verwerfungsbereich:
+	Wir ermitteln den Verwerfungsbereich mit Hilfe von R:
+<<>>=
+round(1-pbinom(q=0:18, size=18, prob=1/6), 3)
+@
+	Vorsicht: Berechnet man den Verwerfungbereich mit R so muss man sehr
+	darauf achten, was R einem liefert. Denn man kann sich hier leicht 
+	irren lassen und sich um eine Stelle versetzt eindenken. Tipp: Denke
+	daran, dass die Wahrscheinlichkeit, mindestens Null Treffer zu landen
+	schon sprachlich absurd ist, also wird R auch bei 1 und nicht bei Null
+	anfangen.\\
+	Für uns ist der Verewerfungsbereich ab dem 7. Element (0.021) welches
+	7 m\&m's entspricht (obwohl wir \verb!q=0:18! haben, steht das 1. Element
+	für das 7. m\&m und nicht etwa das 6.).
+	\item Testentscheid:\\
+	
+	\begin{table}[h!]
+	\centering
+	\begin{tabular}{c|c|c|c|c|c|c}
+	Farbe & gelb & orange & rot & blau & grün & braun \\
+	\hline
+	gezählt & 3 & 1 & 6 & 4 & 1 & 3 \\
+	\hline
+	$H_0$ & behalten & behalten & behalten & behalten & behalten & behalten \\ 
+	\end{tabular}
+	\end{table}
+
+	\noindent
+	Keine der Farben liegt im Verwerfungsbereich, d.h. die Nullhypothese
+	$H_0$ kann nicht verworfen werden.
+\end{enumerate}
+
 
 \subsection{z-Test}
 Der z-Test ist ein Test für eine Normalverteilung $\mathcal{N}(\mu, \sigma^2)$
@@ -426,7 +513,7 @@ die Beobachtungen liegen nicht im Verwerfungsbereich!
 Der P-Wert (engl. oder R \emph{P-Value}) ist die Summe der 
 Wahrscheinlichkeiten, welche die Beobachtung
 und alle extremeren Beobachtungen vereint. Im folgenden Beispiel wärde dies
-die Summe aller Wahrscheinlichkeiten rechts von der Beobachtung (80).
+die Summe aller Wahrscheinlichkeiten rechts von der Beobachtung (20).
 
 <<fig=TRUE>>=
 plot(dbinom(x=0:30, size=30, prob=0.5), type='h')
@@ -441,6 +528,56 @@ Signifikanzniveau vergleichen. Ist der P-Wert kleiner als das
 Signifikanzniveau, so liegt die Beobachtung im Verwerfungsbereich
 und umgekehrt.
 
+\section{QQ-Plot}
+Wir wollen wissen ob zwei Datensätze (Verteilungen) von selben Typ sind.
+Hierzu kann der sog. QQ-Plot gemacht werden. Sind die beiden Datensätze
+vom selben Typ, d.h. ähnlich verteilt, so erhält man eine Gerade im 
+QQ-Plot. Sind die Verteilungen nicht gleich, so gibt es keine Gerade. 
+
+<<fig=TRUE>>=
+daten.A <- rbinom(n=500, size=50, prob=0.5)
+daten.B <- rbinom(n=250, size=25, prob=0.5)
+# zwei Datensätze mit gleichem Typ der Verteilung
+qqplot(daten.A, daten.B)
+@
+
+\subsection{QQ-Norm}
+Oft hat man aber nur eine Datenreihe die man auf eine bestimmte 
+Verteilung testen möchte. Die wichtigste Verteilung ist die
+Normalverteilung, daher gibt es eine spezielle R-Funktion um
+eine Datenreihe gegen die Normalverteilung zu vergleichen.
+
+<<fig=TRUE>>=
+daten.A <- rbinom(n=500, size=50, prob=0.5)
+qqnorm(daten.A)
+# reale Linie ziehen 
+qqline(daten.A)
+@
+
+\noindent
+Im Beispiel wird eine Datenreihe welche binomialverteilt ist gegen
+die Normalverteilung verglichen. Dabei stimmt es zwar soweit, dass
+es eine Gerade gibt, nur sind darin Unterbrüche. Diese kommen daher, 
+dass die Binomialverteilung diskret ist (d.h. nur ganzzahlig) und
+die Normalverteilung stetig. Man kann aber verschiedene diskrete
+Verteilungen voneinander unterscheiden in der \verb!qqnorm()!-Ausgabe.
+Eine Poissonverteilung hat eine andere Charakterisitik als eine
+Binomialverteilung.
+
+<<fig=TRUE>>=
+# ideal normalverteilte Datenreihe (mit Randomfunktion generiert)
+daten.ideal <- rnorm(n=1000, mean=5, sd=1)
+# reale poissonverteilte Datenreihe (mit Randomfunktion generiert)
+daten.C <- rpois(n=1000, lambda=5)
+qqnorm(daten.C)
+qqline(daten.ideal)
+qqline(daten.C)
+@
+
+\noindent
+Im Beispiel ist deutlich zu sehen, dass die ideale und die reale Line 
+sich nicht überlappen. D.h. die Daten haben nicht die selbe Verteilung
+bzw. die Datenreihe ist nicht normalverteilt.
 \section{Abkürzungsverzeichnis}
 \begin{acronym}[SQL]
 	\acro{i.i.d.}{Identically Identipednent Distributed}
