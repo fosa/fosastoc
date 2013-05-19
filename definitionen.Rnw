@@ -506,6 +506,13 @@ die Beobachtungen liegen nicht im Verwerfungsbereich!
 
 
 \subsection{Wilcoxon Rangsummen Test}
+Der Wilcoxon Rangsummen Test wird auf Verteilungen angewendet, die keine 
+Normalverteilung aufweisen. Im Rahmen des Moduls Stochastik wird nicht auf die 
+Berechnung des Wilcoxon Rangsummen Tests eingegangen. Berechnung in R: 
+<<>>=
+wilcox.test(x=weinmenge,mu=70,alternative='less')
+@
+
 \subsection{Vorzeichen-Test}
 
 
