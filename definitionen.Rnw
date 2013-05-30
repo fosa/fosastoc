@@ -432,6 +432,7 @@ diese sind in R: \verb!less, greater, two.sided!. Im Fall des
 Weingeniessers müssen wir natürlich auf \verb!less! prüfen. 
 Wir möchten das auf einem Signifikanzniveau von $\alpha=0.05$ testen.
 <<>>=
+library('TeachingDemos')
 weinmenge <- c(71, 69, 67, 68, 73, 72, 71, 71, 68, 72, 69, 72)
 z.test(x=weinmenge, mu=70, sd=2, alternative='less')
 @
@@ -585,7 +586,75 @@ qqline(daten.C)
 Im Beispiel ist deutlich zu sehen, dass die ideale und die reale Line 
 sich nicht überlappen. D.h. die Daten haben nicht die selbe Verteilung
 bzw. die Datenreihe ist nicht normalverteilt.
+
+
+\section{Regression}
+
+\subsection{Definition}
+
+\subsubsection{Linear}
+
+\subsubsection{Einfach}
+
+\subsubsection{Residuen}
+
+\subsubsection{summary(lm(\dots))}
+\verb!lm()! ermittelt die Parameter für die einfache lineare Regression, d.h.
+es ermittelt $\beta_0$ und $\beta_1$.
+\verb!summary(lm())! zeigt alle relevanten Daten der Regression an.
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{l|l|l}
+	Parameter & Wo im \verb!lm()! & Beschreibung\\
+	\hline
+	$\beta_0$ & Coefficients: (Intercept) & Verschiebung in y-Richtung \\
+	$\beta_1$ & Coefficients: 'daten' & Steigung \\
+	\end{tabular}
+	\caption{Daten die man aus dem lm() erhält}
+\end{table}
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{l|l|p{0.4\textwidth}}
+	Parameter & Wo im \verb!summary(lm())! & Beschreibung\\
+	\hline
+	$\beta_0$ & Estimate (Intercept) & Verschiebung in y-Richtung \\
+	$\beta_1$ & Estimate 'daten' & Steigung \\
+	$s.e.(\beta_0)$ & Std. Error (Intercept) & Standardabweichung der Verschiebung in y-Richtung\\
+	$s.e.(\beta_1)$ & Std. Error (Intercept) & Standardabweichung der Steigung\\
+	P-Wert für $\beta_0$ & Pr(>|t|) (Intercept) & Wahrscheinlichkeit, dass Verschiebung in y-Richtung 0 ist \\
+	P-wert für $\beta_1$ & Pr(>|t|) & Wahrscheinlichkeit, dass die Steigung 0 ist\\
+	$\varepsilon_1$ & Residual standard error & Rauschen um die Steigung und Verschiebung zu y\\
+	$n-p$ & degrees of freedom & Freiheitsgrade ($n$ Beobachtungen - $p$ Parameter)\\
+	\end{tabular}
+	\caption{Daten die man aus dem summary(lm()) erhält}
+\end{table}
+
+
+\subsubsection{fitted() und resid()}
+
+
+
+\subsection{Vertrauensintervall}
+Das Vertrauensintervall gibt an, wie verlässlich die berechneten Parameter
+sind für $\beta_0$ (y-Achsenabschnitt für x=0) und $\beta_1$ (die Steigung).
+\subsubsection{Berechnung für $\beta_0$}
+\[ \text{Untere Grenze} = \beta_0 - s.e.(\beta_0)\cdot t_{n-2;1-\frac{\alpha}{2}} \]
+\[ \text{Obere Grenze} = \beta_0 + s.e.(\beta_0)\cdot t_{n-2;1-\frac{\alpha}{2}} \]
+Dies kann man aus dem \verb!summary(lm(...))! berechnen mit den folgendne Daten:\\
+\verb!Estimate (Intercept) !$\pm$\verb! Std.Error (Intercept)*qt(1-(alpha/2), df = Degree of Freedom)!
+\subsubsection{Berechnung für $\beta_1$}
+\[ \text{Untere Grenze} = \beta_1 - s.e.(\beta_1)\cdot t_{n-2;1-\frac{\alpha}{2}} \]
+\[ \text{Obere Grenze} = \beta_1 + s.e.(\beta_1)\cdot t_{n-2;1-\frac{\alpha}{2}} \]
+Wie beim $\beta_0$ können auch hier alle Daten aus dem 
+\verb!summary(lm(...))! entnommen werden\\
+\verb!Estimate 'daten' !$\pm$\verb! Std.Error 'daten'*qt(1-(alpha/2), df = Degree of Freedom)!
+
+
+
 \section{Abkürzungsverzeichnis}
 \begin{acronym}[SQL]
 	\acro{i.i.d.}{Identically Identipednent Distributed}
 \end{acronym}
+
+

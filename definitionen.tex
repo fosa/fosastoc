@@ -62,19 +62,19 @@ rechnen das arithmetische Mittel als auch die Standardabweichung (\verb!sd()!).
 > x
 \end{Sinput}
 \begin{Soutput}
- [1]  2  9  8  9  5  6  5 10  1  4
+ [1] 6 6 6 4 8 2 9 3 4 9
 \end{Soutput}
 \begin{Sinput}
 > mean(x)
 \end{Sinput}
 \begin{Soutput}
-[1] 5.9
+[1] 5.7
 \end{Soutput}
 \begin{Sinput}
 > sd(x)
 \end{Sinput}
 \begin{Soutput}
-[1] 3.071373
+[1] 2.451757
 \end{Soutput}
 \end{Schunk}
 
@@ -102,28 +102,28 @@ in der Messreihe, wo x\% der Werte darunter liegen.
 > x
 \end{Sinput}
 \begin{Soutput}
- [1]  1  1  4  4  4  6  7 10 11 15 15 16 16 16 16 17 17 18 18 20
+ [1]  2  3  5  6 10 10 11 11 12 12 13 14 14 14 15 15 16 18 19 20
 \end{Soutput}
 \begin{Sinput}
 > quantile(x, prob=0.2)
 \end{Sinput}
 \begin{Soutput}
 20% 
-  4 
+9.2 
 \end{Soutput}
 \begin{Sinput}
 > quantile(x, prob=0.2, type=1)
 \end{Sinput}
 \begin{Soutput}
 20% 
-  4 
+  6 
 \end{Soutput}
 \begin{Sinput}
 > quantile(x, prob=0.2, type=2)
 \end{Sinput}
 \begin{Soutput}
 20% 
-  4 
+  8 
 \end{Soutput}
 \end{Schunk}
 Im obigen Beispiel wird mit R das 20\%-Quantil bestimmt. Hier ist aber 
@@ -171,7 +171,7 @@ arithmetischen Mittelwert. Sie ist das Quadrat der Standardabweichung.
 > var(x)
 \end{Sinput}
 \begin{Soutput}
-[1] 0.05445232
+[1] 0.0546983
 \end{Soutput}
 \end{Schunk}
 
@@ -186,7 +186,7 @@ eines Vektors mit sich selbst entspricht der Varianz des Vektors.
 > cov(x,y)
 \end{Sinput}
 \begin{Soutput}
-[1] -0.02367523
+[1] -0.021133
 \end{Soutput}
 \end{Schunk}
 
@@ -202,7 +202,7 @@ zueinander. Der Wertebereich des Korrelationskoeffizienten ist $[-1, 1]$.
 > cor(x,y)
 \end{Sinput}
 \begin{Soutput}
-[1] -0.4012828
+[1] -0.3810363
 \end{Soutput}
 \end{Schunk}
 
@@ -497,8 +497,8 @@ machen für jede Farbe einen statistischen Test.
 > round(1-pbinom(q=0:18, size=18, prob=1/6), 3)
 \end{Sinput}
 \begin{Soutput}
- [1] 0.962 0.827 0.597 0.352 0.168 0.065 0.021 0.005 0.001 0.000 0.000 0.000 0.000
-[14] 0.000 0.000 0.000 0.000 0.000 0.000
+ [1] 0.962 0.827 0.597 0.352 0.168 0.065 0.021 0.005 0.001 0.000 0.000 0.000
+[13] 0.000 0.000 0.000 0.000 0.000 0.000 0.000
 \end{Soutput}
 \end{Schunk}
 	Vorsicht: Berechnet man den Verwerfungbereich mit R so muss man sehr
@@ -591,18 +591,19 @@ Weingeniessers müssen wir natürlich auf \verb!less! prüfen.
 Wir möchten das auf einem Signifikanzniveau von $\alpha=0.05$ testen.
 \begin{Schunk}
 \begin{Sinput}
+> library('TeachingDemos')
 > weinmenge <- c(71, 69, 67, 68, 73, 72, 71, 71, 68, 72, 69, 72)
 > z.test(x=weinmenge, mu=70, sd=2, alternative='less')
 \end{Sinput}
 \begin{Soutput}
 	One Sample z-test
 
-data:  weinmenge 
-z = 0.433, n = 12.000, Std. Dev. = 2.000, Std. Dev. of the sample mean =
-0.577, p-value = 0.6675
-alternative hypothesis: true mean is less than 70 
+data:  weinmenge
+z = 0.433, n = 12.000, Std. Dev. = 2.000, Std. Dev. of the sample mean
+= 0.577, p-value = 0.6675
+alternative hypothesis: true mean is less than 70
 95 percent confidence interval:
-     -Inf 71.19966 
+     -Inf 71.19966
 sample estimates:
 mean of weinmenge 
             70.25 
@@ -676,11 +677,11 @@ von $\alpha=0.05$ testen.
 \begin{Soutput}
 	One Sample t-test
 
-data:  weinmenge 
+data:  weinmenge
 t = 0.4419, df = 11, p-value = 0.6664
-alternative hypothesis: true mean is less than 70 
+alternative hypothesis: true mean is less than 70
 95 percent confidence interval:
-     -Inf 71.26603 
+     -Inf 71.26603
 sample estimates:
 mean of x 
     70.25 
@@ -703,9 +704,9 @@ Berechnung des Wilcoxon Rangsummen Tests eingegangen. Berechnung in R:
 \begin{Soutput}
 	Wilcoxon signed rank test with continuity correction
 
-data:  weinmenge 
+data:  weinmenge
 V = 44.5, p-value = 0.6838
-alternative hypothesis: true location is less than 70 
+alternative hypothesis: true location is less than 70
 \end{Soutput}
 \end{Schunk}
 
@@ -793,7 +794,75 @@ Binomialverteilung.
 Im Beispiel ist deutlich zu sehen, dass die ideale und die reale Line 
 sich nicht überlappen. D.h. die Daten haben nicht die selbe Verteilung
 bzw. die Datenreihe ist nicht normalverteilt.
+
+
+\section{Regression}
+
+\subsection{Definition}
+
+\subsubsection{Linear}
+
+\subsubsection{Einfach}
+
+\subsubsection{Residuen}
+
+\subsubsection{summary(lm(\dots))}
+\verb!lm()! ermittelt die Parameter für die einfache lineare Regression, d.h.
+es ermittelt $\beta_0$ und $\beta_1$.
+\verb!summary(lm())! zeigt alle relevanten Daten der Regression an.
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{l|l|l}
+	Parameter & Wo im \verb!lm()! & Beschreibung\\
+	\hline
+	$\beta_0$ & Coefficients: (Intercept) & Verschiebung in y-Richtung \\
+	$\beta_1$ & Coefficients: 'daten' & Steigung \\
+	\end{tabular}
+	\caption{Daten die man aus dem lm() erhält}
+\end{table}
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{l|l|p{0.4\textwidth}}
+	Parameter & Wo im \verb!summary(lm())! & Beschreibung\\
+	\hline
+	$\beta_0$ & Estimate (Intercept) & Verschiebung in y-Richtung \\
+	$\beta_1$ & Estimate 'daten' & Steigung \\
+	$s.e.(\beta_0)$ & Std. Error (Intercept) & Standardabweichung der Verschiebung in y-Richtung\\
+	$s.e.(\beta_1)$ & Std. Error (Intercept) & Standardabweichung der Steigung\\
+	P-Wert für $\beta_0$ & Pr(>|t|) (Intercept) & Wahrscheinlichkeit, dass Verschiebung in y-Richtung 0 ist \\
+	P-wert für $\beta_1$ & Pr(>|t|) & Wahrscheinlichkeit, dass die Steigung 0 ist\\
+	$\varepsilon_1$ & Residual standard error & Rauschen um die Steigung und Verschiebung zu y\\
+	$n-p$ & degrees of freedom & Freiheitsgrade ($n$ Beobachtungen - $p$ Parameter)\\
+	\end{tabular}
+	\caption{Daten die man aus dem summary(lm()) erhält}
+\end{table}
+
+
+\subsubsection{fitted() und resid()}
+
+
+
+\subsection{Vertrauensintervall}
+Das Vertrauensintervall gibt an, wie verlässlich die berechneten Parameter
+sind für $\beta_0$ (y-Achsenabschnitt für x=0) und $\beta_1$ (die Steigung).
+\subsubsection{Berechnung für $\beta_0$}
+\[ \text{Untere Grenze} = \beta_0 - s.e.(\beta_0)\cdot t_{n-2;1-\frac{\alpha}{2}} \]
+\[ \text{Obere Grenze} = \beta_0 + s.e.(\beta_0)\cdot t_{n-2;1-\frac{\alpha}{2}} \]
+Dies kann man aus dem \verb!summary(lm(...))! berechnen mit den folgendne Daten:\\
+\verb!Estimate (Intercept) !$\pm$\verb! Std.Error (Intercept)*qt(1-(alpha/2), df = Degree of Freedom)!
+\subsubsection{Berechnung für $\beta_1$}
+\[ \text{Untere Grenze} = \beta_1 - s.e.(\beta_1)\cdot t_{n-2;1-\frac{\alpha}{2}} \]
+\[ \text{Obere Grenze} = \beta_1 + s.e.(\beta_1)\cdot t_{n-2;1-\frac{\alpha}{2}} \]
+Wie beim $\beta_0$ können auch hier alle Daten aus dem 
+\verb!summary(lm(...))! entnommen werden\\
+\verb!Estimate 'daten' !$\pm$\verb! Std.Error 'daten'*qt(1-(alpha/2), df = Degree of Freedom)!
+
+
+
 \section{Abkürzungsverzeichnis}
 \begin{acronym}[SQL]
 	\acro{i.i.d.}{Identically Identipednent Distributed}
 \end{acronym}
+
+
