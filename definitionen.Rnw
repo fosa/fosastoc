@@ -208,6 +208,7 @@ pbinom(q=q,size=n,prob=p)
 Die Poissonverteilung wird bei Ereignissen verwendet, deren maximale Anzahl 
 nicht begrenzt ist. Sie ist ein Grenzfall der Binomialverteilung. 
 \[ P(X=x) = \exp(-\lambda) \cdot \frac{\lambda^x}{x!} \]
+\[ X \sim Pois(\lambda) \]
 \begin{tabular}{@{}ll}
   $x$: & Anzahl Versuche mit positivem Ergebnis \\
   $\lambda$: & Erwartungswert

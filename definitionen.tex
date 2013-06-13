@@ -79,19 +79,19 @@ rechnen das arithmetische Mittel als auch die Standardabweichung (\verb!sd()!).
 > x
 \end{Sinput}
 \begin{Soutput}
- [1] 5 2 9 3 2 3 3 2 4 8
+ [1]  6  7  5 10  9  6  5  9  2  2
 \end{Soutput}
 \begin{Sinput}
 > mean(x)
 \end{Sinput}
 \begin{Soutput}
-[1] 4.1
+[1] 6.1
 \end{Soutput}
 \begin{Sinput}
 > sd(x)
 \end{Sinput}
 \begin{Soutput}
-[1] 2.514403
+[1] 2.766867
 \end{Soutput}
 \end{Schunk}
 
@@ -119,28 +119,28 @@ in der Messreihe, wo x\% der Werte darunter liegen.
 > x
 \end{Sinput}
 \begin{Soutput}
- [1]  1  2  3  4  4  7  7  7  9 10 11 11 14 15 15 15 16 16 17 18
+ [1]  2  2  3  5  5  6  8  9 10 14 14 14 15 16 17 18 19 19 19 20
 \end{Soutput}
 \begin{Sinput}
 > quantile(x, prob=0.2)
 \end{Sinput}
 \begin{Soutput}
 20% 
-  4 
+  5 
 \end{Soutput}
 \begin{Sinput}
 > quantile(x, prob=0.2, type=1)
 \end{Sinput}
 \begin{Soutput}
 20% 
-  4 
+  5 
 \end{Soutput}
 \begin{Sinput}
 > quantile(x, prob=0.2, type=2)
 \end{Sinput}
 \begin{Soutput}
 20% 
-  4 
+  5 
 \end{Soutput}
 \end{Schunk}
 Im obigen Beispiel wird mit R das 20\%-Quantil bestimmt. Hier ist aber 
@@ -188,7 +188,7 @@ arithmetischen Mittelwert. Sie ist das Quadrat der Standardabweichung.
 > var(x)
 \end{Sinput}
 \begin{Soutput}
-[1] 0.06157608
+[1] 0.04143991
 \end{Soutput}
 \end{Schunk}
 
@@ -203,7 +203,7 @@ eines Vektors mit sich selbst entspricht der Varianz des Vektors.
 > cov(x,y)
 \end{Sinput}
 \begin{Soutput}
-[1] 0.01839196
+[1] 0.00254989
 \end{Soutput}
 \end{Schunk}
 
@@ -219,7 +219,7 @@ zueinander. Der Wertebereich des Korrelationskoeffizienten ist $[-1, 1]$.
 > cor(x,y)
 \end{Sinput}
 \begin{Soutput}
-[1] 0.2148642
+[1] 0.04164447
 \end{Soutput}
 \end{Schunk}
 
@@ -311,6 +311,7 @@ Die Wahrscheinlichkeit ist dann wie folgt gegeben:
 Die Poissonverteilung wird bei Ereignissen verwendet, deren maximale Anzahl 
 nicht begrenzt ist. Sie ist ein Grenzfall der Binomialverteilung. 
 \[ P(X=x) = \exp(-\lambda) \cdot \frac{\lambda^x}{x!} \]
+\[ X \sim Pois(\lambda) \]
 \begin{tabular}{@{}ll}
   $x$: & Anzahl Versuche mit positivem Ergebnis \\
   $\lambda$: & Erwartungswert
