@@ -16,11 +16,6 @@
 
 \section{Grundbegriffe}
 
-\subsection{Artihmetisches Mittel}
-Das arithmetische Mittel beschreibt den Mittelwert der Summe aller Elemente.
-
-\[ \bar{x} = \frac{1}{n} \sum\limits_{i=1}^{n} x_i \]
-
 \subsection{R-Tipps}
 \subsubsection{Zahlenfolgen definieren}
 Vektor für eine lineare Zahlenfolge definieren mit Intervall = 1
@@ -38,6 +33,12 @@ Eine spezielle Zahlenfolge kann auch manuell definiert werden
 x <- c(3,2,5,8,9,10,55,1,12)
 x
 @
+
+\subsection{Artihmetisches Mittel}
+Das arithmetische Mittel beschreibt den Mittelwert der Summe aller Elemente.
+
+\[ \bar{x} = \frac{1}{n} \sum\limits_{i=1}^{n} x_i \]
+
 \subsubsection{Artihmetisches Mittel mit R berechnen}
 Mit R kann das arithmetische Mittel mit der Funktion \verb!mean()! 
 ermittelt werden
