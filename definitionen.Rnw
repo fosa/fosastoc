@@ -189,7 +189,7 @@ Die Wahrscheinlichkeit ist dann wie folgt gegeben:
 \begin{tabular}{@{}ll}
   $n$: & Anzahl Versuche \\
   $x$: & Anzahl Versuche mit positivem Ergebnis \\
-  $p$: & Wahrscheinlichkeit für ein positives Ergebnis jedem einzelnen Versuch
+  $p$: & Wahrscheinlichkeit für ein positives Ergebnis bei jedem einzelnen Versuch
 \end{tabular} 
 <<>>=
 n=5;

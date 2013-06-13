@@ -79,19 +79,19 @@ rechnen das arithmetische Mittel als auch die Standardabweichung (\verb!sd()!).
 > x
 \end{Sinput}
 \begin{Soutput}
- [1]  4  3  5  7  6  5  4  4  4 10
+ [1] 4 8 6 2 2 7 9 8 6 5
 \end{Soutput}
 \begin{Sinput}
 > mean(x)
 \end{Sinput}
 \begin{Soutput}
-[1] 5.2
+[1] 5.7
 \end{Soutput}
 \begin{Sinput}
 > sd(x)
 \end{Sinput}
 \begin{Soutput}
-[1] 2.043961
+[1] 2.451757
 \end{Soutput}
 \end{Schunk}
 
@@ -119,28 +119,28 @@ in der Messreihe, wo x\% der Werte darunter liegen.
 > x
 \end{Sinput}
 \begin{Soutput}
- [1]  4  6  6  6  9  9  9 10 10 11 11 12 12 13 16 17 18 19 20 20
+ [1]  2  3  4  5  5  6  9  9 10 12 12 14 15 16 16 17 17 17 18 19
 \end{Soutput}
 \begin{Sinput}
 > quantile(x, prob=0.2)
 \end{Sinput}
 \begin{Soutput}
 20% 
-8.4 
+  5 
 \end{Soutput}
 \begin{Sinput}
 > quantile(x, prob=0.2, type=1)
 \end{Sinput}
 \begin{Soutput}
 20% 
-  6 
+  5 
 \end{Soutput}
 \begin{Sinput}
 > quantile(x, prob=0.2, type=2)
 \end{Sinput}
 \begin{Soutput}
 20% 
-7.5 
+  5 
 \end{Soutput}
 \end{Schunk}
 Im obigen Beispiel wird mit R das 20\%-Quantil bestimmt. Hier ist aber 
@@ -188,7 +188,7 @@ arithmetischen Mittelwert. Sie ist das Quadrat der Standardabweichung.
 > var(x)
 \end{Sinput}
 \begin{Soutput}
-[1] 0.09551311
+[1] 0.1294124
 \end{Soutput}
 \end{Schunk}
 
@@ -203,7 +203,7 @@ eines Vektors mit sich selbst entspricht der Varianz des Vektors.
 > cov(x,y)
 \end{Sinput}
 \begin{Soutput}
-[1] -0.04201516
+[1] 0.02995269
 \end{Soutput}
 \end{Schunk}
 
@@ -219,7 +219,7 @@ zueinander. Der Wertebereich des Korrelationskoeffizienten ist $[-1, 1]$.
 > cor(x,y)
 \end{Sinput}
 \begin{Soutput}
-[1] -0.5109325
+[1] 0.29514
 \end{Soutput}
 \end{Schunk}
 
@@ -282,7 +282,7 @@ Die Wahrscheinlichkeit ist dann wie folgt gegeben:
 \begin{tabular}{@{}ll}
   $n$: & Anzahl Versuche \\
   $x$: & Anzahl Versuche mit positivem Ergebnis \\
-  $p$: & Wahrscheinlichkeit für ein positives Ergebnis jedem einzelnen Versuch
+  $p$: & Wahrscheinlichkeit für ein positives Ergebnis bei jedem einzelnen Versuch
 \end{tabular} 
 \begin{Schunk}
 \begin{Sinput}
@@ -514,8 +514,8 @@ machen für jede Farbe einen statistischen Test.
 > round(1-pbinom(q=0:18, size=18, prob=1/6), 3)
 \end{Sinput}
 \begin{Soutput}
- [1] 0.962 0.827 0.597 0.352 0.168 0.065 0.021 0.005 0.001 0.000 0.000 0.000 0.000
-[14] 0.000 0.000 0.000 0.000 0.000 0.000
+ [1] 0.962 0.827 0.597 0.352 0.168 0.065 0.021 0.005 0.001 0.000 0.000 0.000
+[13] 0.000 0.000 0.000 0.000 0.000 0.000 0.000
 \end{Soutput}
 \end{Schunk}
 	Vorsicht: Berechnet man den Verwerfungbereich mit R so muss man sehr
@@ -616,8 +616,8 @@ Wir möchten das auf einem Signifikanzniveau von $\alpha=0.05$ testen.
 	One Sample z-test
 
 data:  weinmenge 
-z = 0.433, n = 12.000, Std. Dev. = 2.000, Std. Dev. of the sample mean =
-0.577, p-value = 0.6675
+z = 0.433, n = 12.000, Std. Dev. = 2.000, Std. Dev. of the sample mean
+= 0.577, p-value = 0.6675
 alternative hypothesis: true mean is less than 70 
 95 percent confidence interval:
      -Inf 71.19966 
