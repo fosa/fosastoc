@@ -186,6 +186,7 @@ Die Wahrscheinlichkeit ist dann wie folgt gegeben:
 \[ P(X=x) = 
 \left( \begin{array}{c}n\\x\end{array} \right) \cdot p^x \cdot (1-p)^{n-x} 
 = \frac{n!}{x! (n-x)!} \cdot p^x \cdot (1-p)^{n-x} \]
+\[ X \sim Bin(n,p) \]
 \begin{tabular}{@{}ll}
   $n$: & Anzahl Versuche \\
   $x$: & Anzahl Versuche mit positivem Ergebnis \\
