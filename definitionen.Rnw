@@ -328,6 +328,12 @@ nicht im Verwerfungsbereich gewesen und die Hypothese nicht
 verworfen worden.
 
 \subsubsection{Fehler 2. Art}
+\begin{figure}
+        \centering
+        \includegraphics[scale=\graphscale]{fehler-zweiter-art.pdf}
+        \caption{Fehler 2. Art}
+\end{figure}
+
 Der Fehler 2. Art tritt ein, wenn die Nullhypothese nicht verworfen
 wird, obwohl die Alternative wahr ist. Wichtig ist hier zu verstehen,
 dass dieser Fehler nur berechnet werden kann, wenn man eine alternative
