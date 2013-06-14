@@ -312,6 +312,13 @@ Ein Signifikanztest kann zu folgenden Entscheidungen führen.
 \end{table}
 
 \subsubsection{Fehler 1. Art}
+
+\begin{figure}
+        \centering
+        \includegraphics[scale=\graphscale]{fehler-erster-art.pdf}
+        \caption{Fehler 1. Art}
+\end{figure}
+
 Der Fehler 1. Art tritt ein, wenn die Nullhypothese verworfen wird, 
 obwohl sie wahr ist. Der Fehler 1. Art ist die Summe aller
 Wahrscheinlichkeiten die extremer als die Beobachtung sind.
