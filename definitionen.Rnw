@@ -619,6 +619,13 @@ Im Beispiel ist deutlich zu sehen, dass die ideale und die reale Line
 sich nicht überlappen. D.h. die Daten haben nicht die selbe Verteilung
 bzw. die Datenreihe ist nicht normalverteilt.
 
+\subsubsection{Charakteistische Kurvenformen}
+
+\begin{figure}
+        \centering
+        \includegraphics[scale=\graphscale]{qqnorm-kurven.pdf}
+        \caption{Vergleich charakteristischer Verteilungen im qqnorm-Plot}
+\end{figure}
 
 \section{Regression}
 
