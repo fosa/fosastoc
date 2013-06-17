@@ -633,17 +633,30 @@ Im Beispiel ist deutlich zu sehen, dass die ideale und die reale Line
 sich nicht überlappen. D.h. die Daten haben nicht die selbe Verteilung
 bzw. die Datenreihe ist nicht normalverteilt.
 
+\subsubsection{Charakteistische Kurvenformen}
+
+\begin{figure}[h!]
+        \centering
+        \includegraphics[scale=\graphscale]{qqnorm-kurven.pdf}
+        \caption{Vergleich charakteristischer Verteilungen im qqnorm-Plot}
+\end{figure}
 
 \section{Regression}
 
 \subsection{Definition}
-
+\[ Y = \beta_0 + \beta_1 \cdot x + \epsilon \]
 \subsubsection{Linear}
-
+Kommt der Parameter $\beta_1$ nur in der ersten Potenz vor, so nennt man die
+Regression linear.
 \subsubsection{Einfach}
-
+Kommt die unabhängige Variable $x$ nur in der erten Potenz vor, so nennt man 
+die Regression einfach.
 \subsubsection{Residuen}
-
+\emph{Residuum} ist ein anderes Wort für Rest (Abweichung, Fehler),
+\emph{Residuen} ist das Plural davon.
+Spricht man bei der Regression von einem Residuum, so meint man damit z.B.
+die Abweichung von den Daten zu dem Idealwerten die man erhält (bei Anwendung
+der ermittelten Parameter $\beta_0$ und $\beta_1$).
 \subsubsection{summary(lm(\dots))}
 \verb!lm()! ermittelt die Parameter für die einfache lineare Regression, d.h.
 es ermittelt $\beta_0$ und $\beta_1$.
