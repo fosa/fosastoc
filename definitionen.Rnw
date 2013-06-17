@@ -140,6 +140,12 @@ zueinander. Der Wertebereich des Korrelationskoeffizienten ist $[-1, 1]$.
 cor(x,y)
 @
 
+\section{Lineare Transformation}
+Wird eine Zufallsvariable linear transformiert, müssen auch der Erwartungswert 
+$E(X)$ und die Varianz $Var(X)$ transformiert werden. 
+\[ Y = a \cdot X + b \]
+\[ \rightarrow E(Y) = a \cdot E(X) + b \]
+\[ \rightarrow Var(Y) = c^2 \cdot Var(X) \]
 
 \section{Diskrete Verteilungen}
 
