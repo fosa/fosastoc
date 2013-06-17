@@ -266,6 +266,10 @@ pnorm(q=q,mean=mean,sd=sd)
 @
 
 \subsection{Exponentialverteilung}
+\[ \begin{array}{@{}ll}
+  \text{für }x \leq 0: & f(x) = \lambda \cdot e^{-\lambda \cdot x} \\
+  \text{für }x < 0:    & f(x) = 0
+\end{array} \]
 <<fig=TRUE>>=
 x=3;
 lambda=2;
@@ -275,6 +279,10 @@ plot(range,dexp(x=range,rate=lambda),type='l')
 @
 
 \subsubsection{Kumulative Verteilungsfunktion}
+\[ \begin{array}{@{}ll}
+  \text{für }x \leq 0: & f(x) = 1 - e^{-\lambda \cdot x} \\
+  \text{für }x < 0:    & f(x) = 0
+\end{array} \]
 <<>>=
 q=3;
 pexp(q=q,rate=lambda)
