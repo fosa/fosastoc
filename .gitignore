@@ -13,3 +13,7 @@ fosastoc.pdf
 # ignore temporary r files
 .RData
 .Rhistory
+
+# Script for building fosastoc from .Rnw files
+mkfosa.sh
+
