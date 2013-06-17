@@ -13,7 +13,7 @@
    height="297mm"
    id="svg2"
    version="1.1"
-   inkscape:version="0.48.3.1 r9886"
+   inkscape:version="0.48.4 r9939"
    sodipodi:docname="qqnorm-kurven.svg">
   <sodipodi:namedview
      id="base"
@@ -29,8 +29,8 @@
      inkscape:current-layer="layer1"
      showgrid="true"
      inkscape:window-width="1600"
-     inkscape:window-height="819"
-     inkscape:window-x="-4"
+     inkscape:window-height="816"
+     inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1">
     <inkscape:grid
@@ -308,7 +308,7 @@
        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Mend)" />
     <g
        id="g4291"
-       transform="matrix(0,-0.24999999,0.25,0,300.26043,638.36926)">
+       transform="matrix(0,-0.24999999,0.25,0,299.55332,397.24585)">
       <g
          word-spacing="normal"
          letter-spacing="normal"
@@ -475,7 +475,7 @@
            inkscape:connector-curvature="0"
            style="fill:#000000;stroke-width:0" /></g>    </g>
     <g
-       transform="matrix(0,-0.25,0.25,0,300.24655,397.45362)"
+       transform="matrix(0,-0.25,0.25,0,299.53944,631.50596)"
        id="g4739">
       <g
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;letter-spacing:normal;word-spacing:normal;text-anchor:start;fill:none;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10.43299961;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
