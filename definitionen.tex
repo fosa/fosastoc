@@ -79,19 +79,19 @@ rechnen das arithmetische Mittel als auch die Standardabweichung (\verb!sd()!).
 > x
 \end{Sinput}
 \begin{Soutput}
- [1] 2 5 9 6 8 7 8 5 9 5
+ [1]  6  4  4  7  6  7  6  2 10  2
 \end{Soutput}
 \begin{Sinput}
 > mean(x)
 \end{Sinput}
 \begin{Soutput}
-[1] 6.4
+[1] 5.4
 \end{Soutput}
 \begin{Sinput}
 > sd(x)
 \end{Sinput}
 \begin{Soutput}
-[1] 2.221111
+[1] 2.458545
 \end{Soutput}
 \end{Schunk}
 
@@ -119,28 +119,28 @@ in der Messreihe, wo x\% der Werte darunter liegen.
 > x
 \end{Sinput}
 \begin{Soutput}
- [1]  6  6  6  6  7  7  8  8  8  9 10 12 15 15 16 16 17 17 18 18
+ [1]  2  2  4  4  6  9 10 12 12 12 14 14 14 15 15 17 18 19 20 20
 \end{Soutput}
 \begin{Sinput}
 > quantile(x, prob=0.2)
 \end{Sinput}
 \begin{Soutput}
 20% 
-6.8 
+5.6 
 \end{Soutput}
 \begin{Sinput}
 > quantile(x, prob=0.2, type=1)
 \end{Sinput}
 \begin{Soutput}
 20% 
-  6 
+  4 
 \end{Soutput}
 \begin{Sinput}
 > quantile(x, prob=0.2, type=2)
 \end{Sinput}
 \begin{Soutput}
 20% 
-6.5 
+  5 
 \end{Soutput}
 \end{Schunk}
 Im obigen Beispiel wird mit R das 20\%-Quantil bestimmt. Hier ist aber 
@@ -188,7 +188,7 @@ arithmetischen Mittelwert. Sie ist das Quadrat der Standardabweichung.
 > var(x)
 \end{Sinput}
 \begin{Soutput}
-[1] 0.1034148
+[1] 0.04707283
 \end{Soutput}
 \end{Schunk}
 
@@ -203,7 +203,7 @@ eines Vektors mit sich selbst entspricht der Varianz des Vektors.
 > cov(x,y)
 \end{Sinput}
 \begin{Soutput}
-[1] -0.02702736
+[1] 0.01206465
 \end{Soutput}
 \end{Schunk}
 
@@ -219,7 +219,7 @@ zueinander. Der Wertebereich des Korrelationskoeffizienten ist $[-1, 1]$.
 > cor(x,y)
 \end{Sinput}
 \begin{Soutput}
-[1] -0.3428522
+[1] 0.1650622
 \end{Soutput}
 \end{Schunk}
 
@@ -228,7 +228,7 @@ Wird eine Zufallsvariable linear transformiert, müssen auch der Erwartungswert
 $E(X)$ und die Varianz $Var(X)$ transformiert werden. 
 \[ Y = a \cdot X + b \]
 \[ \rightarrow E(Y) = a \cdot E(X) + b \]
-\[ \rightarrow Var(Y) = c^2 \cdot Var(X) \]
+\[ \rightarrow Var(Y) = a^2 \cdot Var(X) \]
 
 \section{Diskrete Verteilungen}
 
@@ -841,30 +841,17 @@ Im Beispiel ist deutlich zu sehen, dass die ideale und die reale Line
 sich nicht überlappen. D.h. die Daten haben nicht die selbe Verteilung
 bzw. die Datenreihe ist nicht normalverteilt.
 
-\subsubsection{Charakteistische Kurvenformen}
-
-\begin{figure}[h!]
-        \centering
-        \includegraphics[scale=\graphscale]{qqnorm-kurven.pdf}
-        \caption{Vergleich charakteristischer Verteilungen im qqnorm-Plot}
-\end{figure}
 
 \section{Regression}
 
 \subsection{Definition}
-\[ Y = \beta_0 + \beta_1 \cdot x + \epsilon \]
+
 \subsubsection{Linear}
-Kommt der Parameter $\beta_1$ nur in der ersten Potenz vor, so nennt man die
-Regression linear.
+
 \subsubsection{Einfach}
-Kommt die unabhängige Variable $x$ nur in der erten Potenz vor, so nennt man 
-die Regression einfach.
+
 \subsubsection{Residuen}
-\emph{Residuum} ist ein anderes Wort für Rest (Abweichung, Fehler),
-\emph{Residuen} ist das Plural davon.
-Spricht man bei der Regression von einem Residuum, so meint man damit z.B.
-die Abweichung von den Daten zu dem Idealwerten die man erhält (bei Anwendung
-der ermittelten Parameter $\beta_0$ und $\beta_1$).
+
 \subsubsection{summary(lm(\dots))}
 \verb!lm()! ermittelt die Parameter für die einfache lineare Regression, d.h.
 es ermittelt $\beta_0$ und $\beta_1$.
@@ -900,6 +887,8 @@ es ermittelt $\beta_0$ und $\beta_1$.
 
 \subsubsection{fitted() und resid()}
 
+
+
 \subsection{Vertrauensintervall}
 Das Vertrauensintervall gibt an, wie verlässlich die berechneten Parameter
 sind für $\beta_0$ (y-Achsenabschnitt für x=0) und $\beta_1$ (die Steigung).
@@ -914,6 +903,8 @@ Dies kann man aus dem \verb!summary(lm(...))! berechnen mit den folgendne Daten:
 Wie beim $\beta_0$ können auch hier alle Daten aus dem 
 \verb!summary(lm(...))! entnommen werden\\
 \verb!Estimate 'daten' !$\pm$\verb! Std.Error 'daten'*qt(1-(alpha/2), df = Degree of Freedom)!
+
+
 
 \section{Abkürzungsverzeichnis}
 \begin{acronym}[SQL]
