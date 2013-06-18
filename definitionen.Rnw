@@ -140,6 +140,29 @@ zueinander. Der Wertebereich des Korrelationskoeffizienten ist $[-1, 1]$.
 cor(x,y)
 @
 
+\section{Bedingte Wahrscheinlichkeit}
+Bei bedingten Wahrscheinlichkeiten gilt das sog. Beyes'sche Theorem.
+\[ \boxed{ P_B(A) = P(A|B) = \frac{P(A \cap B)}{P(B)} = \frac{P(B|A)\cdot P(A)}{P(B)} } \]
+
+\begin{figure}[h!]
+        \centering
+        \includegraphics[scale=\graphscale]{bedingte-wahrscheinlichkeit.pdf}
+        \caption{Übersicht zur Berechnung der bedingten Wahrscheinlichkeiten}
+\end{figure}
+
+\begin{figure}
+        \centering
+        \includegraphics[scale=\graphscale]{bedingte-wahrscheinlichkeit-detail.pdf}
+        \caption{Übersicht mit berechneten Wahrscheinlichkeiten der Ereignisse}
+\end{figure}
+
+\begin{figure}[h!]
+        \centering
+        \includegraphics[scale=\graphscale]{bedingte-wahrscheinlichkeit-tipps.pdf}
+        \caption{Tipps zu Zusammenhängen bei bedingten Wahrscheinlichkeiten}
+\end{figure}
+
+\newpage
 \section{Lineare Transformation}
 Wird eine Zufallsvariable linear transformiert, müssen auch der Erwartungswert 
 $E(X)$ und die Varianz $Var(X)$ transformiert werden. 
