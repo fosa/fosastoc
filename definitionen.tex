@@ -79,19 +79,19 @@ rechnen das arithmetische Mittel als auch die Standardabweichung (\verb!sd()!).
 > x
 \end{Sinput}
 \begin{Soutput}
- [1] 8 2 4 3 6 5 8 1 3 8
+ [1]  2  4  3 10  4  2  2  7  3  6
 \end{Soutput}
 \begin{Sinput}
 > mean(x)
 \end{Sinput}
 \begin{Soutput}
-[1] 4.8
+[1] 4.3
 \end{Soutput}
 \begin{Sinput}
 > sd(x)
 \end{Sinput}
 \begin{Soutput}
-[1] 2.616189
+[1] 2.626785
 \end{Soutput}
 \end{Schunk}
 
@@ -119,28 +119,28 @@ in der Messreihe, wo x\% der Werte darunter liegen.
 > x
 \end{Sinput}
 \begin{Soutput}
- [1]  3  3  4  4  7  9 11 12 13 14 14 15 15 15 17 17 17 18 18 18
+ [1]  1  1  2  2  3  5  5  7  7  7  8 10 11 12 13 14 14 14 14 15
 \end{Soutput}
 \begin{Sinput}
 > quantile(x, prob=0.2)
 \end{Sinput}
 \begin{Soutput}
 20% 
-6.4 
+2.8 
 \end{Soutput}
 \begin{Sinput}
 > quantile(x, prob=0.2, type=1)
 \end{Sinput}
 \begin{Soutput}
 20% 
-  4 
+  2 
 \end{Soutput}
 \begin{Sinput}
 > quantile(x, prob=0.2, type=2)
 \end{Sinput}
 \begin{Soutput}
 20% 
-5.5 
+2.5 
 \end{Soutput}
 \end{Schunk}
 Im obigen Beispiel wird mit R das 20\%-Quantil bestimmt. Hier ist aber 
@@ -188,7 +188,7 @@ arithmetischen Mittelwert. Sie ist das Quadrat der Standardabweichung.
 > var(x)
 \end{Sinput}
 \begin{Soutput}
-[1] 0.07108359
+[1] 0.09143237
 \end{Soutput}
 \end{Schunk}
 
@@ -203,7 +203,7 @@ eines Vektors mit sich selbst entspricht der Varianz des Vektors.
 > cov(x,y)
 \end{Sinput}
 \begin{Soutput}
-[1] -0.02062096
+[1] 0.02833408
 \end{Soutput}
 \end{Schunk}
 
@@ -219,7 +219,7 @@ zueinander. Der Wertebereich des Korrelationskoeffizienten ist $[-1, 1]$.
 > cor(x,y)
 \end{Sinput}
 \begin{Soutput}
-[1] -0.2400867
+[1] 0.2621458
 \end{Soutput}
 \end{Schunk}
 
@@ -334,10 +334,10 @@ Die Wahrscheinlichkeit ist dann wie folgt gegeben:
 \end{Schunk}
 
 \subsubsection{Erwartungswert}
-\[ n \cdot p \]
+\[ E(X) = n \cdot p \]
 
 \subsubsection{Varianz}
-\[ n \cdot p \cdot (1 - p) \]
+\[ Var(X) = n \cdot p \cdot (1 - p) \]
 
 \subsubsection{Kumulative Verteilungsfunktion}
 \begin{Schunk}
@@ -369,6 +369,12 @@ nicht begrenzt ist. Sie ist ein Grenzfall der Binomialverteilung.
 [1] 0.180447
 \end{Soutput}
 \end{Schunk}
+
+\subsubsection{Erwartungswert}
+\[ E(X) = \lambda \]
+
+\subsubsection{Varianz}
+\[ Var(X) = \lambda^2 + \lambda \]
 
 \subsubsection{Kumulative Verteilungsfunktion}
 \begin{Schunk}

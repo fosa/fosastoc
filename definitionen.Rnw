@@ -236,10 +236,10 @@ dbinom(x=x,size=n,prob=p)
 @
 
 \subsubsection{Erwartungswert}
-\[ n \cdot p \]
+\[ E(X) = n \cdot p \]
 
 \subsubsection{Varianz}
-\[ n \cdot p \cdot (1 - p) \]
+\[ Var(X) = n \cdot p \cdot (1 - p) \]
 
 \subsubsection{Kumulative Verteilungsfunktion}
 <<>>=
@@ -261,6 +261,12 @@ lambda=2;
 x=3;
 dpois(x=x,lambda=lambda)
 @
+
+\subsubsection{Erwartungswert}
+\[ E(X) = \lambda \]
+
+\subsubsection{Varianz}
+\[ Var(X) = \lambda^2 + \lambda \]
 
 \subsubsection{Kumulative Verteilungsfunktion}
 <<>>=
