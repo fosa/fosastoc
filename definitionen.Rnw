@@ -308,6 +308,12 @@ range=seq(from=0,to=10,by=0.001);
 plot(range,dnorm(x=range,mean=mean,sd=sd),type='l')
 @
 
+\subsubsection{Erwartungswert}
+\[ E(X) = \mu \]
+
+\subsubsection{Varianz}
+\[ Var(X) = \sigma^2 \]
+
 \subsubsection{Kumulative Verteilungsfunktion}
 <<>>=
 q=7;
