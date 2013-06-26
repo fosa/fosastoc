@@ -286,6 +286,12 @@ range=seq(from=0,to=10,by=0.001);
 plot(range,dunif(x=range,min=min,max=max),type='l')
 @
 
+\subsubsection{Erwartungswert}
+\[ E(X) = \frac{\text{min} + \text{max}}{2} \]
+
+\subsubsection{Varianz}
+\[ Var(X) = \frac{(\text{max} - \text{min})^2}{12} \]
+
 \subsubsection{Kumulative Verteilungsfunktion}
 <<>>=
 q=3;

@@ -79,19 +79,19 @@ rechnen das arithmetische Mittel als auch die Standardabweichung (\verb!sd()!).
 > x
 \end{Sinput}
 \begin{Soutput}
- [1]  2  4  3 10  4  2  2  7  3  6
+ [1] 4 7 1 4 4 9 4 5 8 8
 \end{Soutput}
 \begin{Sinput}
 > mean(x)
 \end{Sinput}
 \begin{Soutput}
-[1] 4.3
+[1] 5.4
 \end{Soutput}
 \begin{Sinput}
 > sd(x)
 \end{Sinput}
 \begin{Soutput}
-[1] 2.626785
+[1] 2.503331
 \end{Soutput}
 \end{Schunk}
 
@@ -119,28 +119,28 @@ in der Messreihe, wo x\% der Werte darunter liegen.
 > x
 \end{Sinput}
 \begin{Soutput}
- [1]  1  1  2  2  3  5  5  7  7  7  8 10 11 12 13 14 14 14 14 15
+ [1]  2  2  3  3  4  4  5  5  5  6  6  6  8  8 12 16 16 18 18 19
 \end{Soutput}
 \begin{Sinput}
 > quantile(x, prob=0.2)
 \end{Sinput}
 \begin{Soutput}
 20% 
-2.8 
+3.8 
 \end{Soutput}
 \begin{Sinput}
 > quantile(x, prob=0.2, type=1)
 \end{Sinput}
 \begin{Soutput}
 20% 
-  2 
+  3 
 \end{Soutput}
 \begin{Sinput}
 > quantile(x, prob=0.2, type=2)
 \end{Sinput}
 \begin{Soutput}
 20% 
-2.5 
+3.5 
 \end{Soutput}
 \end{Schunk}
 Im obigen Beispiel wird mit R das 20\%-Quantil bestimmt. Hier ist aber 
@@ -188,7 +188,7 @@ arithmetischen Mittelwert. Sie ist das Quadrat der Standardabweichung.
 > var(x)
 \end{Sinput}
 \begin{Soutput}
-[1] 0.09143237
+[1] 0.09284416
 \end{Soutput}
 \end{Schunk}
 
@@ -203,7 +203,7 @@ eines Vektors mit sich selbst entspricht der Varianz des Vektors.
 > cov(x,y)
 \end{Sinput}
 \begin{Soutput}
-[1] 0.02833408
+[1] -0.02553059
 \end{Soutput}
 \end{Schunk}
 
@@ -219,7 +219,7 @@ zueinander. Der Wertebereich des Korrelationskoeffizienten ist $[-1, 1]$.
 > cor(x,y)
 \end{Sinput}
 \begin{Soutput}
-[1] 0.2621458
+[1] -0.3282449
 \end{Soutput}
 \end{Schunk}
 
@@ -406,6 +406,12 @@ nicht begrenzt ist. Sie ist ein Grenzfall der Binomialverteilung.
 \end{Sinput}
 \end{Schunk}
 \includegraphics{definitionen-017}
+
+\subsubsection{Erwartungswert}
+\[ E(X) = \frac{\text{min} + \text{max}}{2} \]
+
+\subsubsection{Varianz}
+\[ Var(X) = \frac{(\text{max} - \text{min})^2}{12} \]
 
 \subsubsection{Kumulative Verteilungsfunktion}
 \begin{Schunk}
