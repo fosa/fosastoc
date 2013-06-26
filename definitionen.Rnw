@@ -196,6 +196,13 @@ r=6;
 s=36;
 dhyper(x=k,m=r,n=s,k=n)
 @
+
+\subsubsection{Erwartungswert}
+\[ E(X) = n \cdot \frac{r}{N} \]
+\subsubsection{Varianz}
+\[ Var(X) = n \cdot \frac{r}{N} \cdot \left(1 - \frac{r}{N}\right) 
+\cdot \frac{N - n}{N - 1} \]
+
 \subsubsection{Kumulative Verteilungsfunktion}
 <<>>=
 q=1;
