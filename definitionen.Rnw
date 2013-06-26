@@ -234,6 +234,13 @@ x=3;
 p=0.2;
 dbinom(x=x,size=n,prob=p)
 @
+
+\subsubsection{Erwartungswert}
+\[ n \cdot p \]
+
+\subsubsection{Varianz}
+\[ n \cdot p \cdot (1 - p) \]
+
 \subsubsection{Kumulative Verteilungsfunktion}
 <<>>=
 q=3;
