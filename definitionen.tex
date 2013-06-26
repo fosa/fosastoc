@@ -79,19 +79,19 @@ rechnen das arithmetische Mittel als auch die Standardabweichung (\verb!sd()!).
 > x
 \end{Sinput}
 \begin{Soutput}
- [1] 9 7 2 4 3 5 8 2 9 2
+ [1] 7 2 5 1 8 6 4 5 5 6
 \end{Soutput}
 \begin{Sinput}
 > mean(x)
 \end{Sinput}
 \begin{Soutput}
-[1] 5.1
+[1] 4.9
 \end{Soutput}
 \begin{Sinput}
 > sd(x)
 \end{Sinput}
 \begin{Soutput}
-[1] 2.923088
+[1] 2.13177
 \end{Soutput}
 \end{Schunk}
 
@@ -119,28 +119,28 @@ in der Messreihe, wo x\% der Werte darunter liegen.
 > x
 \end{Sinput}
 \begin{Soutput}
- [1]  1  3  4  4  4  4  5  7  7  7  7  9  9 10 11 12 12 13 13 14
+ [1]  5  5  7  8  8 10 11 12 13 13 14 15 15 16 17 17 18 18 20 20
 \end{Soutput}
 \begin{Sinput}
 > quantile(x, prob=0.2)
 \end{Sinput}
 \begin{Soutput}
 20% 
-  4 
+  8 
 \end{Soutput}
 \begin{Sinput}
 > quantile(x, prob=0.2, type=1)
 \end{Sinput}
 \begin{Soutput}
 20% 
-  4 
+  8 
 \end{Soutput}
 \begin{Sinput}
 > quantile(x, prob=0.2, type=2)
 \end{Sinput}
 \begin{Soutput}
 20% 
-  4 
+  8 
 \end{Soutput}
 \end{Schunk}
 Im obigen Beispiel wird mit R das 20\%-Quantil bestimmt. Hier ist aber 
@@ -188,7 +188,7 @@ arithmetischen Mittelwert. Sie ist das Quadrat der Standardabweichung.
 > var(x)
 \end{Sinput}
 \begin{Soutput}
-[1] 0.09983702
+[1] 0.06182282
 \end{Soutput}
 \end{Schunk}
 
@@ -203,7 +203,7 @@ eines Vektors mit sich selbst entspricht der Varianz des Vektors.
 > cov(x,y)
 \end{Sinput}
 \begin{Soutput}
-[1] -0.005901314
+[1] -0.01862862
 \end{Soutput}
 \end{Schunk}
 
@@ -219,7 +219,7 @@ zueinander. Der Wertebereich des Korrelationskoeffizienten ist $[-1, 1]$.
 > cor(x,y)
 \end{Sinput}
 \begin{Soutput}
-[1] -0.06578789
+[1] -0.2630576
 \end{Soutput}
 \end{Schunk}
 
@@ -479,6 +479,12 @@ nicht begrenzt ist. Sie ist ein Grenzfall der Binomialverteilung.
 \end{Sinput}
 \end{Schunk}
 \includegraphics{definitionen-021}
+
+\subsubsection{Erwartungswert}
+\[ E(X) = \frac{1}{\lambda} \]
+
+\subsubsection{Varianz}
+\[ Var(X) = \frac{1}{\lambda^2} \]
 
 \subsubsection{Kumulative Verteilungsfunktion}
 \[ \begin{array}{@{}ll}

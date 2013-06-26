@@ -333,6 +333,12 @@ range=seq(from=0,to=10,by=0.001);
 plot(range,dexp(x=range,rate=lambda),type='l')
 @
 
+\subsubsection{Erwartungswert}
+\[ E(X) = \frac{1}{\lambda} \]
+
+\subsubsection{Varianz}
+\[ Var(X) = \frac{1}{\lambda^2} \]
+
 \subsubsection{Kumulative Verteilungsfunktion}
 \[ \begin{array}{@{}ll}
   \text{für }x \leq 0: & f(x) = 1 - e^{-\lambda \cdot x} \\
