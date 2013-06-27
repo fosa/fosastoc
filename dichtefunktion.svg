@@ -22,9 +22,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.4142136"
-     inkscape:cx="286.66513"
-     inkscape:cy="630.51248"
+     inkscape:zoom="2.8284272"
+     inkscape:cx="350.28178"
+     inkscape:cy="707.02356"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -191,7 +191,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -832,7 +832,7 @@
            style="fill:#000000;stroke-width:0" /></g>    </g>
     <g
        id="g4658-4"
-       transform="matrix(0.25,0,0,0.25,304.34971,249.52143)">
+       transform="matrix(0.25,0,0,0.25,226.39695,199.73974)">
       <g
          word-spacing="normal"
          letter-spacing="normal"
@@ -952,7 +952,7 @@
            style="fill:#000000;stroke-width:0" /></g>    </g>
     <g
        id="g4922-5"
-       transform="matrix(0.25,0,0,0.25,304.13711,262.55903)">
+       transform="matrix(0.25,0,0,0.25,226.18435,212.77734)">
       <g
          id="g4924-0"
          transform="matrix(1.0629921,0,0,-1.0629921,-186.02362,789.27165)"
@@ -1084,7 +1084,7 @@
            style="fill:#000000;stroke-width:0" /></g>    </g>
     <g
        id="g5254-0"
-       transform="matrix(0.25,0,0,0.25,304.03081,274.14919)">
+       transform="matrix(0.25,0,0,0.25,226.07805,224.3675)">
       <g
          word-spacing="normal"
          letter-spacing="normal"
@@ -1146,5 +1146,11 @@
            d="m 744.42,408.84 -0.01,0.13 -0.01,0.14 -0.01,0.13 -0.03,0.13 -0.03,0.12 -0.03,0.13 -0.04,0.12 -0.05,0.12 -0.05,0.12 -0.06,0.11 -0.07,0.11 -0.06,0.11 -0.08,0.1 -0.08,0.1 -0.08,0.1 -0.09,0.09 -0.09,0.09 -0.1,0.08 -0.1,0.08 -0.1,0.07 -0.11,0.07 -0.11,0.07 -0.11,0.06 -0.12,0.05 -0.12,0.05 -0.12,0.04 -0.12,0.04 -0.13,0.03 -0.13,0.02 -0.13,0.02 -0.14,0.01 -0.13,0 c -1.44,0 -2.64,-1.2 -2.64,-2.64 0,-1.44 1.2,-2.64 2.64,-2.64 1.45,0 2.64,1.2 2.64,2.64 z"
            inkscape:connector-curvature="0"
            style="fill:#000000;stroke-width:0" /></g>    </g>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 294.09449,287.00785 c -63.77953,31.88976 14.17323,95.66929 14.17323,95.66929"
+       id="path6408"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
   </g>
 </svg>

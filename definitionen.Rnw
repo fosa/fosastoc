@@ -299,7 +299,7 @@ ppois(q=q,lambda=lambda)
 Die Dichtefunktion ist definiert als Ableitung der kummulativen 
 Verteilungsfunktion.
 \[ \int f(x) := F(x) \qquad \Leftrightarrow \qquad
-   f(x) = \frac{\delta}{\delta x} F(x)  \]
+   f(x) = \frac{\delta}{d x} F(x)  \]
 
    \begin{figure}[h!]
            \centering
@@ -315,27 +315,27 @@ Dies impliziert, dass auch die folgenden Gesetzte gelten:
 	\item Das Integral einer Dichtefunktion über ein Intervall $[a,b]$
 		ist gleich der Differenz der kummulativen Wahrscheinlichkeiten
 		von $a$ und $b$.
-	\[ \int_{a}^{b} f(x) \delta x = F(b) - F(a) \]
+	\[ \int_{a}^{b} f(x) d x = F(b) - F(a) \]
 	\item Das Integral der Dichtefunktion über dem Intervall 
 		$[-\infty,\infty]$ ist genau $1$. Dies bedeutet, dass für
 		grosse $x$ die kummulative Verteilungsfunktion gegen $1$ geht
 		und für kleine $x$ gegen $0$.
-	\[ \int_{-\infty}^{+\infty} f(x) \delta x = 1 \]
+	\[ \int_{-\infty}^{+\infty} f(x) d x = 1 \]
 	\[ F(x) \xrightarrow{x \rightarrow +\infty} 1 \]
 	\[ F(x) \xrightarrow{x \rightarrow -\infty} 0 \]	
 \end{itemize}
 
 \subsubsection{Erwartungswert}
-\[ E(X) = \int_{-\infty}^{+\infty} x \cdot f(x) \delta x  \]
+\[ E(X) = \int_{-\infty}^{+\infty} x \cdot f(x) d x  \]
 
 \subsubsection{Varianz}
 \[ Var(X) = E(X^2) - E(X)^2 \qquad \qquad \text{weil} \qquad 
-   Var(X) = \int_{-\infty}^{\infty} (x-E(X))^2 f(x) \delta x \] 
+   Var(X) = \int_{-\infty}^{\infty} (x-E(X))^2 f(x) d x \] 
 
 \subsubsection{Standardabweichung}
 \[ \sigma_x = \sqrt{Var(X)} \]
 
-\subsubsection{Qunatile}
+\subsubsection{Quantile}
 \[ q(\alpha), \qquad \alpha=\{ 0 < \alpha < 1 \} \]
 \[ P(X \leq q(\alpha)) = \alpha \]
 \[ F(q(\alpha)) = \alpha \qquad 
