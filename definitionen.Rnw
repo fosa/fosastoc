@@ -150,7 +150,7 @@ Bei bedingten Wahrscheinlichkeiten gilt das sog. Beyes'sche Theorem.
         \caption{Übersicht zur Berechnung der bedingten Wahrscheinlichkeiten}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[h!]
         \centering
         \includegraphics[scale=\graphscale]{bedingte-wahrscheinlichkeit-detail.pdf}
         \caption{Übersicht mit berechneten Wahrscheinlichkeiten der Ereignisse}
@@ -158,7 +158,7 @@ Bei bedingten Wahrscheinlichkeiten gilt das sog. Beyes'sche Theorem.
 
 \begin{figure}[h!]
         \centering
-        \includegraphics[scale=\graphscale]{bedingte-wahrscheinlichkeit-tipps.pdf}
+        \includegraphics[scale=\graphscalesmall]{bedingte-wahrscheinlichkeit-tipps.pdf}
         \caption{Tipps zu Zusammenhängen bei bedingten Wahrscheinlichkeiten}
 \end{figure}
 
