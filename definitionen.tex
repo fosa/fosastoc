@@ -79,19 +79,19 @@ rechnen das arithmetische Mittel als auch die Standardabweichung (\verb!sd()!).
 > x
 \end{Sinput}
 \begin{Soutput}
- [1] 2 3 3 7 2 9 9 8 1 4
+ [1] 4 7 4 5 2 4 3 2 1 2
 \end{Soutput}
 \begin{Sinput}
 > mean(x)
 \end{Sinput}
 \begin{Soutput}
-[1] 4.8
+[1] 3.4
 \end{Soutput}
 \begin{Sinput}
 > sd(x)
 \end{Sinput}
 \begin{Soutput}
-[1] 3.119829
+[1] 1.776388
 \end{Soutput}
 \end{Schunk}
 
@@ -119,28 +119,28 @@ in der Messreihe, wo x\% der Werte darunter liegen.
 > x
 \end{Sinput}
 \begin{Soutput}
- [1]  1  2  2  4  4  9 10 10 11 11 11 15 15 16 17 17 18 19 19 20
+ [1]  2  5  6  7  7  8  8 10 11 11 13 13 13 16 17 17 18 18 19 20
 \end{Soutput}
 \begin{Sinput}
 > quantile(x, prob=0.2)
 \end{Sinput}
 \begin{Soutput}
 20% 
-  4 
+  7 
 \end{Soutput}
 \begin{Sinput}
 > quantile(x, prob=0.2, type=1)
 \end{Sinput}
 \begin{Soutput}
 20% 
-  4 
+  7 
 \end{Soutput}
 \begin{Sinput}
 > quantile(x, prob=0.2, type=2)
 \end{Sinput}
 \begin{Soutput}
 20% 
-  4 
+  7 
 \end{Soutput}
 \end{Schunk}
 Im obigen Beispiel wird mit R das 20\%-Quantil bestimmt. Hier ist aber 
@@ -188,7 +188,7 @@ arithmetischen Mittelwert. Sie ist das Quadrat der Standardabweichung.
 > var(x)
 \end{Sinput}
 \begin{Soutput}
-[1] 0.06259168
+[1] 0.09796649
 \end{Soutput}
 \end{Schunk}
 
@@ -203,7 +203,7 @@ eines Vektors mit sich selbst entspricht der Varianz des Vektors.
 > cov(x,y)
 \end{Sinput}
 \begin{Soutput}
-[1] 0.02115893
+[1] -0.0004850726
 \end{Soutput}
 \end{Schunk}
 
@@ -219,7 +219,7 @@ zueinander. Der Wertebereich des Korrelationskoeffizienten ist $[-1, 1]$.
 > cor(x,y)
 \end{Sinput}
 \begin{Soutput}
-[1] 0.4257726
+[1] -0.005098886
 \end{Soutput}
 \end{Schunk}
 
@@ -903,6 +903,30 @@ darf aber nicht aus den Daten gebildet werden, sondern muss bekannt sein
 (z.B. aus der Nullhypothese ($\mu_0$)). Ist ein Datenpunkt grösser als der 
 Median wird er als positiv betrachtet, ansonsten als negativ. Darauf kann dann 
 ein Binomialtest angewendet werden. 
+\subsubsection{Vorzeichentest mit R}
+Für den Vorzeichentest muss zunächst jeder Datenpunkt mit dem Median verglichen 
+werden. Das kann man in R mit \verb!>! gemacht werden. \\
+% \verb!binom.test(x=sum(data>mu),length(data),p=0.5,alternative='less',conf.level=0.95)!
+\begin{Schunk}
+\begin{Sinput}
+> data=runif(120,10,35)               # Daten erfassen
+> mu=25                               # Median erfassen
+> # Vorzeichentest
+> binom.test(x=sum(data>mu),length(data),p=0.5,alternative='less',conf.level=0.95)
+\end{Sinput}
+\begin{Soutput}
+	Exact binomial test
+
+data:  sum(data > mu) and length(data) 
+number of successes = 51, number of trials = 120, p-value = 0.06016
+alternative hypothesis: true probability of success is less than 0.5 
+95 percent confidence interval:
+ 0.0000000 0.5041721 
+sample estimates:
+probability of success 
+                 0.425 
+\end{Soutput}
+\end{Schunk}
 
 \subsection{gepaarter Test}
 Bei einem Test mit zwei Messreihen mit jeweils den identischen Bedingungen, 
@@ -939,7 +963,7 @@ die Summe aller Wahrscheinlichkeiten rechts von der Beobachtung (20).
 > abline(v=20, col='red')
 \end{Sinput}
 \end{Schunk}
-\includegraphics{definitionen-027}
+\includegraphics{definitionen-028}
 
 \noindent
 Der P-Value wird also genau gleich wie das $\alpha$-Quantil berechnet.
@@ -963,7 +987,7 @@ QQ-Plot. Sind die Verteilungen nicht gleich, so gibt es keine Gerade.
 > qqplot(daten.A, daten.B)
 \end{Sinput}
 \end{Schunk}
-\includegraphics{definitionen-028}
+\includegraphics{definitionen-029}
 
 \subsection{QQ-Norm}
 Oft hat man aber nur eine Datenreihe die man auf eine bestimmte 
@@ -979,7 +1003,7 @@ eine Datenreihe gegen die Normalverteilung zu vergleichen.
 > qqline(daten.A)
 \end{Sinput}
 \end{Schunk}
-\includegraphics{definitionen-029}
+\includegraphics{definitionen-030}
 
 \noindent
 Im Beispiel wird eine Datenreihe welche binomialverteilt ist gegen
@@ -1002,7 +1026,7 @@ Binomialverteilung.
 > qqline(daten.C)
 \end{Sinput}
 \end{Schunk}
-\includegraphics{definitionen-030}
+\includegraphics{definitionen-031}
 
 \noindent
 Im Beispiel ist deutlich zu sehen, dass die ideale und die reale Line 
