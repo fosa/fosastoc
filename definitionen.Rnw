@@ -446,6 +446,35 @@ q=3;
 pexp(q=q,rate=lambda)
 @
 
+\subsection{Übersicht Berechnung stetiger Verteilungen mit R}
+\begin{tabular}{@{}lllll}
+  \rowcolor{lgray}Verteilung &
+    Dichte & 
+    höchstens & 
+    mindestens &
+    Zufall \\
+  Uniform &
+    \verb!dunif(x=A,...)! &
+    \verb!punif(q=A,...)! &
+    \verb!1-punif(q=A,...)! &
+    \verb!runif(n=...)!\\
+  Normal &
+    \verb!dnorm(x=A,...)! &
+    \verb!pnorm(q=A,...)! &
+    \verb!1-pnorm(q=A,...)! &
+    \verb!rnorm(n=...)!\\
+  Exponential &
+    \verb!dexp(x=A,...)! &
+    \verb!pexp(q=A,...)! &
+    \verb!1-pexp(q=A,...)! &
+    \verb!rexp(n=...)!\\
+  t &
+    \verb!dt(x=A,...)! &
+    \verb!pt(q=A,...)! &
+    \verb!1-pt(q=A,...)! &
+    \verb!rt(n=...)!
+\end{tabular}
+
 \section{Statistischer Test}
 Beim statistischen Test wird überprüft, ob eine statistische Verteilung zu 
 ermittelten Daten passt. Dieser Test besteht aus 6 Schritten. 
