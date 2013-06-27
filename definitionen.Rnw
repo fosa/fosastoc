@@ -295,6 +295,23 @@ ppois(q=q,lambda=lambda)
 
 \section{Stetige Verteilungen}
 
+\subsection{Dichtefunktion}
+Die Dichtefunktion ist definiert als Ableitung der kummulativen 
+Verteilungsfunktion.
+\[ \int f(x) := F(x) \qquad \Leftrightarrow \qquad
+   f(x) = \frac{\delta}{\delta x} F(x)  \]
+
+Dies impliziert, dass auch die folgenden Gesetzte gelten:
+\begin{itemize}
+	\item $ f(x) \geq 0 $
+	\item $ \int_{a}^{b} f(x) \delta x = F(b) - F(a) $
+	\item $ \int_{-\infty}^{+\infty} f(x) \delta x = 1 $
+\end{itemize}
+
+	
+\subsection{}
+
+
 \subsection{Uniform}
 <<fig=TRUE>>=
 x=3;
