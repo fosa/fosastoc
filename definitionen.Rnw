@@ -155,6 +155,7 @@ cor(x,y)
 \[ P(E) = \frac{\text{\# positive Elementarereignisse}}
 {\text{\# mögliche Elementarereignisse}} \]
 
+\newpage
 \section{Bedingte Wahrscheinlichkeit}
 Bei bedingten Wahrscheinlichkeiten gilt das sog. Beyes'sche Theorem.
 \[ \boxed{ P_B(A) = P(A|B) = \frac{P(A \cap B)}{P(B)} = \frac{P(B|A)\cdot P(A)}{P(B)} } \]
