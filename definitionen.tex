@@ -79,19 +79,19 @@ rechnen das arithmetische Mittel als auch die Standardabweichung (\verb!sd()!).
 > x
 \end{Sinput}
 \begin{Soutput}
- [1]  8  5 10  4  1  8  8  8  5  7
+ [1]  9  6  4 10 10  6  5  4  5  9
 \end{Soutput}
 \begin{Sinput}
 > mean(x)
 \end{Sinput}
 \begin{Soutput}
-[1] 6.4
+[1] 6.8
 \end{Soutput}
 \begin{Sinput}
 > sd(x)
 \end{Sinput}
 \begin{Soutput}
-[1] 2.633122
+[1] 2.440401
 \end{Soutput}
 \end{Schunk}
 
@@ -119,28 +119,28 @@ in der Messreihe, wo x\% der Werte darunter liegen.
 > x
 \end{Sinput}
 \begin{Soutput}
- [1]  2  3  3  5  5  6  8  9 10 10 10 11 11 11 12 14 17 19 20 20
+ [1]  2  2  4  4  5  6  7  9 10 11 12 12 13 13 14 15 15 16 19 20
 \end{Soutput}
 \begin{Sinput}
 > quantile(x, prob=0.2)
 \end{Sinput}
 \begin{Soutput}
 20% 
-  5 
+4.8 
 \end{Soutput}
 \begin{Sinput}
 > quantile(x, prob=0.2, type=1)
 \end{Sinput}
 \begin{Soutput}
 20% 
-  5 
+  4 
 \end{Soutput}
 \begin{Sinput}
 > quantile(x, prob=0.2, type=2)
 \end{Sinput}
 \begin{Soutput}
 20% 
-  5 
+4.5 
 \end{Soutput}
 \end{Schunk}
 Im obigen Beispiel wird mit R das 20\%-Quantil bestimmt. Hier ist aber 
@@ -188,7 +188,7 @@ arithmetischen Mittelwert. Sie ist das Quadrat der Standardabweichung.
 > var(x)
 \end{Sinput}
 \begin{Soutput}
-[1] 0.09051256
+[1] 0.05004919
 \end{Soutput}
 \end{Schunk}
 
@@ -203,7 +203,7 @@ eines Vektors mit sich selbst entspricht der Varianz des Vektors.
 > cov(x,y)
 \end{Sinput}
 \begin{Soutput}
-[1] -0.006011704
+[1] 0.01462776
 \end{Soutput}
 \end{Schunk}
 
@@ -219,7 +219,7 @@ zueinander. Der Wertebereich des Korrelationskoeffizienten ist $[-1, 1]$.
 > cor(x,y)
 \end{Sinput}
 \begin{Soutput}
-[1] -0.1021971
+[1] 0.2906001
 \end{Soutput}
 \end{Schunk}
 
@@ -640,8 +640,8 @@ machen für jede Farbe einen statistischen Test.
 > round(1-pbinom(q=0:18, size=18, prob=1/6), 3)
 \end{Sinput}
 \begin{Soutput}
- [1] 0.962 0.827 0.597 0.352 0.168 0.065 0.021 0.005 0.001 0.000 0.000 0.000
-[13] 0.000 0.000 0.000 0.000 0.000 0.000 0.000
+ [1] 0.962 0.827 0.597 0.352 0.168 0.065 0.021 0.005 0.001 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000
+[19] 0.000
 \end{Soutput}
 \end{Schunk}
 	Vorsicht: Berechnet man den Verwerfungbereich mit R so muss man sehr
@@ -741,12 +741,11 @@ Wir möchten das auf einem Signifikanzniveau von $\alpha=0.05$ testen.
 \begin{Soutput}
 	One Sample z-test
 
-data:  weinmenge
-z = 0.433, n = 12.000, Std. Dev. = 2.000, Std. Dev. of the sample mean
-= 0.577, p-value = 0.6675
-alternative hypothesis: true mean is less than 70
+data:  weinmenge 
+z = 0.433, n = 12.000, Std. Dev. = 2.000, Std. Dev. of the sample mean = 0.577, p-value = 0.6675
+alternative hypothesis: true mean is less than 70 
 95 percent confidence interval:
-     -Inf 71.19966
+     -Inf 71.19966 
 sample estimates:
 mean of weinmenge 
             70.25 
@@ -820,11 +819,11 @@ von $\alpha=0.05$ testen.
 \begin{Soutput}
 	One Sample t-test
 
-data:  weinmenge
+data:  weinmenge 
 t = 0.4419, df = 11, p-value = 0.6664
-alternative hypothesis: true mean is less than 70
+alternative hypothesis: true mean is less than 70 
 95 percent confidence interval:
-     -Inf 71.26603
+     -Inf 71.26603 
 sample estimates:
 mean of x 
     70.25 
@@ -847,14 +846,33 @@ Berechnung des Wilcoxon Rangsummen Tests eingegangen. Berechnung in R:
 \begin{Soutput}
 	Wilcoxon signed rank test with continuity correction
 
-data:  weinmenge
+data:  weinmenge 
 V = 44.5, p-value = 0.6838
-alternative hypothesis: true location is less than 70
+alternative hypothesis: true location is less than 70 
 \end{Soutput}
 \end{Schunk}
 
 \subsection{Vorzeichen-Test}
 
+\subsection{gepaarter Test}
+Bei einem Test mit zwei Messreihen mit jeweils den identischen Bedingungen, 
+(z.B. beide Tests mit dem gleichen Individuum) kann ein gepaarter Test 
+durchgeführt werden. Dafür wird für jeden Messpunkt die Differenz der 
+Datenreihen verwendet und mit dieser neuen Datenreihe weitergerechnet. 
+
+\subsubsection{gepaarter Test mit R}
+Für einen gepaarten Test muss die Option \verb!paired=TRUE! verwendet werden. \\
+\verb!t.test(x=man,y=fem,alternative='less',paired=TRUE)!
+
+\subsection{ungepaarter Test}
+Der ungepaarte Test muss für das Modul STOC nur mit R berechnet werden. 
+\subsection{ungepaarter Test mit R}
+Dafür kann die Option \verb!paired=FALSE! verwendet werden. Diese ist per 
+Default so gesetzt, wenn der Test mit zwei Datenreihen durchgeführt wird. \\
+\verb!t.test(x=man,y=fem,alternative='less',paired=FALSE)!\\
+Besitzen die beiden Datenreihen die gleiche Varianz, so muss das mit der Option 
+\verb!var.equal=TRUE! definiert werden. \\
+\verb!t.test(x=man,y=fem,alternative='less',paired=FALSE,var.equal=TRUE)!
 
 \section{P-Wert}
 Der P-Wert (engl. oder R \emph{P-Value}) ist die Summe der 

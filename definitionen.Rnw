@@ -659,6 +659,25 @@ wilcox.test(x=weinmenge,mu=70,alternative='less')
 
 \subsection{Vorzeichen-Test}
 
+\subsection{gepaarter Test}
+Bei einem Test mit zwei Messreihen mit jeweils den identischen Bedingungen, 
+(z.B. beide Tests mit dem gleichen Individuum) kann ein gepaarter Test 
+durchgeführt werden. Dafür wird für jeden Messpunkt die Differenz der 
+Datenreihen verwendet und mit dieser neuen Datenreihe weitergerechnet. 
+
+\subsubsection{gepaarter Test mit R}
+Für einen gepaarten Test muss die Option \verb!paired=TRUE! verwendet werden. \\
+\verb!t.test(x=man,y=fem,alternative='less',paired=TRUE)!
+
+\subsection{ungepaarter Test}
+Der ungepaarte Test muss für das Modul STOC nur mit R berechnet werden. 
+\subsection{ungepaarter Test mit R}
+Dafür kann die Option \verb!paired=FALSE! verwendet werden. Diese ist per 
+Default so gesetzt, wenn der Test mit zwei Datenreihen durchgeführt wird. \\
+\verb!t.test(x=man,y=fem,alternative='less',paired=FALSE)!\\
+Besitzen die beiden Datenreihen die gleiche Varianz, so muss das mit der Option 
+\verb!var.equal=TRUE! definiert werden. \\
+\verb!t.test(x=man,y=fem,alternative='less',paired=FALSE,var.equal=TRUE)!
 
 \section{P-Wert}
 Der P-Wert (engl. oder R \emph{P-Value}) ist die Summe der 
