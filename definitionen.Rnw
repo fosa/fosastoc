@@ -932,8 +932,12 @@ es ermittelt $\beta_0$ und $\beta_1$.
 
 
 \subsubsection{fitted() und resid()}
-
-
+\verb!fitted()! erzeugt Datenpunkte die auf der Regressionsgerade liegen. 
+\verb!resid()! erzeugt Datenpunkte die den Wert des Fehlers der ursprünglichen 
+Datenpunkte gegenüber der Regressionsgerade aufweisen. \\
+\verb!myreg <- lm(y !$\sim$\verb! x)! \\
+\verb!ideal <- fitted(myreg)! \\
+\verb!fehler <- resid(myreg)!
 
 \subsection{Vertrauensintervall}
 Das Vertrauensintervall gibt an, wie verlässlich die berechneten Parameter

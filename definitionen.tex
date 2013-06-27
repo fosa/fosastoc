@@ -79,19 +79,19 @@ rechnen das arithmetische Mittel als auch die Standardabweichung (\verb!sd()!).
 > x
 \end{Sinput}
 \begin{Soutput}
- [1] 2 6 8 7 9 8 5 2 4 7
+ [1] 4 6 2 3 7 6 3 2 8 2
 \end{Soutput}
 \begin{Sinput}
 > mean(x)
 \end{Sinput}
 \begin{Soutput}
-[1] 5.8
+[1] 4.3
 \end{Soutput}
 \begin{Sinput}
 > sd(x)
 \end{Sinput}
 \begin{Soutput}
-[1] 2.485514
+[1] 2.263233
 \end{Soutput}
 \end{Schunk}
 
@@ -119,28 +119,28 @@ in der Messreihe, wo x\% der Werte darunter liegen.
 > x
 \end{Sinput}
 \begin{Soutput}
- [1]  2  2  2  2  2  3  4  7  7  8  8  9  9  9 13 14 15 15 18 19
+ [1]  1  1  2  5  5  5  6  6  7  9 10 11 12 12 12 14 14 18 19 19
 \end{Soutput}
 \begin{Sinput}
 > quantile(x, prob=0.2)
 \end{Sinput}
 \begin{Soutput}
 20% 
-  2 
+  5 
 \end{Soutput}
 \begin{Sinput}
 > quantile(x, prob=0.2, type=1)
 \end{Sinput}
 \begin{Soutput}
 20% 
-  2 
+  5 
 \end{Soutput}
 \begin{Sinput}
 > quantile(x, prob=0.2, type=2)
 \end{Sinput}
 \begin{Soutput}
 20% 
-  2 
+  5 
 \end{Soutput}
 \end{Schunk}
 Im obigen Beispiel wird mit R das 20\%-Quantil bestimmt. Hier ist aber 
@@ -188,7 +188,7 @@ arithmetischen Mittelwert. Sie ist das Quadrat der Standardabweichung.
 > var(x)
 \end{Sinput}
 \begin{Soutput}
-[1] 0.09006661
+[1] 0.06968892
 \end{Soutput}
 \end{Schunk}
 
@@ -203,7 +203,7 @@ eines Vektors mit sich selbst entspricht der Varianz des Vektors.
 > cov(x,y)
 \end{Sinput}
 \begin{Soutput}
-[1] -0.04171591
+[1] -0.02192351
 \end{Soutput}
 \end{Schunk}
 
@@ -219,7 +219,7 @@ zueinander. Der Wertebereich des Korrelationskoeffizienten ist $[-1, 1]$.
 > cor(x,y)
 \end{Sinput}
 \begin{Soutput}
-[1] -0.4500696
+[1] -0.3467768
 \end{Soutput}
 \end{Schunk}
 
@@ -970,13 +970,13 @@ werden. Das kann man in R mit \verb!>! gemacht werden. \\
 	Exact binomial test
 
 data:  sum(data > mu) and length(data) 
-number of successes = 52, number of trials = 120, p-value = 0.08532
+number of successes = 49, number of trials = 120, p-value = 0.02739
 alternative hypothesis: true probability of success is less than 0.5 
 95 percent confidence interval:
- 0.0000000 0.5125242 
+ 0.0000000 0.4874044 
 sample estimates:
 probability of success 
-             0.4333333 
+             0.4083333 
 \end{Soutput}
 \end{Schunk}
 
@@ -1153,8 +1153,12 @@ es ermittelt $\beta_0$ und $\beta_1$.
 
 
 \subsubsection{fitted() und resid()}
-
-
+\verb!fitted()! erzeugt Datenpunkte die auf der Regressionsgerade liegen. 
+\verb!resid()! erzeugt Datenpunkte die den Wert des Fehlers der ursprünglichen 
+Datenpunkte gegenüber der Regressionsgerade aufweisen. \\
+\verb!myreg <- lm(y !$\sim$\verb! x)! \\
+\verb!ideal <- fitted(myreg)! \\
+\verb!fehler <- resid(myreg)!
 
 \subsection{Vertrauensintervall}
 Das Vertrauensintervall gibt an, wie verlässlich die berechneten Parameter
