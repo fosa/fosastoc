@@ -301,6 +301,12 @@ Verteilungsfunktion.
 \[ \int f(x) := F(x) \qquad \Leftrightarrow \qquad
    f(x) = \frac{\delta}{\delta x} F(x)  \]
 
+   \begin{figure}[h!]
+           \centering
+           \includegraphics[scale=\graphscale]{dichtefunktion.pdf}
+           \caption{Dichtefunktion $f(x)$ und kummulative Verteilungsfunktion $F(x)$.}
+   \end{figure}
+
 \noindent
 Dies impliziert, dass auch die folgenden Gesetzte gelten:
 \begin{itemize}
@@ -335,7 +341,13 @@ Dies impliziert, dass auch die folgenden Gesetzte gelten:
 \[ F(q(\alpha)) = \alpha \qquad 
    \Leftrightarrow \qquad F^{-1}(\alpha) = q(\alpha)\]
 
-% HIER KOMMT DIE GRAFIK REIN FÜR DIE QUANTILE DER STETIGEN VERTEILUNG
+\begin{figure}[h!]
+        \centering
+        \includegraphics[scale=\graphscale]{dichtefunktion-quantile.pdf}
+        \caption{Quantil $\alpha$ als Fläche in der Dichtefunktion $f(x)$ und
+                 als Höhe in der kummulativen Verteilungsfunktion $F(x)$.}
+\end{figure}
+
 
 \subsection{Uniform}
 <<fig=TRUE>>=
