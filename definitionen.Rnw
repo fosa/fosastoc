@@ -293,6 +293,26 @@ q=3;
 ppois(q=q,lambda=lambda)
 @
 
+\subsection{Übersicht Berechnung diskreter Verteilungen mit R}
+\begin{tabular}{@{}llll}
+  \rowcolor{lgray}Verteilung &
+    genau & 
+    höchstens & 
+    mindestens \\
+  Hyper &
+    \verb!dhyper(x=A,...)! &
+    \verb!phyper(q=A,...)! &
+    \verb!1-phyper(q=A-1,...)! \\
+  Binom &
+    \verb!dbinom(x=A,...)! &
+    \verb!pbinom(q=A,...)! &
+    \verb!1-pbinom(q=A-1,...)! \\
+  Poisson &
+    \verb!dpois(x=A,...)! &
+    \verb!ppois(q=A,...)! &
+    \verb!1-ppois(q=A-1,...)! 
+\end{tabular}
+
 \section{Stetige Verteilungen}
 
 \subsection{Dichtefunktion}

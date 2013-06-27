@@ -79,19 +79,19 @@ rechnen das arithmetische Mittel als auch die Standardabweichung (\verb!sd()!).
 > x
 \end{Sinput}
 \begin{Soutput}
- [1] 4 7 4 5 2 4 3 2 1 2
+ [1] 10  7  8  6  8  3 10  4 10  5
 \end{Soutput}
 \begin{Sinput}
 > mean(x)
 \end{Sinput}
 \begin{Soutput}
-[1] 3.4
+[1] 7.1
 \end{Soutput}
 \begin{Sinput}
 > sd(x)
 \end{Sinput}
 \begin{Soutput}
-[1] 1.776388
+[1] 2.558211
 \end{Soutput}
 \end{Schunk}
 
@@ -119,28 +119,28 @@ in der Messreihe, wo x\% der Werte darunter liegen.
 > x
 \end{Sinput}
 \begin{Soutput}
- [1]  2  5  6  7  7  8  8 10 11 11 13 13 13 16 17 17 18 18 19 20
+ [1]  1  2  2  3  6  6  6  7 10 10 10 11 11 14 15 15 18 19 19 20
 \end{Soutput}
 \begin{Sinput}
 > quantile(x, prob=0.2)
 \end{Sinput}
 \begin{Soutput}
 20% 
-  7 
+5.4 
 \end{Soutput}
 \begin{Sinput}
 > quantile(x, prob=0.2, type=1)
 \end{Sinput}
 \begin{Soutput}
 20% 
-  7 
+  3 
 \end{Soutput}
 \begin{Sinput}
 > quantile(x, prob=0.2, type=2)
 \end{Sinput}
 \begin{Soutput}
 20% 
-  7 
+4.5 
 \end{Soutput}
 \end{Schunk}
 Im obigen Beispiel wird mit R das 20\%-Quantil bestimmt. Hier ist aber 
@@ -188,7 +188,7 @@ arithmetischen Mittelwert. Sie ist das Quadrat der Standardabweichung.
 > var(x)
 \end{Sinput}
 \begin{Soutput}
-[1] 0.09796649
+[1] 0.08804273
 \end{Soutput}
 \end{Schunk}
 
@@ -203,7 +203,7 @@ eines Vektors mit sich selbst entspricht der Varianz des Vektors.
 > cov(x,y)
 \end{Sinput}
 \begin{Soutput}
-[1] -0.0004850726
+[1] -0.01377807
 \end{Soutput}
 \end{Schunk}
 
@@ -219,7 +219,7 @@ zueinander. Der Wertebereich des Korrelationskoeffizienten ist $[-1, 1]$.
 > cor(x,y)
 \end{Sinput}
 \begin{Soutput}
-[1] -0.005098886
+[1] -0.1474348
 \end{Soutput}
 \end{Schunk}
 
@@ -405,6 +405,26 @@ nicht begrenzt ist. Sie ist ein Grenzfall der Binomialverteilung.
 [1] 0.8571235
 \end{Soutput}
 \end{Schunk}
+
+\subsection{Übersicht Berechnung diskreter Verteilungen mit R}
+\begin{tabular}{@{}llll}
+  \rowcolor{lgray}Verteilung &
+    genau & 
+    höchstens & 
+    mindestens \\
+  Hyper &
+    \verb!dhyper(x=A,...)! &
+    \verb!phyper(q=A,...)! &
+    \verb!1-phyper(q=A-1,...)! \\
+  Binom &
+    \verb!dbinom(x=A,...)! &
+    \verb!pbinom(q=A,...)! &
+    \verb!1-pbinom(q=A-1,...)! \\
+  Poisson &
+    \verb!dpois(x=A,...)! &
+    \verb!ppois(q=A,...)! &
+    \verb!1-ppois(q=A-1,...)! 
+\end{tabular}
 
 \section{Stetige Verteilungen}
 
@@ -918,13 +938,13 @@ werden. Das kann man in R mit \verb!>! gemacht werden. \\
 	Exact binomial test
 
 data:  sum(data > mu) and length(data) 
-number of successes = 51, number of trials = 120, p-value = 0.06016
+number of successes = 42, number of trials = 120, p-value = 0.0006497
 alternative hypothesis: true probability of success is less than 0.5 
 95 percent confidence interval:
- 0.0000000 0.5041721 
+ 0.0000000 0.4280282 
 sample estimates:
 probability of success 
-                 0.425 
+                  0.35 
 \end{Soutput}
 \end{Schunk}
 
