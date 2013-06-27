@@ -876,18 +876,28 @@ bzw. die Datenreihe ist nicht normalverteilt.
 
 \subsection{Definition}
 \[ Y = \beta_0 + \beta_1 \cdot x + \epsilon \]
+
 \subsubsection{Linear}
 Kommt der Parameter $\beta_1$ nur in der ersten Potenz vor, so nennt man die
 Regression linear.
+
 \subsubsection{Einfach}
 Kommt die unabhängige Variable $x$ nur in der erten Potenz vor, so nennt man 
 die Regression einfach.
+
 \subsubsection{Residuen}
 \emph{Residuum} ist ein anderes Wort für Rest (Abweichung, Fehler),
 \emph{Residuen} ist das Plural davon.
 Spricht man bei der Regression von einem Residuum, so meint man damit z.B.
 die Abweichung von den Daten zu dem Idealwerten die man erhält (bei Anwendung
 der ermittelten Parameter $\beta_0$ und $\beta_1$).
+
+\subsubsection{lm(\ldots)}
+Mit \verb!lm()! kann die lineare Regression in R durchgeführt  werden. Dabei 
+muss als erste Variable die y-Achse gefolgt von $\sim$ und der x-Achse angegeben 
+werden. \\
+\verb!lm(y !$\sim$\verb! x)!
+
 \subsubsection{summary(lm(\dots))}
 \verb!lm()! ermittelt die Parameter für die einfache lineare Regression, d.h.
 es ermittelt $\beta_0$ und $\beta_1$.
