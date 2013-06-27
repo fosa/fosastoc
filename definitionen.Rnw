@@ -442,6 +442,13 @@ ermittelten Daten passt. Dieser Test besteht aus 6 Schritten.
         Messwert mit Verwerfungsbereich vergleichen
 \end{enumerate}
 
+\subsection{Entscheidungsbaum}
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=1\textwidth]{testauswahl.pdf}
+  \caption{Entscheidungsbaum für den statistischen Test}
+\end{figure}
+
 \subsection{Wirkungstabelle}
 Ein Signifikanztest kann zu folgenden Entscheidungen führen.
 

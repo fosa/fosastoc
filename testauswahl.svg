@@ -13,7 +13,7 @@
    height="297mm"
    id="svg2"
    version="1.1"
-   inkscape:version="0.48.4 r9939"
+   inkscape:version="0.48.3.1 r9886"
    sodipodi:docname="testauswahl.svg">
   <defs
      id="defs4">
@@ -106,8 +106,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.1716158"
-     inkscape:cx="574.72954"
-     inkscape:cy="576.47056"
+     inkscape:cx="569.50103"
+     inkscape:cy="609.33275"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -126,10 +126,10 @@
      inkscape:snap-center="true"
      inkscape:snap-page="true"
      inkscape:connector-spacing="3"
-     inkscape:window-width="1600"
-     inkscape:window-height="816"
-     inkscape:window-x="-8"
-     inkscape:window-y="-8"
+     inkscape:window-width="1598"
+     inkscape:window-height="879"
+     inkscape:window-x="0"
+     inkscape:window-y="19"
      inkscape:window-maximized="1">
     <inkscape:grid
        type="xygrid"
@@ -488,40 +488,36 @@
     <text
        xml:space="preserve"
        style="font-size:20px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Century Schoolbook L;-inkscape-font-specification:Century Schoolbook L Medium"
-       x="975"
-       y="597.36218"
+       x="974.8136"
+       y="607.67218"
        id="text6240-8"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
-         x="975"
-         y="597.36218"
-         id="tspan4384">???</tspan><tspan
-         sodipodi:role="line"
-         x="975"
-         y="622.36218"
-         id="tspan4409">???</tspan></text>
+         x="974.8136"
+         y="607.67218"
+         id="tspan4409">Symmetrisch?</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:20px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Century Schoolbook L;-inkscape-font-specification:Century Schoolbook L Medium"
-       x="875.02441"
-       y="734.4032"
+       x="875.08673"
+       y="734.58215"
        id="text6258-5"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
-         x="875.02441"
-         y="734.4032"
-         id="tspan6262-1">Vorzeichen-Test</tspan></text>
+         x="875.08673"
+         y="734.58215"
+         id="tspan6262-1">Wilcoxon-Test</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:20px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Century Schoolbook L;-inkscape-font-specification:Century Schoolbook L Medium"
-       x="1074.9463"
-       y="734.4032"
+       x="1075.2267"
+       y="734.58215"
        id="text6264-7"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
-         x="1074.9463"
-         y="734.4032"
-         id="tspan6268-1">Wilcoxon-Test</tspan></text>
+         x="1075.2267"
+         y="734.58215"
+         id="tspan6268-1">Vorzeichen-Test</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:20px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Century Schoolbook L;-inkscape-font-specification:Century Schoolbook L Medium"
