@@ -301,16 +301,41 @@ Verteilungsfunktion.
 \[ \int f(x) := F(x) \qquad \Leftrightarrow \qquad
    f(x) = \frac{\delta}{\delta x} F(x)  \]
 
+\noindent
 Dies impliziert, dass auch die folgenden Gesetzte gelten:
 \begin{itemize}
-	\item $ f(x) \geq 0 $
-	\item $ \int_{a}^{b} f(x) \delta x = F(b) - F(a) $
-	\item $ \int_{-\infty}^{+\infty} f(x) \delta x = 1 $
+	\item Die Dichte zu einem Punkt ist immer grösser oder gleich Null.
+	\[ f(x) \geq 0 \]
+	\item Das Integral einer Dichtefunktion über ein Intervall $[a,b]$
+		ist gleich der Differenz der kummulativen Wahrscheinlichkeiten
+		von $a$ und $b$.
+	\[ \int_{a}^{b} f(x) \delta x = F(b) - F(a) \]
+	\item Das Integral der Dichtefunktion über dem Intervall 
+		$[-\infty,\infty]$ ist genau $1$. Dies bedeutet, dass für
+		grosse $x$ die kummulative Verteilungsfunktion gegen $1$ geht
+		und für kleine $x$ gegen $0$.
+	\[ \int_{-\infty}^{+\infty} f(x) \delta x = 1 \]
+	\[ F(x) \xrightarrow{x \rightarrow +\infty} 1 \]
+	\[ F(x) \xrightarrow{x \rightarrow -\infty} 0 \]	
 \end{itemize}
 
-	
-\subsection{}
+\subsubsection{Erwartungswert}
+\[ E(X) = \int_{-\infty}^{+\infty} x \cdot f(x) \delta x  \]
 
+\subsubsection{Varianz}
+\[ Var(X) = E(X^2) - E(X)^2 \qquad \qquad \text{weil} \qquad 
+   Var(X) = \int_{-\infty}^{\infty} (x-E(X))^2 f(x) \delta x \] 
+
+\subsubsection{Standardabweichung}
+\[ \sigma_x = \sqrt{Var(X)} \]
+
+\subsubsection{Qunatile}
+\[ q(\alpha), \qquad \alpha=\{ 0 < \alpha < 1 \} \]
+\[ P(X \leq q(\alpha)) = \alpha \]
+\[ F(q(\alpha)) = \alpha \qquad 
+   \Leftrightarrow \qquad F^{-1}(\alpha) = q(\alpha)\]
+
+% HIER KOMMT DIE GRAFIK REIN FÜR DIE QUANTILE DER STETIGEN VERTEILUNG
 
 \subsection{Uniform}
 <<fig=TRUE>>=
