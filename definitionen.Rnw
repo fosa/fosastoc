@@ -695,13 +695,19 @@ die Beobachtungen liegen nicht im Verwerfungsbereich!
 
 \subsection{Wilcoxon Rangsummen Test}
 Der Wilcoxon Rangsummen Test wird auf Verteilungen angewendet, die keine 
-Normalverteilung aufweisen. Im Rahmen des Moduls Stochastik wird nicht auf die 
-Berechnung des Wilcoxon Rangsummen Tests eingegangen. Berechnung in R: 
+Normalverteilung aufweisen und symmetrisch verteilt sind. Im Rahmen des Moduls 
+Stochastik wird nicht auf die Berechnung des Wilcoxon Rangsummen Tests 
+eingegangen. Berechnung in R: 
 <<>>=
 wilcox.test(x=weinmenge,mu=70,alternative='less')
 @
 
 \subsection{Vorzeichen-Test}
+Beim Vorzeichentest werden die Daten mit dem Median verglichen. Dieser Median 
+darf aber nicht aus den Daten gebildet werden, sondern muss bekannt sein 
+(z.B. aus der Nullhypothese ($\mu_0$)). Ist ein Datenpunkt grösser als der 
+Median wird er als positiv betrachtet, ansonsten als negativ. Darauf kann dann 
+ein Binomialtest angewendet werden. 
 
 \subsection{gepaarter Test}
 Bei einem Test mit zwei Messreihen mit jeweils den identischen Bedingungen, 
