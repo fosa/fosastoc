@@ -939,6 +939,15 @@ Datenpunkte gegenüber der Regressionsgerade aufweisen. \\
 \verb!ideal <- fitted(myreg)! \\
 \verb!fehler <- resid(myreg)!
 
+\subsection{Tukey-Anscombe Plot}
+Der Tukey-Anscombe Plot zeigt die Residuen gegenüber der Regressionsgerade. Er 
+wird benutzt, um die Modellannahmen zu überprüfen. Die Modellannahme kann 
+bestätigt werden, wenn die Punkt gleichmässig ohne erkennbare Kurve um $0$  
+gestreut sind. \\
+R-Syntax: \\
+\verb!plot(fitted(myreg),resid(myreg))!
+
+
 \subsection{Vertrauensintervall}
 Das Vertrauensintervall gibt an, wie verlässlich die berechneten Parameter
 sind für $\beta_0$ (y-Achsenabschnitt für x=0) und $\beta_1$ (die Steigung).
