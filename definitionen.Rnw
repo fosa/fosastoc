@@ -299,7 +299,7 @@ ppois(q=q,lambda=lambda)
 Die Dichtefunktion ist definiert als Ableitung der kummulativen 
 Verteilungsfunktion.
 \[ \int f(x) := F(x) \qquad \Leftrightarrow \qquad
-   f(x) = \frac{\delta}{d x} F(x)  \]
+   f(x) = \frac{d}{d x} F(x)  \]
 
    \begin{figure}[h!]
            \centering
@@ -310,8 +310,8 @@ Verteilungsfunktion.
 \noindent
 Dies impliziert, dass auch die folgenden Gesetzte gelten:
 \begin{itemize}
-	\item Die Dichte zu einem Punkt ist immer grösser oder gleich Null.
-	\[ f(x) \geq 0 \]
+	\item Die Dichte zu einem Punkt ist bei den stetigen Verteilungen immer gleich Null.
+	\[ f(x) = 0 \]
 	\item Das Integral einer Dichtefunktion über ein Intervall $[a,b]$
 		ist gleich der Differenz der kummulativen Wahrscheinlichkeiten
 		von $a$ und $b$.

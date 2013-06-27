@@ -79,19 +79,19 @@ rechnen das arithmetische Mittel als auch die Standardabweichung (\verb!sd()!).
 > x
 \end{Sinput}
 \begin{Soutput}
- [1]  5  2  4  8  4  7  4 10  6  5
+ [1] 7 7 4 5 9 7 9 7 5 8
 \end{Soutput}
 \begin{Sinput}
 > mean(x)
 \end{Sinput}
 \begin{Soutput}
-[1] 5.5
+[1] 6.8
 \end{Soutput}
 \begin{Sinput}
 > sd(x)
 \end{Sinput}
 \begin{Soutput}
-[1] 2.321398
+[1] 1.686548
 \end{Soutput}
 \end{Schunk}
 
@@ -119,28 +119,28 @@ in der Messreihe, wo x\% der Werte darunter liegen.
 > x
 \end{Sinput}
 \begin{Soutput}
- [1]  3  5  5  6  8  8  9 10 12 12 13 13 13 13 15 15 15 17 18 19
+ [1]  2  2  3  3  5  6  7  7  8  9 10 12 12 17 18 19 19 19 19 20
 \end{Soutput}
 \begin{Sinput}
 > quantile(x, prob=0.2)
 \end{Sinput}
 \begin{Soutput}
 20% 
-7.6 
+4.6 
 \end{Soutput}
 \begin{Sinput}
 > quantile(x, prob=0.2, type=1)
 \end{Sinput}
 \begin{Soutput}
 20% 
-  6 
+  3 
 \end{Soutput}
 \begin{Sinput}
 > quantile(x, prob=0.2, type=2)
 \end{Sinput}
 \begin{Soutput}
 20% 
-  7 
+  4 
 \end{Soutput}
 \end{Schunk}
 Im obigen Beispiel wird mit R das 20\%-Quantil bestimmt. Hier ist aber 
@@ -188,7 +188,7 @@ arithmetischen Mittelwert. Sie ist das Quadrat der Standardabweichung.
 > var(x)
 \end{Sinput}
 \begin{Soutput}
-[1] 0.09271457
+[1] 0.0561911
 \end{Soutput}
 \end{Schunk}
 
@@ -203,7 +203,7 @@ eines Vektors mit sich selbst entspricht der Varianz des Vektors.
 > cov(x,y)
 \end{Sinput}
 \begin{Soutput}
-[1] -0.00048518
+[1] -0.01541842
 \end{Soutput}
 \end{Schunk}
 
@@ -219,7 +219,7 @@ zueinander. Der Wertebereich des Korrelationskoeffizienten ist $[-1, 1]$.
 > cor(x,y)
 \end{Sinput}
 \begin{Soutput}
-[1] -0.00476238
+[1] -0.3176696
 \end{Soutput}
 \end{Schunk}
 
@@ -412,7 +412,7 @@ nicht begrenzt ist. Sie ist ein Grenzfall der Binomialverteilung.
 Die Dichtefunktion ist definiert als Ableitung der kummulativen 
 Verteilungsfunktion.
 \[ \int f(x) := F(x) \qquad \Leftrightarrow \qquad
-   f(x) = \frac{\delta}{d x} F(x)  \]
+   f(x) = \frac{d}{d x} F(x)  \]
 
    \begin{figure}[h!]
            \centering
@@ -423,8 +423,8 @@ Verteilungsfunktion.
 \noindent
 Dies impliziert, dass auch die folgenden Gesetzte gelten:
 \begin{itemize}
-	\item Die Dichte zu einem Punkt ist immer grösser oder gleich Null.
-	\[ f(x) \geq 0 \]
+	\item Die Dichte zu einem Punkt ist bei den stetigen Verteilungen immer gleich Null.
+	\[ f(x) = 0 \]
 	\item Das Integral einer Dichtefunktion über ein Intervall $[a,b]$
 		ist gleich der Differenz der kummulativen Wahrscheinlichkeiten
 		von $a$ und $b$.
