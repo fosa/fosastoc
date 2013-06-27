@@ -140,6 +140,21 @@ zueinander. Der Wertebereich des Korrelationskoeffizienten ist $[-1, 1]$.
 cor(x,y)
 @
 
+\section{Kombinatorik}
+% \subsubsection{3 Axiome}
+\[ P(A) \geq 0 \]
+\[ P(\Omega) = 1 \qquad \text{(Grundraum)} \]
+\[ P(A \cup B) = P(A) + P(B) \qquad \text{Falls } A \cap B = 0 \]
+\[ P(A \cup B) = P(A) + P(B) - P(A \cap B) \qquad \text{(Additionsgesetz)} \]
+\[ P(A \cap B) = P(A) \cdot P(B) \]
+\[ P(A \cup B \cup C) = P(A) \cdot P(B) \cdot P(C) \]
+\[ P(A') = 1 - P(A) \]
+
+\subsection{diskrete Wahrscheinlichkeit}
+\[ P(A) = \sum(P(\omega)) \qquad \omega \in A \]
+\[ P(E) = \frac{\text{\# positive Elementarereignisse}}
+{\text{\# mögliche Elementarereignisse}} \]
+
 \section{Bedingte Wahrscheinlichkeit}
 Bei bedingten Wahrscheinlichkeiten gilt das sog. Beyes'sche Theorem.
 \[ \boxed{ P_B(A) = P(A|B) = \frac{P(A \cap B)}{P(B)} = \frac{P(B|A)\cdot P(A)}{P(B)} } \]
