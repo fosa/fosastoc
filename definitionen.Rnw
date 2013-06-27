@@ -667,17 +667,20 @@ Datenreihen verwendet und mit dieser neuen Datenreihe weitergerechnet.
 
 \subsubsection{gepaarter Test mit R}
 Für einen gepaarten Test muss die Option \verb!paired=TRUE! verwendet werden. \\
-\verb!t.test(x=man,y=fem,alternative='less',paired=TRUE)!
+\verb!t.test(x=data1,y=data2,alternative='less',paired=TRUE)!
 
 \subsection{ungepaarter Test}
 Der ungepaarte Test muss für das Modul STOC nur mit R berechnet werden. 
-\subsection{ungepaarter Test mit R}
+
+\subsubsection{ungepaarter Test mit R}
 Dafür kann die Option \verb!paired=FALSE! verwendet werden. Diese ist per 
 Default so gesetzt, wenn der Test mit zwei Datenreihen durchgeführt wird. \\
 \verb!t.test(x=man,y=fem,alternative='less',paired=FALSE)!\\
+
+\subsubsection{gleiche Varianz}
 Besitzen die beiden Datenreihen die gleiche Varianz, so muss das mit der Option 
 \verb!var.equal=TRUE! definiert werden. \\
-\verb!t.test(x=man,y=fem,alternative='less',paired=FALSE,var.equal=TRUE)!
+\verb!t.test(x=data1,y=data2,alternative='less',paired=FALSE,var.equal=TRUE)!
 
 \section{P-Wert}
 Der P-Wert (engl. oder R \emph{P-Value}) ist die Summe der 
