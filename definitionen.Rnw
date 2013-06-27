@@ -294,23 +294,27 @@ ppois(q=q,lambda=lambda)
 @
 
 \subsection{Übersicht Berechnung diskreter Verteilungen mit R}
-\begin{tabular}{@{}llll}
+\begin{tabular}{@{}lllll}
   \rowcolor{lgray}Verteilung &
     genau & 
     höchstens & 
-    mindestens \\
+    mindestens &
+    Zufall  \\
   Hyper &
     \verb!dhyper(x=A,...)! &
     \verb!phyper(q=A,...)! &
-    \verb!1-phyper(q=A-1,...)! \\
+    \verb!1-phyper(q=A-1,...)! &
+    \verb!rhyper(n=...)! \\
   Binom &
     \verb!dbinom(x=A,...)! &
     \verb!pbinom(q=A,...)! &
-    \verb!1-pbinom(q=A-1,...)! \\
+    \verb!1-pbinom(q=A-1,...)! &
+    \verb!rbinom(n=...)! \\
   Poisson &
     \verb!dpois(x=A,...)! &
     \verb!ppois(q=A,...)! &
-    \verb!1-ppois(q=A-1,...)! 
+    \verb!1-ppois(q=A-1,...)! &
+    \verb!rpois(n=...)!
 \end{tabular}
 
 \section{Stetige Verteilungen}
