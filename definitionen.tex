@@ -79,19 +79,19 @@ rechnen das arithmetische Mittel als auch die Standardabweichung (\verb!sd()!).
 > x
 \end{Sinput}
 \begin{Soutput}
- [1] 3 4 9 7 8 9 6 2 4 9
+ [1]  2  4  4  7  9  6  9 10  3  9
 \end{Soutput}
 \begin{Sinput}
 > mean(x)
 \end{Sinput}
 \begin{Soutput}
-[1] 6.1
+[1] 6.3
 \end{Soutput}
 \begin{Sinput}
 > sd(x)
 \end{Sinput}
 \begin{Soutput}
-[1] 2.685351
+[1] 2.907844
 \end{Soutput}
 \end{Schunk}
 
@@ -119,28 +119,28 @@ in der Messreihe, wo x\% der Werte darunter liegen.
 > x
 \end{Sinput}
 \begin{Soutput}
- [1]  3  4  4  7  8 11 11 13 15 16 16 18 18 18 18 19 19 19 19 20
+ [1]  1  2  2  3  3  3  4  5  5  5  9 10 10 10 11 12 13 13 13 16
 \end{Soutput}
 \begin{Sinput}
 > quantile(x, prob=0.2)
 \end{Sinput}
 \begin{Soutput}
 20% 
-7.8 
+  3 
 \end{Soutput}
 \begin{Sinput}
 > quantile(x, prob=0.2, type=1)
 \end{Sinput}
 \begin{Soutput}
 20% 
-  7 
+  3 
 \end{Soutput}
 \begin{Sinput}
 > quantile(x, prob=0.2, type=2)
 \end{Sinput}
 \begin{Soutput}
 20% 
-7.5 
+  3 
 \end{Soutput}
 \end{Schunk}
 Im obigen Beispiel wird mit R das 20\%-Quantil bestimmt. Hier ist aber 
@@ -188,7 +188,7 @@ arithmetischen Mittelwert. Sie ist das Quadrat der Standardabweichung.
 > var(x)
 \end{Sinput}
 \begin{Soutput}
-[1] 0.1124452
+[1] 0.08241296
 \end{Soutput}
 \end{Schunk}
 
@@ -203,7 +203,7 @@ eines Vektors mit sich selbst entspricht der Varianz des Vektors.
 > cov(x,y)
 \end{Sinput}
 \begin{Soutput}
-[1] 0.004456618
+[1] 0.04590034
 \end{Soutput}
 \end{Schunk}
 
@@ -219,18 +219,19 @@ zueinander. Der Wertebereich des Korrelationskoeffizienten ist $[-1, 1]$.
 > cor(x,y)
 \end{Sinput}
 \begin{Soutput}
-[1] 0.04594429
+[1] 0.4228552
 \end{Soutput}
 \end{Schunk}
 
 \section{Kombinatorik}
-% \subsubsection{3 Axiome}
+$A$ und $B$ sind stochastisch unabhängig. 
 \[ P(A) \geq 0 \]
 \[ P(\Omega) = 1 \qquad \text{(Grundraum)} \]
-\[ P(A \cup B) = P(A) + P(B) \qquad \text{Falls } A \cap B = 0 \]
+\[ P(A \cup B) = P(A) + P(B) \qquad \text{Falls } A \cap B = 0 
+\qquad \text{($A$ und $B$ schliessen sich aus)} \]
 \[ P(A \cup B) = P(A) + P(B) - P(A \cap B) \qquad \text{(Additionsgesetz)} \]
 \[ P(A \cap B) = P(A) \cdot P(B) \]
-\[ P(A \cup B \cup C) = P(A) \cdot P(B) \cdot P(C) \]
+\[ P(A \cap B \cap C) = P(A) \cdot P(B) \cdot P(C) \]
 \[ P(A') = 1 - P(A) \]
 
 \subsection{diskrete Wahrscheinlichkeit}

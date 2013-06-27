@@ -141,13 +141,14 @@ cor(x,y)
 @
 
 \section{Kombinatorik}
-% \subsubsection{3 Axiome}
+$A$ und $B$ sind stochastisch unabhängig. 
 \[ P(A) \geq 0 \]
 \[ P(\Omega) = 1 \qquad \text{(Grundraum)} \]
-\[ P(A \cup B) = P(A) + P(B) \qquad \text{Falls } A \cap B = 0 \]
+\[ P(A \cup B) = P(A) + P(B) \qquad \text{Falls } A \cap B = 0 
+\qquad \text{($A$ und $B$ schliessen sich aus)} \]
 \[ P(A \cup B) = P(A) + P(B) - P(A \cap B) \qquad \text{(Additionsgesetz)} \]
 \[ P(A \cap B) = P(A) \cdot P(B) \]
-\[ P(A \cup B \cup C) = P(A) \cdot P(B) \cdot P(C) \]
+\[ P(A \cap B \cap C) = P(A) \cdot P(B) \cdot P(C) \]
 \[ P(A') = 1 - P(A) \]
 
 \subsection{diskrete Wahrscheinlichkeit}
