@@ -1,4 +1,4 @@
 stoc
 ========
 
-Formelsammlung for das Modul Stochastik 
+Formelsammlung für das Modul Stochastik 
