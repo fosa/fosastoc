@@ -18,11 +18,15 @@
 \newpage
 
 \section{Arithmetisches Mittel}
-Das arithmetische Mittel $\bar{x}$ beschreibt den Quotienten aus 
+Das arithmetische Mittel beschreibt den Quotienten aus 
 der Summe aller Elemente und der Anzhal Elemente. Dieses wird oft auch
-einfach als Mittelwert oder Durchschnitt bezeichnet.
+einfach als Mittelwert oder Durchschnitt bezeichnet. Ein solcher
+Mittelwert wird mittels eines übergestellten Striches markiert z.B.
+$\bar{x}$.
 \[ 
-	\bar{x} = \frac{1}{n} \sum_{i=1}^{n} x_i
+	\bar{x} 
+	= \frac{1}{n} \cdot \left( \sum_{i=1}^{n} x_i \right)
+	= \frac{x_1 + x_2 + \dots + x_n}{n}
 \]
 Ein Alltagsbeispiel für das arithmetische Mittel ist der 
 \emph{Notendurchschnitt}. 
