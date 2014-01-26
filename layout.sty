@@ -58,35 +58,59 @@
 % Source-Code Paket
 \definecolor{darkgreen}{rgb}{0,0.6,0}
 \usepackage{listings}
-\lstset{language=[LaTeX]TeX}
-\lstloadlanguages{TeX}
-\lstset{basicstyle=\ttfamily,
-        numbers=left,
-        numberstyle=\tiny,
-        numbersep=5pt,
-        breaklines=true,
-        texcsstyle=\color{black},
-        backgroundcolor=\color{gray!10},
-        commentstyle=\color{darkgreen},
-        %keywordstyle=\color{red}\bfseries,
-        %stringstyle=\color{blue}\bfseries,
-        frame=single,
-        tabsize=2,
-        rulecolor=\color{black!30},
-        title=\lstname,
-        escapeinside={\%*}{*)},
-        breaklines=true,
-        breakatwhitespace=true,
-        framextopmargin=2pt,
-        framexbottommargin=2pt,
-        inputencoding=utf8,
-        extendedchars=true,
-        literate={Ö}{{\"O}}1
-                 {Ä}{{\"A}}1
-                 {Ü}{{\"U}}1
-                 {ü}{{\"u}}1
-                 {ä}{{\"a}}1
-                 {ö}{{\"o}}1 }
+
+\lstset{% setup listings
+	language=R,			% set programming language
+	basicstyle=\ttfamily,		% basic font style
+	keywordstyle=\bfseries,		% keyword style
+	commentstyle=\ttfamily,	% comment style
+	numbers=left,			% display line numbers on the left side
+	numberstyle=\scriptsize,	% use small line numbers
+	numbersep=10pt,			% space between line numbers and code
+	tabsize=4,			% sizes of tabs
+	showstringspaces=false,		% do not replace spaces in strings by a certain character
+	captionpos=b,			% positioning of the caption below
+	breaklines=true,		% automatic line breaking
+	escapeinside={(*}{*)},		% escaping to LaTeX
+	fancyvrb=true,			% verbatim code is typset by listings
+	extendedchars=false,		% prohibit extended chars (chars of codes 128--255)
+	% literate={"}{{\texttt{"}}}1{<-}{{$\leftarrow$}}1{<<-}{{$\twoheadleftarrow$}}1
+	%        {~}{{$\sim$}}1{<=}{{$\le$}}1{>=}{{$\ge$}}1{!=}{{$\neq$}}1{^}{{$^\wedge$}}1,% item to replace, text, length of chars 
+	% alsoletter={.<-},		% becomes a letter
+	% alsoother={$},			% becomes other
+	otherkeywords={!=, ~, $, *, \&, \%/\%, \%*\%, \%\%, <-, <<-, /},% other keywords
+	% deletekeywords={c}		% remove keywords
+} 
+
+%\lstset{language=[LaTeX]TeX}
+%\lstloadlanguages{TeX}
+%\lstset{basicstyle=\ttfamily,
+%        numbers=left,
+%        numberstyle=\tiny,
+%        numbersep=5pt,
+%        breaklines=true,
+%        texcsstyle=\color{black},
+%        backgroundcolor=\color{gray!10},
+%        commentstyle=\color{darkgreen},
+%        %keywordstyle=\color{red}\bfseries,
+%        %stringstyle=\color{blue}\bfseries,
+%        frame=single,
+%        tabsize=2,
+%        rulecolor=\color{black!30},
+%        title=\lstname,
+%        escapeinside={\%*}{*)},
+%        breaklines=true,
+%        breakatwhitespace=true,
+%        framextopmargin=2pt,
+%        framexbottommargin=2pt,
+%        inputencoding=utf8,
+%        extendedchars=true,
+%        literate={Ö}{{\"O}}1
+%                 {Ä}{{\"A}}1
+%                 {Ü}{{\"U}}1
+%                 {ü}{{\"u}}1
+%                 {ä}{{\"a}}1
+%                 {ö}{{\"o}}1 }
 
 
 % \usepackage[clean]{svg}                 
