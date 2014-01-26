@@ -1,11 +1,18 @@
 ;; This logfile was generated automatically by `xindy'
-;; at 26.01.2014  03:00:49
-;; Indexstyle: "/tmp/C0BeaPTJO7", Rawindex: "/tmp/FZi5bs2kJT", Output: "fosastoc.gls"
+;; at 26.01.2014  17:09:06
+;; Indexstyle: "/tmp/fcr5y6NonW", Rawindex: "/tmp/4LVib_4X9_", Output: "fosastoc.gls"
 
 
 Building indexentry-tree:
 Hierdepth of index is :TREE
 
+sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
+sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
+sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
+sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
+sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
+sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
+sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
 sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
 sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
 sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
@@ -16,14 +23,27 @@ Letter-group: "€Ë¨Ú¤»—Ú¨Ğ†¤—Ğ »¨ÚÚ—´" -> "A"
 Letter-group: "»¨ÚÚ—´" -> "M"
 Letter-group: "àË†¤Ğ†¤¼¨ÚÚ" -> "D"
 Letter-group: "Êà€¼Ú¨´" -> "Q"
+Letter-group: "Êà€ËÚ¨´" -> "Q"
+Letter-group: "»—¨€¼" -> "M"
+Letter-group: "å€Ë¨€¼ğ" -> "V"
+Letter-group: "ĞÚ€¼€Ë€„æ—¨†¤à¼" -> "S"
+Letter-group: "®Ãå€Ë¨€¼ğ" -> "K"
+Letter-group: "®ÃËË—´€Ú¨Ã¼" -> "K"
+Letter-group: "®ÃËË—´€Ú¨Ã¼Ğ®Ã—œœ¨ğ¨—¼Ú" -> "K"
 sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
 Letter-group: "€Ë¨Ú¤»—Ú¨Ğ†¤—Ğ »¨ÚÚ—´" -> "A"
 sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
 Letter-group: "àË†¤Ğ†¤¼¨ÚÚ" -> "D"
 sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
-Letter-group: "»¨ÚÚ—´" -> "M"
+Letter-group: "®ÃËË—´€Ú¨Ã¼" -> "K"
+sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
+Letter-group: "»—¨€¼" -> "M"
 sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
 Letter-group: "Êà€¼Ú¨´" -> "Q"
+sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
+Letter-group: "ĞÚ€¼€Ë€„æ—¨†¤à¼" -> "S"
+sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
+Letter-group: "å€Ë¨€¼ğ" -> "V"
 
 makeglossaries messages:
 

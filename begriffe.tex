@@ -18,17 +18,18 @@
 \newpage
 
 \section{Arithmetisches Mittel}
-Das arithmetische Mittel beschreibt den Quotienten aus 
+Das \gls{arithmetische Mittel} beschreibt den Quotienten aus 
 der Summe aller Elemente und der Anzhal Elemente. Dieses wird oft auch
-einfach als Mittelwert oder Durchschnitt bezeichnet. Ein solcher
-Mittelwert wird mittels eines übergestellten Striches markiert z.B.
+einfach als Mittelwert, \gls{Mittel} oder \gls{Durchschnitt} bezeichnet. 
+Ein solcher Mittelwert wird mittels eines übergestellten Striches 
+markiert z.B.
 $\bar{x}$.
 \[ 
 	\bar{x} 
 	= \frac{1}{n} \cdot \left( \sum_{i=1}^{n} x_i \right)
 	= \frac{x_1 + x_2 + \dots + x_n}{n}
 \]
-Ein Alltagsbeispiel für das arithmetische Mittel ist der 
+Ein allseits bekanntes Beispiel für das arithmetische Mittel ist der 
 \emph{Notendurchschnitt}. 
 
 In \lstinline{R} wird das arithmetische Mittel mit 
@@ -44,7 +45,7 @@ In \lstinline{R} wird das arithmetische Mittel mit
 \end{Schunk}
 
 \section{Quantil}
-Ein Quantil beschreibt eine Grenze innerhalb einer sortierten 
+Ein \gls{Quantil} beschreibt eine Grenze innerhalb einer sortierten 
 Datenreihe. Diese wird stets in Prozenten angegeben, d.h. 
 \emph{5\% Qunatil, 20\% Quantil} usw. 
 Beispielsweise ein 5\% Quantil ist eine Stelle in der Datenreihe, an 
@@ -81,7 +82,7 @@ Default-Algorithmus (\lstinline{type=7}). Für sämtliche Aufgaben aus dem
 Stochastikunterricht der HSLU gilt der \lstinline{type=2} als einzig
 richtiger! 
 
-Im Folgenden eine Beispielsrechnung vom 30\% Quantil 10 zufälliger 
+Im Folgenden eine Beispielrechnung vom 30\% \gls{Quantil} 10 zufälliger 
 ganzer Zahlen zwischen 1 und 20.
 \begin{Schunk}
 \begin{Sinput}
@@ -90,34 +91,34 @@ ganzer Zahlen zwischen 1 und 20.
 > x
 \end{Sinput}
 \begin{Soutput}
- [1]  1  2  3  6  7  7  9  9 18 19
+ [1]  2  2  4  7  7  8 18 18 19 19
 \end{Soutput}
 \begin{Sinput}
 > quantile(x, prob=0.2, type=2)
 \end{Sinput}
 \begin{Soutput}
 20% 
-2.5 
+  3 
 \end{Soutput}
 \end{Schunk}
 
 \section{Quartil}
-Das Quartil beschreibt spezielle Quantile welche jeweils ein
+Das \gls{Quartil} beschreibt spezielle Quantile welche jeweils ein
 Vielfaches von $\frac{1}{4}$ bzw. $25\%$ sind, d.h. das
 $25\%$, $50\%$ als auch das $75\%$ Quantil.
 
 \section{Median}
-Der Median ist wie das Quartil ein spezielles Quantil, welches im Falle
-des Medians das $50\%$ Quantil beschreibt.
+Der \gls{Median} ist wie das \gls{Quartil} ein spezielles \gls{Quantil}, 
+welches im Falle des Medians das $50\%$ Quantil beschreibt.
 
 In der Statistik hat der Median eine wichtige Bedeutung, denn er 
 beschreibt lediglich das mittlere Element einer sortierten Datenreihe.
-Somit ist der Median unenpfindlich gegenüber Extremwerten (anders das
-arithmetische Mittel).
+Somit ist der Median unenpfindlich gegenüber Extremwerten (anders etwa 
+das \gls{arithmetische Mittel}).
 
 In \lstinline{R} lässt sich der Median mittels \lstinline{median()}
 ermitteln. Im Folgenden ein Beispiel welches verdeutlicht, dass der
-Median umempfindlich ist gegen Extremwerte bzw. Ausreisser.
+Median umempfindlich ist gegenüber Extremwerten bzw. Ausreissern.
 \begin{Schunk}
 \begin{Sinput}
 > x <- c(1.6, 1.7, 1.75, 1.87, 1.94)
@@ -133,8 +134,8 @@ Median umempfindlich ist gegen Extremwerte bzw. Ausreisser.
 \end{Soutput}
 \end{Schunk}
 
-\section{Varianz}
-Die Varianz beschreibt die quadratische Abweichung von Daten und
+\section{Varianz}\label{sec:varianz}
+Die \gls{Varianz} beschreibt die quadratische Abweichung von Daten und
 ihrem arithmetischen Mittelwert. Sie ist somit das Quadrat der 
 Standardabweichung und wird deshalb als $\sigma^2$, $\sigma_{x}^2$ 
 bzw. $s_{x}^2$ notiert.
@@ -145,14 +146,27 @@ bzw. $s_{x}^2$ notiert.
 		\sum_{i=1}^n (x_i-\bar{x})^2 
 	\right)
 \]
-Der lineare Faktor $\frac{1}{n-1}$ ist nicht intutiv aber dennoch 
-korrekt(er) aufgrund einer systematischen Abweichung bei der 
-Berechnung mit $\frac{1}{n}$.
+Die obige Formel ergibt die sogenannte 
+\emph{korrigierte Stichprobenvarianz}, denn der Mittelwert $\bar{x}$ 
+wird durch die Stichproben berechnet. Sollte der \emph{wahre} Mittelwert
+$\mu$ bekannt sein, so ist die Korrektur $\frac{1}{n-1}$ hinfällig und
+es ergibt sich die folgende Formel.
+\[
+	\sigma_{x}^2 
+	= s_{x}^2 
+	= \frac{1}{n} \cdot \left(
+		\sum_{i=1}^n (x_i-\mu)^2 
+	\right)
+\]
 
 \section{Standardabweichung}
-Die Standardabweichung beschreibt wie gross die die mittlere Abweichung
-ist von den einzelnen Beobachtungen (Datenpunkten) zum arithmetischen
-Mittel derselben Beobachtungen. Die Standardabweichung ist somit gleich
+Die \gls{Standardabweichung} beschreibt wie gross die die mittlere 
+Abweichung ist von den einzelnen Beobachtungen (Datenpunkten) zum 
+arithmetischen Mittel\footnote{Das arithmetische Mittel ist eine 
+Schätzung für den
+\emph{waren} Mittelwert und verändert die Formel 
+(siehe Kapiel \ref{sec:varianz}).} 
+derselben Beobachtungen. Die Standardabweichung ist somit gleich
 der zweiten Wurzel von der Varianz den selben Beobachtungen. Die
 Standardabweichung wird oft mit $\sigma$, $\sigma_x$ bzw. $s$, $s_x$ 
 notiert.
@@ -174,21 +188,21 @@ ermittelt. Im Folgenden ein Beispiel welches die Standardabweichung
 > x
 \end{Sinput}
 \begin{Soutput}
- [1]  4  4  3  9  6 10  2  9  9  7
+ [1] 7 6 7 5 6 8 4 2 3 4
 \end{Soutput}
 \begin{Sinput}
 > sd(x)
 \end{Sinput}
 \begin{Soutput}
-[1] 2.907844
+[1] 1.932184
 \end{Soutput}
 \end{Schunk}
 
 \section{Kovarianz}
-Die Kovarianz beschreibt ob sich zwei Datenreihen ähnlich entwickeln.
-Dabei gilt, dass positive Werte der Kovarianz für ein ähnliches Verhalten
-sprechen und negative dagegen. Der Betrag der Kovarianz gibt somit die 
-Intensität der Aussage an. 
+Die \gls{Kovarianz} beschreibt ob sich zwei Datenreihen ähnlich 
+entwickeln. Dabei gilt, dass positive Werte der Kovarianz für ein 
+ähnliches Verhalten sprechen und negative dagegen. Der Betrag der 
+Kovarianz gibt somit die Intensität der Aussage an. 
 \[  
 	s_{xy} 
 	= \frac{1}{n-1} \cdot \left( 
@@ -196,7 +210,7 @@ Intensität der Aussage an.
 	\right)
 \]
 Die Kovarianz lässt sich in \lstinline{R} mittels \lstinline{cov()}
-ermitteln. Im Folgenden ein extremes positives Beispiel, generiert mit 
+ermitteln. Im Folgenden ein extremes Positiv-Beispiel, generiert mit 
 je 1000 sortierten exponentialverteilten Zufallszahlen. 
 \begin{Schunk}
 \begin{Sinput}
@@ -205,9 +219,65 @@ je 1000 sortierten exponentialverteilten Zufallszahlen.
 > cov(x,y)
 \end{Sinput}
 \begin{Soutput}
-[1] 0.9493792
+[1] 1.015016
 \end{Soutput}
 \end{Schunk}
 
 \section{Korrelation}
+Die \gls{Korrelation} beschreibt den Zusammenhang verschiedener Variablen.
+Dieser Zusammenhang kann mittels eines Koeffizienten, dem sog. 
+\gls{Korrelationskoeffizient} beschrieben werden. Dieser beschreibt den
+Zusammenhang mittels eines Wertes aus dem Intervall $[-1,1]$ und
+hat somit auch eine Richtung.
+\[	
+	r 
+	= \frac{s_{xy}}{s_x \cdot s_y}
+	= \frac{\sum\limits_{i=1}^n (x_i-\bar{x}) \cdot (y_i-\bar{y})}{
+		\sqrt{\left(\sum\limits_{i=1}^n (x_i-\bar{x})^2\right)
+		\left(\cdot \sum\limits_{i=1}^n (y_i-\bar{y})^2\right) }}
+\]
+Mit dem Betrag und der Richtung des Korrelationskoeffizienten sind 
+Grundsätzlich drei Aussagen möglich:
+\[ \begin{array}{c c l r}	
+	r \rightarrow +1 
+		& \Rightarrow 
+		& \text{Daten korrelieren positiv} 
+		& \text{(\emph{je mehr, desto mehr})} \\
+	r \rightarrow 0 
+		& \Rightarrow 
+		& \text{Daten korrelieren nicht}
+		& \text{(\emph{kein Zusammenhang})} \\
+	r \rightarrow -1 
+		& \Rightarrow 
+		& \text{Daten korrelieren negativ}
+		& \text{(\emph{je mehr, desto weniger})}
+\end{array} \]
+\setkeys{Gin}{width=1\textwidth}
+\begin{figure}[h!]
+\centering
+\begin{subfigure}[b]{0.3\textwidth}
+\includegraphics{begriffe-009}
+\caption{$r=+1$}
+\end{subfigure}
+\begin{subfigure}[b]{0.3\textwidth}
+\includegraphics{begriffe-010}
+\caption{$r=0$}
+\end{subfigure}
+\begin{subfigure}[b]{0.3\textwidth}
+\includegraphics{begriffe-011}
+\caption{$r=-1$}
+\end{subfigure}
+\caption{Extremwerte vom Korrelationen im Vergleich.}
+\label{fig:korrelation}
+\end{figure}
 
+\noindent
+Bei der Analyse der Korrelation mittels solcher Plots ist Vorsicht
+geboten, denn diese müssen natürlich nicht so mustergültig sein wie im 
+Bild \ref{fig:korrelation}. Hierzu eine kleine Merkregel: Bilden die
+Daten im Plot annähernd eine Gerade mit
+einer konstanten Steilheit die nicht Null ist, so korrelieren die Daten
+mit annähernd $\pm1$ (Vorzeichen entsprechend der Steigung).
+Ergibt sich im Plot etwas anderes als eine Gerade (etwa ein Kreis, eine
+Kurve oder mehrere \emph{Wölkchen}) so ist der Korrelationskoeffizient
+Null anzunehmen.
