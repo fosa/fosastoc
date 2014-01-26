@@ -1,0 +1,73 @@
+% coding:utf-8
+
+%FOSASTOC, a LaTeX-Code for a electrical summary of stochastic
+%Copyright (C) 2013, Daniel Winz, Ervin Mazlagic
+
+%This program is free software; you can redistribute it and/or
+%modify it under the terms of the GNU General Public License
+%as published by the Free Software Foundation; either version 2
+%of the License, or (at your option) any later version.
+
+%This program is distributed in the hope that it will be useful,
+%but WITHOUT ANY WARRANTY; without even the implied warranty of
+%MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+%GNU General Public License for more details.
+%----------------------------------------
+
+\chapter{R Grundlagen}
+\newpage
+
+\section{Vektoren \& Matrizen definieren}
+\paragraph{Vektor mit Intervall 1 definieren}
+<<>>=
+x <- 1:10; y <- 5:13
+x; y
+@
+
+\paragraph{Vektor mit beliebigem festen Intevall definieren}
+<<>>=
+x <- seq(from=1, to=10, by=2); y <- seq(1, 10, 2)
+x; y
+@
+
+\paragraph{Vektor manuell definieren}
+<<>>=
+x <- c(77, 29, 12, 33, 4, 9, 809, -27)
+x
+@
+
+\paragraph{Matrix Spaltenweise definieren}
+<<>>=
+a <- seq(1, 9, 1); m <- matrix(a, 3)
+m
+@
+
+\paragraph{Matrix Reihenweise definieren}
+<<>>=
+a <- seq(1, 9, 1)
+m <- matrix(a, 3, byrow=TRUE)
+m
+@
+
+\section{Arithmetik}
+\paragraph{Einfache Summen und Produkte}
+<<>>=
+a=15; b=3
+a+b; a*b; a-b; a/b
+@
+
+\paragraph{Operationen auf Vektoren}
+<<>>=
+a <- 1:10; b <- 2
+c <- b*a
+a
+c
+@
+
+\paragraph{Operationen auf Matrizen}
+<<>>=
+a <- seq(1, 9, 1); b <- 2
+m <- matrix(a, 3); n <- m*b
+m
+n
+@

@@ -1,0 +1,150 @@
+% coding:utf-8
+
+%FOSASTOC, a LaTeX-Code for a electrical summary of stochastic
+%Copyright (C) 2013, Daniel Winz, Ervin Mazlagic
+
+%This program is free software; you can redistribute it and/or
+%modify it under the terms of the GNU General Public License
+%as published by the Free Software Foundation; either version 2
+%of the License, or (at your option) any later version.
+
+%This program is distributed in the hope that it will be useful,
+%but WITHOUT ANY WARRANTY; without even the implied warranty of
+%MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+%GNU General Public License for more details.
+%----------------------------------------
+
+\chapter{R Grundlagen}
+\newpage
+
+\section{Vektoren \& Matrizen definieren}
+\paragraph{Vektor mit Intervall 1 definieren}
+\begin{Schunk}
+\begin{Sinput}
+> x <- 1:10; y <- 5:13
+> x; y
+\end{Sinput}
+\begin{Soutput}
+ [1]  1  2  3  4  5  6  7  8  9 10
+\end{Soutput}
+\begin{Soutput}
+[1]  5  6  7  8  9 10 11 12 13
+\end{Soutput}
+\end{Schunk}
+
+\paragraph{Vektor mit beliebigem festen Intevall definieren}
+\begin{Schunk}
+\begin{Sinput}
+> x <- seq(from=1, to=10, by=2); y <- seq(1, 10, 2)
+> x; y
+\end{Sinput}
+\begin{Soutput}
+[1] 1 3 5 7 9
+\end{Soutput}
+\begin{Soutput}
+[1] 1 3 5 7 9
+\end{Soutput}
+\end{Schunk}
+
+\paragraph{Vektor manuell definieren}
+\begin{Schunk}
+\begin{Sinput}
+> x <- c(77, 29, 12, 33, 4, 9, 809, -27)
+> x
+\end{Sinput}
+\begin{Soutput}
+[1]  77  29  12  33   4   9 809 -27
+\end{Soutput}
+\end{Schunk}
+
+\paragraph{Matrix Spaltenweise definieren}
+\begin{Schunk}
+\begin{Sinput}
+> a <- seq(1, 9, 1); m <- matrix(a, 3)
+> m
+\end{Sinput}
+\begin{Soutput}
+     [,1] [,2] [,3]
+[1,]    1    4    7
+[2,]    2    5    8
+[3,]    3    6    9
+\end{Soutput}
+\end{Schunk}
+
+\paragraph{Matrix Reihenweise definieren}
+\begin{Schunk}
+\begin{Sinput}
+> a <- seq(1, 9, 1)
+> m <- matrix(a, 3, byrow=TRUE)
+> m
+\end{Sinput}
+\begin{Soutput}
+     [,1] [,2] [,3]
+[1,]    1    2    3
+[2,]    4    5    6
+[3,]    7    8    9
+\end{Soutput}
+\end{Schunk}
+
+\section{Arithmetik}
+\paragraph{Einfache Summen und Produkte}
+\begin{Schunk}
+\begin{Sinput}
+> a=15; b=3
+> a+b; a*b; a-b; a/b
+\end{Sinput}
+\begin{Soutput}
+[1] 18
+\end{Soutput}
+\begin{Soutput}
+[1] 45
+\end{Soutput}
+\begin{Soutput}
+[1] 12
+\end{Soutput}
+\begin{Soutput}
+[1] 5
+\end{Soutput}
+\end{Schunk}
+
+\paragraph{Operationen auf Vektoren}
+\begin{Schunk}
+\begin{Sinput}
+> a <- 1:10; b <- 2
+> c <- b*a
+> a
+\end{Sinput}
+\begin{Soutput}
+ [1]  1  2  3  4  5  6  7  8  9 10
+\end{Soutput}
+\begin{Sinput}
+> c
+\end{Sinput}
+\begin{Soutput}
+ [1]  2  4  6  8 10 12 14 16 18 20
+\end{Soutput}
+\end{Schunk}
+
+\paragraph{Operationen auf Matrizen}
+\begin{Schunk}
+\begin{Sinput}
+> a <- seq(1, 9, 1); b <- 2
+> m <- matrix(a, 3); n <- m*b
+> m
+\end{Sinput}
+\begin{Soutput}
+     [,1] [,2] [,3]
+[1,]    1    4    7
+[2,]    2    5    8
+[3,]    3    6    9
+\end{Soutput}
+\begin{Sinput}
+> n
+\end{Sinput}
+\begin{Soutput}
+     [,1] [,2] [,3]
+[1,]    2    8   14
+[2,]    4   10   16
+[3,]    6   12   18
+\end{Soutput}
+\end{Schunk}
