@@ -1,0 +1,151 @@
+% coding:utf-8
+
+%FOSASTOC, a LaTeX-Code for a electrical summary of stochastic
+%Copyright (C) 2013, Daniel Winz, Ervin Mazlagic
+
+%This program is free software; you can redistribute it and/or
+%modify it under the terms of the GNU General Public License
+%as published by the Free Software Foundation; either version 2
+%of the License, or (at your option) any later version.
+
+%This program is distributed in the hope that it will be useful,
+%but WITHOUT ANY WARRANTY; without even the implied warranty of
+%MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+%GNU General Public License for more details.
+%----------------------------------------
+
+\chapter{Grundbegriffe}
+\newpage
+
+\section{Arithmetisches Mittel}
+Das arithmetische Mittel $\bar{x}$ beschreibt den Quotienten aus 
+der Summe aller Elemente und der Anzhal Elemente. Dieses wird oft auch
+einfach als Mittelwert oder Durchschnitt bezeichnet.
+\[ 
+	\bar{x} = \frac{1}{n} \sum_{i=1}^{n} x_i
+\]
+Ein Alltagsbeispiel für das arithmetische Mittel ist der 
+\emph{Notendurchschnitt}. 
+
+In \lstinline{R} wird das arithmetische Mittel mit 
+\lstinline{mean()} ermittelt.
+\begin{Schunk}
+\begin{Sinput}
+> a <- c(6,4,5,5,4,5,6,3,4,5,6)
+> mean(a)
+\end{Sinput}
+\begin{Soutput}
+[1] 4.818182
+\end{Soutput}
+\end{Schunk}
+
+\section{Quantil}
+Ein Quantil beschreibt eine Grenze innerhalb einer sortierten 
+Datenreihe. Diese wird stets in Prozenten angegeben, d.h. 
+\emph{5\% Qunatil, 20\% Quantil} usw. 
+Beispielsweise ein 5\% Quantil ist eine Stelle in der Datenreihe, an 
+welcher 5\% der Werte unterhalb dieser Grenze liegen (z.B. \emph{5\% 
+aller E-Mails sind kürzer als 12 Worte $\Rightarrow$ 12 ist das 5\%
+Quantil}).
+\[ \begin{array}{l l}
+	\alpha \in [0, 1] 
+		& \text{Prozentwert der Grenze} \\
+	x_1 - x_n
+		& \text{Elemente sortiert nach grösse} \\
+	\alpha \cdot n 
+		& \text{Qunatil} \\
+\end{array} \]
+Bei der Berechnung des Quantils gilt es zu beachten ob die Elemente 
+der Datenreihe ganze oder gebrochene Zahlen beinhalten, denn dies 
+beeinflusst die Rechnung.
+\[ \begin{array}{l l}
+	\text{ganze Zahlen:}
+		& \frac{1}{2} \cdot \left(
+			x_{\alpha \cdot n} 
+			+ x_{\alpha \cdot (n + 1)} \right)  \\
+	& \\
+	\text{gebrochene Zahlen:}
+		& k = \alpha \cdot n + \frac{1}{2}  \\
+		& k \text{ runden} \\
+		& \Rightarrow x_{k}
+\end{array} \]
+Die Brechnung von Qunatilen in \lstinline{R} lässt sich mittels 
+\lstinline{quantile} durchführen. Hierbei gilt es zu beachten, dass
+\lstinline{R} neun verschiedene Algorithmen kennt um Quantile zu 
+berechnen. Ohne einen Parameter nimmt \lstinline{R} den 
+Default-Algorithmus (\lstinline{type=7}). Für sämtliche Aufgaben aus dem
+Stochastikunterricht der HSLU gilt der \lstinline{type=2} als einzig
+richtiger! 
+
+Im Folgenden eine Beispielsrechnung vom 30\% Quantil 10 zufälliger 
+ganzer Zahlen zwischen 1 und 20.
+\begin{Schunk}
+\begin{Sinput}
+> x <- round(x=runif(n=10, min=1, max=20), digits=0)
+> x <- sort(x)
+> x
+\end{Sinput}
+\begin{Soutput}
+ [1]  2  3  3  4  7  8  9 15 19 20
+\end{Soutput}
+\begin{Sinput}
+> quantile(x, prob=0.2, type=2)
+\end{Sinput}
+\begin{Soutput}
+20% 
+  3 
+\end{Soutput}
+\end{Schunk}
+
+\section{Quartil}
+Das Quartil beschreibt spezielle Quantile welche jeweils ein
+Vielfaches von $\frac{1}{4}$ bzw. $25\%$ sind, d.h. das
+$25\%$, $50\%$ als auch das $75\%$ Quantil.
+
+\section{Median}
+Der Median ist wie das Quartil ein spezielles Quantil, welches im Falle
+des Medians das $50\%$ Quantil beschreibt.
+
+In der Statistik hat der Median eine wichtige Bedeutung, denn er 
+beschreibt lediglich das mittlere Element einer sortierten Datenreihe.
+Somit ist der Median unenpfindlich gegenüber Extremwerten (anders das
+arithmetische Mittel).
+
+In \lstinline{R} lässt sich der Median mittels \lstinline{median()}
+ermitteln. Im Folgenden ein Beispiel welches verdeutlicht, dass der
+Median umempfindlich ist gegen Extremwerte bzw. Ausreisser.
+\begin{Schunk}
+\begin{Sinput}
+> x <- c(1.6, 1.7, 1.75, 1.87, 1.94)
+> y <- c(1.2, 1.4, 1.75, 1.99, 2.17)
+> # sort() wird ausgelassen, da bereits sortiert
+> median(x); median(y)
+\end{Sinput}
+\begin{Soutput}
+[1] 1.75
+\end{Soutput}
+\begin{Soutput}
+[1] 1.75
+\end{Soutput}
+\end{Schunk}
+
+\section{Varianz}
+Die Varianz beschreibt die quadratische Abweichung von Daten und
+ihrem arithmetischen Mittelwert. Sie ist somit das Quadrat der 
+Standardabweichung und wird deshalb als $\sigma^2$, $\sigma_{x}^2$ 
+bzw. $s_{x}^2$ notiert.
+\[
+	\sigma_{x}^2 
+	= s_{x}^2 
+	= \frac{1}{n-1} \sum_{i=1}^n (x_i - \bar{x})^2
+\]
+Der lineare Faktor $\frac{1}{n-1}$ ist nicht intutiv aber dennoch 
+korrekt(er) aufgrund einer systematischen Abweichung bei der 
+Berechnung mit $\frac{1}{n}$.
+
+\section{Standardabweichung}
+
+\section{Kovarianz}
+
+\section{Korrelation}
+

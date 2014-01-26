@@ -1,0 +1,33 @@
+;; This logfile was generated automatically by `xindy'
+;; at 26.01.2014  03:00:49
+;; Indexstyle: "/tmp/C0BeaPTJO7", Rawindex: "/tmp/FZi5bs2kJT", Output: "fosastoc.gls"
+
+
+Building indexentry-tree:
+Hierdepth of index is :TREE
+
+sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
+sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
+sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
+sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
+
+Forming letter-groups:
+Letter-group: "€Ë¨Ú¤»—Ú¨Ð†¤—Ð »¨ÚÚ—´" -> "A"
+Letter-group: "»¨ÚÚ—´" -> "M"
+Letter-group: "àË†¤Ð†¤¼¨ÚÚ" -> "D"
+Letter-group: "Êà€¼Ú¨´" -> "Q"
+sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
+Letter-group: "€Ë¨Ú¤»—Ú¨Ð†¤—Ð »¨ÚÚ—´" -> "A"
+sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
+Letter-group: "àË†¤Ð†¤¼¨ÚÚ" -> "D"
+sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
+Letter-group: "»¨ÚÚ—´" -> "M"
+sort-indexentries: (FORWARD BACKWARD FORWARD FORWARD)
+Letter-group: "Êà€¼Ú¨´" -> "Q"
+
+makeglossaries messages:
+
+Cannot locate xindy module for language ngerman in codepage utf8.
+Retrying using default codepage.
+Cannot locate xindy module for language ngerman.
+Retrying with -L general

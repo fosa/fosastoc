@@ -1,0 +1,41 @@
+% coding:utf-8
+
+%FOSASTOC, a LaTeX-Code for a electrical summary of stochastic
+%Copyright (C) 2013, Daniel Winz, Ervin Mazlagic
+
+%This program is free software; you can redistribute it and/or
+%modify it under the terms of the GNU General Public License
+%as published by the Free Software Foundation; either version 2
+%of the License, or (at your option) any later version.
+
+%This program is distributed in the hope that it will be useful,
+%but WITHOUT ANY WARRANTY; without even the implied warranty of
+%MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+%GNU General Public License for more details.
+%----------------------------------------
+
+\section{R-Glossar}
+
+\begin{longtable}{llp{0.5 \textwidth}}
+\textbf{Aufruf} & \textbf{Name} & \textbf{Beschreibung} \\
+\verb|help(func)| & Hilfe & Hilfe zu Funktionen \\
+\verb|sum(x)| & Summe & Summe der Daten \\
+\verb|factorial(x)| & Fakultät & Wert der Fakultät von einer Zahl \\
+\verb|mean(x)| & Mittelwert & arithmetischer Mittelwert der Daten \\
+\verb|sd(x)| & Standardabweichung & Standardabweichung der Daten ($\sigma$) \\
+\verb|var(x)| & Varianz & Varianz der Daten 
+  (\verb|var(x)| = \verb|sd(x)^2| = \verb|cov(x,x)|) \\
+\verb|median(x)| & Median & 50 \% Quantil \\
+\verb|quantile(x,prob,type=2)| & y \% Quantil & Quantil der Daten 
+  \textbf{Achtung! type=2!} \\
+\verb|length(x)| & Länge & Länge des Datenvektors \\
+\verb|rep(x,times)| & Replicate & repliziert Elemente von Vektoren. Jedes 
+  \verb|x| wird \verb|times| mal aufgelistet \\
+\verb|cumsum(x)| & Kumulative Summe & Liefert einen Vektor, dessen Elemente die 
+  Summe aller vorhergehenden Summe des Eingangsvektors sind. \\
+\verb|scale(x)| & Standardisierung & Standardisiert Daten (mean=0, sd=1) \\
+\verb|unique(x)| & "'Einzigartig"' & entfernt doppelt vorhandene Werte \\
+\verb|apply(x)| & Anwenden & wendet eine Funktion auf jedes Element eines 
+Vektors an. \\
+
+\end{longtable}

@@ -14,28 +14,29 @@
 %GNU General Public License for more details.
 %----------------------------------------
 
-\section{R-Glossar}
+\newglossaryentry{Arithmetisches Mittel}{
+	name={Arithmetisches Mittel},
+	description={Quotient aus der Summe aller Elemente und
+		Anzahl Elemente},
+	sort={Arithmetisches Mittel}
+}
 
-\begin{longtable}{llp{0.5 \textwidth}}
-\textbf{Aufruf} & \textbf{Name} & \textbf{Beschreibung} \\
-\verb|help(func)| & Hilfe & Hilfe zu Funktionen \\
-\verb|sum(x)| & Summe & Summe der Daten \\
-\verb|factorial(x)| & Fakultät & Wert der Fakultät von einer Zahl \\
-\verb|mean(x)| & Mittelwert & arithmetischer Mittelwert der Daten \\
-\verb|sd(x)| & Standardabweichung & Standardabweichung der Daten ($\sigma$) \\
-\verb|var(x)| & Varianz & Varianz der Daten 
-  (\verb|var(x)| = \verb|sd(x)^2| = \verb|cov(x,x)|) \\
-\verb|median(x)| & Median & 50 \% Quantil \\
-\verb|quantile(x,prob,type=2)| & y \% Quantil & Quantil der Daten 
-  \textbf{Achtung! type=2!} \\
-\verb|length(x)| & Länge & Länge des Datenvektors \\
-\verb|rep(x,times)| & Replicate & repliziert Elemente von Vektoren. Jedes 
-  \verb|x| wird \verb|times| mal aufgelistet \\
-\verb|cumsum(x)| & Kumulative Summe & Liefert einen Vektor, dessen Elemente die 
-  Summe aller vorhergehenden Summe des Eingangsvektors sind. \\
-\verb|scale(x)| & Standardisierung & Standardisiert Daten (mean=0, sd=1) \\
-\verb|unique(x)| & "'Einzigartig"' & entfernt doppelt vorhandene Werte \\
-\verb|apply(x)| & Anwenden & wendet eine Funktion auf jedes Element eines 
-Vektors an. \\
+\newglossaryentry{Mittel}{
+	name=Mittel,
+	description={Mittel ist eine Kurzform für das 
+		\emph{arithmetische Mittel}},
+	sort=Mittel
+}
 
-\end{longtable}
+\newglossaryentry{Durchschnitt}{
+	name=Durchschnitt,
+	description={Durchschnitt ist eine Kurzform für das
+		\emph{arithmetische Mittel}},
+	sort=Durchschnitt
+}
+
+\newglossaryentry{Quantil}{
+	name=Quantil,
+	description={Prozentuale Grenze innderhalb einer Datenreihe}
+	sort=Quantil
+}

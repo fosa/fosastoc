@@ -22,6 +22,14 @@
 \author{Daniel Winz\\Ervin Mazlagic}
 \date{\today~\dtc}
 
+\usepackage[xindy,toc]{glossaries}
+\usepackage{makeidx}
+\usepackage{multicol}
+
+\makeglossaries
+
+\include{glossar}
+
 \begin{document}
 
 \maketitle
@@ -32,6 +40,13 @@
 \newpage
 
 \input{content}
+
+\newpage
+\begin{multicols}{2}
+	\glossarystyle{altlistgroup}
+	\glsaddall
+	\printglossary[title=Glossar]
+\end{multicols}
 
 \end{document}
 

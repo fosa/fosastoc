@@ -1,0 +1,4 @@
+(indexentry :tkey (("Arithmetisches Mittel" "\\glossaryentryfield{Arithmetisches Mittel}{\\glsnamefont{Arithmetisches Mittel}}{Quotient aus der Summe aller Elemente und Anzahl Elemente}{\\relax }") ) :locref "{}{9}" :attr "pageglsnumberformat" ) 
+(indexentry :tkey (("Mittel" "\\glossaryentryfield{Mittel}{\\glsnamefont{Mittel}}{Mittel ist eine Kurzform für das \\emph {arithmetische Mittel}}{\\relax }") ) :locref "{}{9}" :attr "pageglsnumberformat" ) 
+(indexentry :tkey (("Durchschnitt" "\\glossaryentryfield{Durchschnitt}{\\glsnamefont{Durchschnitt}}{Durchschnitt ist eine Kurzform für das \\emph {arithmetische Mittel}}{\\relax }") ) :locref "{}{9}" :attr "pageglsnumberformat" ) 
+(indexentry :tkey (("Quantil" "\\glossaryentryfield{Quantil}{\\glsnamefont{Quantil}}{{Prozentuale Grenze innderhalb einer Datenreihe} sort}{\\relax }") ) :locref "{}{9}" :attr "pageglsnumberformat" ) 
