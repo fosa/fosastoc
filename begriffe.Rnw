@@ -69,7 +69,7 @@ beeinflusst die Rechnung.
 		& \Rightarrow x_{k}
 \end{array} \]
 Die Brechnung von Qunatilen in \lstinline{R} lässt sich mittels 
-\lstinline{quantile} durchführen. Hierbei gilt es zu beachten, dass
+\lstinline{quantile()} durchführen. Hierbei gilt es zu beachten, dass
 \lstinline{R} neun verschiedene Algorithmen kennt um Quantile zu 
 berechnen. Ohne einen Parameter nimmt \lstinline{R} den 
 Default-Algorithmus (\lstinline{type=7}). Für sämtliche Aufgaben aus dem
@@ -117,15 +117,58 @@ bzw. $s_{x}^2$ notiert.
 \[
 	\sigma_{x}^2 
 	= s_{x}^2 
-	= \frac{1}{n-1} \sum_{i=1}^n (x_i - \bar{x})^2
+	= \frac{1}{n-1} \cdot \left(
+		\sum_{i=1}^n (x_i-\bar{x})^2 
+	\right)
 \]
 Der lineare Faktor $\frac{1}{n-1}$ ist nicht intutiv aber dennoch 
 korrekt(er) aufgrund einer systematischen Abweichung bei der 
 Berechnung mit $\frac{1}{n}$.
 
 \section{Standardabweichung}
+Die Standardabweichung beschreibt wie gross die die mittlere Abweichung
+ist von den einzelnen Beobachtungen (Datenpunkten) zum arithmetischen
+Mittel derselben Beobachtungen. Die Standardabweichung ist somit gleich
+der zweiten Wurzel von der Varianz den selben Beobachtungen. Die
+Standardabweichung wird oft mit $\sigma$, $\sigma_x$ bzw. $s$, $s_x$ 
+notiert.
+\[
+	\sigma_x 
+	= s_x 
+	= \sqrt{\sigma_{x}^2}
+	= \sqrt{s_{x}^2}
+	= \sqrt{\frac{1}{n-1} \cdot \left(
+		\sum_{i=1}^n (x_i-\bar{x})^2 
+	\right)}
+\]
+In \lstinline{R} wird die Standardabweichung mittel \lstinline{sd()}
+ermittelt. Im Folgenden ein Beispiel welches die Standardabweichung
+10 zufälliger ganzer Zahlen ermittelt.
+<<>>=
+x <- round(x=runif(n=10, min=1, max=10), digits=0)
+x
+sd(x)
+@
 
 \section{Kovarianz}
+Die Kovarianz beschreibt ob sich zwei Datenreihen ähnlich entwickeln.
+Dabei gilt, dass positive Werte der Kovarianz für ein ähnliches Verhalten
+sprechen und negative dagegen. Der Betrag der Kovarianz gibt somit die 
+Intensität der Aussage an. 
+\[  
+	s_{xy} 
+	= \frac{1}{n-1} \cdot \left( 
+		\sum_{i=1}^n (x_i - \bar{x}) \cdot (y_i - \bar{y})
+	\right)
+\]
+Die Kovarianz lässt sich in \lstinline{R} mittels \lstinline{cov()}
+ermitteln. Im Folgenden ein extremes positives Beispiel, generiert mit 
+je 1000 sortierten exponentialverteilten Zufallszahlen. 
+<<>>=
+x <- sort(x=rexp(n=1000))
+y <- sort(x=rexp(n=1000))
+cov(x,y)
+@
 
 \section{Korrelation}
 
