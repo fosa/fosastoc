@@ -105,22 +105,27 @@
 \pagestyle{fancy} %eigener Seitenstil
 \fancyhf{} %alle Kopf- und Fusszeilenfelder bereinigen
 
-\addtolength{\textwidth}{4cm}
-\addtolength{\evensidemargin}{-20mm}
-\addtolength{\oddsidemargin}{-20mm}
+\addtolength{\textheight}{3.5cm}
+\addtolength{\voffset}{-1.5cm}
+\addtolength{\textwidth}{1cm}
+\addtolength{\evensidemargin}{-15mm}
+\addtolength{\oddsidemargin}{5mm}
 
-\addtolength{\headwidth}{4cm} % Kopfzeilenbreite um 3cm
-\addtolength{\headheight}{1cm} % Kopfzeilenhöhe um 1cm
-\addtolength{\textheight}{2cm} % Texthöhe um 2cm
-\addtolength{\voffset}{-2cm} % Einzug Vertikal um -2cm
+\addtolength{\textheight}{\topmargin-\evensidemargin-\hoffset+\voffset}
+\setlength{\topmargin}{\evensidemargin+\hoffset-\voffset}
 
-\renewcommand{\headrulewidth}{0.4pt} % Kopfzeilenlinie
+\addtolength{\headwidth}{1cm}
 
-\fancyhead[L]{Stochastik} %Kopfzeile links
-\fancyhead[C]{FS-2013} %zentrierte Kopfzeile
-\fancyhead[R]{HSLU-T\&A}
+\fancyhead[L]{} %Kopfzeile links
+\fancyhead[C]{} %zentrierte Kopfzeile
+\fancyhead[RO]{\rightmark}
+\fancyhead[LE]{\leftmark}
 \renewcommand{\headrulewidth}{0.4pt} %obere Trennlinie
-\fancyfoot[L]{Ervin Mazlagi\'c, Daniel Winz}
-\fancyfoot[C]{\today}
-\fancyfoot[R]{\thepage}
+\fancyfoot[L]{}
+\fancyfoot[C]{}
+\fancyfoot[RO]{\thepage}
+\fancyfoot[LE]{\thepage}
 \renewcommand{\footrulewidth}{0.4pt} %untere Trennlinie
+
+\addto\captionsngerman{\let\appendixtocname\appendixname%
+\let\appendixpagename\appendixname}
