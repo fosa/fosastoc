@@ -252,7 +252,7 @@ plot(a, b)
 @
 \caption{$r=-1$}
 \end{subfigure}
-\caption{Extremwerte vom Korrelationen im Vergleich.}
+\caption{Extremwerte von Korrelationen im Vergleich.}
 \label{fig:korrelation}
 \end{figure}
 

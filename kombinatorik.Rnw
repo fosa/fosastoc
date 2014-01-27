@@ -19,10 +19,14 @@
 
 \section{Logik \& Mengenlehre}
 Die Logik ist ein Teilgebiet der Mathematik und bedgründete das relativ
-junge Teilgebiet der Mengenlehre (engl. \emph{set theory}). Dass diese 
-beiden Teilgebiete sich sehr ähnlich sind, zeigt sich unter anderem in
-ihren fast identischen Notationen.
+junge Teilgebiet der \gls{Mengenlehre} (engl. \emph{set theory}). 
+Dass diese beiden Teilgebiete sich sehr ähnlich sind, zeigt sich 
+unter anderem in ihren fast identischen Notationen.
 
+Die Mengenlehre zeichnet sich insbesondere dadurch aus, 
+dass es eine starke \gls{Abstraktion} zulässt.
+Diese Eigenschaft ermöglicht es die Mengenlehre für viele Probleme
+heranzuziehen. Die Stochastik ist nur eines von diesen.
 
 \subsection{Begriffe der Mengenlehre}
 \paragraph{Grundmenge und Grundraum}
@@ -31,7 +35,8 @@ möglicher Elemente die in einer Menge erfasst werden können (von Neumann
 Universum etc). Im Teilgebiet der Stochastik betrachtet man die
 Elemente die in Mengen erfasst werden können als Eereignisse die eintreten
 können. Die Gesamtheit all dieser möglichen Ereignisse nennt man 
-Ereignisraum oder Grundmenge, welche stets mit $\Omega$ notiert wird. 
+\gls{Ereignisraum} oder Grundmenge, welche stets mit $\Omega$ 
+notiert wird. 
 Bei der Betrachtung eines Spiels mit einem Spielwürfel mit sechs Seiten 
 wäre der Grundraum $\Omega=\{1,2,3,4,5,6\}$ und bei einem zweifachen
 Münzwurf $\Omega=\{KK, KZ, ZK, ZZ\}$ usw.
@@ -40,14 +45,14 @@ Münzwurf $\Omega=\{KK, KZ, ZK, ZZ\}$ usw.
 \]
 
 \paragraph{Teilmenge} 
-Eine Menge $A$ heisst Teilmenge von $B$, wenn jedes Element aus 
+Eine Menge $A$ heisst \gls{Teilmenge} von $B$, wenn jedes Element aus 
 $A$ ein Element von $B$ ist. Somit kann eine solche Teilmenge $A$
 auch die ganze Menge $B$ sein, d.h. $A=B$.
 \[ 
 	A \subseteq B
 \]
 \paragraph{Echte Teilmenge}
-Eine echte Teilmenge $A$ der Menge $B$ heisst echte Teilmenge, wenn
+Eine \gls{echte Teilmenge} $A$ der Menge $B$ heisst echte Teilmenge, wenn
 alle Elemente von $A$ in $B$ enthalten sind, aber die Menge $B$ noch
 Elemente hat, die nicht in $A$ enthalten sind. In diesem Fall ist $B$ 
 auch eine \emph{echte} Obermenge von $A$.
@@ -55,23 +60,23 @@ auch eine \emph{echte} Obermenge von $A$.
 	A \subset B
 \]
 
-\paragraph{Leere Menge} Eine leere Menge ist eine Menge welche keinerlei
-Elemente enthält.
+\paragraph{Leere Menge} Eine \gls{leere Menge} ist eine Menge welche 
+keinerlei Elemente enthält.
 \[  
 	A = \{\} = \emptyset
 \]
 
 \paragraph{Schnittmenge} Eine Menge von Elementen die allesamt in
-allen Mengen vorkommen, wird Schnittmenge dieser Mengen genannt.
+allen Mengen vorkommen, wird \gls{Schnittmenge} dieser Mengen genannt.
 \[ 
 	A \cap B
 \]
 
 \paragraph{Vereinigungsmenge} Die Menge aller Elemente einer Menge
-von Mengen wird als Vereinigungsmenge bezeichnet.
+von Mengen wird als \gls{Vereinigungsmenge} bezeichnet.
 
 \paragraph{Gleiche Menge} Wenn zwei Mengen die gleichen Elemente
-enthalten, so sind diese gleiche Mengen.
+enthalten und keine weiteren, so sind diese die \gls{gleiche Menge}.
 \[  
 	A = B 
 	\quad \Leftrightarrow \quad 
@@ -80,7 +85,8 @@ enthalten, so sind diese gleiche Mengen.
 
 \paragraph{Differenzmenge}
 Eine Menge die alle Elemente einer Menge enthält ohne jene die auch
-in einer weiteren Menge vorkommen.
+in einer weiteren Menge vorkommen, wird als \gls{Differenzmenge} 
+bezeichnet.
 \[  
 	A \setminus  B
 \]
