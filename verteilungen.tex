@@ -66,38 +66,24 @@ Ein Turnverein hat $9$ männliche und $17$ weibliche Mitglieder. Für ein
 Fussballmatch gegen einen anderen Verein muss nun ein Team mit $11$
 Mitgliedern gebildet werden. Wie wahrscheinlich ist es, dass das
 Team aus einer bestimmten Anzahl Männern oder Frauen besteht?
-<<fig=FALSE>>=
-man <- 9; women <- 17; player <- 11
-boys <- dhyper(x=c(1:player), m=man, n=women, k=player)
-girls <- dhyper(x=(1:player), m=women, n=man, k=player)
-plot(boys, type='h')
-plot(girls, type='h')
-@
-<<boys, fig=FALSE, echo=FALSE>>=
-man <- 9; women <- 17; player <- 11
-boys <- dhyper(x=c(1:player), m=man, n=women, k=player)
-girls <- dhyper(x=(1:player), m=women, n=man, k=player)
-plot(boys, type='h', cex.lab=1.5, cex.axis=1.5, cex.main=1.5, cex.sub=1.5, ylab='', main='Männer')
-@
-<<girls, fig=FALSE, echo=FALSE>>=
-man <- 9; women <- 17; player <- 11
-boys <- dhyper(x=c(1:player), m=man, n=women, k=player)
-girls <- dhyper(x=(1:player), m=women, n=man, k=player)
-plot(girls, type='h', cex.lab=1.5, cex.axis=1.5, cex.main=1.5, cex.sub=1.5, ylab='', main='Frauen')
-@
+\begin{Schunk}
+\begin{Sinput}
+> man <- 9; women <- 17; player <- 11
+> boys <- dhyper(x=c(1:player), m=man, n=women, k=player)
+> girls <- dhyper(x=(1:player), m=women, n=man, k=player)
+> plot(boys, type='h')
+> plot(girls, type='h')
+\end{Sinput}
+\end{Schunk}
 \begin{figure}[h!]
 \centering
 \begin{subfigure}[b]{0.48\textwidth}
-<<fig=TRUE, echo=FALSE>>=
-<<boys>>
-@
+\includegraphics{verteilungen-004}
 \caption{$P(x)$ der Männer im Team}
 \end{subfigure}
 \begin{subfigure}[b]{0.48\textwidth}
 \centering
-<<fig=TRUE, echo=FALSE>>=
-<<girls>>
-@
+\includegraphics{verteilungen-005}
 \caption{$P(x)$ der Frauen im Team}
 \end{subfigure}
 \caption{Teambildung nach Geschlecht}
@@ -135,30 +121,22 @@ noch geglaubt hätten aber nicht 80 von 100.
 Wie wahrscheinlich sind aber dieses beiden Ergebnisse wenn Kopf 
 und Zahl jeweils gleichwahrscheinliche Ergebnisse sind?
 
-<<fig=FALSE>>=
-plot(dbinom(x=c(1:100), size=100, prob=0.5), type='h')
-plot(dbinom(x=c(1:20), size=20, prob=0.5), type='h')
-@
-<<coin1, fig=FALSE, echo=FALSE>>=
-plot(dbinom(x=c(1:100), size=100, prob=0.5), type='h', cex.lab=1.5, cex.axis=1.5, cex.main=1.5, cex.sub=1.5, ylab='', main='100 mal Münzwurf')
-@
-<<coin2, fig=FALSE, echo=FALSE>>=
-plot(dbinom(x=c(1:20), size=20, prob=0.5), type='h', cex.lab=1.5, cex.axis=1.5, cex.main=1.5, cex.sub=1.5, ylab='', main='20 mal Münzwurf')
-@
+\begin{Schunk}
+\begin{Sinput}
+> plot(dbinom(x=c(1:100), size=100, prob=0.5), type='h')
+> plot(dbinom(x=c(1:20), size=20, prob=0.5), type='h')
+\end{Sinput}
+\end{Schunk}
 
 
 \begin{figure}[h!]
 \centering
 \begin{subfigure}[b]{0.48\textwidth}
-<<fig=TRUE, echo=FALSE>>=
-<<coin1>>
-@
+\includegraphics{verteilungen-009}
 \caption{Verteilung für 100 Versuche}
 \end{subfigure}
 \begin{subfigure}[b]{0.48\textwidth}
-<<fig=TRUE, echo=FALSE>>=
-<<coin2>>
-@
+\includegraphics{verteilungen-010}
 \caption{Verteilung für 20 Versuche}
 \end{subfigure}
 \caption{Wahrscheinlichkeitsverteilung beim Münzwurf}
