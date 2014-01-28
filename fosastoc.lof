@@ -9,5 +9,7 @@
 \contentsline {figure}{\numberline {2.3}{\ignorespaces Hinweise zur Tabelle bedingter Wahrscheinlichkeiten.\relax }}{21}{figure.caption.16}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {3.1}{\ignorespaces Teambildung nach Geschlecht\relax }}{25}{figure.caption.18}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Wahrscheinlichkeitsverteilung beim M\IeC {\"u}nzwurf\relax }}{26}{figure.caption.19}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Binomialverteilung ($n=100, p=0.5$)\relax }}{27}{figure.caption.19}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Wahrscheinlichkeitsverteilung beim M\IeC {\"u}nzwurf\relax }}{28}{figure.caption.20}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Poissonverteilung ($\lambda =50$)\relax }}{30}{figure.caption.21}
 \addvspace {10\p@ }
