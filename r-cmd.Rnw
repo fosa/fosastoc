@@ -38,10 +38,6 @@ erhalten.
 Diese kann in der Konsole mittels \lstinline{help(name-der-Funktion)}
 aufgerufen werden. 
 
-<<>>=
-help(plot)
-@
-
 \begin{lstlisting}
 
 \end{lstlisting}
@@ -182,3 +178,91 @@ rect(xleft=x, xright=(x+diff), ybottom=mean(y), ytop=y, col='gray')
 \end{figure}
 
 \subsection{Boxplot}
+Ein Boxplot zeigt sehr viele Informationen zur Statistik einer 
+Datenreihe in einem Plot. Insbesondere sind dies
+\begin{itemize}
+	\item extrem \emph{grosse} Beobachtungen
+	\item die grösste \emph{normale} Beobachtung
+	\item oberes Quartil ($75$\% Quantil)
+	\item Median ($50$\% Quantil)
+	\item unteres Quartil ($25$\% Quantil)
+	\item die kleinste \emph{normale} Beobachtung
+	\item extrem \emph{kleine} Beobachtungen
+\end{itemize}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.5\textwidth]{boxplot.pdf}
+	\caption{Analyse eines Boxplots}
+\end{figure}
+
+\noindent
+Mit solch einem Plot lässt sich die Verteilung einer Datenreihe sehr
+schnell graphisch erfassen ohne dabei zu rechnen oder etwas 
+interpretieren zu müssen. Jede Verteilung hat ihre spezielle 
+Charakteristik die sich im Boxplot erkennen lässt.
+\begin{itemize}
+	\item Die uniforme Verteilung hat in etwa gleich grosse Bereiche
+		der Quartile, ist somit symetrisch und geht über den 
+		ganzen Bereich und hat somit keine Ausreisser 
+		(Extremweerte).
+	\item Die binomiale Verteilung hat enger beieinander liegende
+		$25$\% Quantile und kann Ausreisser haben.
+	\item Die normale Verteilung hat \dots
+	\item Exponentiale Verteilungen haben unsymetrische Quantile
+		und grundsätzlich Ausreisser.
+\end{itemize}
+
+<<boxplot1, fig=FALSE, echo=FALSE>>=
+x <- runif(n=100)
+boxplot(x, cex.lab=1.5, cex.axis=1.5, cex.main=1.5, cex.sub=1.5, 
+	ylab='Wert x', xlab='', main='runif(n=100)')
+@
+
+<<boxplot2, fig=FALSE, echo=FALSE>>=
+x <- rbinom(n=100, size=100, prob=0.5)
+boxplot(x, cex.lab=1.5, cex.axis=1.5, cex.main=1.5, cex.sub=1.5, 
+	ylab='Wert x', xlab='', main='rbinom(n=100, size=100, prob=0.5)')
+@
+
+<<boxplot3, fig=FALSE, echo=FALSE>>=
+x <- rnorm(n=100)
+boxplot(x, cex.lab=1.5, cex.axis=1.5, cex.main=1.5, cex.sub=1.5, 
+	ylab='Wert x', xlab='', main='rnorm(n=100)')
+@
+
+<<boxplot4, fig=FALSE, echo=FALSE>>=
+x <- rexp(n=100)
+boxplot(x, cex.lab=1.5, cex.axis=1.5, cex.main=1.5, cex.sub=1.5, 
+	ylab='Wert x', xlab='', main='rexp(n=100)')
+@
+
+\begin{figure}[h!]
+\centering
+\begin{subfigure}[b]{0.48\textwidth}
+<<fig=TRUE, echo=FALSE>>=
+<<boxplot1>>
+@
+\caption{Uniforme Verteilung}
+\end{subfigure}
+\begin{subfigure}[b]{0.48\textwidth}
+<<fig=TRUE, echo=FALSE>>=
+<<boxplot2>>
+@
+\caption{Binomiale Verteilung}
+\end{subfigure}
+
+\begin{subfigure}[b]{0.48\textwidth}
+<<fig=TRUE, echo=FALSE>>=
+<<boxplot3>>
+@
+\caption{Normale Verteilung}
+\end{subfigure}
+\begin{subfigure}[b]{0.48\textwidth}
+<<fig=TRUE, echo=FALSE>>=
+<<boxplot4>>
+@
+\caption{Exponential Verteilung}
+\end{subfigure}
+\caption{Boxplots verschiedener Verteilungen}
+\end{figure}

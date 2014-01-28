@@ -38,12 +38,6 @@ erhalten.
 Diese kann in der Konsole mittels \lstinline{help(name-der-Funktion)}
 aufgerufen werden. 
 
-\begin{Schunk}
-\begin{Sinput}
-> help(plot)
-\end{Sinput}
-\end{Schunk}
-
 \begin{lstlisting}
 
 \end{lstlisting}
@@ -241,23 +235,83 @@ der Varianz.
 \begin{figure}[h!]
 \centering
 \begin{subfigure}[b]{0.48\textwidth}
-\includegraphics{r-cmd-014}
+\includegraphics{r-cmd-013}
 \caption{Gewöhnlicher Plot mit \lstinline{plot()}}
 \end{subfigure}
 \begin{subfigure}[b]{0.48\textwidth}
-\includegraphics{r-cmd-015}
+\includegraphics{r-cmd-014}
 \caption{Linie mit \lstinline{abline()}}
 \end{subfigure}
 
 \begin{subfigure}[b]{0.48\textwidth}
-\includegraphics{r-cmd-016}
+\includegraphics{r-cmd-015}
 \caption{Segmente mit \lstinline{segments()}}
 \end{subfigure}
 \begin{subfigure}[b]{0.48\textwidth}
-\includegraphics{r-cmd-017}
+\includegraphics{r-cmd-016}
 \caption{Flächen mit \lstinline{rect()}}
 \end{subfigure}
 
 \end{figure}
 
 \subsection{Boxplot}
+Ein Boxplot zeigt sehr viele Informationen zur Statistik einer 
+Datenreihe in einem Plot. Insbesondere sind dies
+\begin{itemize}
+	\item extrem \emph{grosse} Beobachtungen
+	\item die grösste \emph{normale} Beobachtung
+	\item oberes Quartil ($75$\% Quantil)
+	\item Median ($50$\% Quantil)
+	\item unteres Quartil ($25$\% Quantil)
+	\item die kleinste \emph{normale} Beobachtung
+	\item extrem \emph{kleine} Beobachtungen
+\end{itemize}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.5\textwidth]{boxplot.pdf}
+	\caption{Analyse eines Boxplots}
+\end{figure}
+
+\noindent
+Mit solch einem Plot lässt sich die Verteilung einer Datenreihe sehr
+schnell graphisch erfassen ohne dabei zu rechnen oder etwas 
+interpretieren zu müssen. Jede Verteilung hat ihre spezielle 
+Charakteristik die sich im Boxplot erkennen lässt.
+\begin{itemize}
+	\item Die uniforme Verteilung hat in etwa gleich grosse Bereiche
+		der Quartile, ist somit symetrisch und geht über den 
+		ganzen Bereich und hat somit keine Ausreisser 
+		(Extremweerte).
+	\item Die binomiale Verteilung hat enger beieinander liegende
+		$25$\% Quantile und kann Ausreisser haben.
+	\item Die normale Verteilung hat \dots
+	\item Exponentiale Verteilungen haben unsymetrische Quantile
+		und grundsätzlich Ausreisser.
+\end{itemize}
+
+
+
+
+
+\begin{figure}[h!]
+\centering
+\begin{subfigure}[b]{0.48\textwidth}
+\includegraphics{r-cmd-021}
+\caption{Uniforme Verteilung}
+\end{subfigure}
+\begin{subfigure}[b]{0.48\textwidth}
+\includegraphics{r-cmd-022}
+\caption{Binomiale Verteilung}
+\end{subfigure}
+
+\begin{subfigure}[b]{0.48\textwidth}
+\includegraphics{r-cmd-023}
+\caption{Normale Verteilung}
+\end{subfigure}
+\begin{subfigure}[b]{0.48\textwidth}
+\includegraphics{r-cmd-024}
+\caption{Exponential Verteilung}
+\end{subfigure}
+\caption{Boxplots verschiedener Verteilungen}
+\end{figure}
