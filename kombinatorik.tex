@@ -186,24 +186,33 @@ bezeichnet.
 \section{Kombinatorik}
 Im Teilgebiet der Stochastik gibt es einige Regeln die es in der 
 Kombinatorik zu beachten gilt. Insbesondere sind dies die Axiome von
-Kolmogorov
+Kolmogorov.
 
 \subsection{Axiome von Kolmogorov}
-\begin{itemize}
-	\item Jedes Ereignis $A$ aus der Ergebnismenge $\Omega$ hat eine 
+Der russische Mathematiker Andrei Nikolajevitsch Kolmogorov definierte
+drei Axiome für die Wahrscheinlichkeitstheorie.
+\begin{enumerate}
+	\item \textbf{Nichtnegativität} \\
+		Jedes Ereignis $A$ aus der Ergebnismenge $\Omega$ hat eine 
 		reelle Eintrittswahrscheinlichkeit $P(A)$ von 
-		$0 \leq P(A) \leq 1$. Das bedeutet insbesondere, dass es 
+		$P(A) \geq 0$. Das bedeutet insbesondere, dass es 
 		keine negativen Wahrscheinlichkeiten gibt.
-	\item Das sichere Ereignis der Ergebnismenge $\Omega$ hat eine
+		\[ P(A) \geq 0 \quad \text{für } A \in \Omega \] 
+	\item \textbf{Normiertheit} \\
+		Das sichere Ereignis der Ergebnismenge $\Omega$ hat eine
 		Wahrscheinlichkeit von $P(\Omega)=1$. Dies sagt aus, dass
-		sich immer etwas ereignen wird.
-	\item Die Wahrscheinlichkeit einer Vereinigung disjunkter 
+		sich immer etwas ereignen wird und dass das unmögliche
+		Ereignis, die Wahrscheinlichkeit $P(\emptyset)=0$ hat.
+		\[ P(\Omega) = 1 \]
+	\item \textbf{Additivität} \\
+		Die Wahrscheinlichkeit einer Vereinigung disjunkter 
 		Ereignisse ist gleich der Summe der einzelnen 
 		Wahrscheinlichkeiten. Dies kann als 
 		$P(A_1 \dot\cup A_2  \dots ) = \sum P(A_i)$ 
 		formuliert werden und wird als $\sigma$-Additivität
 		bezeichnet.
-\end{itemize}
+		\[ P(A+B) = P(A)+P(B) \quad \text{falls } A \cap B = 0 \]
+\end{enumerate}
 
 \subsection{Stochastisch unabhängige Ereignisse}
 \[ \begin{array}{c c l}
@@ -243,8 +252,8 @@ Kolmogorov
 \subsection{Diskrete Wahrscheinlichkeit}
 \[ 
 	P(E)
-	= \frac{\text{Anzahl positiver Elementarereignisse}}{
-		\text{Anzahl möglicher Elementarereignisse}}
+	= \frac{\text{Anzahl positiver Elementarereignisse für } E}{
+		\text{Anzahl aller möglicher Elementarereignisse}}
 \]
 
 \section{Bedingte Wahrscheinlichkeit}
