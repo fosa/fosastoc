@@ -17,6 +17,8 @@
 \chapter{Grundbegriffe}
 \newpage
 
+\setkeys{Gin}{width=1\textwidth}
+
 \section{Arithmetisches Mittel}
 Das \gls{arithmetische Mittel} beschreibt den Quotienten aus 
 der Summe aller Elemente und der Anzhal Elemente. Dieses wird oft auch
@@ -91,14 +93,14 @@ ganzer Zahlen zwischen 1 und 20.
 > x
 \end{Sinput}
 \begin{Soutput}
- [1]  1  2  2  6  7 10 11 13 14 14
+ [1]  1  4  6  6  7  9 12 15 15 20
 \end{Soutput}
 \begin{Sinput}
 > quantile(x, prob=0.2, type=2)
 \end{Sinput}
 \begin{Soutput}
 20% 
-  2 
+  5 
 \end{Soutput}
 \end{Schunk}
 
@@ -159,6 +161,35 @@ es ergibt sich die folgende Formel.
 	\right)
 \]
 
+\noindent
+Die Standardabweichung kann auch graphisch gezeigt werden mittels
+eines Plots mit \lstinline{rect()}. Dieses erlaubt es Quadrate zu
+zeichnen mit der Kantenlänge der Abweichung von \lstinline{mean()}
+zu Daten. Die Standardabweichung entspricht somit der Kantenlänge
+dieser Quadrate.
+
+\begin{Schunk}
+\begin{Sinput}
+> x <- c(1:10)
+> y <- (runif(n=10, min=3, max=7))
+> plot(y, ylim=c(0, 10))
+> abline(h=mean(y))
+> diff <- sqrt((y-mean(y))^2) 
+> rect(xleft=x, xright=(x+diff), ybottom=mean(y), ytop=y, col='gray')
+> segments(x0=x, y0=mean(y), x1=x, y1=y, lwd=3)
+> 
+\end{Sinput}
+\end{Schunk}
+
+
+\begin{figure}[h!]
+\centering
+\begin{subfigure}[b]{0.48\textwidth}
+\includegraphics{begriffe-006}
+\end{subfigure}
+\caption{Varianz als Flächen dargestellt}
+\end{figure}
+
 \section{Standardabweichung}
 Die \gls{Standardabweichung} beschreibt wie gross die die mittlere 
 Abweichung ist von den einzelnen Beobachtungen (Datenpunkten) zum 
@@ -167,7 +198,7 @@ Schätzung für den
 \emph{waren} Mittelwert und verändert die Formel 
 (siehe Kapiel \ref{sec:varianz}).} 
 derselben Beobachtungen. Die Standardabweichung ist somit gleich
-der zweiten Wurzel von der Varianz den selben Beobachtungen. Die
+der zweiten Wurzel von der Varianz der selben Beobachtungen. Die
 Standardabweichung wird oft mit $\sigma$, $\sigma_x$ bzw. $s$, $s_x$ 
 notiert.
 \[
@@ -188,15 +219,37 @@ ermittelt. Im Folgenden ein Beispiel welches die Standardabweichung
 > x
 \end{Sinput}
 \begin{Soutput}
- [1] 4 7 2 8 4 3 5 2 2 2
+ [1]  8  6  1  5  3  8  3  7 10  4
 \end{Soutput}
 \begin{Sinput}
 > sd(x)
 \end{Sinput}
 \begin{Soutput}
-[1] 2.18327
+[1] 2.798809
 \end{Soutput}
 \end{Schunk}
+Die Standardabweichung kann auch graphisch gezeigt werden mittels
+eines Plots mit \lstinline{segments()}. Dieses erlaubt es Linensegmente
+zwischen \lstinline{mean()} und den Daten zu zeichnen. Die Varianz
+erhält man bei der Quadrierung dieser Linien.
+\begin{Schunk}
+\begin{Sinput}
+> x <- c(1:20)
+> y <- (runif(n=20))
+> plot(y)
+> abline(h=mean(y))
+> segments(x0=x, y0=mean(y), x1=x, y1=y, lwd=2)
+\end{Sinput}
+\end{Schunk}
+
+
+\begin{figure}[h!]
+\centering
+\begin{subfigure}[b]{0.48\textwidth}
+\includegraphics{begriffe-010}
+\end{subfigure}
+\caption{Standardabweichung (Daten zu \lstinline{mean()})}
+\end{figure}
 
 \section{Kovarianz}
 Die \gls{Kovarianz} beschreibt ob sich zwei Datenreihen ähnlich 
@@ -219,7 +272,7 @@ je 1000 sortierten exponentialverteilten Zufallszahlen.
 > cov(x,y)
 \end{Sinput}
 \begin{Soutput}
-[1] 1.055886
+[1] 1.025511
 \end{Soutput}
 \end{Schunk}
 
@@ -234,7 +287,7 @@ hat somit auch eine Richtung.
 	= \frac{s_{xy}}{s_x \cdot s_y}
 	= \frac{\sum\limits_{i=1}^n (x_i-\bar{x}) \cdot (y_i-\bar{y})}{
 		\sqrt{\left(\sum\limits_{i=1}^n (x_i-\bar{x})^2\right)
-		\left(\cdot \sum\limits_{i=1}^n (y_i-\bar{y})^2\right) }}
+		\cdot \left( \sum\limits_{i=1}^n (y_i-\bar{y})^2\right) }}
 \]
 Mit dem Betrag und der Richtung des Korrelationskoeffizienten sind 
 Grundsätzlich drei Aussagen möglich:
@@ -256,15 +309,15 @@ Grundsätzlich drei Aussagen möglich:
 \begin{figure}[h!]
 \centering
 \begin{subfigure}[b]{0.3\textwidth}
-\includegraphics{begriffe-009}
+\includegraphics{begriffe-015}
 \caption{$r=+1$}
 \end{subfigure}
 \begin{subfigure}[b]{0.3\textwidth}
-\includegraphics{begriffe-010}
+\includegraphics{begriffe-016}
 \caption{$r=0$}
 \end{subfigure}
 \begin{subfigure}[b]{0.3\textwidth}
-\includegraphics{begriffe-011}
+\includegraphics{begriffe-017}
 \caption{$r=-1$}
 \end{subfigure}
 \caption{Extremwerte von Korrelationen im Vergleich.}
