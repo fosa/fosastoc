@@ -47,9 +47,8 @@ Die hypergeometrische Verteilung entspricht dem Urnenmodell:
 	\item Die Menge der roten als auch der blauen Kugeln ist fix 
 		\[ m,n \neq \infty \]
 	\item Ein erzieltes Ergebnis reduziert die entsprechende Menge
+		(\emph{Ziehen ohne Zurücklegen})
 		\[ m \rightarrow  M - 1\]
-		Oft wird hier der Ausdruck \emph{Ziehen ohne Zurücklegen}
-		verwendet.
 \end{itemize}
 Die hypergeometrische Verteilung wird im allgemeinen beschrieben mit
 \[  
@@ -147,30 +146,32 @@ Binomialverteilung zur Verfügung.
 \end{itemize}
 Die Abbildung \ref{fig:binom} zeigt jeweils einen Plot zu den gegebenen
 Funktionen aus \lstinline{R}. Für weitere Informationen zu Plots siehe
-Kapitel \ref{chap:plots}.
+Kapitel \ref{sec:plots}.
 
 <<dbinom, fig=FALSE, echo=FALSE>>=
 plot(dbinom(x=c(1:100), size=100, prob=0.5), type='l', cex.lab=1.5, 
-     cex.axis=1.5, cex.main=1.5, cex.sub=1.5, ylab='', xlab='', 
+     cex.axis=1.5, cex.main=1.5, cex.sub=1.5, 
+     ylab='P(x)', xlab='Wert x', 
      main='dbinom()')
 @
 
 <<pbinom, fig=FALSE, echo=FALSE>>=
 plot(pbinom(q=c(1:100), size=100, prob=0.5), type='l', cex.lab=1.5, 
-     cex.axis=1.5, cex.main=1.5, cex.sub=1.5, ylab='', xlab='', 
+     cex.axis=1.5, cex.main=1.5, cex.sub=1.5, 
+     ylab='P(X<=x)', xlab='Wert x', 
      main='pbinom()')
 @
 
 <<qbinom, fig=FALSE, echo=FALSE>>=
 plot(qbinom(p=seq(from=0, to=1, by=0.001), size=100, prob=0.5), type='l',
-     cex.lab=1.5, cex.axis=1.5, cex.main=1.5, cex.sub=1.5, ylab='', 
-     xlab='', main='qbinom()')
+     cex.lab=1.5, cex.axis=1.5, cex.main=1.5, cex.sub=1.5, ylab='Wert x', 
+     xlab='Quantil in Promille', main='qbinom()')
 @
 
 <<rbinom, fig=FALSE, echo=FALSE>>=
 plot(rbinom(n=100, size=100, prob=0.5), cex.lab=1.5, cex.axis=1.5, 
-     cex.main=1.5, cex.sub=1.5, ylab='', xlab='', 
-     main='rbinom')
+     cex.main=1.5, cex.sub=1.5, ylab='Wert x', xlab='x-te Zahl', 
+     main='rbinom()')
 @
 
 \begin{figure}[h!]
@@ -179,13 +180,13 @@ plot(rbinom(n=100, size=100, prob=0.5), cex.lab=1.5, cex.axis=1.5,
 <<fig=TRUE, echo=FALSE>>=
 <<dbinom>>
 @
-\caption{W.-Verteilung}
+\caption{Wahrscheinlichkeitsverteilung}
 \end{subfigure}
 \begin{subfigure}[b]{0.48\textwidth}
 <<fig=TRUE, echo=FALSE>>=
 <<pbinom>>
 @
-\caption{kumulative Wahrscheinlichkeit}
+\caption{kumulative Wahrshceinlichkeit}
 \end{subfigure}
 
 \begin{subfigure}[b]{0.48\textwidth}
@@ -260,25 +261,25 @@ Poissonverteilung zur Verfügung.
 
 <<dpois, fig=FALSE, echo=FALSE>>=
 plot(dpois(x=c(1:100), lambda=50), type='l', cex.lab=1.5, 
-     cex.axis=1.5, cex.main=1.5, cex.sub=1.5, ylab='', xlab='', 
+     cex.axis=1.5, cex.main=1.5, cex.sub=1.5, ylab='P(x)', xlab='Wert x', 
      main='dpois()')
 @
 
 <<ppois, fig=FALSE, echo=FALSE>>=
 plot(ppois(q=c(1:100), lambda=50), type='l', cex.lab=1.5, 
-     cex.axis=1.5, cex.main=1.5, cex.sub=1.5, ylab='', xlab='', 
-     main='ppois()')
+     cex.axis=1.5, cex.main=1.5, cex.sub=1.5, ylab='P(X<=x)', 
+     xlab='Wert x', main='ppois()')
 @
 
 <<qpois, fig=FALSE, echo=FALSE>>=
 plot(qpois(p=seq(from=0, to=1, by=0.001), lambda=50), type='l',
-     cex.lab=1.5, cex.axis=1.5, cex.main=1.5, cex.sub=1.5, ylab='', 
-     xlab='', main='qpois()')
+     cex.lab=1.5, cex.axis=1.5, cex.main=1.5, cex.sub=1.5, ylab='Wert x', 
+     xlab='Quantil in Promille', main='qpois()')
 @
 
 <<rpois, fig=FALSE, echo=FALSE>>=
 plot(rpois(n=100, lambda=50), cex.lab=1.5, cex.axis=1.5, 
-     cex.main=1.5, cex.sub=1.5, ylab='', xlab='', 
+     cex.main=1.5, cex.sub=1.5, ylab='Wert x', xlab='x-te Zahl', 
      main='rpois()')
 @
 
@@ -288,7 +289,7 @@ plot(rpois(n=100, lambda=50), cex.lab=1.5, cex.axis=1.5,
 <<fig=TRUE, echo=FALSE>>=
 <<dpois>>
 @
-\caption{W.-Verteilung}
+\caption{Wahrscheinlichkeitsverteilung}
 \end{subfigure}
 \begin{subfigure}[b]{0.48\textwidth}
 <<fig=TRUE, echo=FALSE>>=

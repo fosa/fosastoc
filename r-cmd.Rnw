@@ -101,7 +101,7 @@ m
 n
 @
 
-\section{Plots}
+\section{Plots}\label{sec:plots}
 
 \subsection{Gewöhnlicher Plot}
 Um einen gewöhnlichen Plot zu erstellen kann \lstinline{plot()}
