@@ -93,14 +93,14 @@ ganzer Zahlen zwischen 1 und 20.
 > x
 \end{Sinput}
 \begin{Soutput}
- [1]  1  4  6  6  7  9 12 15 15 20
+ [1]  1  2  3  4 11 11 12 14 18 20
 \end{Soutput}
 \begin{Sinput}
 > quantile(x, prob=0.2, type=2)
 \end{Sinput}
 \begin{Soutput}
 20% 
-  5 
+2.5 
 \end{Soutput}
 \end{Schunk}
 
@@ -177,7 +177,6 @@ dieser Quadrate.
 > diff <- sqrt((y-mean(y))^2) 
 > rect(xleft=x, xright=(x+diff), ybottom=mean(y), ytop=y, col='gray')
 > segments(x0=x, y0=mean(y), x1=x, y1=y, lwd=3)
-> 
 \end{Sinput}
 \end{Schunk}
 
@@ -219,13 +218,13 @@ ermittelt. Im Folgenden ein Beispiel welches die Standardabweichung
 > x
 \end{Sinput}
 \begin{Soutput}
- [1]  8  6  1  5  3  8  3  7 10  4
+ [1]  5  8  3  9  9  2 10  6  4  5
 \end{Soutput}
 \begin{Sinput}
 > sd(x)
 \end{Sinput}
 \begin{Soutput}
-[1] 2.798809
+[1] 2.766867
 \end{Soutput}
 \end{Schunk}
 Die Standardabweichung kann auch graphisch gezeigt werden mittels
@@ -272,7 +271,7 @@ je 1000 sortierten exponentialverteilten Zufallszahlen.
 > cov(x,y)
 \end{Sinput}
 \begin{Soutput}
-[1] 1.025511
+[1] 0.955371
 \end{Soutput}
 \end{Schunk}
 
@@ -327,7 +326,8 @@ Grundsätzlich drei Aussagen möglich:
 \noindent
 Bei der Analyse der Korrelation mittels solcher Plots ist Vorsicht
 geboten, denn diese müssen natürlich nicht so mustergültig sein wie im 
-Bild \ref{fig:korrelation}. Hierzu eine kleine Merkregel: Bilden die
+Bild \ref{fig:korrelation} gezeigt. 
+Hierzu eine kleine Merkregel: Bilden die
 Daten im Plot annähernd eine Gerade mit
 einer konstanten Steilheit die nicht Null ist, so korrelieren die Daten
 mit annähernd $\pm1$ (Vorzeichen entsprechend der Steigung).

@@ -152,7 +152,6 @@ abline(h=mean(y))
 diff <- sqrt((y-mean(y))^2) 
 rect(xleft=x, xright=(x+diff), ybottom=mean(y), ytop=y, col='gray')
 segments(x0=x, y0=mean(y), x1=x, y1=y, lwd=3)
-
 @
 
 <<var, fig=FALSE, echo=FALSE>>=
@@ -333,7 +332,8 @@ plot(a, b, cex.lab=1.5, cex.axis=1.5, cex.main=1.5,
 \noindent
 Bei der Analyse der Korrelation mittels solcher Plots ist Vorsicht
 geboten, denn diese müssen natürlich nicht so mustergültig sein wie im 
-Bild \ref{fig:korrelation}. Hierzu eine kleine Merkregel: Bilden die
+Bild \ref{fig:korrelation} gezeigt. 
+Hierzu eine kleine Merkregel: Bilden die
 Daten im Plot annähernd eine Gerade mit
 einer konstanten Steilheit die nicht Null ist, so korrelieren die Daten
 mit annähernd $\pm1$ (Vorzeichen entsprechend der Steigung).

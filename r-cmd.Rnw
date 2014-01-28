@@ -15,7 +15,22 @@
 %----------------------------------------
 
 \chapter{R Grundlagen}
+\lstinline{R} ist eine multiparadigmatische Programmiersprache für 
+Statistik und wird als Teil des GNU-Projektes entwickelt. Die 
+Besonderheit von R liegt in der Implementation vieler Algorithmen
+und Analysen der Statistik aber auch von vielseitigen Möglichkeiten 
+des Plottens. Diese Stärken und die Tatsache, dass \lstinline{R} 
+freie Software ist, haben es zu einem beliebten Tool in Wissenschaft
+und Industrie gemacht.
+
 \newpage
+
+\setkeys{Gin}{width=1\textwidth}
+
+\section{Informationen finden}
+<<>>=
+help(cat)
+@
 
 \section{Vektoren \& Matrizen definieren}
 \paragraph{Vektor mit Intervall 1 definieren}
@@ -71,3 +86,85 @@ m <- matrix(a, 3); n <- m*b
 m
 n
 @
+
+\section{Plots}
+
+\subsection{Gewöhnlicher Plot}
+Um einen gewöhnlichen Plot zu erstellen kann \lstinline{plot()}
+verwendet werden. 
+
+<<plot, fig=FALSE>>=
+x <- c(1:20)
+y <- (runif(n=20))
+plot(x, y)
+@
+
+\subsubsection{Linien plotten}
+Möchte man einen Plot ergänzen mit Linien kann nach \lstinline{plot()}
+noch \lstinline{abline()} benutzt werden.
+
+<<abline, fig=FALSE>>=
+x <- c(1:20)
+y <- (runif(n=20))
+plot(x, y)
+abline(h=mean(y))
+@
+
+\subsubsection{Segmente plotten}
+Möchte man beispielsweise die Abweichung von Daten und Mittelwert
+zeigen, kann \lstinline{segments()} benutzt werden. Dieses ist in der
+Lage mehrere Liniensegmente zu einem Plot hinzuzufügen.
+
+<<segments, fig=FALSE>>=
+x <- c(1:20)
+y <- (runif(n=20))
+plot(x, y)
+abline(h=mean(y))
+segments(x0=x, y0=mean(y), x1=x, y1=y)
+@
+
+\subsubsection{Flächen plotten}
+Möchte man Rechtecke oder Flächen in einen Plot einfügen so kann man 
+\lstinline{rect()} benutzen. Im folgenden ein Beispiel zur Darstellung
+der Varianz.
+
+<<rect, fig=FALSE>>=
+x <- c(1:20)
+y <- (runif(n=20, min=3, max=7))
+plot(x, y, ylim=c(0, 10))
+abline(h=mean(y))
+diff <- sqrt((y-mean(y))^2)
+rect(xleft=x, xright=(x+diff), ybottom=mean(y), ytop=y, col='gray')
+@
+
+\begin{figure}[h!]
+\centering
+\begin{subfigure}[b]{0.48\textwidth}
+<<fig=TRUE, echo=FALSE>>=
+<<plot>>
+@
+\caption{Gewöhnlicher Plot mit \lstinline{plot()}}
+\end{subfigure}
+\begin{subfigure}[b]{0.48\textwidth}
+<<fig=TRUE, echo=FALSE>>=
+<<abline>>
+@
+\caption{Linie mit \lstinline{abline()}}
+\end{subfigure}
+
+\begin{subfigure}[b]{0.48\textwidth}
+<<fig=TRUE, echo=FALSE>>=
+<<segments>>
+@
+\caption{Segmente mit \lstinline{segments()}}
+\end{subfigure}
+\begin{subfigure}[b]{0.48\textwidth}
+<<fig=TRUE, echo=FALSE>>=
+<<rect>>
+@
+\caption{Flächen mit \lstinline{rect()}}
+\end{subfigure}
+
+\end{figure}
+
+\subsection{Boxplot}
