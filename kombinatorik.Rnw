@@ -21,12 +21,56 @@
 Die Logik ist ein Teilgebiet der Mathematik und bedgründete das relativ
 junge Teilgebiet der \gls{Mengenlehre} (engl. \emph{set theory}). 
 Dass diese beiden Teilgebiete sich sehr ähnlich sind, zeigt sich 
-unter anderem in ihren fast identischen Notationen.
+unter anderem in ihren ähnlichen Notationen.
 
 Die Mengenlehre zeichnet sich insbesondere dadurch aus, 
 dass es eine starke \gls{Abstraktion} zulässt.
 Diese Eigenschaft ermöglicht es die Mengenlehre für viele Probleme
 heranzuziehen. Die Stochastik ist nur eines von diesen.
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{l c |l c}
+		Aussagelogik 
+			& 
+			& Mengenlehre 
+			& \\
+		\hline
+		& & & \\
+		Konjunktion
+			& $A \land B$
+			& Schnittmenge
+			& $A \cap B$ \\
+		& & & \\
+		Disjunktion
+			& $A \lor B$
+			& Vereinigung
+			& $A \cup B$ \\
+		& & & \\
+		Logische Äquivalenz
+			& $A \Leftrightarrow B$
+			& Differenzmenge
+			& $A \setminus B$ \\
+		& & & \\
+		Implikation
+			& $A \Rightarrow B$  
+			& Symmetrische Differenz
+			& $A \triangle B$ \\
+		& & & \\
+		Kontravalenz
+			& $A \veebar B$ 
+			& Disjunkte Vereinigung
+			& $A \dot\cup B$ \\
+		& & & \\
+		Negation
+			& $\bar{A}$
+			& Komplement 
+			& $A^{\mathrm C}$ \\
+		& & & \\
+	\end{tabular}
+	\caption{Junktoren der Logik und Operationen der 
+		Mengenlehre}
+\end{table}
 
 \subsection{Begriffe der Mengenlehre}
 \paragraph{Grundmenge und Grundraum}
@@ -87,8 +131,44 @@ enthalten und keine weiteren, so sind diese die \gls{gleiche Menge}.
 Eine Menge die alle Elemente einer Menge enthält ohne jene die auch
 in einer weiteren Menge vorkommen, wird als \gls{Differenzmenge} 
 bezeichnet.
+\[
+	A \setminus B 
+\]
+
+\paragraph{Potenzmenge}
+Für eine Menge $\Omega$ gibt es die sogenannte \gls{Potenzmenge} 
+$\mathcal{P}(\Omega)$, welche alle Teilmengen $\omega$ von $\Omega$ 
+beschreibt.
+Eine Potenzmenge ist also per Definition eine Menge, welche nur
+aus Mengen besteht. 
+
+Die Potenzmenge kennt eine Reihe von gebräuchlichen
+Notationen wobei $\mathcal{P}(\Omega)$ die gängigste ist. Weitere 
+Notationen sind z.B. $\mathfrak{P}(\Omega)$ oder $\prod(\Omega)$
+\[ 
+	\mathcal{P} 
+		\quad = \quad \{\omega \mid \omega \subseteq \Omega \}
+\]
+
+\paragraph{Komplement}
+Eine Menge welche alle Elemente aus einer Potenzmenge 
+$\mathcal{P}(\Omega)$
+enthält ohne Elemente einer Menge $A$ heisst \gls{Komplement} der 
+Menge $A$ und wird als $A^\mathrm C$ notiert\footnote{Das Komplement in 
+der Mengenlehre sollte stets als $A^{\mathrm C}$ notiert werden. Folgende
+Notationen gehören zu anderen Gebieten der Mathematik und sollten 
+nicht verwendet werden: 
+$\overline{A}$ bezeichnet den Abschluss der Menge $A$ (mengentheoretische 
+Topologie), $\lnot A$ bzw. $\bar{A}$ ist die Inversion von $A$ 
+(Aussagelogik), 
+$A'$ hat viele Beudeutungen in der Mathematik und eine 
+Spezielle in der Statistik $P(A')=1-P(A)$}. Somit kann ein Komplement 
+als Differenzmenge einer Potenzmenge und einer Menge beschrieben werden.
 \[  
-	A \setminus  B
+	A^{\mathrm C} 
+		\quad = \quad \Omega \setminus A 
+		\quad := \quad \{\omega\in\Omega \mid \omega\notin A\} 
+			\in\mathcal{P}(\Omega)
 \]
 
 \newpage
@@ -179,32 +259,32 @@ bezeichnet.
 		\end{venndiagram2sets}
 		\caption{$\overline{A \cup B}$}
 	\end{subfigure}
-	\caption{Die wichtigsten Definitionen der Mengenlehre graphisch
+	\caption{Die wichtigsten Operationen der Mengenlehre graphisch
 	erläutert mittels Venn-Diagrammen.}
 \end{figure}
 
 \section{Kombinatorik}
 Im Teilgebiet der Stochastik gibt es einige Regeln die es in der 
-Kombinatorik zu beachten gilt. Insbesondere sind dies die Axiome von
-Kolmogorov.
+Kombinatorik zu beachten gilt. Insbesondere sind dies die 
+\gls{Axiome von Kolmogorov}.
 
 \subsection{Axiome von Kolmogorov}
-Der russische Mathematiker Andrei Nikolajevitsch Kolmogorov definierte
-drei Axiome für die Wahrscheinlichkeitstheorie.
+Der russische Mathematiker Andrei Nikolajevitsch \gls{Kolmogorov} 
+definierte drei Axiome für die Wahrscheinlichkeitstheorie.
 \begin{enumerate}
-	\item \textbf{Nichtnegativität} \\
+	\item \textbf{\gls{Nichtnegativitaet}} \\
 		Jedes Ereignis $A$ aus der Ergebnismenge $\Omega$ hat eine 
 		reelle Eintrittswahrscheinlichkeit $P(A)$ von 
 		$P(A) \geq 0$. Das bedeutet insbesondere, dass es 
 		keine negativen Wahrscheinlichkeiten gibt.
 		\[ P(A) \geq 0 \quad \text{für } A \in \Omega \] 
-	\item \textbf{Normiertheit} \\
+	\item \textbf{\gls{Normiertheit}} \\
 		Das sichere Ereignis der Ergebnismenge $\Omega$ hat eine
 		Wahrscheinlichkeit von $P(\Omega)=1$. Dies sagt aus, dass
 		sich immer etwas ereignen wird und dass das unmögliche
 		Ereignis, die Wahrscheinlichkeit $P(\emptyset)=0$ hat.
 		\[ P(\Omega) = 1 \]
-	\item \textbf{Additivität} \\
+	\item \textbf{\gls{Additivitaet}} \\
 		Die Wahrscheinlichkeit einer Vereinigung disjunkter 
 		Ereignisse ist gleich der Summe der einzelnen 
 		Wahrscheinlichkeiten. Dies kann als 
@@ -215,6 +295,53 @@ drei Axiome für die Wahrscheinlichkeitstheorie.
 \end{enumerate}
 
 \subsection{Stochastisch unabhängige Ereignisse}
+Hat man zwei Ereignisse $A,B$ welche die nachfolgende Definition erfüllen
+so nennt man diese \gls{stochastisch unabhaengig}.
+\[ \left. 
+	\begin{array}{l c l}
+		P(A|B)
+			& =
+			& P(A) \\
+		& & \\
+		P(B|A)
+			& =
+			& P(B) \\
+	\end{array} \right\}
+	\Rightarrow P(A) \cdot P(B)
+\]
+Die allgemeingültige mathematische Definition der stochastischen 
+Unabhängigkeit ist
+etwas umständlich, kann aber einfach erläutert werden und lässt zu,
+die Unabhängigkeit von beliebig vielen Ereignissen zu prüfen.
+
+Im Falle von drei Ereignissen $A,B,C$ muss zur stochastische
+Unabhängigkeit folgendes gelten
+\[ \begin{array}{r c l}
+	P(A \cap B)
+		& = 
+		& P(A) \cdot P(B) \\
+	& & \\
+	P(A \cap C)
+		& =
+		& P(A) \cdot P(C) \\
+	& & \\
+	P(B \cap C)
+		& =
+		& P(B) \cdot P(C) \\
+	& & \\
+	P(A \cap B \cap C)
+		& =
+		& P(A) \cdot P(B) \cdot P(C)
+\end{array} \]
+Hier lässt sich nun etwas deutlicher erkennen, was die allgemeine
+stochastische Unabhängigkeit ausmacht. 
+Für eine Anzahl $n$ von Ereignissen 
+$A_1, A_2, \dots , A_n $ 
+muss für jede Kombination (sog. relevante Menge) die Bedingung
+$P(A_x \cap A_y) = P(A_x) \cdot P(A_y)$ gelten, damit diese
+als \gls{stochastisch unabhaengig} gelten. 
+
+\paragraph{Rechenregeln für zwei stochastisch unabhängige Ereignisse}
 \[ \begin{array}{c c l}
 	P(A)	
 		& \leq
@@ -257,12 +384,13 @@ drei Axiome für die Wahrscheinlichkeitstheorie.
 \]
 
 \section{Bedingte Wahrscheinlichkeit}
-Bei bedingten Wahrscheinlichkeiten kann das Beyes'sche Theorem angewandt
-werden. Mit Hilfe dieses Theorems kann die Wahrscheinlichkeit, dass $A$
-einritt wenn $B$ eingetreten ist umgekehrt werden zur Formulierung dass
-$B$ eintritt, gegeben es sei $A$ eingetreten.
+Bei bedingten Wahrscheinlichkeiten kann das \gls{Beyes'sche Theorem} 
+angewandt werden. Mit Hilfe dieses Theorems kann die Wahrscheinlichkeit, 
+dass $A$ einritt wenn $B$ eingetreten ist umgekehrt werden zur 
+Formulierung dass $B$ eintritt, gegeben es sei $A$ eingetreten.
 
 \subsection{Beyes'sche Theorem}
+Aus dem Beyes'schen Theorem leiten sich die folgenden Aussagen ab.
 \[ \begin{array}{c c l}
 	P_B(A) 
 		& = 
@@ -276,16 +404,19 @@ $B$ eintritt, gegeben es sei $A$ eingetreten.
 	& & \\
 	P(B) 
 		& = 
-		& P(B|A) \cdot P(A) + P(B|A^C) \cdot P(A^C) \\
+		& P(B|A) \cdot P(A) 
+			+ P(B|A^{\mathrm C}) 
+			\cdot P(A^{\mathrm C}) \\
 	& & \\
 	P(B) 	
 		& = 
-		& P(B \cap A) \cdot P(A) + P(B|A^C) \cdot P(A^C)
+		& P(B \cap A) \cdot P(A) + P(B|A^{\mathrm C}) 
+			\cdot P(A^{\mathrm C})
 \end{array} \]
 
 \newpage
-\subsection{Tabelle zu bedingten Wahrscheinlichkeit}
-Mit dem Beyes'schen Theorem kann eine tabellarische Übersich von
+\subsection{Tabelle zur bedingten Wahrscheinlichkeit}
+Mit dem Beyes'schen Theorem kann eine tabellarische Übersicht von
 zwei bedingten Ereignissen erstellt werden, welche wiederum mittels
 der Kolmogorv'schen Axiome bestimmt werden.
 
