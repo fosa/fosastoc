@@ -4,14 +4,15 @@
 \contentsline {figure}{\numberline {1.2}{\ignorespaces Standardabweichung (Daten zu \lstinline {mean()})\relax }}{10}{figure.caption.4}
 \contentsline {figure}{\numberline {1.3}{\ignorespaces Extremwerte von Korrelationen im Vergleich.\relax }}{12}{figure.caption.5}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Die wichtigsten Operationen der Mengenlehre graphisch erl\IeC {\"a}utert mittels Venn-Diagrammen.\relax }}{17}{figure.caption.17}
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Tabelle bedingter Wahrscheinlichkeiten.\relax }}{21}{figure.caption.19}
-\contentsline {figure}{\numberline {2.3}{\ignorespaces Hinweise zur Tabelle bedingter Wahrscheinlichkeiten.\relax }}{22}{figure.caption.20}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Potenzmenge von $\{x,y,z\}$ als Hasse-Diagramm\relax }}{16}{figure.caption.16}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Die wichtigsten Operationen der Mengenlehre graphisch erl\IeC {\"a}utert mittels Venn-Diagrammen.\relax }}{17}{figure.caption.18}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Tabelle bedingter Wahrscheinlichkeiten.\relax }}{21}{figure.caption.20}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Hinweise zur Tabelle bedingter Wahrscheinlichkeiten.\relax }}{22}{figure.caption.21}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Teambildung nach Geschlecht\relax }}{25}{figure.caption.22}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Binomialverteilung ($n=100, p=0.5$)\relax }}{27}{figure.caption.23}
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Wahrscheinlichkeitsverteilung beim M\IeC {\"u}nzwurf\relax }}{28}{figure.caption.24}
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Poissonverteilung ($\lambda =50$)\relax }}{30}{figure.caption.25}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Teambildung nach Geschlecht\relax }}{25}{figure.caption.23}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Binomialverteilung ($n=100, p=0.5$)\relax }}{27}{figure.caption.24}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Wahrscheinlichkeitsverteilung beim M\IeC {\"u}nzwurf\relax }}{28}{figure.caption.25}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Poissonverteilung ($\lambda =50$)\relax }}{30}{figure.caption.26}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Analyse eines Boxplots\relax }}{39}{figure.caption.40}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Boxplots verschiedener Verteilungen\relax }}{40}{figure.caption.41}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Analyse eines Boxplots\relax }}{39}{figure.caption.41}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Boxplots verschiedener Verteilungen\relax }}{41}{figure.caption.42}

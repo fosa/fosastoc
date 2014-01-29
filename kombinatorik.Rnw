@@ -150,19 +150,40 @@ Notationen sind z.B. $\mathfrak{P}(\Omega)$ oder $\prod(\Omega)$
 		\quad = \quad \{\omega \mid \omega \subseteq \Omega \}
 \]
 
+\begin{figure}[h!]
+	\centering
+	\begin{tikzpicture}
+		\node (pot) 	at ( 0.0, 0.0) 	{$\{\emptyset\}$};
+		\node (x) 	at (-2.0, 1.0) 	{$\{x\}$};
+		\node (y)	at ( 0.0, 1.0) 	{$\{y\}$};
+		\node (z)	at ( 2.0, 1.0) 	{$\{z\}$};
+		\node (xy) 	at (-2.0, 2.0) 	{$\{x,y\}$};
+		\node (xz)	at ( 0.0, 2.0) 	{$\{x,z\}$};
+		\node (yz)	at ( 2.0, 2.0) 	{$\{y,z\}$};
+		\node (xyz)	at ( 0.0, 3.0)	{$\{x,y,z\}$};
+		\draw[->] (pot) -- (x);
+		\draw[->] (pot) -- (y);
+		\draw[->] (pot) -- (z);
+		\draw[->] (x) -- (xy);
+		\draw[->] (x) -- (xz);
+		\draw[->] (y) -- (xy);
+		\draw[->] (y) -- (yz);
+		\draw[->] (z) -- (xz);
+		\draw[->] (z) -- (yz);
+		\draw[->] (xy) -- (xyz);
+		\draw[->] (xz) -- (xyz);
+		\draw[->] (yz) -- (xyz);
+	\end{tikzpicture}
+	\caption{Potenzmenge von $\{x,y,z\}$ als Hasse-Diagramm}
+\end{figure}
+
 \paragraph{Komplement}
 Eine Menge welche alle Elemente aus einer Potenzmenge 
 $\mathcal{P}(\Omega)$
 enthält ohne Elemente einer Menge $A$ heisst \gls{Komplement} der 
 Menge $A$ und wird als $A^\mathrm C$ notiert\footnote{Das Komplement in 
-der Mengenlehre sollte stets als $A^{\mathrm C}$ notiert werden. Folgende
-Notationen gehören zu anderen Gebieten der Mathematik und sollten 
-nicht verwendet werden: 
-$\overline{A}$ bezeichnet den Abschluss der Menge $A$ (mengentheoretische 
-Topologie), $\lnot A$ bzw. $\bar{A}$ ist die Inversion von $A$ 
-(Aussagelogik), 
-$A'$ hat viele Beudeutungen in der Mathematik und eine 
-Spezielle in der Statistik $P(A')=1-P(A)$}. Somit kann ein Komplement 
+der Mengenlehre sollte stets als $A^{\mathrm C}$ notiert werden.}. 
+Somit kann ein Komplement 
 als Differenzmenge einer Potenzmenge und einer Menge beschrieben werden.
 \[  
 	A^{\mathrm C} 
