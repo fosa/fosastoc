@@ -97,6 +97,18 @@ m
 n
 @
 
+\section{Spezielle Berechnungen}
+
+\paragraph{Binomialkoeffizient}
+<<>>=
+choose(7,2)
+@
+
+\paragraph{Fakultät}
+<<>>=
+factorial(5)
+@
+
 \section{Plots}\label{sec:plots}
 
 \subsection{Gewöhnlicher Plot}
