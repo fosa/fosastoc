@@ -23,8 +23,8 @@
 Das \gls{arithmetische Mittel} beschreibt den Quotienten aus 
 der Summe aller Elemente und der Anzhal Elemente. Dieses wird oft auch
 einfach als Mittelwert, \gls{Mittel} oder \gls{Durchschnitt} bezeichnet. 
-Ein solcher Mittelwert wird mittels eines übergestellten Striches 
-markiert z.B.
+Ein solcher Mittelwert wird mit einem übergestellten Strich  
+markiert.
 $\bar{x}$.
 \[ 
 	\bar{x} 
@@ -34,7 +34,8 @@ $\bar{x}$.
 Ein allseits bekanntes Beispiel für das arithmetische Mittel ist der 
 \emph{Notendurchschnitt}. 
 
-In \lstinline{R} wird das arithmetische Mittel mit 
+\paragraph{Berechnung in R}
+In \lstinline{R} wird das arithmetische Mittel mit der Funktion 
 \lstinline{mean()} ermittelt.
 \begin{Schunk}
 \begin{Sinput}
@@ -76,6 +77,8 @@ beeinflusst die Rechnung.
 		& k \text{ runden} \\
 		& \Rightarrow x_{k}
 \end{array} \]
+
+\paragraph{Berechnung in R}
 Die Brechnung von Qunatilen in \lstinline{R} lässt sich mittels 
 \lstinline{quantile()} durchführen. Hierbei gilt es zu beachten, dass
 \lstinline{R} neun verschiedene Algorithmen kennt um Quantile zu 
@@ -93,7 +96,7 @@ ganzer Zahlen zwischen 1 und 20.
 > x
 \end{Sinput}
 \begin{Soutput}
- [1]  1  2  3  4 11 11 12 14 18 20
+ [1]  1  2  3  4  6  8 12 13 17 19
 \end{Soutput}
 \begin{Sinput}
 > quantile(x, prob=0.2, type=2)
@@ -107,7 +110,25 @@ ganzer Zahlen zwischen 1 und 20.
 \section{Quartil}
 Das \gls{Quartil} beschreibt spezielle Quantile welche jeweils ein
 Vielfaches von $\frac{1}{4}$ bzw. $25\%$ sind, d.h. das
-$25\%$, $50\%$ als auch das $75\%$ Quantil.
+$25\%$, $50\%$ als auch das $75\%$ Quantil. Diese drei Quartile haben 
+wiederum Eigennamen (siehe Tabelle \ref{tab:quantile})
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{l l}
+		Quantil &
+			Eigenname \\
+		\hline
+		& \\
+		$25\%$ Quantil
+			& unteres Quartil \\
+		$50\%$ Quantil
+			& Median (mittleres Quartil) \\
+		$75\%$ Quantil
+			& oberes Quartil \\
+	\end{tabular}
+	\caption{Übersicht spezieller Quantile}
+	\label{tab:quantile}
+\end{table}
 
 \section{Median}
 Der \gls{Median} ist wie das \gls{Quartil} ein spezielles \gls{Quantil}, 
@@ -118,9 +139,11 @@ beschreibt lediglich das mittlere Element einer sortierten Datenreihe.
 Somit ist der Median unenpfindlich gegenüber Extremwerten (anders etwa 
 das \gls{arithmetische Mittel}).
 
-In \lstinline{R} lässt sich der Median mittels \lstinline{median()}
-ermitteln. Im Folgenden ein Beispiel welches verdeutlicht, dass der
-Median umempfindlich ist gegenüber Extremwerten bzw. Ausreissern.
+\paragraph{Berechnung in R}
+In \lstinline{R} lässt sich der Median mit der Funktion 
+\lstinline{median()} ermitteln. Im Folgenden ein Beispiel welches 
+verdeutlicht, dass der Median umempfindlich ist gegenüber Extremwerten 
+bzw. Ausreissern.
 \begin{Schunk}
 \begin{Sinput}
 > x <- c(1.6, 1.7, 1.75, 1.87, 1.94)
@@ -209,6 +232,8 @@ notiert.
 		\sum_{i=1}^n (x_i-\bar{x})^2 
 	\right)}
 \]
+
+\paragraph{Berechnung in R}
 In \lstinline{R} wird die Standardabweichung mittel \lstinline{sd()}
 ermittelt. Im Folgenden ein Beispiel welches die Standardabweichung
 10 zufälliger ganzer Zahlen ermittelt.
@@ -218,13 +243,13 @@ ermittelt. Im Folgenden ein Beispiel welches die Standardabweichung
 > x
 \end{Sinput}
 \begin{Soutput}
- [1]  5  8  3  9  9  2 10  6  4  5
+ [1]  5  3  9  8  3  9 10  8  2  7
 \end{Soutput}
 \begin{Sinput}
 > sd(x)
 \end{Sinput}
 \begin{Soutput}
-[1] 2.766867
+[1] 2.91357
 \end{Soutput}
 \end{Schunk}
 Die Standardabweichung kann auch graphisch gezeigt werden mittels
@@ -251,19 +276,68 @@ erhält man bei der Quadrierung dieser Linien.
 \end{figure}
 
 \section{Kovarianz}
+Die Kovarianz (\emph{mit der Varianz}) ist ein Mass für den
+Zusammenhang zweier Zufallsvariablen.
+\[ \begin{array}{r c l} 
+	C(X,Y) 
+		&:= 
+		& E((X-E(X)) \cdot (Y-E(Y))) \\
+	& & \\
+	s_{xy} 
+		& = 
+		& \displaystyle \frac{1}{n-1} \cdot \left( 
+			\sum_{i=1}^n (x_i - \bar{x}) \cdot (y_i - \bar{y})
+		\right)
+
+\end{array} \]
+Sie ist ein Term aus der Varianz zweier Zufallsvariablen,
+denn es gilt
+\[ \begin{array}{l c l} 
+	V(X+Y) 
+		& =
+		& E(X + Y - E(X+Y))^2 \\
+		& & \\
+		& = 
+		& V(X) + V(Y) + 2 \cdot \underbrace{
+			E((X-E(X))\cdot(Y-E(Y)))}_{\text{
+				Kovarianz } C(X,Y)}
+\end{array} \]
+
 Die \gls{Kovarianz} beschreibt ob sich zwei Datenreihen ähnlich 
 entwickeln. Dabei gilt, dass positive Werte der Kovarianz für ein 
-ähnliches Verhalten sprechen und negative dagegen. Der Betrag der 
-Kovarianz gibt somit die Intensität der Aussage an. 
-\[  
-	s_{xy} 
-	= \frac{1}{n-1} \cdot \left( 
-		\sum_{i=1}^n (x_i - \bar{x}) \cdot (y_i - \bar{y})
-	\right)
-\]
-Die Kovarianz lässt sich in \lstinline{R} mittels \lstinline{cov()}
-ermitteln. Im Folgenden ein extremes Positiv-Beispiel, generiert mit 
-je 1000 sortierten exponentialverteilten Zufallszahlen. 
+ähnliches Verhalten sprechen und negative dagegen. Um auch eine
+Aussage über die Intensität des Zusammenhangs machen zu können,
+muss die Korrelation bzw. der Korrelationskoeffizient betrachtet 
+werden.
+
+Es gibt fünf wichtige Rechenregeln für Kovarianzen.
+\[ \begin{array}{l c l}
+	C(X,Y) 
+		& =
+		& E(X \cdot Y) - (E(X) \cdot E(Y)) \\
+	& & \\
+	C(X,Y) 
+		& =
+		& C(Y,X) \\
+	& & \\
+	C(X,X) 
+		& =
+		& V(X) \\
+	& & \\
+	C(X,Y)
+		& = 
+		& C((X+a),(Y+b)) \\
+	& & \\
+	C(X,Y) 
+		& =
+		& 0 \qquad \text{falls } $X,Y$ \text{ stochastisch unabhängig} \\
+\end{array} \]
+
+\paragraph{Berechnung in R}
+Die Kovarianz lässt sich in \lstinline{R} mit der Funktion 
+\lstinline{cov()} ermitteln. Im Folgenden ein extremes 
+Positiv-Beispiel, generiert mit je 1000 sortierten 
+exponentialverteilten Zufallszahlen. 
 \begin{Schunk}
 \begin{Sinput}
 > x <- sort(x=rexp(n=1000))
@@ -271,7 +345,7 @@ je 1000 sortierten exponentialverteilten Zufallszahlen.
 > cov(x,y)
 \end{Sinput}
 \begin{Soutput}
-[1] 0.955371
+[1] 1.038225
 \end{Soutput}
 \end{Schunk}
 
@@ -281,13 +355,17 @@ Dieser Zusammenhang kann mittels eines Koeffizienten, dem sog.
 \gls{Korrelationskoeffizient} beschrieben werden. Dieser beschreibt den
 Zusammenhang mittels eines Wertes aus dem Intervall $[-1,1]$ und
 hat somit auch eine Richtung.
-\[	
-	r 
-	= \frac{s_{xy}}{s_x \cdot s_y}
-	= \frac{\sum\limits_{i=1}^n (x_i-\bar{x}) \cdot (y_i-\bar{y})}{
-		\sqrt{\left(\sum\limits_{i=1}^n (x_i-\bar{x})^2\right)
-		\cdot \left( \sum\limits_{i=1}^n (y_i-\bar{y})^2\right) }}
-\]
+\[ \begin{array}{r c l} 
+	r(X,Y) 
+		& := 
+		& \displaystyle \frac{C(X,Y)}{\sqrt{V(X) \cdot V(Y)}} \\
+	& & \\
+	r_{xy} = \displaystyle \frac{s_{xy}}{s_x \cdot s_y}
+		& = 
+		& \displaystyle \frac{\sum\limits_{i=1}^n (x_i-\bar{x}) \cdot (y_i-\bar{y})}{
+			\sqrt{\left(\sum\limits_{i=1}^n (x_i-\bar{x})^2\right)
+			\cdot \left( \sum\limits_{i=1}^n (y_i-\bar{y})^2\right) }} \\
+\end{array} \]
 Mit dem Betrag und der Richtung des Korrelationskoeffizienten sind 
 Grundsätzlich drei Aussagen möglich:
 \[ \begin{array}{c c l r}	
@@ -334,3 +412,17 @@ mit annähernd $\pm1$ (Vorzeichen entsprechend der Steigung).
 Ergibt sich im Plot etwas anderes als eine Gerade (etwa ein Kreis, eine
 Kurve oder mehrere \emph{Wölkchen}) so ist der Korrelationskoeffizient
 Null anzunehmen.
+
+\paragraph{Berechnung in R}
+In \lstinline{R} kann der Korrelationskoeffizient mit der Funktion
+\lstinline{cor()} berechnet werden.
+
+\begin{Schunk}
+\begin{Sinput}
+> x <- (runif(n=100)); y <- (rexp(n=100))
+> cor(x,y)
+\end{Sinput}
+\begin{Soutput}
+[1] -0.01825488
+\end{Soutput}
+\end{Schunk}
