@@ -91,7 +91,7 @@ Münzwurf $\Omega=\{KK, KZ, ZK, ZZ\}$ usw.
 \paragraph{Teilmenge} 
 Eine Menge $A$ heisst \gls{Teilmenge} von $B$, wenn jedes Element aus 
 $A$ ein Element von $B$ ist. Somit kann eine solche Teilmenge $A$
-auch die ganze Menge $B$ sein, d.h. $A=B$.
+auch die ganze Menge $B$ sein, d.h. es kann $A=B$ gelten.
 \[ 
 	A \subseteq B
 \]
@@ -99,25 +99,31 @@ auch die ganze Menge $B$ sein, d.h. $A=B$.
 Eine \gls{echte Teilmenge} $A$ der Menge $B$ heisst echte Teilmenge, wenn
 alle Elemente von $A$ in $B$ enthalten sind, aber die Menge $B$ noch
 Elemente hat, die nicht in $A$ enthalten sind. In diesem Fall ist $B$ 
-auch eine \emph{echte} Obermenge von $A$.
+auch eine \emph{echte} Obermenge von $A$ und es gilt $A \neq B$.
 \[
 	A \subset B
 \]
 
 \paragraph{Leere Menge} Eine \gls{leere Menge} ist eine Menge welche 
-keinerlei Elemente enthält.
+keinerlei Elemente enthält. Sie wird entweder als $\{ \}$ oder 
+$\emptyset$ notiert.
 \[  
 	A = \{\} = \emptyset
 \]
 
-\paragraph{Schnittmenge} Eine Menge von Elementen die allesamt in
-allen Mengen vorkommen, wird \gls{Schnittmenge} dieser Mengen genannt.
+\paragraph{Schnittmenge} Eine Menge von Elementen die allesamt sowohl in
+der Menge $A$ als auch in der Menge $B$ vorkommen, wird \gls{Schnittmenge} 
+dieser Mengen genannt.
 \[ 
 	A \cap B
 \]
 
-\paragraph{Vereinigungsmenge} Die Menge aller Elemente einer Menge
-von Mengen wird als \gls{Vereinigungsmenge} bezeichnet.
+\paragraph{Vereinigungsmenge} Die Menge aller Elemente die entweder in
+der Menge $A$, in der Menge $B$ oder in beiden Mengen $A,B$ vorkommen,
+wird als \gls{Vereinigungsmenge} bezeichnet.
+\[  
+	A \cup B
+\]
 
 \paragraph{Gleiche Menge} Wenn zwei Mengen die gleichen Elemente
 enthalten und keine weiteren, so sind diese die \gls{gleiche Menge}.
@@ -144,9 +150,10 @@ aus Mengen besteht.
 
 Die Potenzmenge kennt eine Reihe von gebräuchlichen
 Notationen wobei $\mathcal{P}(\Omega)$ die gängigste ist. Weitere 
-Notationen sind z.B. $\mathfrak{P}(\Omega)$ oder $\prod(\Omega)$
+Notationen sind z.B. $\mathfrak{P}(\Omega)$ oder auch
+$\prod(\Omega)$
 \[ 
-	\mathcal{P} 
+	\mathcal{P}(\Omega) 
 		\quad = \quad \{\omega \mid \omega \subseteq \Omega \}
 \]
 
@@ -180,9 +187,10 @@ Notationen sind z.B. $\mathfrak{P}(\Omega)$ oder $\prod(\Omega)$
 \paragraph{Komplement}
 Eine Menge welche alle Elemente aus einer Potenzmenge 
 $\mathcal{P}(\Omega)$
-enthält ohne Elemente einer Menge $A$ heisst \gls{Komplement} der 
+enthält ohne Elemente einer Menge $A\in\Omega$ heisst \gls{Komplement} der 
 Menge $A$ und wird als $A^\mathrm C$ notiert\footnote{Das Komplement in 
-der Mengenlehre sollte stets als $A^{\mathrm C}$ notiert werden.}. 
+der Mengenlehre sollte stets als $A^{\mathrm C}$ notiert werden obwohl
+oft diverse andere Schreibweisen anzutreffen sind wie z.B. $\bar{A}$.}. 
 Somit kann ein Komplement 
 als Differenzmenge einer Potenzmenge und einer Menge beschrieben werden.
 \[  
@@ -215,7 +223,7 @@ als Differenzmenge einer Potenzmenge und einer Menge beschrieben werden.
 			\draw (0,0) circle (1.2cm);
 			\draw (0,0.8) node {$A$};
 		\end{tikzpicture}
-		\caption{$A^C$}
+		\caption{$A^{\mathrm C}$}
 	\end{subfigure}
 
 	\rule[1mm]{0mm}{5mm}
@@ -261,7 +269,7 @@ als Differenzmenge einer Potenzmenge und einer Menge beschrieben werden.
 		\begin{venndiagram2sets}[tikzoptions={scale=0.7}]
 			\fillNotAorNotB
 		\end{venndiagram2sets}
-		\caption{${A\cap B}^C$}
+		\caption{${(A\cap B)}^{\mathrm C}$}
 	\end{subfigure}
 
 	\rule[1mm]{0mm}{5mm}
@@ -278,7 +286,7 @@ als Differenzmenge einer Potenzmenge und einer Menge beschrieben werden.
 		\begin{venndiagram2sets}[tikzoptions={scale=0.7}]
 			\fillNotAorB
 		\end{venndiagram2sets}
-		\caption{$\overline{A \cup B}$}
+		\caption{${(A \cup B)}^{\mathrm C}$}
 	\end{subfigure}
 	\caption{Die wichtigsten Operationen der Mengenlehre graphisch
 	erläutert mittels Venn-Diagrammen.}
@@ -335,7 +343,7 @@ Unabhängigkeit ist
 etwas umständlich, kann aber einfach erläutert werden und lässt zu,
 die Unabhängigkeit von beliebig vielen Ereignissen zu prüfen.
 
-Im Falle von drei Ereignissen $A,B,C$ muss zur stochastische
+Im Falle von drei Ereignissen $A,B,C$ muss zur stochastischen
 Unabhängigkeit folgendes gelten
 \[ \begin{array}{r c l}
 	P(A \cap B)
@@ -392,7 +400,7 @@ als \gls{stochastisch unabhaengig} gelten.
 		& = 
 		& P(A) \cdot P(B) \cdot P(C) \\
 	& & \\
-	P(A^C) 
+	P(A^{\mathrm C}) 
 		& = 
 		& 1 - P(A)
 \end{array} \]
@@ -403,12 +411,80 @@ als \gls{stochastisch unabhaengig} gelten.
 	= \frac{\text{Anzahl positiver Elementarereignisse für } E}{
 		\text{Anzahl aller möglicher Elementarereignisse}}
 \]
+Hierbei gilt es zu beachten, welche Art von Problem berechnet wird, denn
+dies beeinflusst die Berechnung (siehe Abschnitt 
+\ref{sec:multiplikationsregel}).
+
+\subsection{Multiplikationsregel}\label{sec:multiplikationsregel}
+Die Multiplikationsregeln (auch \emph{Fundamentalprinzip des 
+Zählens} genannt) besagt, wie die Anzahl möglicher Elementarereignisse
+berechnet werden kann und unterscheidet dabei zwei Kategorien:
+% http://www.gxy.ch/6gfpam/kombi/kombi-theo.pdf
+\begin{itemize}
+	\item Variation \hfill{} (Reihenfolge wichtig)
+	\begin{itemize}
+		\item Variation ohne Wiederholung
+		\item Permutation
+		\item Variation mit Wiederholung
+	\end{itemize}
+	\item Kombination \hfill{} (Reihenfolge egal)
+	\begin{itemize}
+		\item Kombination ohne Wiederholung
+		\item Kombination mit Wiederholung
+	\end{itemize}
+\end{itemize}
+
+\paragraph{Variation ohne Wiederholung}
+\[ 
+	\frac{n!}{k!} 
+\]
+3 Studenten setzen sich in ein Auto mit 5 Plätzen.
+Die Studenten können die Sitze auf $5 \cdot 4 \cdot 3 = 60$
+Verschiedene Arten belegen.
+\paragraph{Permutation}
+\[ 
+	n! 
+\]
+5 Studenten setzen sich in ein Auto mit 5 Plätzen, 
+d.h. es gibt 
+$5 \cdot 4 \cdot 3 \cdot 2 \cdot 1 \cdot = 5! = 120$
+verschiedene Möglichkeiten.
+\paragraph{Variation mit Wiederholung}
+\[ k^n \]
+Ein Zahlenschloss hat 4 Zahlenringe mit den Zahlen von 0 bis 9.
+Somit gibt es $10 \cdot 10 \cdot 10 \cdot 10 = 10^4 = 10000$ 
+Möglichkeiten.
+
+\paragraph{Kombination ohne Wiederholung}
+Aus einer Lerngruppe von 8 Studenten müssen 3 helfen die
+Bücher zu tragen. Dies lässt sich als Binomialkoeffizient
+schreiben 
+\[ 
+	\frac{n!}{(n-k)!\, k!} 
+		= \frac{n(n-1)(n-2)\dots(n-k+1)}{k!} 
+		= \binom{n}{n-k} 
+		= \binom{n}{k} 
+\]
+mit $n=8, k=3$ und ergibt
+$\frac{8 \cdot 7 \cdot 6}{3 \cdot 2 \cdot 1} = \binom{8}{3} = 56$
+Möglichkeiten.
+\paragraph{Kombination mit Wiederholung}
+\[ 
+	\frac{(n+k-1)!}{(n-1)!\, k!} 
+	= \binom{n+k-1}{k} 
+	= \binom{n+k-1}{n-1} 
+\]
+5 Studenten gehen in die Schule zum lernen und es sind noch drei 
+Räume frei. Sie dürfen sich verteilen wie es ihnen beliebt (leere
+Räume sind möglich). Somit ergeben sich $\frac{7}{2}=21$
+Möglichkeiten.
 
 \section{Bedingte Wahrscheinlichkeit}
 Bei bedingten Wahrscheinlichkeiten kann das \gls{Beyes'sche Theorem} 
 angewandt werden. Mit Hilfe dieses Theorems kann die Wahrscheinlichkeit, 
 dass $A$ einritt wenn $B$ eingetreten ist umgekehrt werden zur 
 Formulierung dass $B$ eintritt, gegeben es sei $A$ eingetreten.
+
 
 \subsection{Beyes'sche Theorem}
 Aus dem Beyes'schen Theorem leiten sich die folgenden Aussagen ab.
