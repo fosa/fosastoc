@@ -142,7 +142,7 @@ plot(rhyper(nn=100, m=100, n=100, k=100), cex.lab=1.5, cex.axis=1.5,
 <<fig=TRUE, echo=FALSE>>=
 <<phyper>>
 @
-\caption{kumulative Wahrshceinlichkeit}
+\caption{kumulative Wahrscheinlichkeit}
 \end{subfigure}
 
 \begin{subfigure}[b]{0.48\textwidth}
@@ -317,7 +317,7 @@ plot(rbinom(n=100, size=100, prob=0.5), cex.lab=1.5, cex.axis=1.5,
 <<fig=TRUE, echo=FALSE>>=
 <<pbinom>>
 @
-\caption{kumulative Wahrshceinlichkeit}
+\caption{kumulative Wahrscheinlichkeit}
 \end{subfigure}
 
 \begin{subfigure}[b]{0.48\textwidth}
@@ -681,7 +681,15 @@ Zusammenfassend kann man sagen, dass die uniforme Verteilung eine
 konstante Dichte hat.
 
 \[  
-	f(x) = \mathrm{konstant}
+	f(x) = \mathrm{konstant} = \left\{\begin{array}{c c l}
+		\displaystyle \frac{1}{b-a}
+			& \text{falls}
+			& a < x < b \\
+		& & \\
+		0
+			& \text{falls}
+			& (x < a) \lor (x > b)
+		\end{array} \right.
 \]
 
 \begin{figure}[h!]
@@ -740,6 +748,80 @@ $[a,b]$ als Mininal- und Maximalwerte betrachtet werden.
 \]
 
 \subsection{Verwendung in R}
+\lstinline{R} stellt grundsätzlich vier Funktionen für die 
+uniforme Verteilung zur Verfügung. 
+\begin{itemize}
+	\item \lstinline{dunif()} \hfill{} 
+		(\emph{Wahrscheinlichkeitsverteilung})
+	\item \lstinline{punif()} \hfill{}
+		(\emph{kumulative Wahrscheinlichkeit})
+	\item \lstinline{qunif()} \hfill{}
+		(\emph{Verteilung der Quantile})
+	\item \lstinline{runif()} \hfill{}
+		(\emph{Zufallszahlen})
+\end{itemize}
+Die Abbildung \ref{fig:unif} zeigt jeweils einen Plot zu den gegebenen
+Funktionen aus \lstinline{R}. Für weitere Informationen zu Plots siehe
+Kapitel \ref{sec:plots}.
+
+<<dunif, fig=FALSE, echo=FALSE>>=
+plot(dunif(x=c(1:100), min=0, max=100), type='l', cex.lab=1.5, 
+     cex.axis=1.5, cex.main=1.5, cex.sub=1.5, 
+     ylab='P(x)', xlab='Wert x', 
+     main='dunif()')
+@
+
+<<punif, fig=FALSE, echo=FALSE>>=
+plot(punif(q=c(1:100), min=0, max=100), type='l', cex.lab=1.5, 
+     cex.axis=1.5, cex.main=1.5, cex.sub=1.5, 
+     ylab='P(X<=x)', xlab='Wert x', 
+     main='punif()')
+@
+
+<<qunif, fig=FALSE, echo=FALSE>>=
+plot(qunif(p=seq(from=0, to=1, by=0.001), min=0, max=100), type='l',
+     cex.lab=1.5, cex.axis=1.5, cex.main=1.5, cex.sub=1.5, ylab='Wert x', 
+     xlab='Quantil in Promille', main='qunif()')
+@
+
+<<runif, fig=FALSE, echo=FALSE>>=
+plot(runif(n=100, min=0, max=100), cex.lab=1.5, cex.axis=1.5, 
+     cex.main=1.5, cex.sub=1.5, ylab='Wert x', xlab='x-te Zahl', 
+     main='runif()')
+@
+
+\begin{figure}[h!]
+\centering
+\begin{subfigure}[b]{0.48\textwidth}
+<<fig=TRUE, echo=FALSE>>=
+<<dunif>>
+@
+\caption{Wahrscheinlichkeitsverteilung}
+\end{subfigure}
+\begin{subfigure}[b]{0.48\textwidth}
+<<fig=TRUE, echo=FALSE>>=
+<<punif>>
+@
+\caption{kumulative Wahrscheinlichkeit}
+\end{subfigure}
+
+\begin{subfigure}[b]{0.48\textwidth}
+<<fig=TRUE, echo=FALSE>>=
+<<qunif>>
+@
+\caption{Quantile}
+\end{subfigure}
+\begin{subfigure}[b]{0.48\textwidth}
+<<fig=TRUE, echo=FALSE>>=
+<<runif>>
+@
+\caption{Zufallszahlen}
+\end{subfigure}
+\caption{Uniforme Verteilung ($n=100, min=0, max=100$)}
+\label{fig:unif}
+\end{figure}
+
+
 \subsection{Beispiel einer uniformen Verteilung}
 
 \newpage

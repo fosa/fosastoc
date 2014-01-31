@@ -116,7 +116,7 @@ Kapitel \ref{sec:plots}.
 \end{subfigure}
 \begin{subfigure}[b]{0.48\textwidth}
 \includegraphics{verteilungen-006}
-\caption{kumulative Wahrshceinlichkeit}
+\caption{kumulative Wahrscheinlichkeit}
 \end{subfigure}
 
 \begin{subfigure}[b]{0.48\textwidth}
@@ -247,7 +247,7 @@ Kapitel \ref{sec:plots}.
 \end{subfigure}
 \begin{subfigure}[b]{0.48\textwidth}
 \includegraphics{verteilungen-019}
-\caption{kumulative Wahrshceinlichkeit}
+\caption{kumulative Wahrscheinlichkeit}
 \end{subfigure}
 
 \begin{subfigure}[b]{0.48\textwidth}
@@ -571,7 +571,15 @@ Zusammenfassend kann man sagen, dass die uniforme Verteilung eine
 konstante Dichte hat.
 
 \[  
-	f(x) = \mathrm{konstant}
+	f(x) = \mathrm{konstant} = \left\{\begin{array}{c c l}
+		\displaystyle \frac{1}{b-a}
+			& \text{falls}
+			& a < x < b \\
+		& & \\
+		0
+			& \text{falls}
+			& (x < a) \lor (x > b)
+		\end{array} \right.
 \]
 
 \begin{figure}[h!]
@@ -630,6 +638,50 @@ $[a,b]$ als Mininal- und Maximalwerte betrachtet werden.
 \]
 
 \subsection{Verwendung in R}
+\lstinline{R} stellt grundsätzlich vier Funktionen für die 
+uniforme Verteilung zur Verfügung. 
+\begin{itemize}
+	\item \lstinline{dunif()} \hfill{} 
+		(\emph{Wahrscheinlichkeitsverteilung})
+	\item \lstinline{punif()} \hfill{}
+		(\emph{kumulative Wahrscheinlichkeit})
+	\item \lstinline{qunif()} \hfill{}
+		(\emph{Verteilung der Quantile})
+	\item \lstinline{runif()} \hfill{}
+		(\emph{Zufallszahlen})
+\end{itemize}
+Die Abbildung \ref{fig:unif} zeigt jeweils einen Plot zu den gegebenen
+Funktionen aus \lstinline{R}. Für weitere Informationen zu Plots siehe
+Kapitel \ref{sec:plots}.
+
+
+
+
+
+\begin{figure}[h!]
+\centering
+\begin{subfigure}[b]{0.48\textwidth}
+\includegraphics{verteilungen-039}
+\caption{Wahrscheinlichkeitsverteilung}
+\end{subfigure}
+\begin{subfigure}[b]{0.48\textwidth}
+\includegraphics{verteilungen-040}
+\caption{kumulative Wahrscheinlichkeit}
+\end{subfigure}
+
+\begin{subfigure}[b]{0.48\textwidth}
+\includegraphics{verteilungen-041}
+\caption{Quantile}
+\end{subfigure}
+\begin{subfigure}[b]{0.48\textwidth}
+\includegraphics{verteilungen-042}
+\caption{Zufallszahlen}
+\end{subfigure}
+\caption{Uniforme Verteilung ($n=100, min=0, max=100$)}
+\label{fig:unif}
+\end{figure}
+
+
 \subsection{Beispiel einer uniformen Verteilung}
 
 \newpage
