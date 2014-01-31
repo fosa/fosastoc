@@ -476,7 +476,7 @@ Möglichkeiten.
 \]
 5 Studenten gehen in die Schule zum lernen und es sind noch drei 
 Räume frei. Sie dürfen sich verteilen wie es ihnen beliebt (leere
-Räume sind möglich). Somit ergeben sich $\frac{7}{2}=21$
+Räume sind möglich). Somit ergeben sich $\binom{7}{2}=21$
 Möglichkeiten.
 
 \section{Bedingte Wahrscheinlichkeit}
