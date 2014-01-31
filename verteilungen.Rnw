@@ -716,7 +716,29 @@ definiert.
 \]
 
 \subsection{Erwartungswert}
+Da die Dichtefunktion der uniformen Verteilung konstant ist,
+kann der Erwartungswert sehr einfach berechnet werden.
+\[  
+	E(X) = \frac{a+b}{2}
+\]
+Die Werte $a,b$ können auch als Minimal- bzw. Maximalwerte
+betrachtet werden.
+\[  
+E(X) = \frac{\text{min} + \text{max}}{2}
+\]
+
 \subsection{Varianz}
+Analog zum Erwartungswert ist auch die Berechnung der Varianz
+einer uniformen Verteilung relativ einfach.
+\[ 
+	Var(X) = \frac{(b - a)^2}{12}
+\]
+Wie auch beim Erwartungswert, können die Intervallgrenzen
+$[a,b]$ als Mininal- und Maximalwerte betrachtet werden.
+\[  
+	Var(X) = \frac{(\text{max} - \text{min})^2}{12}
+\]
+
 \subsection{Verwendung in R}
 \subsection{Beispiel einer uniformen Verteilung}
 
