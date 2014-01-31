@@ -41,25 +41,127 @@ für ein binäres Problem gegeben.
 \section{Hypergeometrische Verteilung}
 Die hypergeometrische Verteilung entspricht dem Urnenmodell:
 \begin{itemize}
-	\item Urne hat $m$ rote (postive) und $n$ blaue (negative)
+	\item Urne hat $r$ rote (postive) und $s$ schwarze (negative)
 		Kugeln
-		\[ m,n \in \mathbb{N} \]
-	\item Die Menge der roten als auch der blauen Kugeln ist fix 
-		\[ m,n \neq \infty \]
+		\[ r,s \in \mathbb{N} \]
+	\item Die Menge der roten als auch der schwarzen Kugeln ist fix 
+		\[ r,s \neq \infty \]
 	\item Ein erzieltes Ergebnis reduziert die entsprechende Menge
 		(\emph{Ziehen ohne Zurücklegen})
-		\[ m \rightarrow  M - 1\]
+		\[ r \rightarrow  R - 1\]
 \end{itemize}
-Die hypergeometrische Verteilung wird im allgemeinen beschrieben mit
+
+\subsection{Verteilungsfunktion}
 \[  
 	X \sim Hyp(n,r,s)
 \]
+
 \[ \begin{array}{c l}
 	n & \text{Anzahl Ziehungen} \\
-	r & \text{Anzhal roter Kugeln} \\
-	s & \text{Anzahl blauer Kugeln}
+	r & \text{Anzhal roter Kugeln (positive Ereignisse)} \\
+	s & \text{Anzahl blauer Kugeln (negative Ereignisse)} \\
+	N & \text{Anzahl Kugeln in der Urne } (N=r+s)
 \end{array} \]
 
+\[
+	P(X=k)
+		= \frac{\displaystyle 
+			\binom{r}{k} \cdot \binom{s}{n-k}}{
+				\displaystyle \binom{r+s}{n}}
+		= \frac{\displaystyle 
+			\binom{r}{k} \cdot \binom{N-r}{n-k}}{
+				\displaystyle \binom{N}{n}}
+\]
+
+\subsection{Erwartungswert}
+
+\[ 
+	E(X) = n \cdot \frac{r}{N}, \qquad X \sim Hyp(n,r,s)
+\]
+
+\subsection{Varianz}
+
+\[  
+	Var(X) = n \cdot \frac{r}{N} \cdot 
+		\left(1 - \frac{r}{N} \right)
+		\cdot \frac{N-n}{N-1}, \qquad X \sim Hyp(n,r,s)
+\]
+
+\subsection{Verwendung in R}
+\lstinline{R} stellt grundsätzlich vier Funktionen für die 
+hypergeometrische Verteilung zur Verfügung. 
+\begin{itemize}
+	\item \lstinline{dhyper()} \hfill{} 
+		(\emph{Wahrscheinlichkeitsverteilung})
+	\item \lstinline{phyper()} \hfill{}
+		(\emph{kumulative Wahrscheinlichkeit})
+	\item \lstinline{qhyper()} \hfill{}
+		(\emph{Verteilung der Quantile})
+	\item \lstinline{rhyper()} \hfill{}
+		(\emph{Zufallszahlen})
+\end{itemize}
+Die Abbildung \ref{fig:hyper} zeigt jeweils einen Plot zu den gegebenen
+Funktionen aus \lstinline{R}. Für weitere Informationen zu Plots siehe
+Kapitel \ref{sec:plots}.
+
+<<dhyper, fig=FALSE, echo=FALSE>>=
+plot(dhyper(x=c(1:100), m=100, n=100, k=100), type='l', cex.lab=1.5, 
+     cex.axis=1.5, cex.main=1.5, cex.sub=1.5, 
+     ylab='P(x)', xlab='Wert x', 
+     main='dhyper()')
+@
+
+<<phyper, fig=FALSE, echo=FALSE>>=
+plot(phyper(q=c(1:100), m=100, n=100, k=100), type='l', cex.lab=1.5, 
+     cex.axis=1.5, cex.main=1.5, cex.sub=1.5, 
+     ylab='P(X<=x)', xlab='Wert x', 
+     main='phyper()')
+@
+
+<<qhyper, fig=FALSE, echo=FALSE>>=
+plot(qhyper(p=seq(from=0, to=1, by=0.001), m=100, n=100, k=100), type='l',
+     cex.lab=1.5, cex.axis=1.5, cex.main=1.5, cex.sub=1.5, ylab='Wert x', 
+     xlab='Quantil in Promille', main='qhyper()')
+@
+
+<<rhyper, fig=FALSE, echo=FALSE>>=
+plot(rhyper(nn=100, m=100, n=100, k=100), cex.lab=1.5, cex.axis=1.5, 
+     cex.main=1.5, cex.sub=1.5, ylab='Wert x', xlab='x-te Zahl', 
+     main='rhyper()')
+@
+
+\begin{figure}[h!]
+\centering
+\begin{subfigure}[b]{0.48\textwidth}
+<<fig=TRUE, echo=FALSE>>=
+<<dhyper>>
+@
+\caption{Wahrscheinlichkeitsverteilung}
+\end{subfigure}
+\begin{subfigure}[b]{0.48\textwidth}
+<<fig=TRUE, echo=FALSE>>=
+<<phyper>>
+@
+\caption{kumulative Wahrshceinlichkeit}
+\end{subfigure}
+
+\begin{subfigure}[b]{0.48\textwidth}
+<<fig=TRUE, echo=FALSE>>=
+<<qhyper>>
+@
+\caption{Quantile}
+\end{subfigure}
+\begin{subfigure}[b]{0.48\textwidth}
+<<fig=TRUE, echo=FALSE>>=
+<<rhyper>>
+@
+\caption{Zufallszahlen}
+\end{subfigure}
+\caption{Hypergeometrische Verteilung ($m=100, n=100, k=100$)}
+\label{fig:hyper}
+\end{figure}
+
+\clearpage
 
 \subsection{Beispiel einer hypogeometrischen Verteilung}
 Ein Beispiel aus dem Alltag ist die Teambildung im Mannschaftssport.
@@ -67,6 +169,7 @@ Ein Turnverein hat $9$ männliche und $17$ weibliche Mitglieder. Für ein
 Fussballmatch gegen einen anderen Verein muss nun ein Team mit $11$
 Mitgliedern gebildet werden. Wie wahrscheinlich ist es, dass das
 Team aus einer bestimmten Anzahl Männern oder Frauen besteht?
+\paragraph{Berechnung in R}
 <<fig=FALSE>>=
 man <- 9; women <- 17; player <- 11
 boys <- dhyper(x=c(1:player), m=man, n=women, k=player)
@@ -117,19 +220,47 @@ ergibt für das Team ($4+7=11$).
 Die Binomialverteilung ist eine Verteilung, welche bei binären Problemen
 auftritt wobei ein erzieltes Ergebnis nicht die weiteren Ergebnisse
 beeinflusst. Sie ist somit ein Grenzfall der hypergeometrischen 
-Verteilung (nämlich dann, wenn es sehr viele rote und blaue 
+Verteilung (nämlich dann, wenn es sehr viele rote und schwarze 
 Kugeln gibt).
 \[ 
 	\lim_{r,s \rightarrow \infty} Hyp(n,r,s) 
 	\quad \Rightarrow \quad Bin(n,p)
 \]
+
+\subsection{Verteilungsfunktion}
+
 \[ 
 	X \sim Bin(n,p)
 \]
+
 \[ \begin{array}{c l} 
 	n & \text{Anzahl Versuche} \\
 	p & \text{Trefferwahrscheinlichkeit}
 \end{array} \]
+
+\[ \begin{array}{l c l} 
+	P(X=x)
+		&= 
+		& \displaystyle \binom{n}{x} \cdot p^x 
+			\cdot (1-p)^{n-x} \\
+	& & \\
+		&= 
+		& \frac{\displaystyle n!}{\displaystyle x!\, (n-x)!} 
+			\cdot p^x \cdot (1-p)^{n-x}
+\end{array} \]
+
+\subsection{Erwartungswert}
+
+\[  
+	E(X) = n \cdot p, \qquad X \sim Bin(n,p)
+\]
+
+
+\subsection{Varianz}
+
+\[  
+	Var(X) = n \cdot p \cdot (1-p), \qquad X \sim Bin(n,p)
+\]
 
 \subsection{Verwendung in R}
 \lstinline{R} stellt grundsätzlich vier Funktionen für die 

@@ -41,25 +41,97 @@ für ein binäres Problem gegeben.
 \section{Hypergeometrische Verteilung}
 Die hypergeometrische Verteilung entspricht dem Urnenmodell:
 \begin{itemize}
-	\item Urne hat $m$ rote (postive) und $n$ blaue (negative)
+	\item Urne hat $r$ rote (postive) und $s$ schwarze (negative)
 		Kugeln
-		\[ m,n \in \mathbb{N} \]
-	\item Die Menge der roten als auch der blauen Kugeln ist fix 
-		\[ m,n \neq \infty \]
+		\[ r,s \in \mathbb{N} \]
+	\item Die Menge der roten als auch der schwarzen Kugeln ist fix 
+		\[ r,s \neq \infty \]
 	\item Ein erzieltes Ergebnis reduziert die entsprechende Menge
 		(\emph{Ziehen ohne Zurücklegen})
-		\[ m \rightarrow  M - 1\]
+		\[ r \rightarrow  R - 1\]
 \end{itemize}
-Die hypergeometrische Verteilung wird im allgemeinen beschrieben mit
+
+\subsection{Verteilungsfunktion}
 \[  
 	X \sim Hyp(n,r,s)
 \]
+
 \[ \begin{array}{c l}
 	n & \text{Anzahl Ziehungen} \\
-	r & \text{Anzhal roter Kugeln} \\
-	s & \text{Anzahl blauer Kugeln}
+	r & \text{Anzhal roter Kugeln (positive Ereignisse)} \\
+	s & \text{Anzahl blauer Kugeln (negative Ereignisse)} \\
+	N & \text{Anzahl Kugeln in der Urne } (N=r+s)
 \end{array} \]
 
+\[
+	P(X=k)
+		= \frac{\displaystyle 
+			\binom{r}{k} \cdot \binom{s}{n-k}}{
+				\displaystyle \binom{r+s}{n}}
+		= \frac{\displaystyle 
+			\binom{r}{k} \cdot \binom{N-r}{n-k}}{
+				\displaystyle \binom{N}{n}}
+\]
+
+\subsection{Erwartungswert}
+
+\[ 
+	E(X) = n \cdot \frac{r}{N}, \qquad X \sim Hyp(n,r,s)
+\]
+
+\subsection{Varianz}
+
+\[  
+	Var(X) = n \cdot \frac{r}{N} \cdot 
+		\left(1 - \frac{r}{N} \right)
+		\cdot \frac{N-n}{N-1}, \qquad X \sim Hyp(n,r,s)
+\]
+
+\subsection{Verwendung in R}
+\lstinline{R} stellt grundsätzlich vier Funktionen für die 
+hypergeometrische Verteilung zur Verfügung. 
+\begin{itemize}
+	\item \lstinline{dhyper()} \hfill{} 
+		(\emph{Wahrscheinlichkeitsverteilung})
+	\item \lstinline{phyper()} \hfill{}
+		(\emph{kumulative Wahrscheinlichkeit})
+	\item \lstinline{qhyper()} \hfill{}
+		(\emph{Verteilung der Quantile})
+	\item \lstinline{rhyper()} \hfill{}
+		(\emph{Zufallszahlen})
+\end{itemize}
+Die Abbildung \ref{fig:hyper} zeigt jeweils einen Plot zu den gegebenen
+Funktionen aus \lstinline{R}. Für weitere Informationen zu Plots siehe
+Kapitel \ref{sec:plots}.
+
+
+
+
+
+\begin{figure}[h!]
+\centering
+\begin{subfigure}[b]{0.48\textwidth}
+\includegraphics{verteilungen-005}
+\caption{Wahrscheinlichkeitsverteilung}
+\end{subfigure}
+\begin{subfigure}[b]{0.48\textwidth}
+\includegraphics{verteilungen-006}
+\caption{kumulative Wahrshceinlichkeit}
+\end{subfigure}
+
+\begin{subfigure}[b]{0.48\textwidth}
+\includegraphics{verteilungen-007}
+\caption{Quantile}
+\end{subfigure}
+\begin{subfigure}[b]{0.48\textwidth}
+\includegraphics{verteilungen-008}
+\caption{Zufallszahlen}
+\end{subfigure}
+\caption{Hypergeometrische Verteilung ($m=100, n=100, k=100$)}
+\label{fig:hyper}
+\end{figure}
+
+\clearpage
 
 \subsection{Beispiel einer hypogeometrischen Verteilung}
 Ein Beispiel aus dem Alltag ist die Teambildung im Mannschaftssport.
@@ -67,6 +139,7 @@ Ein Turnverein hat $9$ männliche und $17$ weibliche Mitglieder. Für ein
 Fussballmatch gegen einen anderen Verein muss nun ein Team mit $11$
 Mitgliedern gebildet werden. Wie wahrscheinlich ist es, dass das
 Team aus einer bestimmten Anzahl Männern oder Frauen besteht?
+\paragraph{Berechnung in R}
 \begin{Schunk}
 \begin{Sinput}
 > man <- 9; women <- 17; player <- 11
@@ -79,12 +152,12 @@ Team aus einer bestimmten Anzahl Männern oder Frauen besteht?
 \begin{figure}[h!]
 \centering
 \begin{subfigure}[b]{0.48\textwidth}
-\includegraphics{verteilungen-004}
+\includegraphics{verteilungen-012}
 \caption{$P(x)$ der Männer im Team}
 \end{subfigure}
 \begin{subfigure}[b]{0.48\textwidth}
 \centering
-\includegraphics{verteilungen-005}
+\includegraphics{verteilungen-013}
 \caption{$P(x)$ der Frauen im Team}
 \end{subfigure}
 \caption{Teambildung nach Geschlecht}
@@ -103,19 +176,47 @@ ergibt für das Team ($4+7=11$).
 Die Binomialverteilung ist eine Verteilung, welche bei binären Problemen
 auftritt wobei ein erzieltes Ergebnis nicht die weiteren Ergebnisse
 beeinflusst. Sie ist somit ein Grenzfall der hypergeometrischen 
-Verteilung (nämlich dann, wenn es sehr viele rote und blaue 
+Verteilung (nämlich dann, wenn es sehr viele rote und schwarze 
 Kugeln gibt).
 \[ 
 	\lim_{r,s \rightarrow \infty} Hyp(n,r,s) 
 	\quad \Rightarrow \quad Bin(n,p)
 \]
+
+\subsection{Verteilungsfunktion}
+
 \[ 
 	X \sim Bin(n,p)
 \]
+
 \[ \begin{array}{c l} 
 	n & \text{Anzahl Versuche} \\
 	p & \text{Trefferwahrscheinlichkeit}
 \end{array} \]
+
+\[ \begin{array}{l c l} 
+	P(X=x)
+		&= 
+		& \displaystyle \binom{n}{x} \cdot p^x 
+			\cdot (1-p)^{n-x} \\
+	& & \\
+		&= 
+		& \frac{\displaystyle n!}{\displaystyle x!\, (n-x)!} 
+			\cdot p^x \cdot (1-p)^{n-x}
+\end{array} \]
+
+\subsection{Erwartungswert}
+
+\[  
+	E(X) = n \cdot p, \qquad X \sim Bin(n,p)
+\]
+
+
+\subsection{Varianz}
+
+\[  
+	Var(X) = n \cdot p \cdot (1-p), \qquad X \sim Bin(n,p)
+\]
 
 \subsection{Verwendung in R}
 \lstinline{R} stellt grundsätzlich vier Funktionen für die 
@@ -141,20 +242,20 @@ Kapitel \ref{sec:plots}.
 \begin{figure}[h!]
 \centering
 \begin{subfigure}[b]{0.48\textwidth}
-\includegraphics{verteilungen-010}
+\includegraphics{verteilungen-018}
 \caption{Wahrscheinlichkeitsverteilung}
 \end{subfigure}
 \begin{subfigure}[b]{0.48\textwidth}
-\includegraphics{verteilungen-011}
+\includegraphics{verteilungen-019}
 \caption{kumulative Wahrshceinlichkeit}
 \end{subfigure}
 
 \begin{subfigure}[b]{0.48\textwidth}
-\includegraphics{verteilungen-012}
+\includegraphics{verteilungen-020}
 \caption{Quantile}
 \end{subfigure}
 \begin{subfigure}[b]{0.48\textwidth}
-\includegraphics{verteilungen-013}
+\includegraphics{verteilungen-021}
 \caption{Zufallszahlen}
 \end{subfigure}
 \caption{Binomialverteilung ($n=100, p=0.5$)}
@@ -179,11 +280,11 @@ und Zahl jeweils gleichwahrscheinliche Ergebnisse sind?
 \begin{figure}[h!]
 \centering
 \begin{subfigure}[b]{0.48\textwidth}
-\includegraphics{verteilungen-017}
+\includegraphics{verteilungen-025}
 \caption{Verteilung für 100 Versuche}
 \end{subfigure}
 \begin{subfigure}[b]{0.48\textwidth}
-\includegraphics{verteilungen-018}
+\includegraphics{verteilungen-026}
 \caption{Verteilung für 20 Versuche}
 \end{subfigure}
 \caption{Wahrscheinlichkeitsverteilung beim Münzwurf}
@@ -214,20 +315,20 @@ Poissonverteilung zur Verfügung.
 \begin{figure}[h!]
 \centering
 \begin{subfigure}[b]{0.48\textwidth}
-\includegraphics{verteilungen-023}
+\includegraphics{verteilungen-031}
 \caption{Wahrscheinlichkeitsverteilung}
 \end{subfigure}
 \begin{subfigure}[b]{0.48\textwidth}
-\includegraphics{verteilungen-024}
+\includegraphics{verteilungen-032}
 \caption{kumulative Wahrscheinlichkeit}
 \end{subfigure}
 
 \begin{subfigure}[b]{0.48\textwidth}
-\includegraphics{verteilungen-025}
+\includegraphics{verteilungen-033}
 \caption{Quantile}
 \end{subfigure}
 \begin{subfigure}[b]{0.48\textwidth}
-\includegraphics{verteilungen-026}
+\includegraphics{verteilungen-034}
 \caption{Zufallszahlen}
 \end{subfigure}
 \caption{Poissonverteilung ($\lambda=50$)}

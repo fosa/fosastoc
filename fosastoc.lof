@@ -9,10 +9,11 @@
 \contentsline {figure}{\numberline {2.3}{\ignorespaces Tabelle bedingter Wahrscheinlichkeiten.\relax }}{25}{figure.caption.32}
 \contentsline {figure}{\numberline {2.4}{\ignorespaces Hinweise zur Tabelle bedingter Wahrscheinlichkeiten.\relax }}{26}{figure.caption.33}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Teambildung nach Geschlecht\relax }}{29}{figure.caption.35}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Binomialverteilung ($n=100, p=0.5$)\relax }}{31}{figure.caption.36}
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Wahrscheinlichkeitsverteilung beim M\IeC {\"u}nzwurf\relax }}{32}{figure.caption.37}
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Poissonverteilung ($\lambda =50$)\relax }}{34}{figure.caption.38}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Hypergeometrische Verteilung ($m=100, n=100, k=100$)\relax }}{30}{figure.caption.35}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Teambildung nach Geschlecht\relax }}{31}{figure.caption.37}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Binomialverteilung ($n=100, p=0.5$)\relax }}{33}{figure.caption.38}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Wahrscheinlichkeitsverteilung beim M\IeC {\"u}nzwurf\relax }}{34}{figure.caption.39}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Poissonverteilung ($\lambda =50$)\relax }}{36}{figure.caption.40}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Analyse eines Boxplots\relax }}{47}{figure.caption.58}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Boxplots verschiedener Verteilungen\relax }}{49}{figure.caption.59}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Analyse eines Boxplots\relax }}{49}{figure.caption.60}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Boxplots verschiedener Verteilungen\relax }}{51}{figure.caption.61}
