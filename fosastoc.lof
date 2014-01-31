@@ -1,19 +1,22 @@
 \select@language {ngerman}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {1.1}{\ignorespaces Varianz als Fl\IeC {\"a}chen dargestellt\relax }}{9}{figure.caption.7}
-\contentsline {figure}{\numberline {1.2}{\ignorespaces Standardabweichung (Daten zu \lstinline {mean()})\relax }}{11}{figure.caption.9}
-\contentsline {figure}{\numberline {1.3}{\ignorespaces Extremwerte von Korrelationen im Vergleich.\relax }}{13}{figure.caption.11}
+\contentsline {figure}{\numberline {1.1}{\ignorespaces Varianz als Fl\IeC {\"a}chen dargestellt\relax }}{11}{figure.caption.7}
+\contentsline {figure}{\numberline {1.2}{\ignorespaces Standardabweichung (Daten zu \lstinline {mean()})\relax }}{13}{figure.caption.9}
+\contentsline {figure}{\numberline {1.3}{\ignorespaces Extremwerte von Korrelationen im Vergleich.\relax }}{15}{figure.caption.11}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Potenzmenge von $\{x,y,z\}$ als Hasse-Diagramm\relax }}{18}{figure.caption.23}
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Die wichtigsten Operationen der Mengenlehre graphisch erl\IeC {\"a}utert mittels Venn-Diagrammen.\relax }}{19}{figure.caption.25}
-\contentsline {figure}{\numberline {2.3}{\ignorespaces Tabelle bedingter Wahrscheinlichkeiten.\relax }}{25}{figure.caption.32}
-\contentsline {figure}{\numberline {2.4}{\ignorespaces Hinweise zur Tabelle bedingter Wahrscheinlichkeiten.\relax }}{26}{figure.caption.33}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Potenzmenge von $\{x,y,z\}$ als Hasse-Diagramm\relax }}{20}{figure.caption.23}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Die wichtigsten Operationen der Mengenlehre graphisch erl\IeC {\"a}utert mittels Venn-Diagrammen.\relax }}{21}{figure.caption.25}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Tabelle bedingter Wahrscheinlichkeiten.\relax }}{27}{figure.caption.32}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Hinweise zur Tabelle bedingter Wahrscheinlichkeiten.\relax }}{28}{figure.caption.33}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Hypergeometrische Verteilung ($m=100, n=100, k=100$)\relax }}{30}{figure.caption.35}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Teambildung nach Geschlecht\relax }}{31}{figure.caption.37}
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Binomialverteilung ($n=100, p=0.5$)\relax }}{33}{figure.caption.38}
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Wahrscheinlichkeitsverteilung beim M\IeC {\"u}nzwurf\relax }}{34}{figure.caption.39}
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Poissonverteilung ($\lambda =50$)\relax }}{36}{figure.caption.40}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Hypergeometrische Verteilung ($m=100, n=100, k=100$)\relax }}{32}{figure.caption.35}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Teambildung nach Geschlecht\relax }}{33}{figure.caption.37}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Binomialverteilung ($n=100, p=0.5$)\relax }}{35}{figure.caption.38}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Wahrscheinlichkeitsverteilung beim M\IeC {\"u}nzwurf\relax }}{36}{figure.caption.39}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Poissonverteilung ($\lambda =50$)\relax }}{38}{figure.caption.40}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Analyse eines Boxplots\relax }}{49}{figure.caption.60}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Boxplots verschiedener Verteilungen\relax }}{51}{figure.caption.61}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Dichtefunktion $f(x)$ und kummulative Verteilungsfunktion $F(x)$ in der Gegen\IeC {\"u}berstellung.\relax }}{42}{figure.caption.43}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Quantil einer Dichtefunktion.\relax }}{45}{figure.caption.44}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Analyse eines Boxplots\relax }}{59}{figure.caption.66}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Boxplots verschiedener Verteilungen\relax }}{61}{figure.caption.67}

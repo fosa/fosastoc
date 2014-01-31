@@ -695,15 +695,15 @@ darunter liegt.
 
 \newpage
 \section{Zusammenfassung}
-\paragraph{Uniforme Verteilung}
 \[ X \sim \mathcal{U}(a,b) \]
 \[ \begin{array}{l c l}
 	F(X) 
 		& =
-		& \displaystyle \frac{x-a}{b-a} \\
+		& F(X) = \displaystyle \frac{x-a}{b-a} \\
 	f(x)	
 		& =
-		& \displaystyle \frac{1}{b-a}  \\
+		& \displaystyle \frac{1}{b-a} 
+			\quad \text{falls } a < x b \\
 	D_f	
 		& = 
 		& a < x < b \\
@@ -715,16 +715,15 @@ darunter liegt.
 		& \displaystyle \frac{(b-a)^2}{12}\\
 \end{array} \]
 
-\paragraph{Normalverteilung}
 \[ X \sim \mathcal{N}(\mu, \sigma^2) \]
 \[ \begin{array}{l c l}
 	F(X) 
 		& =
-		& \displaystyle \frac{x-a}{b-a} \\
+		& F(X) = \displaystyle \frac{x-a}{b-a} \\
 	f(x)	
 		& =
 		& \displaystyle \frac{1}{\sigma\sqrt{2\pi}} \cdot
-				e^{\left(
+				e^{\displaystyle \left(
 					-\frac{(x-\mu)^2}{2\sigma^2}
 				\right)} \\
 	D_f	
@@ -738,8 +737,7 @@ darunter liegt.
 		& \sigma^2 \\
 \end{array} \]
 
-\paragraph{Exponentialverteilung}
-\[ X \sim Exp(\lambda) \]
+\[ X \sim \mathcal{U}(a,b) \]
 \[ \begin{array}{l c l}
 	F(X) 
 		& =
@@ -747,7 +745,7 @@ darunter liegt.
 	f(x)	
 		& =
 		& \displaystyle \lambda \cdot 
-				e^{\left(
+				e^{\displaystyle \left(
 					-\lambda x
 				\right)} \\
 	D_f	
@@ -760,6 +758,40 @@ darunter liegt.
 		& =
 		& \displaystyle \frac{(b-a)^2}{12}\\
 \end{array} \]
+
+\begin{table}[h!]
+	\begin{tabular}{l l}
+		$X \sim \mathcal{U}(a,b)$ 
+			& Uniforme Verteilung\\
+		\hline
+			& $F(X) = \displaystyle \frac{x-a}{b-a}$  \\
+			& $f(x) := \displaystyle \frac{1}{b-a}$ 
+				falls $a < x b$ \\
+			& $a < x < b$ \\
+			& $E(X) = \displaystyle \frac{a+b}{2}$ \\
+			& $Var(X) = \displaystyle \frac{(b-a)^2}{12}$ \\
+		&  \\
+		$X \sim \mathcal{N}(\mu, \sigma^2)$ 
+			& Normalverteilung \\
+		\hline
+			& $F(X) = $ \\
+			& $f(x) = \frac{1}{\sigma\sqrt{2\pi}} \cdot
+				e^{-\frac{(x-\mu)^2}{2\sigma^2}} $ \\
+			& $x \in \mathbb{R}$ \\
+			& $E(X) = \mu$ \\
+			& $Var(X) = \sigma^2$ \\
+		& \\
+		$X \sim Exp(\lambda)$
+			& Exponentialverteilung \\
+		\hline
+			& $F(X) = $ \\
+			& $f(x) = \lambda \cdot 
+				e^{\left(-\lambda x\right)}$ \\
+			& $x > 0$ \\
+			& $E(X) = $ \\
+			& $Var(X) = $ 
+	\end{tabular}
+\end{table}
 
 
 \subsection{Berechnungen in R}

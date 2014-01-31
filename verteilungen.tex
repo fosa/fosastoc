@@ -334,6 +334,8 @@ Poissonverteilung zur Verfügung.
 \caption{Poissonverteilung ($\lambda=50$)}
 \end{figure}
 
+\clearpage
+
 \section{Erwartungswert}
 Der Erwartungswert einer diskreten Verteilung gibt jene Zahl an,
 welche die Zufallsvariable im \emph{Mittel} annimmt. Sie beschreibt
@@ -385,24 +387,26 @@ Standardabweichung der Quadratwurzel der Varianz entspricht.
 
 \section{Zusammenfassung}
 
+\subsection{Erwartungswert und Varianz}
+
 \begin{table}[h!]
 	\centering
 	\begin{tabular}{l c c}
 		Verteilung
 			& $E(X)$
-			& $V(X)$ \\
+			& $Var(X)$ \\
 		\hline
 		& & \\
 		$X \sim Hyp(n,r,s)$
-			& $n \cdot \left(\frac{r}{r+s}\right)$
+			& $n \cdot \left(\frac{r}{N}\right)$
 			& $n \cdot \left( 
-				\frac{r}{r+s}
+				\frac{r}{N}
 				\right) 
 			\left( 
-				1 - \frac{r}{r+s}
+				1 - \frac{r}{N}
 			\right)
 			\left(
-				\frac{(r+s)-n}{(r+s)-1}
+				\frac{(N)-n}{(N)-1}
 			\right)$ \\
 		& & \\
 		$X \sim Bin(n,p)$
@@ -415,3 +419,237 @@ Standardabweichung der Quadratwurzel der Varianz entspricht.
 	\end{tabular}
 \end{table}
 
+\subsection{Berechnungen in R}
+
+\begin{table}[h!]
+	\begin{tabular}{l l l}
+	Hypergeometrisch & & \\ \hline
+		& genau 	& \verb!dhyper(x=A,...)! \\
+		& höchstens 	& \verb!phyper(q=A,...)! \\
+		& mindestens 	& \verb!1-phyper(q=A-1,...)! \\
+		& zufällig 	& \verb!rhyper(n=...)! \\
+	& & \\
+	Binomial & & \\ \hline
+		& genau 	& \verb!dbinom(x=A,...)! \\
+		& höchstens 	& \verb!pbinom(q=A,...)! \\
+		& mindestens 	& \verb!1-pbinom(q=A-1,...)! \\
+		& zufällig 	& \verb!rbinom(n=...)! \\
+	& & \\
+	Poisson & & \\ \hline
+		& genau 	& \verb!dpois(x=A,...)! \\
+		& höchstens 	& \verb!phyper(q=A,...)! \\
+		& mindestens 	& \verb!1-ppois(q=A-1,...)! \\
+		& zufällig 	& \verb!rpois(n=...)! \\
+	\end{tabular}
+\end{table}
+
+\chapter{Stetige Verteilungen}
+\newpage
+
+\section{Dichtefunktion}
+Die Dichtefunktion $f(x)$ ist definiert als die Ableitung der kummulativen
+Verteilungsfunktion $F(x)$.
+\[  
+	\int f(x) := F(x) 
+		\qquad 
+		\Leftrightarrow 
+		\qquad 
+		f(x) = \frac{d}{dx} F(x)
+		= F'(x)
+\]
+Mit der Dichte lässt sich eine Aussage darüber treffen, wie die 
+Wahrscheinlichkeit ist, dass eine Zufallsvariable $X$ einen Wert
+in einem bestimmten Intervall $[a,b]$ annimmt (siehe Grafik 
+\ref{fig:dichte}).
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.7\textwidth]{dichtefunktion.pdf}
+	\caption{Dichtefunktion $f(x)$ und kummulative Verteilungsfunktion 
+		$F(x)$ in der Gegenüberstellung.}
+	\label{fig:dichte}
+\end{figure}
+
+Mit der Definition der Dichtefunktion $f(x)$ lassen sich mehrere 
+Gesetzmässigkeiten herleiten:
+\begin{itemize}
+	\item Die Dichte in einem Punkt $a$ Null.
+		\[ f(x) = 0 
+			\qquad \lim_{a_1 \rightarrow a_0} \left(
+				\int_{a_0}^{a_1} f(x)\,dx \right) = 0   \]
+	\item Das Integral einer Dichtefunktion über einem Intervall
+		$[a,b]$ ist gleich der Differenz der kummulativen
+		Wahrscheinlichkeiten von $a$ und $b$ (siehe Grafik 
+		\ref{fig:dichte}).
+		\[ \int_a^b f(X)\, dx = F(b) - F(a) \]
+	\item Das Integral der Dichtefunktion über dem Intervall 
+		$[-\infty, +\infty]$ ist genau 1 
+		(siehe \gls{Axiome von Kolmogorov}, \gls{Normiertheit}).
+		Dies bedeutet, dass die kummulative Verteilungsfunktion
+		für grosse $x$ gegen $1$ strebt und für kleine gegen $0$.
+		\[ \int_{-\infty}^{+\infty} f(x)\, dx = 1 \]
+		\[ F(x) \xrightarrow{x \rightarrow +\infty} 1
+			\qquad \Leftrightarrow \qquad 
+			\lim_{x \rightarrow + \infty} 
+				F(x) = 1 \]
+		\[ F(x) \xrightarrow{x \rightarrow -\infty} 0 
+			\qquad \Leftrightarrow \qquad
+			\lim_{x \rightarrow - \infty} 
+				F(x) = 0 \]
+\end{itemize}
+
+\subsection{Erwartungswert}
+Der Erwartungswert einer stetigen Verteilung mit der Dichte $f(x)$ und 
+der Funktion g(x) ist allgemein definiert als
+\[ 
+	E(g(X)) = \int_{-\infty}^{+\infty} g(x) \cdot f(x)\, dx
+\]
+Falls die Funktion $g(x)$ mit einer Variable gleichgesetzt werden
+kann, also $g(x)=x$ gilt, dann kann der Erwartungswert auch berechnet
+werden als
+\[  
+	E(X) = \int_{-\infty}^{+\infty} x \cdot f(x)\, dx,
+		\qquad x = g(x)
+\]
+
+\subsection{Varianz}
+\[ \begin{array}{l c l} 
+	Var(X) 
+		& = 
+		& \displaystyle 
+			\int_{-\infty}^{+\infty} 
+			(x-E(X))^2 \cdot f(x)\, dx \\
+		& & \\
+		& = 
+		& E(X-E(X))^2 \\
+		& & \\
+		& = 
+		& E(X^2) - E(X)^2
+\end{array} \]
+
+\subsection{Standardabweichung}
+Die Standardabweichung wird wie bei den diskreten Verteilungen 
+duch die Wurzel aus der Varianz ermittelt.
+\[  
+	\sigma_x = \sqrt{Var(X)}
+\]
+
+\subsection{Quantile}
+Ein Quantil $q(\alpha)$ markiert (in \%) die $x$-Stelle einer 
+Dichtefunktion $f(x)$, bei welcher der angegebene Anteil $\alpha$
+darunter liegt.
+\[ 
+	q(\alpha), 
+		\qquad \alpha = 
+		\{x \mid 0 < x < 1 \land x \in \mathbb{R}\}
+\]
+\[
+	P(X \leq q(\alpha)) = \alpha
+\]
+\[ 
+	F(q(\alpha)) = \alpha  
+		\qquad \Leftrightarrow \qquad
+		F^{-1}(\alpha) = q(\alpha)
+\]
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.7\textwidth]{dichtefunktion-quantile.pdf}
+	\caption{Quantil einer Dichtefunktion.}
+	\label{fig:dichte-quantil}
+\end{figure}
+
+\newpage
+\section{Uniforme Verteilung}
+\subsection{Verteilungsfunktion}
+\subsection{Erwartungswert}
+\subsection{Varianz}
+\subsection{Verwendung in R}
+\subsection{Beispiel einer uniformen Verteilung}
+
+\newpage
+\section{Normalverteilung}
+\subsection{Verteilungsfunktion}
+\subsection{Erwartungswert}
+\subsection{Varianz}
+\subsection{Verwendung in R}
+\subsection{Beispiel einer Normalverteilung}
+
+\newpage
+\section{Exponentialverteilung}
+\subsection{Verteilungsfunktion}
+\subsection{Erwartungswert}
+\subsection{Varianz}
+\subsection{Verwendung in R}
+\subsection{Beispiel einer Exponentialverteilung}
+
+\newpage
+\section{Zusammenfassung}
+\paragraph{Uniforme Verteilung}
+\[ X \sim \mathcal{U}(a,b) \]
+\[ \begin{array}{l c l}
+	F(X) 
+		& =
+		& \displaystyle \frac{x-a}{b-a} \\
+	f(x)	
+		& =
+		& \displaystyle \frac{1}{b-a}  \\
+	D_f	
+		& = 
+		& a < x < b \\
+	E(X)
+		& = 
+		& \displaystyle \frac{a+b}{2}\\
+	Var(X)	
+		& =
+		& \displaystyle \frac{(b-a)^2}{12}\\
+\end{array} \]
+
+\paragraph{Normalverteilung}
+\[ X \sim \mathcal{N}(\mu, \sigma^2) \]
+\[ \begin{array}{l c l}
+	F(X) 
+		& =
+		& \displaystyle \frac{x-a}{b-a} \\
+	f(x)	
+		& =
+		& \displaystyle \frac{1}{\sigma\sqrt{2\pi}} \cdot
+				e^{\left(
+					-\frac{(x-\mu)^2}{2\sigma^2}
+				\right)} \\
+	D_f	
+		& = 
+		& x \in \mathbb{R} \\
+	E(X)
+		& = 
+		& \mu\\
+	Var(X)	
+		& =
+		& \sigma^2 \\
+\end{array} \]
+
+\paragraph{Exponentialverteilung}
+\[ X \sim Exp(\lambda) \]
+\[ \begin{array}{l c l}
+	F(X) 
+		& =
+		& F(X) = \displaystyle \frac{x-a}{b-a} \\
+	f(x)	
+		& =
+		& \displaystyle \lambda \cdot 
+				e^{\left(
+					-\lambda x
+				\right)} \\
+	D_f	
+		& = 
+		& x > 0 \\
+	E(X)
+		& = 
+		& \displaystyle \frac{a+b}{2}\\
+	Var(X)	
+		& =
+		& \displaystyle \frac{(b-a)^2}{12}\\
+\end{array} \]
+
+
+\subsection{Berechnungen in R}
