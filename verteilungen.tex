@@ -559,9 +559,52 @@ darunter liegt.
 	\label{fig:dichte-quantil}
 \end{figure}
 
+\clearpage
 \newpage
 \section{Uniforme Verteilung}
+
+Die uniforme Verteilung (auch \emph{Gleichverteilung}) ist eine
+Verteilung, deren Wahrscheinlichkeit nur in einem bestimmten 
+Intervall $[a,b]$ ungleich Null ist. Die Dichte $f(x)$ innerhalb 
+des Intervalls $[a,b]$ ist konstant und ausserhalb davon gleich Null.
+Zusammenfassend kann man sagen, dass die uniforme Verteilung eine
+konstante Dichte hat.
+
+\[  
+	f(x) = \mathrm{konstant}
+\]
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.7\textwidth]{uniform.pdf}
+	\caption{Uniforme Dichte $f(x)$ und Verteilung $F(x)$.}
+	\label{fig:uniform}
+\end{figure}
+
 \subsection{Verteilungsfunktion}
+Die Verteilungsfunktion der uniformen Verteilung beschreibt
+grundsätlich eine Gerade und wenn das Intervall 
+$[a,b]\neq[-\infty, +\infty]$ ist, so ist diese Bereichsweise
+definiert.
+
+\[  
+	F(x) = \left\{
+		\begin{array}{c c l}
+			0 
+				& \text{falls } 
+				& x < a \\
+			& \\
+			\displaystyle
+			\frac{x-a}{b-a} 
+				& \text{falls } 
+				& a < x < b \\
+			& \\
+			1
+				& \text{falls } 
+				& b < x
+		\end{array} \right.
+\]
+
 \subsection{Erwartungswert}
 \subsection{Varianz}
 \subsection{Verwendung in R}
