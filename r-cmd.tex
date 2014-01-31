@@ -16,7 +16,7 @@
 
 \chapter{R Grundlagen}
 \lstinline{R} ist eine multiparadigmatische Programmiersprache für 
-Statistik und wird als Teil des GNU-Projektes entwickelt. Die 
+die Statistik und wird als Teil des GNU-Projektes entwickelt. Die 
 Besonderheit von R liegt in der Implementation vieler Algorithmen
 und Analysen der Statistik aber auch von vielseitigen Möglichkeiten 
 des Plottens. Diese Stärken und die Tatsache, dass \lstinline{R} 
@@ -38,49 +38,60 @@ erhalten.
 Diese kann in der Konsole mittels \lstinline{help(name-der-Funktion)}
 aufgerufen werden. 
 
-\begin{lstlisting}
+\section{Packages installieren}
+Der Funktionsumfang von \lstinline{R} kann erweitert werden mit der
+Installation von \lstinline{packages} mittels 
+\lstinline{install.packages("name-des-pakets")}.
 
-\end{lstlisting}
+Um ein \lstinline{package} zu laden kann 
+\lstinline{require(name-des-pakets)} angewandt werden.
 
-\section{Vektoren \& Matrizen definieren}
-\paragraph{Vektor mit Intervall 1 definieren}
+
+\section{Vektoren \& Matrizen}
+
+\subsection{Vektoren definieren}
+
+\paragraph{Vektor mit beliebigen Inhalt}
 \begin{Schunk}
 \begin{Sinput}
-> x <- 1:10; y <- 5:13
-> x; y
-\end{Sinput}
-\begin{Soutput}
- [1]  1  2  3  4  5  6  7  8  9 10
-\end{Soutput}
-\begin{Soutput}
-[1]  5  6  7  8  9 10 11 12 13
-\end{Soutput}
-\end{Schunk}
-
-\paragraph{Vektor mit beliebigem festen Intevall definieren}
-\begin{Schunk}
-\begin{Sinput}
-> x <- seq(from=1, to=10, by=2); y <- seq(1, 10, 2)
-> x; y
-\end{Sinput}
-\begin{Soutput}
-[1] 1 3 5 7 9
-\end{Soutput}
-\begin{Soutput}
-[1] 1 3 5 7 9
-\end{Soutput}
-\end{Schunk}
-
-\paragraph{Vektor manuell definieren}
-\begin{Schunk}
-\begin{Sinput}
-> x <- c(77, 29, 12, 33, 4, 9, 809, -27)
+> x <- c(1, 3, 2, 8, 3, 6, 10, 7) 
 > x
 \end{Sinput}
 \begin{Soutput}
-[1]  77  29  12  33   4   9 809 -27
+[1]  1  3  2  8  3  6 10  7
 \end{Soutput}
 \end{Schunk}
+
+\paragraph{Vektor mit Intervall 1}
+\begin{Schunk}
+\begin{Sinput}
+> x <- c(6:14)
+> x
+\end{Sinput}
+\begin{Soutput}
+[1]  6  7  8  9 10 11 12 13 14
+\end{Soutput}
+\end{Schunk}
+
+\paragraph{Vektor mit beliebigem Intevall}
+\begin{Schunk}
+\begin{Sinput}
+> x <- seq(from=1, to=10, by=2)
+> x
+\end{Sinput}
+\begin{Soutput}
+[1] 1 3 5 7 9
+\end{Soutput}
+\begin{Sinput}
+> y <- seq(1, 10, 2)
+> y
+\end{Sinput}
+\begin{Soutput}
+[1] 1 3 5 7 9
+\end{Soutput}
+\end{Schunk}
+
+\subsection{Matrizen definieren}
 
 \paragraph{Matrix Spaltenweise definieren}
 \begin{Schunk}
@@ -108,6 +119,88 @@ aufgerufen werden.
 [1,]    1    2    3
 [2,]    4    5    6
 [3,]    7    8    9
+\end{Soutput}
+\end{Schunk}
+
+\subsection{Spezielle Matrizenfunktionen}
+
+\paragraph{Transponierung}
+\begin{Schunk}
+\begin{Sinput}
+> a <- seq(1, 8, 1)
+> m <- matrix(a, 2)
+> n <- t(m)
+> m
+\end{Sinput}
+\begin{Soutput}
+     [,1] [,2] [,3] [,4]
+[1,]    1    3    5    7
+[2,]    2    4    6    8
+\end{Soutput}
+\begin{Sinput}
+> n
+\end{Sinput}
+\begin{Soutput}
+     [,1] [,2]
+[1,]    1    2
+[2,]    3    4
+[3,]    5    6
+[4,]    7    8
+\end{Soutput}
+\end{Schunk}
+
+\paragraph{Erweiterung}
+\begin{Schunk}
+\begin{Sinput}
+> a <- matrix(c(1:3), nrow=3, ncol=1)
+> b <- matrix(c(4:9), nrow=3, ncol=2)
+> a
+\end{Sinput}
+\begin{Soutput}
+     [,1]
+[1,]    1
+[2,]    2
+[3,]    3
+\end{Soutput}
+\begin{Sinput}
+> b
+\end{Sinput}
+\begin{Soutput}
+     [,1] [,2]
+[1,]    4    7
+[2,]    5    8
+[3,]    6    9
+\end{Soutput}
+\begin{Sinput}
+> m <- cbind(a, b)
+> m
+\end{Sinput}
+\begin{Soutput}
+     [,1] [,2] [,3]
+[1,]    1    4    7
+[2,]    2    5    8
+[3,]    3    6    9
+\end{Soutput}
+\end{Schunk}
+
+\paragraph{Vektorisieren}
+\begin{Schunk}
+\begin{Sinput}
+> m <- matrix(c(1:9), nrow=3, ncol=3)
+> v <- c(m)
+> m
+\end{Sinput}
+\begin{Soutput}
+     [,1] [,2] [,3]
+[1,]    1    4    7
+[2,]    2    5    8
+[3,]    3    6    9
+\end{Soutput}
+\begin{Sinput}
+> v
+\end{Sinput}
+\begin{Soutput}
+[1] 1 2 3 4 5 6 7 8 9
 \end{Soutput}
 \end{Schunk}
 
@@ -196,6 +289,80 @@ aufgerufen werden.
 \end{Soutput}
 \end{Schunk}
 
+\section{Kombinationen von Vektoren}
+Hat man mehrere Vektoren, von denen man jede mögliche
+Kombination möchte, so kann die Funktion 
+\lstinline{expand.grid()} angewendet werden.
+So kann beispielsweise eine Wahrheistabelle erstellt werden.
+\begin{Schunk}
+\begin{Sinput}
+> bit1 <- c(0,1)
+> bit2 <- c(0,1)
+> bit3 <- c(0,1)
+> expand.grid(bit1, bit2, bit3)
+\end{Sinput}
+\begin{Soutput}
+  Var1 Var2 Var3
+1    0    0    0
+2    1    0    0
+3    0    1    0
+4    1    1    0
+5    0    0    1
+6    1    0    1
+7    0    1    1
+8    1    1    1
+\end{Soutput}
+\end{Schunk}
+
+\begin{Schunk}
+\begin{Sinput}
+> eyes <- c("blue", "brown", "green")
+> hair <- c("male", "female")
+> expand.grid(eyes, hair)
+\end{Sinput}
+\begin{Soutput}
+   Var1   Var2
+1  blue   male
+2 brown   male
+3 green   male
+4  blue female
+5 brown female
+6 green female
+\end{Soutput}
+\end{Schunk}
+
+\subsection{Kombinationen eines Vektors}
+Braucht man die möglochen Kombinationen innerhalb eines
+Vektors, so kann die Funktion \lstinline{combn()} benutzt
+werden.
+\begin{Schunk}
+\begin{Sinput}
+> # install.packages("combinat")
+> # require(combinat)
+> seats <- c("driver", "codriver", "guest")
+> passengers <- 2
+> combn(seats, passengers)
+\end{Sinput}
+\begin{Soutput}
+     [,1]       [,2]     [,3]      
+[1,] "driver"   "driver" "codriver"
+[2,] "codriver" "guest"  "guest"   
+\end{Soutput}
+\end{Schunk}
+Möchte man nur die Anzahl der möglichen Kombinationen
+wissen, so kann man dies mit dem Binomialkoeffizienten
+\lstinline{choose()} berechnen.
+\begin{Schunk}
+\begin{Sinput}
+> seats <- 3
+> passengers <- 2
+> choose(seats, passengers)
+\end{Sinput}
+\begin{Soutput}
+[1] 3
+\end{Soutput}
+\end{Schunk}
+
 \section{Plots}\label{sec:plots}
 
 \subsection{Gewöhnlicher Plot}
@@ -257,20 +424,20 @@ der Varianz.
 \begin{figure}[h!]
 \centering
 \begin{subfigure}[b]{0.48\textwidth}
-\includegraphics{r-cmd-015}
+\includegraphics{r-cmd-022}
 \caption{Gewöhnlicher Plot mit \lstinline{plot()}}
 \end{subfigure}
 \begin{subfigure}[b]{0.48\textwidth}
-\includegraphics{r-cmd-016}
+\includegraphics{r-cmd-023}
 \caption{Linie mit \lstinline{abline()}}
 \end{subfigure}
 
 \begin{subfigure}[b]{0.48\textwidth}
-\includegraphics{r-cmd-017}
+\includegraphics{r-cmd-024}
 \caption{Segmente mit \lstinline{segments()}}
 \end{subfigure}
 \begin{subfigure}[b]{0.48\textwidth}
-\includegraphics{r-cmd-018}
+\includegraphics{r-cmd-025}
 \caption{Flächen mit \lstinline{rect()}}
 \end{subfigure}
 
@@ -324,20 +491,20 @@ Charakteristik die sich im Boxplot erkennen lässt.
 \begin{figure}[h!]
 \centering
 \begin{subfigure}[b]{0.48\textwidth}
-\includegraphics{r-cmd-023}
+\includegraphics{r-cmd-030}
 \caption{Uniforme Verteilung}
 \end{subfigure}
 \begin{subfigure}[b]{0.48\textwidth}
-\includegraphics{r-cmd-024}
+\includegraphics{r-cmd-031}
 \caption{Binomiale Verteilung}
 \end{subfigure}
 
 \begin{subfigure}[b]{0.48\textwidth}
-\includegraphics{r-cmd-025}
+\includegraphics{r-cmd-032}
 \caption{Normale Verteilung}
 \end{subfigure}
 \begin{subfigure}[b]{0.48\textwidth}
-\includegraphics{r-cmd-026}
+\includegraphics{r-cmd-033}
 \caption{Exponential Verteilung}
 \end{subfigure}
 \caption{Boxplots verschiedener Verteilungen}
