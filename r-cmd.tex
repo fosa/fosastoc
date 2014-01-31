@@ -289,7 +289,9 @@ Um ein \lstinline{package} zu laden kann
 \end{Soutput}
 \end{Schunk}
 
-\section{Kombinationen von Vektoren}
+\section{Kombinationen}
+
+\subsection{Kombinationen von Vektoren}
 Hat man mehrere Vektoren, von denen man jede mögliche
 Kombination möchte, so kann die Funktion 
 \lstinline{expand.grid()} angewendet werden.
@@ -317,8 +319,8 @@ So kann beispielsweise eine Wahrheistabelle erstellt werden.
 \begin{Schunk}
 \begin{Sinput}
 > eyes <- c("blue", "brown", "green")
-> hair <- c("male", "female")
-> expand.grid(eyes, hair)
+> gender <- c("male", "female")
+> expand.grid(eyes, gender)
 \end{Sinput}
 \begin{Soutput}
    Var1   Var2

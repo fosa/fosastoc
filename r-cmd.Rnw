@@ -150,7 +150,9 @@ choose(7,2)
 factorial(5)
 @
 
-\section{Kombinationen von Vektoren}
+\section{Kombinationen}
+
+\subsection{Kombinationen von Vektoren}
 Hat man mehrere Vektoren, von denen man jede mögliche
 Kombination möchte, so kann die Funktion 
 \lstinline{expand.grid()} angewendet werden.
@@ -164,8 +166,8 @@ expand.grid(bit1, bit2, bit3)
 
 <<>>=
 eyes <- c("blue", "brown", "green")
-hair <- c("male", "female")
-expand.grid(eyes, hair)
+gender <- c("male", "female")
+expand.grid(eyes, gender)
 @
 
 \subsection{Kombinationen eines Vektors}
