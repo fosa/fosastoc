@@ -444,6 +444,20 @@ Standardabweichung der Quadratwurzel der Varianz entspricht.
 \end{table}
 
 \chapter{Stetige Verteilungen}
+Stetige und absolut stetige Verteilungen beschreibebn Probleme, 
+welche Ergebnisse aus $\mathbb{R}$ liefern.
+
+\paragraph{Stetig} Die Eigenschaft der Stetigkeit ist so definiert,
+dass die Punktwahrscheinlichkeit einer Zufallsvariable 
+$X$ Null ergibt und $x$ auch wirklich jeden Wert aus
+$\mathbb{R}$ annehmen kann.
+\[ 
+	P(X=x) = 0, \qquad x\in\mathbb{R}
+\]
+\paragraph{Absolute Stetigkeit}
+Als absolut stetig werden Funktionen beschrieben die integrierbar 
+sind. 
+
 \newpage
 
 \section{Dichtefunktion}
@@ -681,8 +695,67 @@ Kapitel \ref{sec:plots}.
 \label{fig:unif}
 \end{figure}
 
-
+\clearpage
 \subsection{Beispiel einer uniformen Verteilung}
+Benutzt man einen ADC (engl. \emph{Analog to Digital Converter}) zur 
+Erfassung elektronischer Messgrössen als digitale Werte, so 
+\emph{quantifziert} dieser die Messung und es entsteht ein Messfehler. 
+Ist die zu erfassende Grösse viel grösser als die kleinstmögliche 
+Auflösung des ADC, so ist dieser Fehler uniform verteilt.
+
+\begin{Schunk}
+\begin{Sinput}
+> f1 <- 10*sin(x=seq(0, 2*pi, 0.001))
+> adc.in  <- (f1)
+> adc.out <- round(x=adc.in, digits=0)
+> error   <- (adc.in - adc.out)
+> m <-mean(error)
+> s <-sd(error)
+> m
+\end{Sinput}
+\begin{Soutput}
+[1] -0.0001592544
+\end{Soutput}
+\begin{Sinput}
+> s
+\end{Sinput}
+\begin{Soutput}
+[1] 0.27766
+\end{Soutput}
+\end{Schunk}
+
+Mit Hilfe von R lässt sich dieses Beispiel relativ leicht rechnen und
+plotten (siehe \ref{fig:adc}). Die Plots zeigen, dass die Quantifizireung
+des Eingangsignal einen uniformen Fehler verusrsacht. Dies ist durch
+den QQ-Plots explizit dargestellt, welcher die Quantile einer Datenreihe
+mit uniformer Verteilung vergleicht mit den Quantilen der Messfehler.
+
+
+
+
+
+\begin{figure}[h!]
+\centering
+\begin{subfigure}[b]{0.48\textwidth}
+\includegraphics{verteilungen-048}
+\caption{Eingangssignal $u_e(t)\in\mathbb{R}$}
+\end{subfigure}
+\begin{subfigure}[b]{0.48\textwidth}
+\includegraphics{verteilungen-049}
+\caption{Digitalisierung $(\mathbb{R} \rightarrow 2^n, n\in \mathbb{N})$}
+\end{subfigure}
+
+\begin{subfigure}[b]{0.48\textwidth}
+\includegraphics{verteilungen-050}
+\caption{Fehler $u_a(t)$}
+\end{subfigure}
+\begin{subfigure}[b]{0.48\textwidth}
+\includegraphics{verteilungen-051}
+\caption{Quantilenvergleich mit $\mathcal{U}(a,b)$}
+\end{subfigure}
+\caption{Quantifizierungfehler eines ADC.}
+\label{fig:adc}
+\end{figure}
 
 \newpage
 \section{Normalverteilung}
