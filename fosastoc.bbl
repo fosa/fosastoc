@@ -1,0 +1,152 @@
+% $ biblatex auxiliary file $
+% $ biblatex version 2.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated as
+% required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+\entry{oreilly}{book}{}
+  \name{author}{2}{}{%
+    {{}%
+     {Griffiths}{G.}%
+     {Dawn}{D.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Beyer}{B.}%
+     {Jörg}{J.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {O'Reilly Verlag GmbH \& Co. KG}%
+  }
+  \strng{namehash}{GDBJ1}
+  \strng{fullhash}{GDBJ1}
+  \field{labelyear}{2009}
+  \field{sortinit}{G}
+  \field{isbn}{978-3-89721-891-8}
+  \field{title}{Statistik von Kopf bis Fuss --- Ein Buch zum Mitmachen und
+  Verstehen}
+  \list{location}{1}{%
+    {O'Reilly Media Inc.}%
+  }
+  \field{year}{2009}
+\endentry
+
+\entry{henze}{book}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Henze}{H.}%
+     {Norbert}{N.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {Vieweg+Tuebner Verlag}%
+  }
+  \strng{namehash}{HN1}
+  \strng{fullhash}{HN1}
+  \field{labelyear}{2012}
+  \field{sortinit}{H}
+  \field{edition}{9}
+  \field{isbn}{978-3-8348-1845-4}
+  \field{title}{Stochastik für Einsteiger --- Eine Einführung in die
+  faszinierende Welt des Zufalls}
+  \list{location}{1}{%
+    {Springer Fachmedien Wiesbaden GmbH}%
+  }
+  \field{year}{2012}
+\endentry
+
+\entry{taoe}{book}{}
+  \name{author}{2}{}{%
+    {{}%
+     {Horowitz}{H.}%
+     {Paul}{P.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Hill}{H.}%
+     {Winfield}{W.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {Cambridge University Press}%
+  }
+  \strng{namehash}{HPHW1}
+  \strng{fullhash}{HPHW1}
+  \field{labelyear}{2008}
+  \field{sortinit}{H}
+  \field{edition}{22}
+  \field{isbn}{978-0-521-37095-0}
+  \field{title}{{The Art of Electronics}}
+  \field{year}{2008}
+\endentry
+
+\entry{fosamath}{book}{}
+  \name{author}{7}{}{%
+    {{}%
+     {Team-FOSA}{T.-F.}%
+     {}{}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Winz}{W.}%
+     {Daniel}{D.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Mazlagi\'c}{M.}%
+     {Ervin}{E.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Imboden}{I.}%
+     {Adrian}{A.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Langer}{L.}%
+     {Philipp}{P.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Häfliger}{H.}%
+     {Josef}{J.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Holzmann}{H.}%
+     {Mercel}{M.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {FOSA}%
+  }
+  \strng{namehash}{TF+1}
+  \strng{fullhash}{TFWDMEIALPHJHM1}
+  \field{labelyear}{2013}
+  \field{sortinit}{T}
+  \field{edition}{HS13}
+  \field{title}{Formelsammlung Mathematik}
+  \field{year}{2013}
+\endentry
+
+\lossort
+\endlossort
+
+\endinput

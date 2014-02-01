@@ -17,6 +17,8 @@
 \documentclass[a5paper,10pt,fleqn]{book}
 \usepackage{layout}
 
+\bibliography{bibliographie}
+
 \title{Formelsammlung Stochastik}
 
 \author{Daniel Winz\\Ervin Mazlagi\'c}
@@ -40,7 +42,16 @@
 \newpage
 
 \input{content}
+\clearpage
+\newpage
 
+\setlength\bibitemsep{1.5\itemsep}
+\nocite{*}	% alle Quellen auflisten
+%\bibliography{bibliographie}	% Bibliographie wählen (BibTex Datei)
+%\bibliographystyle{apacite}
+\printbibliography
+
+\newpage
 \listoffigures
 
 \newpage

@@ -841,7 +841,8 @@ Benutzt man einen ADC (engl. \emph{Analog to Digital Converter}) zur
 Erfassung elektronischer Messgrössen als digitale Werte, so 
 \emph{quantifziert} dieser die Messung und es entsteht ein Messfehler. 
 Ist die zu erfassende Grösse viel grösser als die kleinstmögliche 
-Auflösung des ADC, so ist dieser Fehler uniform verteilt.
+Auflösung des ADC, so ist dieser Fehler uniform verteilt 
+\parencite[615]{taoe}.
 
 \begin{figure}[h!]
 	\centering
