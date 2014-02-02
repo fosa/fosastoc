@@ -364,3 +364,135 @@ boxplot(x, cex.lab=1.5, cex.axis=1.5, cex.main=1.5, cex.sub=1.5,
 \end{subfigure}
 \caption{Boxplots verschiedener Verteilungen}
 \end{figure}
+
+\clearpage
+\section{Daten benutzen}
+\lstinline{R} kennt neben einfachen Variablen, Vektoren und Matrizen
+auch sog. \emph{Data Frames}. Diese sind den Matrizen ähnlich mit dem
+Unterschied, dass man in einem solchen Data Frame verschiedene Typen
+ablegen kann (Zahlen, Buchstaben etc.) während Matrizen nur
+numerische Inhalte haben können.
+
+\subsection{Daten zusammenstellen}
+Ein Data Frame kann mit der Funktion \lstinline{data.frame()} erstellt
+werden.
+
+<<>>=
+a <- c(1.67, 1.82, 1.76, 1.94)
+b <- c("m", "f", "f", "m")
+c <- c(12, 19, 23, 17)
+team <- data.frame(a, b, c)
+team
+@
+
+\subsubsection{Daten benennen}
+Möchte man das Data Frame um sog. \emph{header} erweitern,
+so kann man die Funktion \lstinline{colnames()} nutuzen
+
+<<>>=
+a <- c(1.67, 1.82, 1.76, 1.94)
+b <- c("m", "f", "f", "m")
+c <- c(12, 19, 23, 17)
+team <- data.frame(a, b, c)
+colnames(team) <- c("Height", "Sex", "Age")
+team
+@
+
+\noindent
+Es ist aber auch möglich das komplette Data Frame mit Labels
+zu versehen mit der Funktion \lstinline{dimnames()}. Hierzu
+muss aber eine \emph{list} als Parameter übergeben werden
+welche je einen Vektor für Spalten und Reihen hat.
+
+<<>>=
+a <- c(1.67, 1.82, 1.76, 1.94)
+b <- c("m", "f", "f", "m")
+c <- c(12, 19, 23, 17)
+team <- data.frame(a, b, c)
+columns <- c("Babbage", "Lovelace", 
+	     "Noether", "Shannon")
+rows <- c("Height", "Sex", "Age")
+dimnames(team) <- list(columns, rows)
+team
+@
+
+\subsubsection{Daten faktorisieren}
+Bei der Erstellung von Data Frames ist es sinnvoll für typisierte
+Daten die Funktion \lstinline{factor()} zu nutzen, denn diese 
+ermöglicht es Datenreihen zu \emph{faktorisieren}. 
+
+Beispielsweise hat man einen Datensatz bei dem das Geschlecht 
+verzeichnet ist. Das Geschlecht kann zwei Werte annehmen, sog. 
+\emph{Levels}.
+
+<<>>=
+a <- c(1.67, 1.82, 1.76, 1.94, 1.86, 1.78)
+b <- factor(c("m", "f", "f", "m", "f", "m"))
+c <- c(12, 19, 23, 17, 20, 24)
+team <- data.frame(a, b, c)
+colnames(team) <- c("Alter", "Hoehe", "Geschlecht")
+team
+b
+@
+
+\subsection{Daten von URL einbinden}
+Steht ein Datensatz als Tabelle auf einer Webseite zur Verfügung,
+so kann man diese mit der Funktion \lstinline{read.table()} einbinden.
+
+Hierbei gilt es zu beachten, dass die Formatierung berücksichtigt
+werden muss. Bispielsweise ob die Daten kommasepariert 
+(\lstinline{sep}) sind oder ob die Daten je einen Titel 
+(\lstinline{header}) haben.
+
+<<>>=
+url <- "http://data.princeton.edu/wws509/datasets/effort.dat"
+data <- read.table(url, header=TRUE)
+data
+@
+
+\subsection{Daten verarbeiten}
+Um Daten eines Data Frame zu bearbeiten kann genau wie bei Matrizen
+vorgegenagen werden. Für die effiziente Bearbeitung ganzer Reihen
+oder Spalten gibt es neben den iterativen Methoden mit Schlaufen noch
+den funktionalen Ansatz mittels der \lstinline{apply()} Funktionen
+von denen es drei verschiedene gibt.
+
+\begin{itemize}
+	\item \lstinline{apply()}
+	\item \lstinline{lapply()}
+	\item \lstinline{sapply()}
+\end{itemize}
+
+Allen gemeinsam ist, dass diese eben funktional sind, d.h. man
+kann nur Funktionen auf etwas anwenden. Beispielsweise um Datenwerte
+um eine Dekade zu vergrössern müsste man eine Funktion definieren
+die dies bewerkstelligt.
+
+<<>>=
+a <- 13.5
+decadeUp <- function(x) {x*10}
+b <- decadeUp(a)
+b
+@
+
+Im Folgenden sind die einzelnen Funktionen nochmals mit kurzen 
+Beispielen erläutert.
+
+\subsubsection{\lstinline{apply()}}
+Die Funktion \lstinline{apply()} ermöglicht es, eine Funktion auf
+alle Elemente eines Arrays oder eines Data Frames anzuwenden.
+
+<<>>=
+age <- c(11, 24, 33, 17)
+weight <- c(53, 79, 68, 86)
+height <- c(1.39, 1.82, 1.67, 1.87)
+team <- data.frame(age, weight, height)
+team
+# die Hoehe vom Meter in Centimeter wandeln
+toCentimeter <- function(x) {x*100}
+team[3] <- apply(team[3], MARGIN=2, FUN=toCentimeter)
+team
+@
+
+\subsubsection{\lstinline{lapply()}}
+\subsubsection{\lstinline{sapply()}}
