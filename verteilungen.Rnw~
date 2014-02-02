@@ -142,7 +142,7 @@ plot(rhyper(nn=100, m=100, n=100, k=100), cex.lab=1.5, cex.axis=1.5,
 <<fig=TRUE, echo=FALSE>>=
 <<phyper>>
 @
-\caption{kumulative Wahrshceinlichkeit}
+\caption{kumulative Wahrscheinlichkeit}
 \end{subfigure}
 
 \begin{subfigure}[b]{0.48\textwidth}
@@ -317,7 +317,7 @@ plot(rbinom(n=100, size=100, prob=0.5), cex.lab=1.5, cex.axis=1.5,
 <<fig=TRUE, echo=FALSE>>=
 <<pbinom>>
 @
-\caption{kumulative Wahrshceinlichkeit}
+\caption{kumulative Wahrscheinlichkeit}
 \end{subfigure}
 
 \begin{subfigure}[b]{0.48\textwidth}
@@ -554,6 +554,20 @@ Standardabweichung der Quadratwurzel der Varianz entspricht.
 \end{table}
 
 \chapter{Stetige Verteilungen}
+Stetige und absolut stetige Verteilungen beschreibebn Probleme, 
+welche Ergebnisse aus $\mathbb{R}$ liefern.
+
+\paragraph{Stetig} Die Eigenschaft der Stetigkeit ist so definiert,
+dass die Punktwahrscheinlichkeit einer Zufallsvariable 
+$X$ Null ergibt und $x$ auch wirklich jeden Wert aus
+$\mathbb{R}$ annehmen kann.
+\[ 
+	P(X=x) = 0, \qquad x\in\mathbb{R}
+\]
+\paragraph{Absolute Stetigkeit}
+Als absolut stetig werden Funktionen beschrieben die integrierbar 
+sind. 
+
 \newpage
 
 \section{Dichtefunktion}
@@ -583,7 +597,7 @@ in einem bestimmten Intervall $[a,b]$ annimmt (siehe Grafik
 Mit der Definition der Dichtefunktion $f(x)$ lassen sich mehrere 
 Gesetzmässigkeiten herleiten:
 \begin{itemize}
-	\item Die Dichte in einem Punkt $a$ Null.
+	\item Die Dichte in einem Punkt $a$ ist Null.
 		\[ f(x) = 0 
 			\qquad \lim_{a_1 \rightarrow a_0} \left(
 				\int_{a_0}^{a_1} f(x)\,dx \right) = 0   \]
@@ -669,20 +683,329 @@ darunter liegt.
 	\label{fig:dichte-quantil}
 \end{figure}
 
+\clearpage
 \newpage
 \section{Uniforme Verteilung}
+
+Die uniforme Verteilung (auch \emph{Gleichverteilung}) ist eine
+Verteilung, deren Wahrscheinlichkeit nur in einem bestimmten 
+Intervall $[a,b]$ ungleich Null ist. Die Dichte $f(x)$ innerhalb 
+des Intervalls $[a,b]$ ist konstant und ausserhalb davon gleich Null.
+Zusammenfassend kann man sagen, dass die uniforme Verteilung eine
+konstante Dichte hat.
+
+\[  
+	f(x) = \mathrm{konstant} = \left\{\begin{array}{c c l}
+		\displaystyle \frac{1}{b-a}
+			& \text{falls}
+			& a < x < b \\
+		& & \\
+		0
+			& \text{falls}
+			& (x < a) \lor (x > b)
+		\end{array} \right.
+\]
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.7\textwidth]{uniform.pdf}
+	\caption{Uniforme Dichte $f(x)$ und Verteilung $F(x)$.}
+	\label{fig:uniform}
+\end{figure}
+
 \subsection{Verteilungsfunktion}
+Die Verteilungsfunktion der uniformen Verteilung beschreibt
+grundsätlich eine Gerade und wenn das Intervall 
+$[a,b]\neq[-\infty, +\infty]$ ist, so ist diese Bereichsweise
+definiert.
+
+\[  
+	F(x) = \left\{
+		\begin{array}{c c l}
+			0 
+				& \text{falls } 
+				& x < a \\
+			& \\
+			\displaystyle
+			\frac{x-a}{b-a} 
+				& \text{falls } 
+				& a < x < b \\
+			& \\
+			1
+				& \text{falls } 
+				& b < x
+		\end{array} \right.
+\]
+
 \subsection{Erwartungswert}
+Da die Dichtefunktion der uniformen Verteilung konstant ist,
+kann der Erwartungswert sehr einfach berechnet werden.
+\[  
+	E(X) = \frac{a+b}{2}
+\]
+Die Werte $a,b$ können auch als Minimal- bzw. Maximalwerte
+betrachtet werden.
+\[  
+E(X) = \frac{\text{min} + \text{max}}{2}
+\]
+
 \subsection{Varianz}
+Analog zum Erwartungswert ist auch die Berechnung der Varianz
+einer uniformen Verteilung relativ einfach.
+\[ 
+	Var(X) = \frac{(b - a)^2}{12}
+\]
+Wie auch beim Erwartungswert, können die Intervallgrenzen
+$[a,b]$ als Mininal- und Maximalwerte betrachtet werden.
+\[  
+	Var(X) = \frac{(\text{max} - \text{min})^2}{12}
+\]
+
 \subsection{Verwendung in R}
+\lstinline{R} stellt grundsätzlich vier Funktionen für die 
+uniforme Verteilung zur Verfügung. 
+\begin{itemize}
+	\item \lstinline{dunif()} \hfill{} 
+		(\emph{Wahrscheinlichkeitsverteilung})
+	\item \lstinline{punif()} \hfill{}
+		(\emph{kumulative Wahrscheinlichkeit})
+	\item \lstinline{qunif()} \hfill{}
+		(\emph{Verteilung der Quantile})
+	\item \lstinline{runif()} \hfill{}
+		(\emph{Zufallszahlen})
+\end{itemize}
+Die Abbildung \ref{fig:unif} zeigt jeweils einen Plot zu den gegebenen
+Funktionen aus \lstinline{R}. Für weitere Informationen zu Plots siehe
+Kapitel \ref{sec:plots}.
+
+<<dunif, fig=FALSE, echo=FALSE>>=
+plot(dunif(x=c(1:100), min=0, max=100), type='l', cex.lab=1.5, 
+     cex.axis=1.5, cex.main=1.5, cex.sub=1.5, 
+     ylab='P(x)', xlab='Wert x', 
+     main='dunif()')
+@
+
+<<punif, fig=FALSE, echo=FALSE>>=
+plot(punif(q=c(1:100), min=0, max=100), type='l', cex.lab=1.5, 
+     cex.axis=1.5, cex.main=1.5, cex.sub=1.5, 
+     ylab='P(X<=x)', xlab='Wert x', 
+     main='punif()')
+@
+
+<<qunif, fig=FALSE, echo=FALSE>>=
+plot(qunif(p=seq(from=0, to=1, by=0.001), min=0, max=100), type='l',
+     cex.lab=1.5, cex.axis=1.5, cex.main=1.5, cex.sub=1.5, ylab='Wert x', 
+     xlab='Quantil in Promille', main='qunif()')
+@
+
+<<runif, fig=FALSE, echo=FALSE>>=
+plot(runif(n=100, min=0, max=100), cex.lab=1.5, cex.axis=1.5, 
+     cex.main=1.5, cex.sub=1.5, ylab='Wert x', xlab='x-te Zahl', 
+     main='runif()')
+@
+
+\begin{figure}[h!]
+\centering
+\begin{subfigure}[b]{0.48\textwidth}
+<<fig=TRUE, echo=FALSE>>=
+<<dunif>>
+@
+\caption{Wahrscheinlichkeitsverteilung}
+\end{subfigure}
+\begin{subfigure}[b]{0.48\textwidth}
+<<fig=TRUE, echo=FALSE>>=
+<<punif>>
+@
+\caption{kumulative Wahrscheinlichkeit}
+\end{subfigure}
+
+\begin{subfigure}[b]{0.48\textwidth}
+<<fig=TRUE, echo=FALSE>>=
+<<qunif>>
+@
+\caption{Quantile}
+\end{subfigure}
+\begin{subfigure}[b]{0.48\textwidth}
+<<fig=TRUE, echo=FALSE>>=
+<<runif>>
+@
+\caption{Zufallszahlen}
+\end{subfigure}
+\caption{Uniforme Verteilung ($n=100, min=0, max=100$)}
+\label{fig:unif}
+\end{figure}
+
+\clearpage
 \subsection{Beispiel einer uniformen Verteilung}
+Benutzt man einen ADC (engl. \emph{Analog to Digital Converter}) zur 
+Erfassung elektronischer Messgrössen als digitale Werte, so 
+\emph{quantifziert} dieser die Messung und es entsteht ein Messfehler. 
+Ist die zu erfassende Grösse viel grösser als die kleinstmögliche 
+Auflösung des ADC, so ist dieser Fehler uniform verteilt 
+\parencite[615]{taoe}.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.95\textwidth]{adc-system.pdf}
+	\caption{Analog-to-Digital Converter, 8 Bit.}
+\end{figure}
+
+<<>>=
+f1 <- 10*sin(x=seq(0, 2*pi, 0.001))
+adc.in  <- (f1)
+adc.out <- round(x=adc.in, digits=0)
+error   <- (adc.in - adc.out)
+m <-mean(error)
+s <-sd(error)
+m
+s
+@
+
+\noindent
+Mit Hilfe von R lässt sich dieses Beispiel relativ leicht rechnen und
+plotten. Die Plots aus der Abbildung \ref{fig:adc} zeigen, dass die 
+Quantifizireung des Eingangsignal einen uniformen Fehler verusrsacht.
+Die Grafik \ref{fig:adc-d} zeigt den Beweis für die uniforme Verteilung
+anhand eines Quantilenvergleichs mit einer ideal uniform verteilten
+Datenreihe.
+
+<<adc1, fig=FALSE, echo=FALSE>>=
+f1 <- 10*sin(x=seq(0, 2*pi, 0.001))
+adc.in <- (f1)
+adc.out <- round(adc.in, digits=0)
+error <- adc.in - adc.out
+plot(adc.in, type='l', cex.lab=1.5, cex.axis=1.5, cex.main=1.5, 
+     cex.sub=1.5, ylab='Spannung', xlab='Zeit', main='ADC Eingabe')
+@
+
+<<adc2, fig=FALSE, echo=FALSE>>=
+f1 <- 10*sin(x=seq(0, 2*pi, 0.001))
+adc.in <- (f1)
+adc.out <- round(adc.in, digits=0)
+error <- adc.in - adc.out
+plot(adc.out, type='l', cex.lab=1.5, cex.axis=1.5, cex.main=1.5, 
+     cex.sub=1.5, ylab='Spannung', xlab='Zeit', main='ADC Ausgabe')
+@
+
+<<adc3, fig=FALSE, echo=FALSE>>=
+f1 <- 10*sin(x=seq(0, 2*pi, 0.001))
+adc.in <- (f1)
+adc.out <- round(adc.in, digits=0)
+error <- (adc.in-adc.out)
+plot(error, type='h', cex.lab=1.5, cex.axis=1.5, cex.main=1.5, 
+     cex.sub=1.5, ylab='Spannung', xlab='Zeit', ylim=c(-2,2), main='Messfehler')
+@
+
+<<adc4, fig=FALSE, echo=FALSE>>=
+f1 <- 10*sin(x=seq(0, 2*pi, 0.001))
+adc.in <- (f1)
+adc.out <- round(adc.in, digits=0)
+error <- (adc.in-adc.out)
+error <- sort(error)
+check <- runif(n=1000)
+qqplot(check, error, cex.lab=1.5, cex.axis=1.5, cex.main=1.5, 
+       cex.sub=1.5, ylab='Quantile Uniform', xlab='Quantile Fehler', main='QQ-Plot')
+@
+
+\begin{figure}[h!]
+\centering
+\begin{subfigure}[b]{0.48\textwidth}
+<<fig=TRUE, echo=FALSE>>=
+<<adc1>>
+@
+\caption{Eingangssignal $u_e(t)\in\mathbb{R}$}
+\end{subfigure}
+\begin{subfigure}[b]{0.48\textwidth}
+<<fig=TRUE, echo=FALSE>>=
+<<adc2>>
+@
+\caption{Digitalisierung $(\mathbb{R} \rightarrow 2^n, n\in \mathbb{N})$}
+\end{subfigure}
+
+\begin{subfigure}[b]{0.48\textwidth}
+<<fig=TRUE, echo=FALSE>>=
+<<adc3>>
+@
+\caption{Fehler $u_a(t)$}
+\end{subfigure}
+\begin{subfigure}[b]{0.48\textwidth}
+<<fig=TRUE, echo=FALSE>>=
+<<adc4>>
+@
+\caption{Quantilenvergleich mit $\mathcal{U}(a,b)$}
+\label{fig:adc-d}
+\end{subfigure}
+\caption{Quantifizierungfehler eines ADC.}
+\label{fig:adc}
+\end{figure}
 
 \newpage
 \section{Normalverteilung}
+Die Normalverteilung (auch \emph{Gauss-Verteilung} bzw. 
+\emph{Gauss'sche Glockenkurve}) ist eine bedeutende stetige
+Verteilung für sämtliche Bereiche der Natur- und 
+Ingenieurwissenschaften. Der sog. \emph{Zentrale Grenzwertsatz}
+macht sie zu einer der wichtigsten Verteilungen überhaupt
+\parencite[297]{henze}. 
+
+
+\[ 
+	f(x) = \frac{1}{\sigma\sqrt{2\pi}}\cdot e^{
+		\left( -\frac{(x-\mu)^2}{2\sigma^2} \right)}
+\]
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.7\textwidth]{normal.pdf}
+	\caption{Normalverteilung}
+	\label{fig:normal}
+\end{figure}
+
+\noindent
+Der Zentrale Grenzwertsatz besagt,
+dass ein Stichprobenmittelwert $\overline{x}$ für grosse
+Stichproben annähernd normalverteilt ist mit 
+$\overline{X}\sim\mathcal{N}(\mu, \frac{\sigma^2}{n})$ 
+wobei der kritische Stichprobenumfang bei ca. 30 Stichproben
+liegt \parencite[481]{oreilly}.
+
+
+Die Interpretation der Normalverteilung 
+$X \sim \mathcal{N}(\mu, \sigma^2)$
+ist sehr anschaulich durch deren Parameter. Der Mittelwert 
+$\mu$ zeigt das Zentrum der \emph{Glockenkurve} an, wo auch die 
+Wahrscheinlichkeit am höchsten ist. Die Varianz zeigt an, wie 
+flach die \emph{Glockenkurve} ist. 
+
+Ein Spezialfall der Normalverteilung ist die sog.
+\emph{standardisierte Normalverteilung}, welche einen 
+Erwartungswert $\mu=0$ und eine Varianz $\sigma^2=1$ hat.
+Mittels dieser lassen sich Ergebnisse beliebig transformieren
+\parencite[298]{henze}.
+
+
 \subsection{Verteilungsfunktion}
+
 \subsection{Erwartungswert}
+Der Erwartungswert einer Normalverteilung beschreibt jene
+Stelle $x$ bei der die \emph{Glockenkurve} am höchsten ist.
+Dieser Wert ist zugleich auch ein Parameter der Dichtefunktion
+der Normalverteilung.
+\[  
+	E(X) = \mu
+\]
+
 \subsection{Varianz}
+Die Varianz einer Normalverteilung ist wie der Erwartungswert
+$\mu$ gleich eine Parameter der Dichtefunktion und beschreibt
+wie flach die \emph{Glockenkurve} ist.
+\[  
+	Var(X) = \sigma^2
+\]
+
 \subsection{Verwendung in R}
+
+
 \subsection{Beispiel einer Normalverteilung}
 
 \newpage
@@ -695,15 +1018,15 @@ darunter liegt.
 
 \newpage
 \section{Zusammenfassung}
+\paragraph{Uniforme Verteilung}
 \[ X \sim \mathcal{U}(a,b) \]
 \[ \begin{array}{l c l}
 	F(X) 
 		& =
-		& F(X) = \displaystyle \frac{x-a}{b-a} \\
+		& \displaystyle \frac{x-a}{b-a} \\
 	f(x)	
 		& =
-		& \displaystyle \frac{1}{b-a} 
-			\quad \text{falls } a < x b \\
+		& \displaystyle \frac{1}{b-a}  \\
 	D_f	
 		& = 
 		& a < x < b \\
@@ -715,15 +1038,16 @@ darunter liegt.
 		& \displaystyle \frac{(b-a)^2}{12}\\
 \end{array} \]
 
+\paragraph{Normalverteilung}
 \[ X \sim \mathcal{N}(\mu, \sigma^2) \]
 \[ \begin{array}{l c l}
 	F(X) 
 		& =
-		& F(X) = \displaystyle \frac{x-a}{b-a} \\
+		& \displaystyle \frac{x-a}{b-a} \\
 	f(x)	
 		& =
 		& \displaystyle \frac{1}{\sigma\sqrt{2\pi}} \cdot
-				e^{\displaystyle \left(
+				e^{\left(
 					-\frac{(x-\mu)^2}{2\sigma^2}
 				\right)} \\
 	D_f	
@@ -737,7 +1061,8 @@ darunter liegt.
 		& \sigma^2 \\
 \end{array} \]
 
-\[ X \sim \mathcal{U}(a,b) \]
+\paragraph{Exponentialverteilung}
+\[ X \sim Exp(\lambda) \]
 \[ \begin{array}{l c l}
 	F(X) 
 		& =
@@ -745,7 +1070,7 @@ darunter liegt.
 	f(x)	
 		& =
 		& \displaystyle \lambda \cdot 
-				e^{\displaystyle \left(
+				e^{\left(
 					-\lambda x
 				\right)} \\
 	D_f	
@@ -758,40 +1083,6 @@ darunter liegt.
 		& =
 		& \displaystyle \frac{(b-a)^2}{12}\\
 \end{array} \]
-
-\begin{table}[h!]
-	\begin{tabular}{l l}
-		$X \sim \mathcal{U}(a,b)$ 
-			& Uniforme Verteilung\\
-		\hline
-			& $F(X) = \displaystyle \frac{x-a}{b-a}$  \\
-			& $f(x) := \displaystyle \frac{1}{b-a}$ 
-				falls $a < x b$ \\
-			& $a < x < b$ \\
-			& $E(X) = \displaystyle \frac{a+b}{2}$ \\
-			& $Var(X) = \displaystyle \frac{(b-a)^2}{12}$ \\
-		&  \\
-		$X \sim \mathcal{N}(\mu, \sigma^2)$ 
-			& Normalverteilung \\
-		\hline
-			& $F(X) = $ \\
-			& $f(x) = \frac{1}{\sigma\sqrt{2\pi}} \cdot
-				e^{-\frac{(x-\mu)^2}{2\sigma^2}} $ \\
-			& $x \in \mathbb{R}$ \\
-			& $E(X) = \mu$ \\
-			& $Var(X) = \sigma^2$ \\
-		& \\
-		$X \sim Exp(\lambda)$
-			& Exponentialverteilung \\
-		\hline
-			& $F(X) = $ \\
-			& $f(x) = \lambda \cdot 
-				e^{\left(-\lambda x\right)}$ \\
-			& $x > 0$ \\
-			& $E(X) = $ \\
-			& $Var(X) = $ 
-	\end{tabular}
-\end{table}
 
 
 \subsection{Berechnungen in R}

@@ -769,11 +769,128 @@ Datenreihe.
 
 \newpage
 \section{Normalverteilung}
+Die Normalverteilung (auch \emph{Gauss-Verteilung} bzw. 
+\emph{Gauss'sche Glockenkurve}) ist eine bedeutende stetige
+Verteilung für sämtliche Bereiche der Natur- und 
+Ingenieurwissenschaften. Der sog. \emph{Zentrale Grenzwertsatz}
+macht sie zu einer der wichtigsten Verteilungen überhaupt
+\parencite[297]{henze}. 
+
+
+\[ 
+	f(x) = \frac{1}{\sigma\sqrt{2\pi}}\cdot e^{
+		\left( -\frac{(x-\mu)^2}{2\sigma^2} \right)}
+\]
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.7\textwidth]{normal.pdf}
+	\caption{Normalverteilung}
+	\label{fig:normal}
+\end{figure}
+
+\noindent
+Der Zentrale Grenzwertsatz besagt,
+dass ein Stichprobenmittelwert $\overline{x}$ für grosse
+Stichproben annähernd normalverteilt ist mit 
+$\overline{X}\sim\mathcal{N}(\mu, \frac{\sigma^2}{n})$ 
+wobei der kritische Stichprobenumfang bei ca. 30 Stichproben
+liegt \parencite[481]{oreilly}.
+
+
+Die Interpretation der Normalverteilung 
+$X \sim \mathcal{N}(\mu, \sigma^2)$
+ist sehr anschaulich durch deren Parameter. Der Mittelwert 
+$\mu$ zeigt das Zentrum der \emph{Glockenkurve} an, wo auch die 
+Wahrscheinlichkeit am höchsten ist. Die Varianz zeigt an, wie 
+flach die \emph{Glockenkurve} ist. 
+
+Ein Spezialfall der Normalverteilung ist die sog.
+\emph{standardisierte Normalverteilung}, welche einen 
+Erwartungswert $\mu=0$ und eine Varianz $\sigma^2=1$ hat.
+Mittels dieser lassen sich Ergebnisse beliebig transformieren
+\parencite[298]{henze}.
+
+
 \subsection{Verteilungsfunktion}
+
 \subsection{Erwartungswert}
+Der Erwartungswert einer Normalverteilung beschreibt jene
+Stelle $x$ bei der die \emph{Glockenkurve} am höchsten ist.
+Dieser Wert ist zugleich auch ein Parameter der Dichtefunktion
+der Normalverteilung.
+\[  
+	E(X) = \mu
+\]
+
 \subsection{Varianz}
+Die Varianz einer Normalverteilung ist wie der Erwartungswert
+$\mu$ gleich eine Parameter der Dichtefunktion und beschreibt
+wie flach die \emph{Glockenkurve} ist.
+\[  
+	Var(X) = \sigma^2
+\]
+
 \subsection{Verwendung in R}
+\lstinline{R} stellt grundsätzlich vier Funktionen für die 
+Normalverteilung zur Verfügung. 
+\begin{itemize}
+	\item \lstinline{dnorm()} \hfill{} 
+		(\emph{Wahrscheinlichkeitsverteilung})
+	\item \lstinline{pnorm()} \hfill{}
+		(\emph{kumulative Wahrscheinlichkeit})
+	\item \lstinline{qnorm()} \hfill{}
+		(\emph{Verteilung der Quantile})
+	\item \lstinline{rnorm()} \hfill{}
+		(\emph{Zufallszahlen})
+\end{itemize}
+Die Abbildung \ref{fig:norm} zeigt jeweils einen Plot zu den gegebenen
+Funktionen aus \lstinline{R}. Für weitere Informationen zu Plots siehe
+Kapitel \ref{sec:plots}.
+
+
+
+
+
+\begin{figure}[h!]
+\centering
+\begin{subfigure}[b]{0.48\textwidth}
+\includegraphics{verteilungen-056}
+\caption{Wahrscheinlichkeitsverteilung}
+\end{subfigure}
+\begin{subfigure}[b]{0.48\textwidth}
+\includegraphics{verteilungen-057}
+\caption{kumulative Wahrscheinlichkeit}
+\end{subfigure}
+
+\begin{subfigure}[b]{0.48\textwidth}
+\includegraphics{verteilungen-058}
+\caption{Quantile}
+\end{subfigure}
+\begin{subfigure}[b]{0.48\textwidth}
+\includegraphics{verteilungen-059}
+\caption{Zufallszahlen}
+\end{subfigure}
+\caption{Normalverteilung ($\mu=50, \sigma^2=10$)}
+\label{fig:norm}
+\end{figure}
+
+\clearpage
+
 \subsection{Beispiel einer Normalverteilung}
+Bei digitalen Übertragungen entsteht durch diverse Umwelteinflüsse 
+ein sog. \emph{Jitter}. Dieser beschreibt ein variieren der 
+Taktzeiten einer Übertragung. Ein Teil des gesamten Jitters bildet 
+der sogenannte \emph{zufällige Jitter} welcher Normalverteilt ist.
+D.h. die zeitliche Grenze eines Zyklus folgt einer bestimmten
+Verteilung, wobei die Ränder dieser Grenzen normalverteilt abweichen.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.7\textwidth]{jitter.pdf}
+	\caption{Jitter}
+	\label{fig:jitter}
+\end{figure}
 
 \newpage
 \section{Exponentialverteilung}

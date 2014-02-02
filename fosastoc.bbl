@@ -17,23 +17,18 @@
 \endgroup
 
 \entry{oreilly}{book}{}
-  \name{author}{2}{}{%
+  \name{author}{1}{}{%
     {{}%
      {Griffiths}{G.}%
      {Dawn}{D.}%
-     {}{}%
-     {}{}}%
-    {{}%
-     {Beyer}{B.}%
-     {Jörg}{J.}%
      {}{}%
      {}{}}%
   }
   \list{publisher}{1}{%
     {O'Reilly Verlag GmbH \& Co. KG}%
   }
-  \strng{namehash}{GDBJ1}
-  \strng{fullhash}{GDBJ1}
+  \strng{namehash}{GD1}
+  \strng{fullhash}{GD1}
   \field{labelyear}{2009}
   \field{sortinit}{G}
   \field{isbn}{978-3-89721-891-8}
