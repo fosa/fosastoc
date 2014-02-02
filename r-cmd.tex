@@ -33,6 +33,8 @@ Funktionen in \lstinline{R} liefern. Möchte man spezifische und
 detaillierte Informationen so kann man diese mittels \lstinline{help()}
 erhalten. 
 
+Wieiterführende Literatur ist dem Literaturverzeichnis zu entnehmen.
+
 \section{Hilfe}
 \lstinline{R} bietet für jede Funktion eine Art Manpage an. 
 Diese kann in der Konsole mittels \lstinline{help(name-der-Funktion)}
@@ -88,6 +90,24 @@ Um ein \lstinline{package} zu laden kann
 \end{Sinput}
 \begin{Soutput}
 [1] 1 3 5 7 9
+\end{Soutput}
+\end{Schunk}
+
+\paragraph{Vektor repetieren}
+\begin{Schunk}
+\begin{Sinput}
+> x <- c(1:5)
+> y <- rep(x, 3)
+> x
+\end{Sinput}
+\begin{Soutput}
+[1] 1 2 3 4 5
+\end{Soutput}
+\begin{Sinput}
+> y
+\end{Sinput}
+\begin{Soutput}
+ [1] 1 2 3 4 5 1 2 3 4 5 1 2 3 4 5
 \end{Soutput}
 \end{Schunk}
 
@@ -426,20 +446,20 @@ der Varianz.
 \begin{figure}[h!]
 \centering
 \begin{subfigure}[b]{0.48\textwidth}
-\includegraphics{r-cmd-022}
+\includegraphics{r-cmd-023}
 \caption{Gewöhnlicher Plot mit \lstinline{plot()}}
 \end{subfigure}
 \begin{subfigure}[b]{0.48\textwidth}
-\includegraphics{r-cmd-023}
+\includegraphics{r-cmd-024}
 \caption{Linie mit \lstinline{abline()}}
 \end{subfigure}
 
 \begin{subfigure}[b]{0.48\textwidth}
-\includegraphics{r-cmd-024}
+\includegraphics{r-cmd-025}
 \caption{Segmente mit \lstinline{segments()}}
 \end{subfigure}
 \begin{subfigure}[b]{0.48\textwidth}
-\includegraphics{r-cmd-025}
+\includegraphics{r-cmd-026}
 \caption{Flächen mit \lstinline{rect()}}
 \end{subfigure}
 
@@ -493,20 +513,20 @@ Charakteristik die sich im Boxplot erkennen lässt.
 \begin{figure}[h!]
 \centering
 \begin{subfigure}[b]{0.48\textwidth}
-\includegraphics{r-cmd-030}
+\includegraphics{r-cmd-031}
 \caption{Uniforme Verteilung}
 \end{subfigure}
 \begin{subfigure}[b]{0.48\textwidth}
-\includegraphics{r-cmd-031}
+\includegraphics{r-cmd-032}
 \caption{Binomiale Verteilung}
 \end{subfigure}
 
 \begin{subfigure}[b]{0.48\textwidth}
-\includegraphics{r-cmd-032}
+\includegraphics{r-cmd-033}
 \caption{Normale Verteilung}
 \end{subfigure}
 \begin{subfigure}[b]{0.48\textwidth}
-\includegraphics{r-cmd-033}
+\includegraphics{r-cmd-034}
 \caption{Exponential Verteilung}
 \end{subfigure}
 \caption{Boxplots verschiedener Verteilungen}
@@ -735,3 +755,67 @@ alle Elemente eines Arrays oder eines Data Frames anzuwenden.
 
 \subsubsection{\lstinline{lapply()}}
 \subsubsection{\lstinline{sapply()}}
+
+\section{Funktionen definieren}
+In \lstinline{R} könnn eigene Funktionenen definiert werden.
+Dies ermöglicht effizienteren und allgemein besseren Code.
+Zudem muss es angewendet werden, wenn etwas die Funktionalen
+Elemente der Programmiersprache \lstinline{R} genutzt werden
+sollen.
+
+\subsection{Einfache Funktionen}
+
+\begin{Schunk}
+\begin{Sinput}
+> square <- function(x) {x^2}
+> square(5)
+\end{Sinput}
+\begin{Soutput}
+[1] 25
+\end{Soutput}
+\end{Schunk}
+
+\subsection{Mehrparametrige Funktionen}
+
+\begin{Schunk}
+\begin{Sinput}
+> volume <- function(a, b, c) {a*b*c}
+> volume(2, 3, 5)
+\end{Sinput}
+\begin{Soutput}
+[1] 30
+\end{Soutput}
+\end{Schunk}
+
+\subsection{Default Parameter}
+
+\begin{Schunk}
+\begin{Sinput}
+> weeklyWorkTime <- function(days=5, hours=8) {days*hours}
+> weeklyWorkTime()
+\end{Sinput}
+\begin{Soutput}
+[1] 40
+\end{Soutput}
+\begin{Sinput}
+> weeklyWorkTime(3, 8)
+\end{Sinput}
+\begin{Soutput}
+[1] 24
+\end{Soutput}
+\end{Schunk}
+
+\subsection{\lstinline{return()}-Funktion}
+
+\begin{Schunk}
+\begin{Sinput}
+> hypotenuse <- function(a=1, b=1) {
++ 		c <- sqrt((a^2)+(b^2)) 
++ 		return(c)
++ 	}
+> hypotenuse()
+\end{Sinput}
+\begin{Soutput}
+[1] 1.414214
+\end{Soutput}
+\end{Schunk}

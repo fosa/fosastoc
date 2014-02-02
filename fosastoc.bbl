@@ -16,6 +16,29 @@
   {}
 \endgroup
 
+\entry{dalgaard}{book}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Dalgaard}{D.}%
+     {Peter}{P.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {Springer Verlag}%
+  }
+  \strng{namehash}{DP1}
+  \strng{fullhash}{DP1}
+  \field{labelyear}{2008}
+  \field{sortinit}{D}
+  \field{isbn}{978-0-387-79053-4}
+  \field{title}{Introductory Statistics with R}
+  \list{location}{1}{%
+    {Berlin}%
+  }
+  \field{year}{2008}
+\endentry
+
 \entry{oreilly}{book}{}
   \name{author}{1}{}{%
     {{}%
@@ -35,7 +58,7 @@
   \field{title}{Statistik von Kopf bis Fuss --- Ein Buch zum Mitmachen und
   Verstehen}
   \list{location}{1}{%
-    {O'Reilly Media Inc.}%
+    {{Köln}}%
   }
   \field{year}{2009}
 \endentry
@@ -49,7 +72,7 @@
      {}{}}%
   }
   \list{publisher}{1}{%
-    {Vieweg+Tuebner Verlag}%
+    {Vieweg+Tuebner Verlag, Springer Fachmedien}%
   }
   \strng{namehash}{HN1}
   \strng{fullhash}{HN1}
@@ -60,7 +83,7 @@
   \field{title}{Stochastik für Einsteiger --- Eine Einführung in die
   faszinierende Welt des Zufalls}
   \list{location}{1}{%
-    {Springer Fachmedien Wiesbaden GmbH}%
+    {Berlin}%
   }
   \field{year}{2012}
 \endentry
@@ -79,7 +102,7 @@
      {}{}}%
   }
   \list{publisher}{1}{%
-    {Cambridge University Press}%
+    {University Press}%
   }
   \strng{namehash}{HPHW1}
   \strng{fullhash}{HPHW1}
@@ -88,6 +111,9 @@
   \field{edition}{22}
   \field{isbn}{978-0-521-37095-0}
   \field{title}{{The Art of Electronics}}
+  \list{location}{1}{%
+    {Cambridge}%
+  }
   \field{year}{2008}
 \endentry
 
@@ -138,6 +164,9 @@
   \field{sortinit}{T}
   \field{edition}{HS13}
   \field{title}{Formelsammlung Mathematik}
+  \list{location}{1}{%
+    {Horw}%
+  }
   \field{year}{2013}
 \endentry
 

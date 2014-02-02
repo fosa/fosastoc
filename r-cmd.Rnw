@@ -33,6 +33,8 @@ Funktionen in \lstinline{R} liefern. Möchte man spezifische und
 detaillierte Informationen so kann man diese mittels \lstinline{help()}
 erhalten. 
 
+Wieiterführende Literatur ist dem Literaturverzeichnis zu entnehmen.
+
 \section{Hilfe}
 \lstinline{R} bietet für jede Funktion eine Art Manpage an. 
 Diese kann in der Konsole mittels \lstinline{help(name-der-Funktion)}
@@ -68,6 +70,14 @@ x
 x <- seq(from=1, to=10, by=2)
 x
 y <- seq(1, 10, 2)
+y
+@
+
+\paragraph{Vektor repetieren}
+<<>>=
+x <- c(1:5)
+y <- rep(x, 3)
+x
 y
 @
 
@@ -496,3 +506,42 @@ team
 
 \subsubsection{\lstinline{lapply()}}
 \subsubsection{\lstinline{sapply()}}
+
+\section{Funktionen definieren}
+In \lstinline{R} könnn eigene Funktionenen definiert werden.
+Dies ermöglicht effizienteren und allgemein besseren Code.
+Zudem muss es angewendet werden, wenn etwas die Funktionalen
+Elemente der Programmiersprache \lstinline{R} genutzt werden
+sollen.
+
+\subsection{Einfache Funktionen}
+
+<<>>=
+square <- function(x) {x^2}
+square(5)
+@
+
+\subsection{Mehrparametrige Funktionen}
+
+<<>>=
+volume <- function(a, b, c) {a*b*c}
+volume(2, 3, 5)
+@
+
+\subsection{Default Parameter}
+
+<<>>=
+weeklyWorkTime <- function(days=5, hours=8) {days*hours}
+weeklyWorkTime()
+weeklyWorkTime(3, 8)
+@
+
+\subsection{\lstinline{return()}-Funktion}
+
+<<>>=
+hypotenuse <- function(a=1, b=1) {
+		c <- sqrt((a^2)+(b^2)) 
+		return(c)
+	}
+hypotenuse()
+@

@@ -249,6 +249,19 @@ Kugeln gibt).
 			\cdot p^x \cdot (1-p)^{n-x}
 \end{array} \]
 
+\subsection{Addition}
+Mit dem Additionsgesetz für stochastisch unabhängige Zufallsvariablen 
+können auch binomiaverteilte Zufallsvariablen, welche die gleiche
+Eintrittswahrscheinlichkeit $p$ haben, zusammengefasst werden.
+\[  
+	\left.\begin{array}{l l }
+		X \sim Bin(n_1, p) & \\
+		& \\
+		Y \sim Bin(n_2, p) & \\
+	\end{array} \right\}
+	\Rightarrow (X+Y) \sim Bin((n_1 + n_2), p)
+\]
+
 \subsection{Erwartungswert}
 
 \[  
@@ -375,6 +388,69 @@ plot(dbinom(x=c(1:20), size=20, prob=0.5), type='h', cex.lab=1.5, cex.axis=1.5, 
 \clearpage
 \newpage
 \section{Poissonverteilung}
+Die Poissonverteilung ist eine Verteilung welche Ereignisse
+innerhalb eines Intervalls beschreibt. Dieses Intervall kann
+eine beliebige skalare Grösse beschreiben wie Zeit, Länge oder
+Temperatur \parencite[307]{oreilly}.
+
+Die Poissonverteilung ist ein Spezialfall der Binomialverteilung
+wenn die Anzahl Versuche $n$ gross und die 
+Trefferwahrscheinlichkeit $p$ klein wird. Der Parameter $\lambda$
+der Poissonverteilung ist definiert durch die Parameter einer
+Binomialverteilung \parencite[197]{henze}.
+\[ 
+	\lambda := n \cdot p_n, \qquad Bin(n, p_n),\,n\geq1
+\]
+\[ 
+	Bin(n,p) \xrightarrow{
+		(n \rightarrow \infty) 
+		\land
+		(p \rightarrow 0)}
+	Pois(\lambda)
+\]
+
+\newpage
+
+\subsection{Verteilungsfunktion}
+Die Verteilungsfunktion der Poissonverteilung ist definiert
+durch den Erwartungswert $\lambda$ und die Anzahl der eintretenden
+Ereignisse $x$.
+\[  
+	X \sim Pois(\lambda)
+\]
+\[  \begin{array}{l l}
+	\lambda	
+		& \text{Erwartungswert}
+\end{array} \]
+\[  
+	P(X=x) = e^{-\lambda} \cdot \frac{\lambda^x}{x!}
+\]
+
+\subsection{Addition}
+Mit dem Additionsgesetz für stochastisch unabhängige Zufallsvariablen 
+können auch poissonverteilte Zufallsvariablen zusammengefasst werden.
+\[  
+	\left.\begin{array}{l l}
+		X \sim Pois(\mu_1) & \\
+		& \\
+		Y \sim Pois(\mu_2) & \\
+	\end{array} \right\} 
+	\Rightarrow (X+Y) \sim Pois(\mu_1 + \mu_2)
+\]
+
+\subsection{Erwartungswert}
+Der Erwartungswert der Poissonverteilung ist direkt ein Parameter
+der Verteilungsfunktion selbst, nämlich $\lambda$.
+\[  
+	E(X) = \lambda = Var(X) 
+\]
+
+\subsection{Varianz}
+Die Varianz einer Poissonverteilung ist wie der Erwartungswert durch den 
+Parameter $\lambda$ der Verteilungsfunktion gegeben.
+\[  
+	Var(X) = \lambda = E(X)
+\]
 
 \subsection{Verwendung in R}
 \lstinline{R} stellt grundsätzlich vier Funktionen für die 
@@ -445,6 +521,8 @@ plot(rpois(n=100, lambda=50), cex.lab=1.5, cex.axis=1.5,
 \end{figure}
 
 \clearpage
+
+\subsection{Beispiel einer Poissonverteilung}
 
 \section{Erwartungswert}
 Der Erwartungswert einer diskreten Verteilung gibt jene Zahl an,
