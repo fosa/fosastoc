@@ -589,7 +589,7 @@ Grad 1 beschrieben wird.
 Begrifflich kann die oben gezeigte lineare Transformation weiter
 unterteilt werden in 
 \begin{itemize}
-	\item Nullpunkttransformation \hfill{} ($b$)
+	\item Nullpunkttransformation \hfill{} ($+b$)
 	\item Einheitentransformation \hfill{} ($a \cdot X$)
 \end{itemize}
 
