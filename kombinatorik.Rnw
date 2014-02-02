@@ -404,7 +404,7 @@ als \gls{stochastisch unabhaengig} gelten.
 		& = 
 		& 1 - P(A)
 \end{array} \]
-	
+
 \subsection{Diskrete Wahrscheinlichkeit}
 \[ 
 	P(E)
@@ -539,3 +539,4 @@ der Kolmogorv'schen Axiome bestimmt werden.
 	\includegraphics[width=0.65\textwidth]{bedingte-wahrscheinlichkeit-tipps.pdf}
 	\caption{Hinweise zur Tabelle bedingter Wahrscheinlichkeiten.}
 \end{figure}
+

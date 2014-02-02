@@ -32,28 +32,30 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {3.5}{\ignorespaces Poissonverteilung ($\lambda =50$)\relax }}{42}{figure.caption.41}
 \defcounter {refsection}{0}\relax 
-\addvspace {10\p@ }
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Dichtefunktion $f(x)$ und kummulative Verteilungsfunktion $F(x)$ in der Gegen\IeC {\"u}berstellung.\relax }}{48}{figure.caption.46}
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Quantil einer Dichtefunktion.\relax }}{51}{figure.caption.47}
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Uniforme Dichte $f(x)$ und Verteilung $F(x)$.\relax }}{52}{figure.caption.48}
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Uniforme Verteilung ($n=100, min=0, max=100$)\relax }}{55}{figure.caption.49}
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Analog-to-Digital Converter, 8 Bit.\relax }}{56}{figure.caption.50}
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.6}{\ignorespaces Quantifizierungfehler eines ADC.\relax }}{57}{figure.caption.51}
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.7}{\ignorespaces Normalverteilung\relax }}{58}{figure.caption.52}
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.8}{\ignorespaces Normalverteilung ($\mu =50, \sigma ^2=10$)\relax }}{60}{figure.caption.53}
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.9}{\ignorespaces Zufalls-Jitter\relax }}{61}{figure.caption.54}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Lineare Transformation $Y = 3 \cdot X + 2$\relax }}{45}{figure.caption.42}
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Analyse eines Boxplots\relax }}{75}{figure.caption.77}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Dichtefunktion $f(x)$ und kummulative Verteilungsfunktion $F(x)$ in der Gegen\IeC {\"u}berstellung.\relax }}{50}{figure.caption.47}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Boxplots verschiedener Verteilungen\relax }}{77}{figure.caption.78}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Quantil einer Dichtefunktion.\relax }}{53}{figure.caption.48}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Uniforme Dichte $f(x)$ und Verteilung $F(x)$.\relax }}{54}{figure.caption.49}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Uniforme Verteilung ($n=100, min=0, max=100$)\relax }}{57}{figure.caption.50}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Analog-to-Digital Converter, 8 Bit.\relax }}{58}{figure.caption.51}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Quantifizierungfehler eines ADC.\relax }}{59}{figure.caption.52}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Normalverteilung\relax }}{60}{figure.caption.53}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Normalverteilung ($\mu =50, \sigma ^2=10$)\relax }}{62}{figure.caption.54}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Zufalls-Jitter\relax }}{63}{figure.caption.55}
+\defcounter {refsection}{0}\relax 
+\addvspace {10\p@ }
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Analyse eines Boxplots\relax }}{77}{figure.caption.78}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Boxplots verschiedener Verteilungen\relax }}{79}{figure.caption.79}

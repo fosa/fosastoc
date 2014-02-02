@@ -426,6 +426,16 @@ Wert der Zufallsvariable entspricht.
 $P(X=x)$ bedeutet \emph{Wahrscheinlichkeit, dass die Zufallsvariable $X$ 
 genau $x$ ist}.
 
+\subsection{Additivität von Erwartungswerten}
+Erwartungswerte stochastisch unabhängiger Zufallsvariablen lassen sich
+addieren
+\[  
+	E(X_1 + X_2) = E(X_1) + E(X_2)
+\]
+als auch subtrahieren
+\[  
+	E(X_1 - X_2) = E(X_1) - E(X_2)
+\]
 
 \section{Varianz}
 Die Varianz einer Wahrscheinlichkeitsverteilung gibt ein Mass an für 
@@ -443,6 +453,82 @@ von Zufallsvariable und Erwartungswert $(x-\mu)^2$
 		& = 
 		& \sum \left( (x-\mu)^2 \cdot P(X=x) \right)
 \end{array} \]
+
+\subsection{Additivität von Varianzen}
+Ähnlich wie Erwartungswerte lassen sich auch Varianzen addieren
+\[  
+	Var(X_1 + X_2) = Var(X_1) + Var(X_2)
+\]
+und auch subtrahieren. Bei der Subtraktion gilt es zu beachten,
+dass die eigentliche Rechnung, eine Addition darstellt
+\parencite[231]{oreilly}.
+\[  
+	Var(X_1 - X_2) = Var(X_1) + Var(X_2)
+\]
+
+\section{Lineare Transformation}
+Die lineare Transformation beschreibt die lineare Änderung
+der Verteilung einer Zufallsvariablen, wobei die Verteilung
+im eigentlichen Sinne beibehalten wird, jedoch Erwartungswert
+und Varianz sich verändern. Die Transformation wird linear
+genannt, wenn die Änderung mittels eines Polynoms vom 
+Grad 1 beschrieben wird.
+\[  
+	Y = a \cdot X + b
+\]
+Begrifflich kann die oben gezeigte lineare Transformation weiter
+unterteilt werden in 
+\begin{itemize}
+	\item Nullpunkttransformation \hfill{} ($b$)
+	\item Einheitentransformation \hfill{} ($a \cdot X$)
+\end{itemize}
+
+Die lineare Transformation kann direkt auf den Erwartungswert
+und die Varianz übertragen werden.
+\[  
+	E(Y) = E(a \cdot X + b) = a \cdot E(X) + b
+\]
+Bei der Transformation der Varianz gilt es zu beachten, dass
+die Nullpunkttransformation hinfällig ist und die
+Einheitentransformation quadratisch wirkt.
+\[  
+	Var(Y) = Var(a \cdot X +b) = a^2 \cdot Var(X)
+\]
+Der mathematische Hintergrund für diese Berechnung der Varianz
+liegt in der sog. \emph{linearität des Integrals}, welche im 
+eigentlichen besagt, dass konstante Faktoren vor das Integral
+genommen werden können und Summen separierbar sind.
+
+Einfacher ist allerdings die graphische Erklärung. Die Abbildung
+\ref{fig:lintrans} zeigt auf, dass die Multiplikation mit $a$ 
+sich auf die Steuung auswirkt, nicht aber die Addition von $b$. 
+Wenn alle Punkte um den selben Wert in die selbe Richtung 
+verschoben werden, so ändert dies nicht deren Steuung.
+
+
+
+\begin{figure}[h!]
+\centering
+\begin{subfigure}[b]{0.48\textwidth}
+\includegraphics{verteilungen-037}
+\caption{Zufallsvariable $X$}
+\end{subfigure}
+\begin{subfigure}[b]{0.48\textwidth}
+\includegraphics{verteilungen-038}
+\caption{Zufallsvariable $Y=3\cdot X +2$}
+\end{subfigure}
+
+\rule[1mm]{0mm}{5mm}
+
+\begin{subfigure}[b]{1\textwidth}
+\centering
+\includegraphics[width=0.9\textwidth]{lintrans.pdf}
+\caption{Graphische Analyse der Transformation}
+\end{subfigure}
+
+\caption{Lineare Transformation $Y = 3 \cdot X + 2$}
+\label{fig:lintrans}
+\end{figure}
 
 \section{Standardabweichung}
 Die Standardabweichung einer Wahrscheinlichkeitsverteilung 
@@ -753,20 +839,20 @@ Kapitel \ref{sec:plots}.
 \begin{figure}[h!]
 \centering
 \begin{subfigure}[b]{0.48\textwidth}
-\includegraphics{verteilungen-039}
+\includegraphics{verteilungen-043}
 \caption{Wahrscheinlichkeitsverteilung}
 \end{subfigure}
 \begin{subfigure}[b]{0.48\textwidth}
-\includegraphics{verteilungen-040}
+\includegraphics{verteilungen-044}
 \caption{kumulative Wahrscheinlichkeit}
 \end{subfigure}
 
 \begin{subfigure}[b]{0.48\textwidth}
-\includegraphics{verteilungen-041}
+\includegraphics{verteilungen-045}
 \caption{Quantile}
 \end{subfigure}
 \begin{subfigure}[b]{0.48\textwidth}
-\includegraphics{verteilungen-042}
+\includegraphics{verteilungen-046}
 \caption{Zufallszahlen}
 \end{subfigure}
 \caption{Uniforme Verteilung ($n=100, min=0, max=100$)}
@@ -824,20 +910,20 @@ Datenreihe.
 \begin{figure}[h!]
 \centering
 \begin{subfigure}[b]{0.48\textwidth}
-\includegraphics{verteilungen-048}
+\includegraphics{verteilungen-052}
 \caption{Eingangssignal $u_e(t)\in\mathbb{R}$}
 \end{subfigure}
 \begin{subfigure}[b]{0.48\textwidth}
-\includegraphics{verteilungen-049}
+\includegraphics{verteilungen-053}
 \caption{Digitalisierung $(\mathbb{R} \rightarrow 2^n, n\in \mathbb{N})$}
 \end{subfigure}
 
 \begin{subfigure}[b]{0.48\textwidth}
-\includegraphics{verteilungen-050}
+\includegraphics{verteilungen-054}
 \caption{Fehler $u_a(t)$}
 \end{subfigure}
 \begin{subfigure}[b]{0.48\textwidth}
-\includegraphics{verteilungen-051}
+\includegraphics{verteilungen-055}
 \caption{Quantilenvergleich mit $\mathcal{U}(a,b)$}
 \label{fig:adc-d}
 \end{subfigure}
@@ -933,20 +1019,20 @@ Kapitel \ref{sec:plots}.
 \begin{figure}[h!]
 \centering
 \begin{subfigure}[b]{0.48\textwidth}
-\includegraphics{verteilungen-056}
+\includegraphics{verteilungen-060}
 \caption{Wahrscheinlichkeitsverteilung}
 \end{subfigure}
 \begin{subfigure}[b]{0.48\textwidth}
-\includegraphics{verteilungen-057}
+\includegraphics{verteilungen-061}
 \caption{kumulative Wahrscheinlichkeit}
 \end{subfigure}
 
 \begin{subfigure}[b]{0.48\textwidth}
-\includegraphics{verteilungen-058}
+\includegraphics{verteilungen-062}
 \caption{Quantile}
 \end{subfigure}
 \begin{subfigure}[b]{0.48\textwidth}
-\includegraphics{verteilungen-059}
+\includegraphics{verteilungen-063}
 \caption{Zufallszahlen}
 \end{subfigure}
 \caption{Normalverteilung ($\mu=50, \sigma^2=10$)}
