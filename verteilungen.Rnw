@@ -349,6 +349,8 @@ plot(rbinom(n=100, size=100, prob=0.5), cex.lab=1.5, cex.axis=1.5,
 \label{fig:binom}
 \end{figure}
 
+\clearpage
+
 \subsection{Beispiel einer binomialen Verteilung}
 Jemand sagt Ihnen, dass er von 100 Münzwürfen 80 mal Kopf erhielt.
 Sie antworten spontan, dass Sie ihm 15 Treffer von 20 Versuchen ja 
