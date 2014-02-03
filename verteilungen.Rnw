@@ -576,7 +576,7 @@ Diese Fragestellung lässt sich einfach beantworten, wenn man
 die zu erwatenden Attacken pro Zeit kennt (von Quellen oder
 Schätzungen). Die Entwickler erfahren vom Hersteller der
 Software, dass ca. alle 12 Stunden mit einem Angriff zu rechnen 
-ist, aber nur einer von 15 erfolgreich ist.
+ist, aber die ersten 15 Attacken jeweils erfolglos sind.
 
 Die Entwickler kennen mit diesen Informationen alles was sie
 brauchen um die Frage korrekt aufzustellen: "`\emph{Wie
