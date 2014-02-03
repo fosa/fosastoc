@@ -329,6 +329,25 @@ Binomialverteilung \parencite[197]{henze}.
 	Pois(\lambda)
 \]
 
+\noindent
+Die Poissonverteilung beschreibt somit die Auftretenshäufigkeit 
+innerhalb eines Intervalls. Der Parameter $\lambda$ beschreibt
+sowohl den Erwartungswert als auch die Steuung. Dies definiert
+das spezielle Verhalten dieser Verteilung, denn je höher der
+Wert von $\lambda$ ist, desto flacher wird die Verteilung 
+(siehe Abbildung \ref{fig:poisfall}).
+
+
+
+\begin{figure}[h!]
+\centering
+\begin{subfigure}[b]{0.48\textwidth}
+\includegraphics{verteilungen-028}
+\end{subfigure}
+\caption{Poissonverteilung für verschiedene $\lambda$}
+\label{fig:poisfall}
+\end{figure}
+
 \newpage
 
 \subsection{Verteilungsfunktion}
@@ -393,20 +412,20 @@ Poissonverteilung zur Verfügung.
 \begin{figure}[h!]
 \centering
 \begin{subfigure}[b]{0.48\textwidth}
-\includegraphics{verteilungen-031}
+\includegraphics{verteilungen-033}
 \caption{Wahrscheinlichkeitsverteilung}
 \end{subfigure}
 \begin{subfigure}[b]{0.48\textwidth}
-\includegraphics{verteilungen-032}
+\includegraphics{verteilungen-034}
 \caption{kumulative Wahrscheinlichkeit}
 \end{subfigure}
 
 \begin{subfigure}[b]{0.48\textwidth}
-\includegraphics{verteilungen-033}
+\includegraphics{verteilungen-035}
 \caption{Quantile}
 \end{subfigure}
 \begin{subfigure}[b]{0.48\textwidth}
-\includegraphics{verteilungen-034}
+\includegraphics{verteilungen-036}
 \caption{Zufallszahlen}
 \end{subfigure}
 \caption{Poissonverteilung ($\lambda=50$)}
@@ -415,6 +434,77 @@ Poissonverteilung zur Verfügung.
 \clearpage
 
 \subsection{Beispiel einer Poissonverteilung}
+Ein Team hat ein sog. \emph{Embedded System} entwickelt, welches
+Solarbetrieben an einem entlegenem Ort Geodaten sammelt und diese
+über einen auf dem \emph{Embedded System} implementierten Webserver
+zur Verfügung stellt. Jedes Wochenende geht eine Gruppe von 
+Studenten hin um alles zu überprüfen und allenfalls ein Reboot
+für spezielle Updates vorzunehmen.
+
+Das Entwicklerteam erfährt am Montag von einer neu entdeckten 
+Sicherheitslücke in einer der Applikationen des Systems. 
+Sie müssen nun entscheiden, ob sie noch vor dem Wochenende 
+eine Gruppe von Studenten für einen Reboot zum System senden 
+sollen oder einfach abwarten.
+
+Diese Fragestellung lässt sich einfach beantworten, wenn man
+die zu erwatenden Attacken pro Zeit kennt (von Quellen oder
+Schätzungen). Die Entwickler erfahren vom Hersteller der
+Software, dass ca. alle 12 Stunden mit einem Angriff zu rechnen 
+ist, aber nur einer von 15 erfolgreich ist.
+
+Die Entwickler kennen mit diesen Informationen alles was sie
+brauchen um die Frage korrekt aufzustellen: "`\emph{Wie
+wahrscheinlich ist es, dass innert 7 Tagen mindestens 15 Attacken
+ausgeführt werden?}"'
+
+\begin{Schunk}
+\begin{Sinput}
+> hpd <- 2 # hits per day
+> hpw <- hpd*7 # hits per week
+> # probability of 15 hits in one week
+> dpois(x=15, lambda=hpw)
+\end{Sinput}
+\begin{Soutput}
+[1] 0.0989232
+\end{Soutput}
+\begin{Sinput}
+> # probability of at least 15 hits in one week
+> 1-ppois(q=15, lambda=hpw)
+\end{Sinput}
+\begin{Soutput}
+[1] 0.3306401
+\end{Soutput}
+\end{Schunk}
+
+
+
+Die Analyse mit \lstinline{R} hat ergeben, dass die 
+Wahrschienlichkeit genau 15 Attacken zu erhalten bei ca. $\frac{1}{10}$
+liegt und die Wahrscheinlichkeit von mindestens 15 Attacken
+bei ca. $\frac{1}{3}$. Die kompletten Daten sind in den Plots
+zu sehen aus der Abbildung \ref{fig:embedded}
+
+Die Entwickler können sich also zurücklehnen mit dem Argument:
+"`Es ist wahrscheinlicher, dass weniger als 15 Attacken auf das 
+System gemacht werden."'
+
+\begin{figure}[h!]
+\centering
+\begin{subfigure}[b]{0.48\textwidth}
+\includegraphics{verteilungen-040}
+\caption{Punktwahrscheinlichkeit}
+\end{subfigure}
+\begin{subfigure}[b]{0.48\textwidth}
+\includegraphics{verteilungen-041}
+\caption{Kummulative Wahrsch.}
+\end{subfigure}
+\caption{Wahrscheinlichkeiten von Attacken}
+\label{fig:embedded}
+\end{figure}
+
+
+\clearpage
 
 \section{Erwartungswert}
 Der Erwartungswert einer diskreten Verteilung gibt jene Zahl an,
@@ -512,11 +602,11 @@ verschoben werden, so ändert dies nicht deren Steuung.
 \begin{figure}[h!]
 \centering
 \begin{subfigure}[b]{0.48\textwidth}
-\includegraphics{verteilungen-037}
+\includegraphics{verteilungen-044}
 \caption{Zufallsvariable $X$}
 \end{subfigure}
 \begin{subfigure}[b]{0.48\textwidth}
-\includegraphics{verteilungen-038}
+\includegraphics{verteilungen-045}
 \caption{Zufallsvariable $Y=3\cdot X +2$}
 \end{subfigure}
 
@@ -841,20 +931,20 @@ Kapitel \ref{sec:plots}.
 \begin{figure}[h!]
 \centering
 \begin{subfigure}[b]{0.48\textwidth}
-\includegraphics{verteilungen-043}
+\includegraphics{verteilungen-050}
 \caption{Wahrscheinlichkeitsverteilung}
 \end{subfigure}
 \begin{subfigure}[b]{0.48\textwidth}
-\includegraphics{verteilungen-044}
+\includegraphics{verteilungen-051}
 \caption{kumulative Wahrscheinlichkeit}
 \end{subfigure}
 
 \begin{subfigure}[b]{0.48\textwidth}
-\includegraphics{verteilungen-045}
+\includegraphics{verteilungen-052}
 \caption{Quantile}
 \end{subfigure}
 \begin{subfigure}[b]{0.48\textwidth}
-\includegraphics{verteilungen-046}
+\includegraphics{verteilungen-053}
 \caption{Zufallszahlen}
 \end{subfigure}
 \caption{Uniforme Verteilung ($n=100, min=0, max=100$)}
@@ -912,20 +1002,20 @@ Datenreihe.
 \begin{figure}[h!]
 \centering
 \begin{subfigure}[b]{0.48\textwidth}
-\includegraphics{verteilungen-052}
+\includegraphics{verteilungen-059}
 \caption{Eingangssignal $u_e(t)\in\mathbb{R}$}
 \end{subfigure}
 \begin{subfigure}[b]{0.48\textwidth}
-\includegraphics{verteilungen-053}
+\includegraphics{verteilungen-060}
 \caption{Digitalisierung $(\mathbb{R} \rightarrow 2^n, n\in \mathbb{N})$}
 \end{subfigure}
 
 \begin{subfigure}[b]{0.48\textwidth}
-\includegraphics{verteilungen-054}
+\includegraphics{verteilungen-061}
 \caption{Fehler $u_a(t)$}
 \end{subfigure}
 \begin{subfigure}[b]{0.48\textwidth}
-\includegraphics{verteilungen-055}
+\includegraphics{verteilungen-062}
 \caption{Quantilenvergleich mit $\mathcal{U}(a,b)$}
 \label{fig:adc-d}
 \end{subfigure}
@@ -1021,20 +1111,20 @@ Kapitel \ref{sec:plots}.
 \begin{figure}[h!]
 \centering
 \begin{subfigure}[b]{0.48\textwidth}
-\includegraphics{verteilungen-060}
+\includegraphics{verteilungen-067}
 \caption{Wahrscheinlichkeitsverteilung}
 \end{subfigure}
 \begin{subfigure}[b]{0.48\textwidth}
-\includegraphics{verteilungen-061}
+\includegraphics{verteilungen-068}
 \caption{kumulative Wahrscheinlichkeit}
 \end{subfigure}
 
 \begin{subfigure}[b]{0.48\textwidth}
-\includegraphics{verteilungen-062}
+\includegraphics{verteilungen-069}
 \caption{Quantile}
 \end{subfigure}
 \begin{subfigure}[b]{0.48\textwidth}
-\includegraphics{verteilungen-063}
+\includegraphics{verteilungen-070}
 \caption{Zufallszahlen}
 \end{subfigure}
 \caption{Normalverteilung ($\mu=50, \sigma^2=10$)}
