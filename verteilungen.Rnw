@@ -559,37 +559,88 @@ plot(rpois(n=100, lambda=50), cex.lab=1.5, cex.axis=1.5,
 \clearpage
 
 \subsection{Beispiel einer Poissonverteilung}
-Ein Team hat ein sog. \emph{Embedded System} entwickelt, welches
+
+\paragraph{Beispiel 1 - Pixelfehler}
+Ein \emph{Mikrocontroller} steuert ein Display an mit 320x240 Pixel.
+Damit möglichst schnelle Bildfolgen erzielt werden, haben sich die
+Programmierer bis an die Grenzen der Senderate und leicht darüber 
+bewegt. Sie stellen nämlich fest, dass im Schnitt pro Bild 
+(320x240 Pixel) ca. 12 Pixelfehler vorkommen.
+
+Die Programmierer besprechen die Lage und einer meint: 
+"`\emph{Rechnen wir doch mal die Wahrscheinlichkeit für höchstens 
+einen Fehler aus und für mindestens 16, was unsere Schmerzgrenze 
+sein soll.}"'
+
+<<>>=
+eps <- 12 # error per screen
+# probability of at most 1 error per screen
+ppois(q=1, lambda=eps)
+# probability of at least 16 errors per screen
+1-ppois(q=(16-1), lambda=eps)
+@
+
+<<pixel1, fig=FALSE, echo=FALSE>>=
+eps <- 12 # error per screen
+X <- ppois(q=c(1:20), lambda=eps)
+plot(X, cex.lab=1.5, cex.axis=1.5, cex.main=1.5, cex.sub=1.5, 
+     ylab='', xlab='', main='ppois()')
+@
+
+<<pixel2, fig=FALSE, echo=FALSE>>=
+eps <- 12 # error per screen
+Y <- (1-ppois(q=c(0:19), lambda=eps))
+plot(Y, cex.lab=1.5, cex.axis=1.5, cex.main=1.5, cex.sub=1.5, 
+     ylab='', xlab='', main='dpois()')
+@
+
+\begin{figure}[h!]
+\centering
+\begin{subfigure}[b]{0.48\textwidth}
+<<fig=TRUE, echo=FALSE>>=
+<<pixel1>>
+@
+\caption{Punktwahrscheinlichkeit}
+\end{subfigure}
+\begin{subfigure}[b]{0.48\textwidth}
+<<fig=TRUE, echo=FALSE>>=
+<<pixel2>>
+@
+\caption{$1-$kummulative Wahrsch.}
+\end{subfigure}
+\caption{Wahrscheinlichkeiten von Pixelfehlern pro Bild}
+\label{fig:embedded}
+\end{figure}
+
+\paragraph{Beispiel 2 --- Requests pro Woche}
+Ein Team hat ein \emph{Embedded System} entwickelt, welches
 Solarbetrieben an einem entlegenem Ort Geodaten sammelt und diese
 über einen auf dem \emph{Embedded System} implementierten Webserver
 zur Verfügung stellt. Jedes Wochenende geht eine Gruppe von 
-Studenten hin um alles zu überprüfen und allenfalls ein Reboot
-für spezielle Updates vorzunehmen.
+Studenten hin und prüft das System, macht Resets und flasht Updates.
 
-Das Entwicklerteam erfährt am Montag von einer neu entdeckten 
-Sicherheitslücke in einer der Applikationen des Systems. 
-Sie müssen nun entscheiden, ob sie noch vor dem Wochenende 
-eine Gruppe von Studenten für einen Reboot zum System senden 
-sollen oder einfach abwarten.
+Das Entwicklerteam erfährt am Montagmorgen, dass im letzten Update
+ein Bug drin ist. Dieser verursacht nach einer gewissen Anzahl
+an Requests einen \emph{Buffer Oerflow}, welcher das System 
+zum Absturz bringt. Die Entwickler schätzen, dass schon nach ca. 15 
+Requests das dedizierte \emph{Embedded System} abstürzen sollte.
 
-Diese Fragestellung lässt sich einfach beantworten, wenn man
-die zu erwatenden Attacken pro Zeit kennt (von Quellen oder
-Schätzungen). Die Entwickler erfahren vom Hersteller der
-Software, dass ca. alle 12 Stunden mit einem Angriff zu rechnen 
-ist, aber die ersten 15 Attacken jeweils erfolglos sind.
+Nun müssen die Entwickler sich entscheiden ob sie bis zum nächsten
+Wochenende abwarten können um dem Bugfix zu flashen oder ob sie
+noch vor dem Wochenende losziehen müssen. Sie sehen sich die alten
+Logfiles an und bemerken, dass im Schnitt ca. zwei der kritischen
+Requests pro Tag stattfinden.
 
 Die Entwickler kennen mit diesen Informationen alles was sie
-brauchen um die Frage korrekt aufzustellen: "`\emph{Wie
-wahrscheinlich ist es, dass innert 7 Tagen mindestens 15 Attacken
-ausgeführt werden?}"'
+brauchen um die Frage korrekt aufzustellen: "`\emph{Wie gross
+ist die Wahrscheinlichkeit, dass bis zum Wochenende mehr als 
+15 Requests eintreffen?}"'
 
 <<>>=
 hpd <- 2 # hits per day
 hpw <- hpd*7 # hits per week
-# probability of 15 hits in one week
-dpois(x=15, lambda=hpw)
 # probability of at least 15 hits in one week
-1-ppois(q=15, lambda=hpw)
+1-ppois(q=(15-1), lambda=hpw)
 @
 
 <<interrupt1, fig=FALSE, echo=FALSE>>=
@@ -597,7 +648,7 @@ hpd <- 2 # hits per day
 hpw <- hpd*7 # hits per week
 X <- dpois(x=c(1:30), lambda=(7*2))
 plot(X, cex.lab=1.5, cex.axis=1.5, cex.main=1.5, cex.sub=1.5, 
-     ylab='P(X=x)', xlab='Anzahl Attacken', main='dpois()')
+     ylab='P(X=x)', xlab='Anzahl Requests', main='dpois()')
 @
 
 <<interrupt2, fig=FALSE, echo=FALSE>>=
@@ -605,19 +656,27 @@ hpd <- 2 # hits per day
 hpw <- hpd*7 # hits per week
 X <- 1-ppois(q=c(1:30), lambda=hpw)
 plot(X, cex.lab=1.5, cex.axis=1.5, cex.main=1.5, cex.sub=1.5, 
-     ylab='P(X<=x)', xlab='Anzahl Attacken', main='ppois()')
-abline(h=(1-ppois(q=15, lambda=hpw)))
+     ylab='P(X<=x)', xlab='Anzahl Requests', main='ppois()')
+abline(h=(1-ppois(q=(15-1), lambda=hpw)))
 @
 
 Die Analyse mit \lstinline{R} hat ergeben, dass die 
-Wahrschienlichkeit genau 15 Attacken zu erhalten bei ca. $\frac{1}{10}$
-liegt und die Wahrscheinlichkeit von mindestens 15 Attacken
-bei ca. $\frac{1}{3}$. Die kompletten Daten sind in den Plots
-zu sehen aus der Abbildung \ref{fig:embedded}
+Wahrscheinlichkeit von mindestens 15 Requests bei ca. $0.43$ liegt
+($1-$kummulative Verteilung, siehe Plot aus Abbildung \ref{fig:embedded}).
 
-Die Entwickler können sich also zurücklehnen mit dem Argument:
-"`Es ist wahrscheinlicher, dass weniger als 15 Attacken auf das 
-System gemacht werden."'
+Die Entwickler lehnen sich also vorerst mal zurück mit dem Argument,
+dass die Wahrscheinlichkeit von mehr als 15 Request bis zum 
+Wochenende weniger als $50\%$ beträgt. Das seien ja schlechtere Chancen
+als bein Münzwurf\dots
+
+<<embedded3, fig=FALSE, echo=FALSE>>=
+hpd <- 2
+hpw <- hpd*7
+X <- ppois(q=c(1:30), lambda=hpw)
+plot(X, cex.lab=1.5, cex.axis=1.5, cex.main=1.5, cex.sub=1.5, 
+     ylab='', xlab='', main='ppois()')
+abline(h=0.5)
+@
 
 \begin{figure}[h!]
 \centering
@@ -631,9 +690,9 @@ System gemacht werden."'
 <<fig=TRUE, echo=FALSE>>=
 <<interrupt2>>
 @
-\caption{Kummulative Wahrsch.}
+\caption{$1-$kummulative Wahrsch.}
 \end{subfigure}
-\caption{Wahrscheinlichkeiten von Attacken}
+\caption{Wahrscheinlichkeiten von Requests pro Woche}
 \label{fig:embedded}
 \end{figure}
 

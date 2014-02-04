@@ -434,60 +434,38 @@ Poissonverteilung zur Verfügung.
 \clearpage
 
 \subsection{Beispiel einer Poissonverteilung}
-Ein Team hat ein sog. \emph{Embedded System} entwickelt, welches
-Solarbetrieben an einem entlegenem Ort Geodaten sammelt und diese
-über einen auf dem \emph{Embedded System} implementierten Webserver
-zur Verfügung stellt. Jedes Wochenende geht eine Gruppe von 
-Studenten hin um alles zu überprüfen und allenfalls ein Reboot
-für spezielle Updates vorzunehmen.
 
-Das Entwicklerteam erfährt am Montag von einer neu entdeckten 
-Sicherheitslücke in einer der Applikationen des Systems. 
-Sie müssen nun entscheiden, ob sie noch vor dem Wochenende 
-eine Gruppe von Studenten für einen Reboot zum System senden 
-sollen oder einfach abwarten.
+\paragraph{Beispiel 1 - Pixelfehler}
+Ein \emph{Mikrocontroller} steuert ein Display an mit 320x240 Pixel.
+Damit möglichst schnelle Bildfolgen erzielt werden, haben sich die
+Programmierer bis an die Grenzen der Senderate und leicht darüber 
+bewegt. Sie stellen nämlich fest, dass im Schnitt pro Bild 
+(320x240 Pixel) ca. 12 Pixelfehler vorkommen.
 
-Diese Fragestellung lässt sich einfach beantworten, wenn man
-die zu erwatenden Attacken pro Zeit kennt (von Quellen oder
-Schätzungen). Die Entwickler erfahren vom Hersteller der
-Software, dass ca. alle 12 Stunden mit einem Angriff zu rechnen 
-ist, aber die ersten 15 Attacken jeweils erfolglos sind.
-
-Die Entwickler kennen mit diesen Informationen alles was sie
-brauchen um die Frage korrekt aufzustellen: "`\emph{Wie
-wahrscheinlich ist es, dass innert 7 Tagen mindestens 15 Attacken
-ausgeführt werden?}"'
+Die Programmierer besprechen die Lage und einer meint: 
+"`\emph{Rechnen wir doch mal die Wahrscheinlichkeit für höchstens 
+einen Fehler aus und für mindestens 16, was unsere Schmerzgrenze 
+sein soll.}"'
 
 \begin{Schunk}
 \begin{Sinput}
-> hpd <- 2 # hits per day
-> hpw <- hpd*7 # hits per week
-> # probability of 15 hits in one week
-> dpois(x=15, lambda=hpw)
+> eps <- 12 # error per screen
+> # probability of at most 1 error per screen
+> ppois(q=1, lambda=eps)
 \end{Sinput}
 \begin{Soutput}
-[1] 0.0989232
+[1] 7.987476e-05
 \end{Soutput}
 \begin{Sinput}
-> # probability of at least 15 hits in one week
-> 1-ppois(q=15, lambda=hpw)
+> # probability of at least 16 errors per screen
+> 1-ppois(q=(16-1), lambda=eps)
 \end{Sinput}
 \begin{Soutput}
-[1] 0.3306401
+[1] 0.1555843
 \end{Soutput}
 \end{Schunk}
 
 
-
-Die Analyse mit \lstinline{R} hat ergeben, dass die 
-Wahrschienlichkeit genau 15 Attacken zu erhalten bei ca. $\frac{1}{10}$
-liegt und die Wahrscheinlichkeit von mindestens 15 Attacken
-bei ca. $\frac{1}{3}$. Die kompletten Daten sind in den Plots
-zu sehen aus der Abbildung \ref{fig:embedded}
-
-Die Entwickler können sich also zurücklehnen mit dem Argument:
-"`Es ist wahrscheinlicher, dass weniger als 15 Attacken auf das 
-System gemacht werden."'
 
 \begin{figure}[h!]
 \centering
@@ -497,9 +475,71 @@ System gemacht werden."'
 \end{subfigure}
 \begin{subfigure}[b]{0.48\textwidth}
 \includegraphics{verteilungen-041}
-\caption{Kummulative Wahrsch.}
+\caption{$1-$kummulative Wahrsch.}
 \end{subfigure}
-\caption{Wahrscheinlichkeiten von Attacken}
+\caption{Wahrscheinlichkeiten von Pixelfehlern pro Bild}
+\label{fig:embedded}
+\end{figure}
+
+\paragraph{Beispiel 2 --- Requests pro Woche}
+Ein Team hat ein \emph{Embedded System} entwickelt, welches
+Solarbetrieben an einem entlegenem Ort Geodaten sammelt und diese
+über einen auf dem \emph{Embedded System} implementierten Webserver
+zur Verfügung stellt. Jedes Wochenende geht eine Gruppe von 
+Studenten hin und prüft das System, macht Resets und flasht Updates.
+
+Das Entwicklerteam erfährt am Montagmorgen, dass im letzten Update
+ein Bug drin ist. Dieser verursacht nach einer gewissen Anzahl
+an Requests einen \emph{Buffer Oerflow}, welcher das System 
+zum Absturz bringt. Die Entwickler schätzen, dass schon nach ca. 15 
+Requests das dedizierte \emph{Embedded System} abstürzen sollte.
+
+Nun müssen die Entwickler sich entscheiden ob sie bis zum nächsten
+Wochenende abwarten können um dem Bugfix zu flashen oder ob sie
+noch vor dem Wochenende losziehen müssen. Sie sehen sich die alten
+Logfiles an und bemerken, dass im Schnitt ca. zwei der kritischen
+Requests pro Tag stattfinden.
+
+Die Entwickler kennen mit diesen Informationen alles was sie
+brauchen um die Frage korrekt aufzustellen: "`\emph{Wie gross
+ist die Wahrscheinlichkeit, dass bis zum Wochenende mehr als 
+15 Requests eintreffen?}"'
+
+\begin{Schunk}
+\begin{Sinput}
+> hpd <- 2 # hits per day
+> hpw <- hpd*7 # hits per week
+> # probability of at least 15 hits in one week
+> 1-ppois(q=(15-1), lambda=hpw)
+\end{Sinput}
+\begin{Soutput}
+[1] 0.4295633
+\end{Soutput}
+\end{Schunk}
+
+
+
+Die Analyse mit \lstinline{R} hat ergeben, dass die 
+Wahrscheinlichkeit von mindestens 15 Requests bei ca. $0.43$ liegt
+($1-$kummulative Verteilung, siehe Plot aus Abbildung \ref{fig:embedded}).
+
+Die Entwickler lehnen sich also vorerst mal zurück mit dem Argument,
+dass die Wahrscheinlichkeit von mehr als 15 Request bis zum 
+Wochenende weniger als $50\%$ beträgt. Das seien ja schlechtere Chancen
+als bein Münzwurf\dots
+
+
+\begin{figure}[h!]
+\centering
+\begin{subfigure}[b]{0.48\textwidth}
+\includegraphics{verteilungen-046}
+\caption{Punktwahrscheinlichkeit}
+\end{subfigure}
+\begin{subfigure}[b]{0.48\textwidth}
+\includegraphics{verteilungen-047}
+\caption{$1-$kummulative Wahrsch.}
+\end{subfigure}
+\caption{Wahrscheinlichkeiten von Requests pro Woche}
 \label{fig:embedded}
 \end{figure}
 
@@ -602,11 +642,11 @@ verschoben werden, so ändert dies nicht deren Steuung.
 \begin{figure}[h!]
 \centering
 \begin{subfigure}[b]{0.48\textwidth}
-\includegraphics{verteilungen-044}
+\includegraphics{verteilungen-050}
 \caption{Zufallsvariable $X$}
 \end{subfigure}
 \begin{subfigure}[b]{0.48\textwidth}
-\includegraphics{verteilungen-045}
+\includegraphics{verteilungen-051}
 \caption{Zufallsvariable $Y=3\cdot X +2$}
 \end{subfigure}
 
@@ -931,20 +971,20 @@ Kapitel \ref{sec:plots}.
 \begin{figure}[h!]
 \centering
 \begin{subfigure}[b]{0.48\textwidth}
-\includegraphics{verteilungen-050}
+\includegraphics{verteilungen-056}
 \caption{Wahrscheinlichkeitsverteilung}
 \end{subfigure}
 \begin{subfigure}[b]{0.48\textwidth}
-\includegraphics{verteilungen-051}
+\includegraphics{verteilungen-057}
 \caption{kumulative Wahrscheinlichkeit}
 \end{subfigure}
 
 \begin{subfigure}[b]{0.48\textwidth}
-\includegraphics{verteilungen-052}
+\includegraphics{verteilungen-058}
 \caption{Quantile}
 \end{subfigure}
 \begin{subfigure}[b]{0.48\textwidth}
-\includegraphics{verteilungen-053}
+\includegraphics{verteilungen-059}
 \caption{Zufallszahlen}
 \end{subfigure}
 \caption{Uniforme Verteilung ($n=100, min=0, max=100$)}
@@ -1002,20 +1042,20 @@ Datenreihe.
 \begin{figure}[h!]
 \centering
 \begin{subfigure}[b]{0.48\textwidth}
-\includegraphics{verteilungen-059}
+\includegraphics{verteilungen-065}
 \caption{Eingangssignal $u_e(t)\in\mathbb{R}$}
 \end{subfigure}
 \begin{subfigure}[b]{0.48\textwidth}
-\includegraphics{verteilungen-060}
+\includegraphics{verteilungen-066}
 \caption{Digitalisierung $(\mathbb{R} \rightarrow 2^n, n\in \mathbb{N})$}
 \end{subfigure}
 
 \begin{subfigure}[b]{0.48\textwidth}
-\includegraphics{verteilungen-061}
+\includegraphics{verteilungen-067}
 \caption{Fehler $u_a(t)$}
 \end{subfigure}
 \begin{subfigure}[b]{0.48\textwidth}
-\includegraphics{verteilungen-062}
+\includegraphics{verteilungen-068}
 \caption{Quantilenvergleich mit $\mathcal{U}(a,b)$}
 \label{fig:adc-d}
 \end{subfigure}
@@ -1111,20 +1151,20 @@ Kapitel \ref{sec:plots}.
 \begin{figure}[h!]
 \centering
 \begin{subfigure}[b]{0.48\textwidth}
-\includegraphics{verteilungen-067}
+\includegraphics{verteilungen-073}
 \caption{Wahrscheinlichkeitsverteilung}
 \end{subfigure}
 \begin{subfigure}[b]{0.48\textwidth}
-\includegraphics{verteilungen-068}
+\includegraphics{verteilungen-074}
 \caption{kumulative Wahrscheinlichkeit}
 \end{subfigure}
 
 \begin{subfigure}[b]{0.48\textwidth}
-\includegraphics{verteilungen-069}
+\includegraphics{verteilungen-075}
 \caption{Quantile}
 \end{subfigure}
 \begin{subfigure}[b]{0.48\textwidth}
-\includegraphics{verteilungen-070}
+\includegraphics{verteilungen-076}
 \caption{Zufallszahlen}
 \end{subfigure}
 \caption{Normalverteilung ($\mu=50, \sigma^2=10$)}
