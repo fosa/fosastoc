@@ -1267,7 +1267,7 @@ s
 \noindent
 Mit Hilfe von R lässt sich dieses Beispiel relativ leicht rechnen und
 plotten. Die Plots aus der Abbildung \ref{fig:adc} zeigen, dass die 
-Quantifizireung des Eingangsignal einen uniformen Fehler verusrsacht.
+Quantifizireung des Eingangsignals einen uniformen Fehler verusrsacht.
 Die Grafik \ref{fig:adc-d} zeigt den Beweis für die uniforme Verteilung
 anhand eines Quantilenvergleichs mit einer ideal uniform verteilten
 Datenreihe.
@@ -1400,7 +1400,7 @@ der Normalverteilung.
 
 \subsection{Varianz}
 Die Varianz einer Normalverteilung ist wie der Erwartungswert
-$\mu$ gleich eine Parameter der Dichtefunktion und beschreibt
+$\mu$ gleich ein Parameter der Dichtefunktion und beschreibt
 wie flach die \emph{Glockenkurve} ist.
 \[  
 	Var(X) = \sigma^2
@@ -1575,3 +1575,25 @@ Verteilung, wobei die Ränder dieser Grenzen normalverteilt abweichen.
 
 
 \subsection{Berechnungen in R}
+
+\begin{table}[h!]
+	\begin{tabular}{l l l}
+	$X \sim \mathcal{U}(a,b)$ & & \\ %\hline
+		& genau $A$ 		& \verb!dunif(x=A,...)! \\
+		& höchstens $A$		& \verb!punif(q=A,...)! \\
+		& mindestens $A$	& \verb!1-punif(q=A-1,...)! \\
+		& $A$ zufällige 	& \verb!runif(n=A...)! \\
+	& & \\
+	$X \sim \mathcal{N}(\mu, \sigma^2)$ & & \\ %\hline
+		& genau $A$		& \verb!dnorm(x=A,...)! \\
+		& höchstens $A$		& \verb!pnorm(q=A,...)! \\
+		& mindestens $A$	& \verb!1-pnorm(q=A-1,...)! \\
+		& $A$ zufällige 	& \verb!rnorm(n=A...)! \\
+	& & \\
+	$X \sim Exp(\lambda)$ & & \\ %\hline
+		& genau $A$		& \verb!dexp(x=A,...)! \\
+		& höchstens $A$		& \verb!pexp(q=A,...)! \\
+		& mindestens $A$	& \verb!1-pexp(q=A-1,...)! \\
+		& $A$ zufällige 	& \verb!rexp(n=A...)! \\
+	\end{tabular}
+\end{table}
