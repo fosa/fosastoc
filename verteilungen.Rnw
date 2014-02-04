@@ -852,6 +852,53 @@ Standardabweichung der Quadratwurzel der Varianz entspricht.
 \end{array} \]
 
 \section{Zusammenfassung}
+Diskrete Verteilungen kommen bei Problemen vor die immer Ergebnisse
+aus $\mathbb{N}$ liefern. Von diesen gibt es drei elementare Verteilungen.
+
+\begin{itemize}
+	\item Hypergeometrische Verteilung 
+		\hfill{} (\emph{Ziehen ohne Zurücklegen})
+	\item Binomialverteilung 
+		\hfill{} (\emph{Münzwurf})
+	\item Poissonverteilung 
+		\hfill{} (\emph{nach oben offen})
+\end{itemize}
+
+\noindent
+Diese drei Verteilung stehen in einem engen Verhältnis, denn die
+Binomialverteilung ist ein Spezialfall der Hypergeometrischen 
+Verteilung und die Poissonverteilung ist ein Spezialfall der
+Binomialverteilung. Dies zeigt sich in der Reduktion der Parameter.
+\[ \begin{array}{c c c c c}
+	Hyp(n,r,s)
+		& \xrightarrow{n,s \rightarrow \infty}
+		& Bin(n,p)
+		& \xrightarrow{n,p_n \rightarrow \lambda}
+		& Pois(\lambda) \\
+	3 \text{ Parameter}
+		& 
+		& 2 \text{ Parameter}
+		& 
+		& 1 \text{ Parameter}
+\end{array} \]
+
+\noindent
+Um jeweils die richtige Verteilung zu wählen, kann man folgende Merkregeln 
+beachten.
+
+\begin{description}
+	\item[Hypergeometrisch]
+		Jedes Ereignis (Treffer oder Niete) verändert den 
+		Grundraum.
+	\item[Binomial] Jedes Ereignis hat die gleiche 
+		Wahrscheinlichkeit. Diese Verteilung ist zu wählen,
+		wenn man wissen möchte, wie viele Treffer für eine
+		bestimmte Anzahl Versuche eintreten.
+	\item[Poisson] Man hat eine Erwartung von der Anzahl 
+		eintretender Ereignisse (Treffer) und möchte wissen,
+		wie viele Treffer in einem bestimmten Intervall 
+		eintreten.
+\end{description}
 
 \subsection{Erwartungswert und Varianz}
 
@@ -889,19 +936,19 @@ Standardabweichung der Quadratwurzel der Varianz entspricht.
 
 \begin{table}[h!]
 	\begin{tabular}{l l l}
-	$X \sim Hyp(n,r,s)$ & & \\ \hline
+	$X \sim Hyp(n,r,s)$ & & \\ %\hline
 		& genau $A$ 		& \verb!dhyper(x=A,...)! \\
 		& höchstens $A$		& \verb!phyper(q=A,...)! \\
 		& mindestens $A$	& \verb!1-phyper(q=A-1,...)! \\
 		& $A$ zufällige 	& \verb!rhyper(n=A...)! \\
 	& & \\
-	$X \sim Bin(n,p)$ & & \\ \hline
+	$X \sim Bin(n,p)$ & & \\ %\hline
 		& genau $A$		& \verb!dbinom(x=A,...)! \\
 		& höchstens $A$		& \verb!pbinom(q=A,...)! \\
 		& mindestens $A$	& \verb!1-pbinom(q=A-1,...)! \\
 		& $A$ zufällige 	& \verb!rbinom(n=A...)! \\
 	& & \\
-	$X \sim Pois(\lambda)$ & & \\ \hline
+	$X \sim Pois(\lambda)$ & & \\ %\hline
 		& genau $A$		& \verb!dpois(x=A,...)! \\
 		& höchstens $A$		& \verb!ppois(q=A,...)! \\
 		& mindestens $A$	& \verb!1-ppois(q=A-1,...)! \\
