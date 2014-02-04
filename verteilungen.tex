@@ -719,23 +719,23 @@ Standardabweichung der Quadratwurzel der Varianz entspricht.
 
 \begin{table}[h!]
 	\begin{tabular}{l l l}
-	Hypergeometrisch & & \\ \hline
-		& genau 	& \verb!dhyper(x=A,...)! \\
-		& höchstens 	& \verb!phyper(q=A,...)! \\
-		& mindestens 	& \verb!1-phyper(q=A-1,...)! \\
-		& zufällig 	& \verb!rhyper(n=...)! \\
+	$X \sim Hyp(n,r,s)$ & & \\ \hline
+		& genau $A$ 		& \verb!dhyper(x=A,...)! \\
+		& höchstens $A$		& \verb!phyper(q=A,...)! \\
+		& mindestens $A$	& \verb!1-phyper(q=A-1,...)! \\
+		& $A$ zufällige 	& \verb!rhyper(n=A...)! \\
 	& & \\
-	Binomial & & \\ \hline
-		& genau 	& \verb!dbinom(x=A,...)! \\
-		& höchstens 	& \verb!pbinom(q=A,...)! \\
-		& mindestens 	& \verb!1-pbinom(q=A-1,...)! \\
-		& zufällig 	& \verb!rbinom(n=...)! \\
+	$X \sim Bin(n,p)$ & & \\ \hline
+		& genau $A$		& \verb!dbinom(x=A,...)! \\
+		& höchstens $A$		& \verb!pbinom(q=A,...)! \\
+		& mindestens $A$	& \verb!1-pbinom(q=A-1,...)! \\
+		& $A$ zufällige 	& \verb!rbinom(n=A...)! \\
 	& & \\
-	Poisson & & \\ \hline
-		& genau 	& \verb!dpois(x=A,...)! \\
-		& höchstens 	& \verb!phyper(q=A,...)! \\
-		& mindestens 	& \verb!1-ppois(q=A-1,...)! \\
-		& zufällig 	& \verb!rpois(n=...)! \\
+	$X \sim Pois(\lambda)$ & & \\ \hline
+		& genau $A$		& \verb!dpois(x=A,...)! \\
+		& höchstens $A$		& \verb!ppois(q=A,...)! \\
+		& mindestens $A$	& \verb!1-ppois(q=A-1,...)! \\
+		& $A$ zufällige 	& \verb!rpois(n=A...)! \\
 	\end{tabular}
 \end{table}
 
