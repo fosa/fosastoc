@@ -16,6 +16,30 @@
   {}
 \endgroup
 
+\entry{nutshell}{book}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Adler}{A.}%
+     {Joseph}{J.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {O'Reilly Media, Inc.}%
+  }
+  \strng{namehash}{AJ1}
+  \strng{fullhash}{AJ1}
+  \field{labelyear}{2012}
+  \field{sortinit}{A}
+  \field{edition}{2}
+  \field{isbn}{978-1-449-31208-4}
+  \field{title}{R in a Nutshell}
+  \list{location}{1}{%
+    {1005 Gravestein Highway North, Sebastopol, CA 95472}%
+  }
+  \field{year}{2012}
+\endentry
+
 \entry{dalgaard}{book}{}
   \name{author}{1}{}{%
     {{}%
