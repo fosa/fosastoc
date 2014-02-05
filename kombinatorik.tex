@@ -211,6 +211,7 @@ als Differenzmenge einer Potenzmenge und einer Menge beschrieben werden.
 			\fill[gray] (0,0) circle (1.2cm);
 			\draw (0,0) circle (1.2cm);
 			\draw (0,0.8) node {$A$};
+			\node at (-2.25, 1.4) {$\Omega$};
 		\end{tikzpicture}
 		\caption{$A$}
 	\end{subfigure}
@@ -222,6 +223,7 @@ als Differenzmenge einer Potenzmenge und einer Menge beschrieben werden.
 			\fill[white] (0,0) circle (1.2cm);
 			\draw (0,0) circle (1.2cm);
 			\draw (0,0.8) node {$A$};
+			\node at (-2.25, 1.4) {$\Omega$};
 		\end{tikzpicture}
 		\caption{$A^{\mathrm C}$}
 	\end{subfigure}
@@ -238,6 +240,7 @@ als Differenzmenge einer Potenzmenge und einer Menge beschrieben werden.
 			\draw (-0.2,0) circle (1cm);
 			\draw (-0.2,0) node {$A$};
 			\draw (1.2,0) node {$B$};
+			\node at (-2.25, 1.4) {$\Omega$};
 		\end{tikzpicture}
 		\caption{$A \subseteq B$}
 	\end{subfigure}
@@ -251,6 +254,7 @@ als Differenzmenge einer Potenzmenge und einer Menge beschrieben werden.
 			\draw (-0.2,0) circle (1cm);
 			\draw (-0.2,0) node {$A$};
 			\draw (1.2,0) node {$B$};
+			\node at (-2.25, 1.4) {$\Omega$};
 		\end{tikzpicture}
 		\caption{$A \subset B$}
 	\end{subfigure}
@@ -260,14 +264,16 @@ als Differenzmenge einer Potenzmenge und einer Menge beschrieben werden.
 	\begin{subfigure}[b]{0.45\textwidth}
 		\centering
 		\begin{venndiagram2sets}[tikzoptions={scale=0.7}]
-    			\fillACapB
+    			\fillACapB;
+			\node at (0.3, 3.1) {$\Omega$};
 		\end{venndiagram2sets}
 		\caption{$A \cap B$}
 	\end{subfigure}
 	\begin{subfigure}[b]{0.45\textwidth}
 		\centering
 		\begin{venndiagram2sets}[tikzoptions={scale=0.7}]
-			\fillNotAorNotB
+			\fillNotAorNotB;
+			\node at (0.3, 3.1) {$\Omega$};
 		\end{venndiagram2sets}
 		\caption{${(A\cap B)}^{\mathrm C}$}
 	\end{subfigure}
@@ -277,19 +283,21 @@ als Differenzmenge einer Potenzmenge und einer Menge beschrieben werden.
 	\begin{subfigure}[b]{0.45\textwidth}
 		\centering
 		\begin{venndiagram2sets}[tikzoptions={scale=0.7}]
-			\fillA \fillB
+			\fillA \fillB;
+			\node at (0.3, 3.1) {$\Omega$};
 		\end{venndiagram2sets}
 		\caption{$A \cup B$}
 	\end{subfigure}	
 	\begin{subfigure}[b]{0.45\textwidth}
 		\centering
 		\begin{venndiagram2sets}[tikzoptions={scale=0.7}]
-			\fillNotAorB
+			\fillNotAorB;
+			\node at (0.3, 3.1) {$\Omega$};
 		\end{venndiagram2sets}
 		\caption{${(A \cup B)}^{\mathrm C}$}
 	\end{subfigure}
 	\caption{Die wichtigsten Operationen der Mengenlehre graphisch
-	erläutert mittels Venn-Diagrammen.}
+	erläutert mittels Venn-Diagrammen für $A,B \subset \Omega$.}
 \end{figure}
 
 \section{Kombinatorik}
@@ -404,7 +412,7 @@ als \gls{stochastisch unabhaengig} gelten.
 		& = 
 		& 1 - P(A)
 \end{array} \]
-	
+
 \subsection{Diskrete Wahrscheinlichkeit}
 \[ 
 	P(E)
@@ -539,3 +547,4 @@ der Kolmogorv'schen Axiome bestimmt werden.
 	\includegraphics[width=0.65\textwidth]{bedingte-wahrscheinlichkeit-tipps.pdf}
 	\caption{Hinweise zur Tabelle bedingter Wahrscheinlichkeiten.}
 \end{figure}
+
