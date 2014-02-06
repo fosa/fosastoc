@@ -424,18 +424,18 @@ dies beeinflusst die Berechnung (siehe Abschnitt
 \ref{sec:multiplikationsregel}).
 
 \subsection{Multiplikationsregel}\label{sec:multiplikationsregel}
-Die Multiplikationsregeln (auch \emph{Fundamentalprinzip des 
+Die \gls{Multiplikationsregel} (auch \emph{Fundamentalprinzip des 
 Zählens} genannt) besagt, wie die Anzahl möglicher Elementarereignisse
 berechnet werden kann und unterscheidet dabei zwei Kategorien:
 % http://www.gxy.ch/6gfpam/kombi/kombi-theo.pdf
 \begin{itemize}
-	\item Variation \hfill{} (Reihenfolge wichtig)
+	\item \gls{Variation} \hfill{} (Reihenfolge wichtig)
 	\begin{itemize}
 		\item Variation ohne Wiederholung
-		\item Permutation
+		\item \gls{Permutation}
 		\item Variation mit Wiederholung
 	\end{itemize}
-	\item Kombination \hfill{} (Reihenfolge egal)
+	\item \gls{Kombination} \hfill{} (Reihenfolge egal)
 	\begin{itemize}
 		\item Kombination ohne Wiederholung
 		\item Kombination mit Wiederholung
@@ -465,7 +465,7 @@ Möglichkeiten.
 
 \paragraph{Kombination ohne Wiederholung}
 Aus einer Lerngruppe von 8 Studenten müssen 3 helfen die
-Bücher zu tragen. Dies lässt sich als Binomialkoeffizient
+Bücher zu tragen. Dies lässt sich als \gls{Binomialkoeffizient}
 schreiben 
 \[ 
 	\frac{n!}{(n-k)!\, k!} 

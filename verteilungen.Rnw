@@ -19,7 +19,7 @@ Diskrete Verteilungen beschreiben Probleme, welche
 Ergebnisse aus $\mathbb{N}$ liefern und binär sind.
 
 \paragraph{Binär}
-Binär bedeutet, dass ein Ereignis zwei Werte annehmen kann. Bekannte
+\gls{Binaer} bedeutet, dass ein Ereignis zwei Werte annehmen kann. Bekannte
 Beispiele binärer Probleme sind
 \begin{itemize}
 	\item Gewinnlose \hfill{} (\emph{Gewinn, Zonk})
@@ -39,7 +39,7 @@ für ein binäres Problem gegeben.
 
 \newpage
 \section{Hypergeometrische Verteilung}
-Die hypergeometrische Verteilung entspricht dem Urnenmodell:
+Die hypergeometrische Verteilung entspricht dem \gls{Urnenmodell}:
 \begin{itemize}
 	\item Urne hat $r$ rote (postive) und $s$ schwarze (negative)
 		Kugeln
@@ -561,11 +561,11 @@ plot(rpois(n=100, lambda=50), cex.lab=1.5, cex.axis=1.5,
 \subsection{Beispiel einer Poissonverteilung}
 
 \paragraph{Beispiel 1 - Pixelfehler}
-Ein \emph{Mikrocontroller} steuert ein Display an mit 320x240 Pixel.
-Damit möglichst schnelle Bildfolgen erzielt werden, haben sich die
-Programmierer bis an die Grenzen der Senderate und leicht darüber 
-bewegt. Sie stellen nämlich fest, dass im Schnitt pro Bild 
-(320x240 Pixel) ca. 12 Pixelfehler vorkommen.
+Ein \gls{Mikrocontroller} steuert ein Display an mit 320x240 
+\gls{Pixel}. Damit möglichst schnelle Bildfolgen erzielt werden, 
+haben sich die Programmierer bis an die Grenzen der Senderate und 
+leicht darüber bewegt. Sie stellen nämlich fest, dass im Schnitt 
+pro Bild (320x240 Pixel) ca. 12 Pixelfehler vorkommen.
 
 Die Programmierer besprechen die Lage und einer meint: 
 "`\emph{Rechnen wir doch mal die Wahrscheinlichkeit für höchstens 
@@ -613,17 +613,17 @@ plot(Y, cex.lab=1.5, cex.axis=1.5, cex.main=1.5, cex.sub=1.5,
 \end{figure}
 
 \paragraph{Beispiel 2 --- Requests pro Woche}
-Ein Team hat ein \emph{Embedded System} entwickelt, welches
+Ein Team hat ein \gls{Embedded System} entwickelt, welches
 Solarbetrieben an einem entlegenem Ort Geodaten sammelt und diese
-über einen auf dem \emph{Embedded System} implementierten Webserver
+über einen auf dem Embedded System implementierten Webserver
 zur Verfügung stellt. Jedes Wochenende geht eine Gruppe von 
 Studenten hin und prüft das System, macht Resets und flasht Updates.
 
 Das Entwicklerteam erfährt am Montagmorgen, dass im letzten Update
 ein Bug drin ist. Dieser verursacht nach einer gewissen Anzahl
-an Requests einen \emph{Buffer Oerflow}, welcher das System 
+an Requests einen \gls{Buffer Overflow}, welcher das System 
 zum Absturz bringt. Die Entwickler schätzen, dass schon nach ca. 15 
-Requests das dedizierte \emph{Embedded System} abstürzen sollte.
+Requests das dedizierte Embedded System abstürzen sollte.
 
 Nun müssen die Entwickler sich entscheiden ob sie bis zum nächsten
 Wochenende abwarten können um dem Bugfix zu flashen oder ob sie

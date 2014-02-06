@@ -167,7 +167,8 @@
 	name=Kolmogorov,
 	description={Bekannter russischer Mathemathiker, welche die
 		Grundlegenden Axiome der Wahrscheinlichkeitstheorie
-		formulierte (siehe \gls{Axiome von Kolmogorov})},
+		formulierte},
+	see={Axiome von Kolmogorov},
 	sort=Kolmogorov
 }
 
@@ -235,4 +236,104 @@
 		Thomas Beyes formulierter Satz, welcher die Berechnung
 		bedingter Wahrscheinlichkeiten beschreibt},
 	sort={Beyes'sche Theorem}
+}
+
+\newglossaryentry{Multiplikationsregel}{
+	name=Multiplikationsregel,
+	description={Eine Regel die Anwendung findet zur Bestimmung möglicher
+		Ereignisse (Variation, Permutation, Kombination)},
+	sort=Multiplikatiosnregel
+}
+
+\newglossaryentry{Variation}{
+	name=Variation,
+	description={Eine spezielle Methode des Zählens. Sie wird angewandt 
+		zur Bestimmung von möglichen Ereignissen},
+	see=Multiplikationsregel,
+	sort=Variation
+}
+
+\newglossaryentry{Permutation}{
+	name=Permutation,
+	description={Ein Spezialfall der Variation bei welcher alle
+		Ereignisse stattfinden},
+	see=Variation,
+	sort=Permutation
+}
+
+\newglossaryentry{Kombination}{
+	name=Kombination,
+	description={Eine spezielle Methode des Zählens. Sie wird angewandt
+		zur Bestimmung von möglichen Ereignissen}
+	see=Multiplikationsregel,
+	sort=Kombination
+}
+
+\newglossaryentry{Binomialkoeffizient}{
+	name=Binomialkoeffizient,
+	description={Eine mathematische Formulierung und Funktion zur
+		Ermittlung möglicher Kombinationen}
+	see=Multiplikationsregel,
+	sort=Binomialkoeffizient
+}
+
+\newglossaryentry{Binaer}{
+	name=Binaer,
+	text={Binär},
+	description={Binär heisst wörtlich "`paarweise"' und beschreibt
+		meist ein Zahlensysten (\emph{Binärsystem}, 
+		\emph{Dualsystem}) oder einen Zahlenraum der genau
+		zwei Werte kennt},
+	see=Bit,
+	sort=Binaer
+}
+
+\newglossaryentry{Bit}{
+	name=Bit,
+	description={Das Bit ist eine Einheit aus der Informationstheorie
+		welche den kleinstmöglichen Informationsgehalt beschreibt
+		welcher durch die Wahl aus zwei gleichwahrscheinlichen
+		Möglichkeiten beschreibt (oft \emph{1 oder 0} bzw. 
+		\emph{wahr oder falsch})},
+	see=Binaer,
+	sort=Bit
+}
+
+\newglossaryentry{Urnenmodell}{
+	name=Urnenmodell,
+	description={Ein bekanntes Modell für Verteilungen welches das
+		\emph{Ziehen ohne Zurücklegen} abbildet},
+	sort=Urnenmodell
+}
+
+\newglossaryentry{Pixel}{
+	name=Pixel,
+	description={Ein Anglizismus für \emph{Bildpunkt}},
+	sort=Pixel
+}
+
+\newglossaryentry{Mikrocontroller}{
+	name=Mikrocontroller,
+	description={Ein dediziertes Computersystem welches auf
+		einem gemainsamen Chip implementiert ist (meist 
+		inklusive Peripherie und Speicher)},
+	sort=Mikrocontroller
+}
+
+\newglossaryentry{Embedded System}{
+	name={Embedded System},
+	description={Ein \emph{eingebettetes System} beschreibt eine
+		spezifische Hardwareimplementierung innerhalb einer
+		Applikation (Gerät, nicht Software) welche sich auf
+		auf ein Mikrocontroller stütz},
+	see=Mikrocontroller,
+	sort={Embedded System}
+}
+
+\newglossaryentry{Buffer Overflow}{
+	name={Buffer Overflow},
+	description={Ein \emph{Pufferüberlauf} ist ein Fehler in der 
+		Speicherallozierung von Computersystem welcher durch 
+		Fehler in der ausgeführten Software verursacht wird},
+	sort={Buffer Overflow}
 }
