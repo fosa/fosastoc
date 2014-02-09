@@ -1,0 +1,4 @@
+Sweave("begriffe.Rnw", encoding='UTF-8')
+Sweave("kombinatorik.Rnw", encoding='UTF-8')
+Sweave("r-cmd.Rnw", encoding='UTF-8')
+Sweave("verteilungen.Rnw", encoding='UTF-8')

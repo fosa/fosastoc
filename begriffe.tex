@@ -96,14 +96,14 @@ ganzer Zahlen zwischen 1 und 20.
 > x
 \end{Sinput}
 \begin{Soutput}
- [1]  1  2  3  4  6  8 12 13 17 19
+ [1] 11 14 14 14 15 16 17 18 19 20
 \end{Soutput}
 \begin{Sinput}
 > quantile(x, prob=0.2, type=2)
 \end{Sinput}
 \begin{Soutput}
 20% 
-2.5 
+ 14 
 \end{Soutput}
 \end{Schunk}
 
@@ -243,13 +243,13 @@ ermittelt. Im Folgenden ein Beispiel welches die Standardabweichung
 > x
 \end{Sinput}
 \begin{Soutput}
- [1]  5  3  9  8  3  9 10  8  2  7
+ [1] 8 5 9 7 4 4 8 5 5 2
 \end{Soutput}
 \begin{Sinput}
 > sd(x)
 \end{Sinput}
 \begin{Soutput}
-[1] 2.91357
+[1] 2.213594
 \end{Soutput}
 \end{Schunk}
 Die Standardabweichung kann auch graphisch gezeigt werden mittels
@@ -345,7 +345,7 @@ exponentialverteilten Zufallszahlen.
 > cov(x,y)
 \end{Sinput}
 \begin{Soutput}
-[1] 1.038225
+[1] 0.9851133
 \end{Soutput}
 \end{Schunk}
 
@@ -423,6 +423,6 @@ In \lstinline{R} kann der Korrelationskoeffizient mit der Funktion
 > cor(x,y)
 \end{Sinput}
 \begin{Soutput}
-[1] -0.01825488
+[1] -0.1232184
 \end{Soutput}
 \end{Schunk}

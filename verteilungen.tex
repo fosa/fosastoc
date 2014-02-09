@@ -1235,13 +1235,205 @@ Verteilung, wobei die Ränder dieser Grenzen normalverteilt abweichen.
 	\label{fig:jitter}
 \end{figure}
 
+In vielen Anwendung von Mikrocontrollern  wird dieser Jitter ausführlich
+beschrieben (siehe Anhang \ref{sec:stm32f21xx}).
+
+\clearpage
+
 \newpage
 \section{Exponentialverteilung}
+Die Exponentialverteilung (auch \emph{negative Exponentialverteilung}) ist 
+eine stetige Verteilung welche angewandt wird um die Zeit beschreiben, welche
+zwischen Ereignissen verstreicht. Dies gilt für Ereignisse  welche 
+kontinuierlich, unabhängig und mit konstanter Rate ($\lambda$) eintreten.
+
+\[  
+	f(x) = \left\{ 
+	\begin{array}{c c l}
+		\displaystyle 
+		\lambda \cdot e^{-\lambda \cdot x}
+			& \text{falls}
+			& x \geq 0 \\
+		& & \\
+		\displaystyle 
+		0
+			& \text{falls}
+			& x < 0
+	\end{array}
+	\right.
+\]
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.7\textwidth]{exponential.pdf}
+	\caption{Exponentialverteilung}
+	\label{fig:exponential}
+\end{figure}
+
+Eine wichtige Eigenschaft der Exponentialverteilung ist die sog. 
+\emph{Gedächtnislosigkeit} \parencite[296]{henze}. Diese besagt, dass die 
+Wahrscheinlichkeit eines Ereignisses ab einem Zeitpunkt $t$ innerhalb des 
+Intervalls $[a,b]$ nicht dadurch beeinflusst wird, ob und wann das letzte
+Ereignis eingetreten ist.
+
 \subsection{Verteilungsfunktion}
+\[ 
+	F(x) = \left\{ 
+	\begin{array}{c c l}
+		1-e^{-\lambda \cdot x}
+			& \text{falls}
+			& x \geq 0 \\
+		& & \\
+		0
+			& \text{falls}
+			& x < 0
+	\end{array}
+	\right.
+\]
+
 \subsection{Erwartungswert}
+\[ 
+	E(X) = \frac{1}{\lambda}
+\]
+
 \subsection{Varianz}
+\[  
+	Var(X) = \frac{1}{\lambda^2}
+\]
+
+\subsection{Standardabweichung}
+Die Standardabweichung der Exponentialverteilung entspricht dem 
+Erwartungswert.
+\[  
+	\sigma_x = \sqrt{\sigma^2} = \sqrt{Var(X)} = E(X) = \frac{1}{\lambda}
+\]
+
+\subsection{Transformation}
+Die Verteilung $X \sim Exp(\lambda)$ mit beliebigem $\lambda \in \mathbb{R}$
+kann aus der Grundform $X \sim Exp(1)$ transformeirt werden, denn die 
+Änderung des Parameters bewirkt lediglich eine Skalenänderung 
+\parencite[296]{henze}. Hierfür wird die Grundform mit dem reziproken Wert
+des Parameters multipliziert.
+\[  
+	X \sim Exp(1) \Rightarrow \frac{1}{\lambda} \cdot X \sim Exp(\lambda)	
+\]
+
+\subsection{Zusammenhang mit uniformer Verteilung}
+Die Exponentialverteilung hat einen direkten Zusammenhang mit der uniformen
+Verteilung innerhalb des Intervalls $[0,1]$ mit 
+$x \rightarrow -\frac{1}{\lambda} \cdot \log(1-x)$ und somit
+\[  
+	X \sim \mathcal{U}(0,1) 
+		\Rightarrow 
+		-\frac{1}{\lambda} \cdot \log(1-X) \sim Exp(\lambda)
+\]
+Mit diesem Zusammenhang lässt sich aus einer uniform verteilten Zufallszahl 
+eine Exponentialverteilte Zufallszahl erzeugen \parencite[297]{henze}.
+
 \subsection{Verwendung in R}
+\lstinline{R} stellt grundsätzlich vier Funktionen für die 
+Exponentialverteilung zur Verfügung. 
+\begin{itemize}
+	\item \lstinline{dexp()} \hfill{} 
+		(\emph{Wahrscheinlichkeitsverteilung})
+	\item \lstinline{pexp()} \hfill{}
+		(\emph{kumulative Wahrscheinlichkeit})
+	\item \lstinline{qexp()} \hfill{}
+		(\emph{Verteilung der Quantile})
+	\item \lstinline{rexp()} \hfill{}
+		(\emph{Zufallszahlen})
+\end{itemize}
+Die Abbildung \ref{fig:exp} zeigt jeweils einen Plot zu den gegebenen
+Funktionen aus \lstinline{R}. Für weitere Informationen zu Plots siehe
+Kapitel \ref{sec:plots}.
+
+
+
+
+
+\begin{figure}[h!]
+\centering
+\begin{subfigure}[b]{0.48\textwidth}
+\includegraphics{verteilungen-081}
+\caption{Wahrscheinlichkeitsverteilung}
+\end{subfigure}
+\begin{subfigure}[b]{0.48\textwidth}
+\includegraphics{verteilungen-082}
+\caption{kumulative Wahrscheinlichkeit}
+\end{subfigure}
+
+\begin{subfigure}[b]{0.48\textwidth}
+\includegraphics{verteilungen-083}
+\caption{Quantile}
+\end{subfigure}
+\begin{subfigure}[b]{0.48\textwidth}
+\includegraphics{verteilungen-084}
+\caption{Zufallszahlen}
+\end{subfigure}
+\caption{Exponentialverteilung}
+\label{fig:exp}
+\end{figure}
+
+\clearpage
+
 \subsection{Beispiel einer Exponentialverteilung}
+\paragraph{Beispiel 1 - Gerätedefekt}
+Die Entwickler eines Sicherheitssystems möchten eine Gerätekomponente
+einkaufen, statt diese selber zu entwicklen. Die favorisierte Komponente
+hat laut Hersteller eine Ausfallrate von ca. $0.2\%$ pro Tag bei 
+Dauerbetrieb.
+
+Die Entwickler müssen nun folgende Frage beantworten für Ihren 
+Entwicklungsbericht: "`\emph{Wie gross ist die Wahrscheinlichkeit, dass
+die eingekaufte Komponente mindestens ein Jahr im Dauerbetrieb arbeitet?}"'
+
+\begin{Schunk}
+\begin{Sinput}
+> dpd <- 0.002 # rate of defects per day
+> ttd <- 1/dpd # time till defect
+> ttd
+\end{Sinput}
+\begin{Soutput}
+[1] 500
+\end{Soutput}
+\begin{Sinput}
+> 1-pexp(q=365, rate=dpd)
+\end{Sinput}
+\begin{Soutput}
+[1] 0.481909
+\end{Soutput}
+\end{Schunk}
+
+\paragraph{Beispiel 2 - Reboot}
+Der Administrator der Telefondatenbank der Firma Umbrella Corp. soll ein 
+Update der Software machen. Hierzu muss der Service kurz abgestellt werden. 
+Für den Reboot und das aufsarten des Service benötigt der Administrator ca. 
+2 Minuten. 
+
+Er überlegt sich nun, ob er den Reboot jetzt während den regulären 
+Arbeitszeiten machen oder bis nach Feierabend warten soll. Da er nicht
+sonderlich lust hat so lange im Betrieb zu sein, entschliesst er sich die
+sache mal zu rechnen. Hierzu sieht er sich die Logfiles des Dienstes an und
+bemerkt, dass ca. 15 Requests pro Stunde an den Dienst gehen. Also fragt er
+sich nun: "`\emph{Wie wahrscheinlich ist es, dass ich innerhalb von zwei 
+Minuten ab den Zeitpunkt $x$ einen Request erhalte?}"'
+
+\begin{Schunk}
+\begin{Sinput}
+> rph <- 15 # requests per hour
+> rt <- (1/30) # time for reboot and service start in hours
+> pexp(q=rt, rate=rph)
+\end{Sinput}
+\begin{Soutput}
+[1] 0.3934693
+\end{Soutput}
+\end{Schunk}
+
+Bei Berechnungen von Exponentialverteilten Wahrscheinlichkeiten ist die 
+sog. \emph{Gedächtnislosigkeit} der Verteilung zu beachten. Für das obige
+Beispiel heisst dies, dass die Wahrscheinlichkeit eines Requests innert
+der nächsten $x$ Minuten nicht davon beieinflusst wird, ob gerade eben
+ein Request stattfand oder nicht.
 
 \newpage
 \section{Zusammenfassung}

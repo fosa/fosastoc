@@ -40,6 +40,35 @@
   \field{year}{2012}
 \endentry
 
+\entry{mirko}{book}{}
+  \name{author}{3}{}{%
+    {{}%
+     {Birbaumer}{B.}%
+     {Mirko}{M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Scheiblechner}{S.}%
+     {Peter}{P.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Schmid}{S.}%
+     {Sandro}{S.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{BMSPSS1}
+  \strng{fullhash}{BMSPSS1}
+  \field{labelyear}{2013}
+  \field{sortinit}{B}
+  \field{note}{Beruhend auf dem Skript \emph{Statistik für Biologie und
+  Pharmazeutische Wissenschaften} vom Markus Kalisch, Peter Bühlmann und
+  Hansruedi Künsch}
+  \field{title}{Stochastik --- Vorlesungsskript HSLU}
+  \field{year}{2013}
+\endentry
+
 \entry{dalgaard}{book}{}
   \name{author}{1}{}{%
     {{}%
