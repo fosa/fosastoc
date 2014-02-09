@@ -15,9 +15,42 @@
 %----------------------------------------
 
 \chapter{Statistischer Test}
+Statistische Tests oder auch \emph{Hypothesentests} werden angewandt um
+gemachte Beobachtungen mit einer statistischen Verteilung zu vergleichen.
+
+Die Durchführung und Qualität eines solchen Tests hängt von vielen Faktoren
+ab und kennt auch einige Methoden zur Überprüfung und Bewertung der
+getroffenen Entscheidungen.
 
 \newpage
-\section{Allgemeines}
+\section{Vorgehen}
+Bei der Durchführung eines Hypothesentests kann stets nach folgendem Ablauf 
+vorgegangen werden.
+
+\begin{enumerate}
+	\item Modellwahl \\ 
+		\textit{Mit welcher Verteilung sollen die Daten verglichen 
+			werden?}
+	\item Nullhypothese formuleiren \\
+		\textit{Welche Hypothese soll mittels der Daten verworfen 
+			werden?}
+	\item Alternativhypothese \\
+		\textit{Welche Hypothese soll der Test bekräftigen?}
+	\item Teststatistik erstellen \\
+		\textit{Teststatistik aus dem gewählten Modell und der 
+			Nullhypothese erstellen.}
+	\item Signifikanzniveau wählen \\
+		\textit{Mit welcher Signifikanz soll der Test durchgeführt 
+			werden?}
+	\item Verwerfungsbereich berechnen \\
+		\textit{Aus der Teststatistik und dem gewählten 
+			Signifikanzniveau wird der Verwerfungsbereich 
+			berechnet (oder einfach der P-Wert verwendet).}
+	\item Testentscheid \\
+		\textit{Daten werden mit dem berechneten Verwerfungsbereich 
+			(oder dem P-Wert) verglichen und basierend darauf ein 
+			Entscheid gefällt}
+\end{enumerate}
 
 \section{Konfidenzintervall}
 
