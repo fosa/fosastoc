@@ -15,7 +15,27 @@
 	\end{figure}
 
 	\chapter{STM32F21xx}\label{sec:stm32f21xx}
-	
+	Der Mikrocontroller STM32F21xx ist ein repräsentatives Modell von
+	Mikrocontrollern, welche heutzutage für Embedded Systems benutzt 
+	werden im Bereich der Steuereungs- und Retgelungstechnik. Die 
+	typischen Merkmale solcher Mikrocontroller sind
+	\begin{itemize}
+		\item 32-Bit Busbreite
+		\item RISC-Architektur (aktuell z.B. ARM-Cores mit Thumb2)
+		\item diverse interne Peripheriecontroller (UART, SPI, I$^2$C, Ethernet)
+		\item DMA (Direct Memory Access)
+		\item ADC (Analog to Digital Converter)
+		\item Pipelining (Sprungvorhersagen)
+		\item Single Cycle Multiplication
+	\end{itemize}
+
+	\newpage
+	\section{ADC Genauigkeit}\label{sec:stm32f21xx-adc}
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=1\textwidth]{stm32f21xx-adc.pdf}
+	\end{figure}
+
 	\newpage
 	\section{Jitter PLL}
 	\begin{figure}[h!]
