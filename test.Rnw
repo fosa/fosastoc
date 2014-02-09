@@ -1,0 +1,125 @@
+% coding:utf-8
+
+%FOSASTOC, a LaTeX-Code for a electrical summary of stochastic
+%Copyright (C) 2013, Daniel Winz, Ervin Mazlagic
+
+%This program is free software; you can redistribute it and/or
+%modify it under the terms of the GNU General Public License
+%as published by the Free Software Foundation; either version 2
+%of the License, or (at your option) any later version.
+
+%This program is distributed in the hope that it will be useful,
+%but WITHOUT ANY WARRANTY; without even the implied warranty of
+%MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+%GNU General Public License for more details.
+%----------------------------------------
+
+\chapter{Statistischer Test}
+
+\newpage
+\section{Allgemeines}
+\section{Konfidenzintervall}
+\section{P-Wert}
+\section{Fehler}
+
+\clearpage
+\newpage
+\section{Modellauswahl}
+Die richtige Modellauswahl ist bei der Durchführung eines statistischen
+Tests von entscheidender Bedeutung. Eine einfache Entscheidungsvorschrift
+ist in der Grafik \ref{fig:modellauswahl} gegeben.
+
+\tikzstyle{decision} = [diamond, 
+			draw, 
+			fill=gray!20, 
+			text width=5.0em, 
+			text badly centered, 
+			%node distance=3cm, 
+			inner sep=0pt]
+
+\tikzstyle{block} = [	rectangle, 
+			draw, 
+			fill=gray!20, 
+			text width=5.0em, 
+			text centered, 
+			rounded corners,
+			%node distance=3cm,
+			inner sep=0pt,
+			minimum height=4em]
+
+\tikzstyle{line} = [	draw, 
+			-latex']
+
+\tikzstyle{cloud} = [	draw, 
+			ellipse,
+			fill=gray!20, 
+			%node distance=3cm,
+			minimum height=2em]
+
+\begin{figure}[h!]
+	\begin{tikzpicture}[auto, scale=0.85, every node/.style={scale=0.85}]
+		% nodes
+		\node [block] 		at ( 5,14) 	(start) 	{Test};
+		\node [decision] 	at ( 5,11)	(bernoulli?) 	{Bernoulli?};
+		\node [decision] 	at ( 2, 8)	(offen?) 	{nach oben offen?};
+		\node [block] 		at ( 2, 2)	(poisson) 	{Poisson Test};
+		\node [block] 		at ( 4, 2)	(binom)		{Binomial Test};
+		\node [decision]	at ( 9, 8)	(normal?)	{Normal verteilt?};
+		\node [block]		at ( 6, 2)	(z)		{z Test};
+		\node [decision]	at ( 6, 5)	(std?)		{$\sigma$ bekannt?};
+		\node [block]		at ( 8, 2)	(t)		{t Test};
+		\node [decision]	at (12, 5)	(symmetrie?)	{Symmetrie?};
+		\node [block]		at (10, 2)	(wilcox)	{Wilcoxon Test};
+		\node [block]		at (12, 2)	(vorzeichen)	{Vorzeichen Test};
+%		% paths
+		\path [line] (start) 		-- (bernoulli?);
+		\path [line] (bernoulli?) 	-| node [near start] {ja} (offen?);
+		\path [line] (bernoulli?)	-| node [near start] {nein} (normal?);
+		\path [line] (offen?)		-- node [near start] {ja} (poisson);
+		\path [line] (offen?)		-| node [near start] {nein} (binom);
+		\path [line] (normal?)		-| node [near start] {ja} (std?);
+		\path [line] (normal?)		-| node [near start] {nein} (symmetrie?);
+		\path [line] (std?)		-- node [near start] {ja} (z);
+		\path [line] (std?)		-| node [near start] {nein} (t);
+		\path [line] (symmetrie?)	-| node [near start] {ja} (wilcox);
+		\path [line] (symmetrie?)	-- node [near start] {nein} (vorzeichen);
+	\end{tikzpicture}
+	\caption{Vorschrift zur Modellauswahl als Flussdiagramm}
+	\label{fig:modellauswahl}
+\end{figure}
+
+\subsection{Entscheidungshilfen}
+
+\paragraph{Bernoulli?}
+Beschreiben die Daten eine Reihe von unabhängigen 
+Bernullientscheiden (binär)?
+
+Typisches Beispiele: Münzwurf, Würfelspiel.
+
+\paragraph{nach oben offen?}
+Sind die Daten solche, welche keine (theoretische) obere Grenze kennen?
+
+Typische Beispiele: Anzahl Anrufe eines CallCenters, Anzahl Requests auf 
+einen Server .
+
+\paragraph{Normal verteilt?}
+Lassen sich die Daten als Noralverteilung betrachten 
+(z.B. mittels eines QQ-Norm Plots)?
+
+Typische Beispiele: Körpergrössen einer grossen Personengruppe,
+Abfüllmengen, Bauteilwerte (z.B. Widerstandwert). 
+
+\paragraph{$\sigma$ bekannt?}
+Ist die Standardabweichung $\sigma$ bekannt?
+
+\paragraph{Symmetrie?}
+Sind die Daten symmetrisch um einen Punkt $x$ verteilt?
+
+
+\newpage
+\section{Binomial-Test}
+\section{Poisson-Test}
+\section{z-Test}
+\section{t-Test}
+\section{Wilcoxon-Test}
+\section{Vorzeichen-Test}
