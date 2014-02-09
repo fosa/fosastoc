@@ -18,9 +18,115 @@
 
 \newpage
 \section{Allgemeines}
+
 \section{Konfidenzintervall}
-\section{P-Wert}
+
+\section{P-Wert}\label{sec:p-wert}
+Der P-Wert (engl. \emph{p-Value}) ist ein Wert, welcher die kummulative 
+Wahrscheinlichkeit abbildet vom Punkt der Beobachtung aufwärts. D.h.
+der P-Wert beschreibt die Wahrscheinlichkeit die gemachte Beobachtung 
+oder extremere Beobachtungen zu erhalten.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.7\textwidth]{p-value.pdf}
+	\caption{P-Wert graphisch dargestellt}
+	\label{fig:p-wert}
+\end{figure}
+
+\subsection{Interpretation}
+Der P-Wert eignet sich um das Berechnen des Verwerfungsbereiches auszulassen,
+denn man kann anhand des P-Wertes und des Signifikanzniveaus direkt den 
+Entscheid für einen einseitigen Test fällen.
+
+\[ 
+	\begin{array}{c c l}
+		p\text{-Wert} > (1-\alpha)
+			& \Rightarrow
+			& \text{Hypothese nicht verwerfen} \\
+		& & \\
+		p\text{-Wert} < (1-\alpha)
+			& \Rightarrow
+			& \text{Hypothese verwerfen}
+	\end{array} 
+\]
+
 \section{Fehler}
+Die Ausführung eines statistischen Tests bzw. eines Hypothesentests bedingt,
+dass ein Entscheid gefällt wird über die Nullhypothese. Diese kann entweder
+beibehalten oder verworfen werden. Jede der gemachten Entscheidungen kann dabei
+zwei Auswirkungen aufweisen welche in der Tabelle \ref{tab:wirkungstabelle} 
+dargestellt sind.
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{l c c}
+		Entscheidung
+			& $H_0$ ist wahr 
+			& $H_0$ ist falsch \\
+		\hline
+		&& \\
+		$H_0$ beibehalten 
+			& korrekt 
+			& Fehler 2. Art \\
+		&& \\
+		$H_0$ verworfen 
+			& Fehler 1. Art 
+			& korrekt \\
+		&& \\
+	\end{tabular}
+	\caption{Wirkungstabelle von Hypothesentests}
+	\label{tab:wirkungstabelle}
+\end{table}
+
+Unabhängig von den Ursachen eines falschen Entscheides muss dieser 
+berücksichtigt werden. Die zwei auftretenden Fehler werden als
+Fehler 1. bzw. Fehler 2. Art bezeichnet.
+
+\subsection{Fehler 1. Art}
+Der Fehler 1. Art tritt ein, wenn die Nullhypothese verworfen wird, obwohl 
+sie wahr ist. 
+
+\begin{figure}[h!]
+	\centering
+        \includegraphics[width=0.7\textwidth]{fehler-erster-art.pdf}
+	\caption{Fehler 1. Art}
+	\label{fig:fehler1}
+\end{figure}
+
+Er beschreibt die Summe aller Wahrscheinlichkeiten die extremer als die 
+gemachte Beobachtung sind (siehe P-Wert, Kapitel \ref{sec:p-wert}). 
+Der Fehler 1. Art ist somit limitiert auf den Wert des Signifikanzniveaus 
+$\alpha$, denn wenn der Wert für den Fehler 1. Art grösser wäre, so müsste 
+er ausserhalb des Verwerfungsbereiches liegen und die die Hypothese konnte 
+gar nicht verworfen werden.
+
+\subsection{Fehler 2. Art}
+Der Fehler 2. Art tritt ein, wenn die Nullhypothese nicht verworfen wird, 
+obwohl sie falsch ist bzw. die Alternative wahr ist.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.85\textwidth]{fehler-zweiter-art.pdf}
+	\caption{Fehler 2. Art}
+	\label{fig:fehler2}
+\end{figure}
+
+Um den Fehler 2. Art zu berechnen, muss eine alternative Verteilung 
+explizit (quantitativ) gegeben sein oder angenommen werden. Eine Relation
+der Verteilungen ($p_a > p_0$, $p_a < p_0$, $p_a \neq p_0$), welche 
+häufig für Hypothesentests angewendet werden, reicht somit nicht aus für
+die Berechnung.
+
+\subsection{Macht}
+Die sog. Macht gibt Auskunft darüber, wie Aussagekräftig die gemachte
+Annahme ist. Der Fehler 2. Art ist die Summe aller Wahrscheinlichkeiten
+der alternativen Verteilung, welche weniger extrem als die gemachte 
+Beobachtung sind. Die Macht entspricht somit der Differenz von 1 und 
+dem Fehler 2. Art.
+\[  
+	\text{Macht} = 1 - P(\text{Fehler 2. Art})
+\]
 
 \clearpage
 \newpage
@@ -57,6 +163,7 @@ ist in der Grafik \ref{fig:modellauswahl} gegeben.
 			minimum height=2em]
 
 \begin{figure}[h!]
+	\centering
 	\begin{tikzpicture}[auto, scale=0.85, every node/.style={scale=0.85}]
 		% nodes
 		\node [block] 		at ( 5,14) 	(start) 	{Test};
