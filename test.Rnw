@@ -53,6 +53,44 @@ vorgegangen werden.
 \end{enumerate}
 
 \section{Konfidenzintervall}
+Das Konfidenzintervall (auch \emph{Vertrauensintervall} oder 
+\emph{Mutungsintervall}) beschreibt einen Bereich einer Verteilung.
+Liegen Beobachtungen innerhalb dieses Bereiches, so vertraut man auf
+deren Gültigkeit. Im Umfeld von statistischen Tests wird alles 
+ausserhalb des Konfidenzintervalls als Verwerfungsbereich
+benannt.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.7\textwidth]{konfidenzintervall.pdf}
+	\caption{Konfidenzintervall}
+	\label{fig:konfidenzintervall}
+\end{figure}
+
+Die Intervallgrenzen werden durch kummulative Wahrscheinlichkeitswerte
+bzw. Quantile gebildet, welche durch die gewählte Genaugkeit bestimmt 
+werden. Die Intervallgrenzen werden oft auch mittels des sog. 
+Signifikanzniveaus $\alpha$ beschrieben, was nichts weiter ist als die 
+Differenz aus $1$ und der Genauigkeit $g$.
+\[ \begin{array}{l c l} 
+	P(a \leq \mu \leq b) = g 
+		& 
+		& 0 \leq g \leq 1, \quad \alpha = 1-g \\
+	& & \\
+	 a = \displaystyle q\left(\frac{1-g}{2}\right) 
+			= q\left( \frac{\alpha}{2} \right)
+		&
+		&\\
+	& & \\
+	b = \displaystyle q\left(1-\frac{1-g}{2}\right) 
+			= q\left(1-\frac{\alpha}{2}\right) 
+		&
+		&\\
+\end{array} \]
+Die Grenzen des Intervalls müssen nicht zwingend symmetrisch liegen, 
+denn es kann auch ein sog. einseitiger Test erfolgen. Bei einem 
+einseitigen Test gibt es nur einen geschlossenen Verwerfungsbereich
+welcher passenderweise mit dem Signifikanzniveau beschrieben wird.
 
 \section{P-Wert}\label{sec:p-wert}
 Der P-Wert (engl. \emph{p-Value}) ist ein Wert, welcher die kummulative 
@@ -258,6 +296,61 @@ Sind die Daten symmetrisch um einen Punkt $x$ verteilt?
 
 \newpage
 \section{Binomial-Test}
+Der Binomial-Test ist immer dann anzuwenden, wenn eine 
+Binomialverteilung vorliegt. Dieser Test kann ein- oder zweiseitig
+durchgeführt werden, d.h. das Signifikanzniveau wird entweder von
+unten, oben oder geteilt auf beide Seiten gesetzt (nur symmetrisch
+wenn auch die Verteilung symmetrisch ist). 
+
+\subsection{Formales Vorgehen}
+
+\begin{table}[h!]
+	\begin{tabular}{l l}
+		Modell 
+			& $X \sim Bin(n,p)$ \\
+		& \\
+		Nullhypothese
+			& $H_0: p_0 = \mu_0$ \\
+		& \\
+		Alternativhypothese 
+			& $H_A: p_A > p_0 = \mu_0$ \\
+			& $H_A: p_A \neq p_0 = \mu_0$ \\ 
+			& $H_A: p_A < p_0 = \mu_0$ \\
+		& \\
+		Teststatistik
+			& $X: P(X=x|H_0) = \binom{n}{x} {p_0}^x (1-p_0)^{n-x}$ \\
+		& \\
+		Signifikanzniveau
+			& $\alpha$ \\
+		& \\
+		Verwerfungsbereich
+			& \\
+		~~~~~beidseitig
+			& $K_b = \left(\left[
+					0,q\left(\frac{\alpha}{2}\right)
+				\right] \cup 
+				\left[
+					q\left(\frac{\alpha}{2}\right),1
+				\right]\right)$ \\ 
+		~~~~~links
+			& $K_l = \left(\left[
+					0, a = q\left(\alpha
+				\right)\right]\right)$ \\
+		~~~~~rechts
+			& $K_r = \left(\left[ 
+					q\left(\alpha\right),1
+				\right]\right)$ \\
+		& \\
+		Testentscheid
+			& \\
+		~~~~~$X \in K$
+			& Nullhypothese wird verworfen \\
+		~~~~~$X \not\in K$
+			& Nullhypothese wird beibehalten \\ 
+	\end{tabular}
+	\caption{Formales Vorgehen des Binomial-Test}
+\end{table}
+
 \section{Poisson-Test}
 \section{z-Test}
 \section{t-Test}
