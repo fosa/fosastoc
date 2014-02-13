@@ -4,83 +4,83 @@
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {1.1}{\ignorespaces Varianz als Fl\IeC {\"a}chen dargestellt\relax }}{13}{figure.caption.8}
+\contentsline {figure}{\numberline {1.1}{\ignorespaces Varianz als Fl\IeC {\"a}chen dargestellt\relax }}{15}{figure.caption.8}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {1.2}{\ignorespaces Standardabweichung (Daten zu \lstinline {mean()})\relax }}{15}{figure.caption.10}
+\contentsline {figure}{\numberline {1.2}{\ignorespaces Standardabweichung (Daten zu \lstinline {mean()})\relax }}{17}{figure.caption.10}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {1.3}{\ignorespaces Extremwerte von Korrelationen im Vergleich.\relax }}{17}{figure.caption.12}
-\defcounter {refsection}{0}\relax 
-\addvspace {10\p@ }
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Potenzmenge von $\{x,y,z\}$ als Hasse-Diagramm\relax }}{22}{figure.caption.24}
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Die wichtigsten Operationen der Mengenlehre graphisch erl\IeC {\"a}utert mittels Venn-Diagrammen f\IeC {\"u}r $A,B \subset \Omega $.\relax }}{23}{figure.caption.26}
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {2.3}{\ignorespaces Tabelle bedingter Wahrscheinlichkeiten.\relax }}{29}{figure.caption.33}
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {2.4}{\ignorespaces Hinweise zur Tabelle bedingter Wahrscheinlichkeiten.\relax }}{30}{figure.caption.34}
+\contentsline {figure}{\numberline {1.3}{\ignorespaces Extremwerte von Korrelationen im Vergleich.\relax }}{19}{figure.caption.12}
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Hypergeometrische Verteilung ($m=100, n=100, k=100$)\relax }}{34}{figure.caption.36}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Potenzmenge von $\{x,y,z\}$ als Hasse-Diagramm\relax }}{24}{figure.caption.24}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Teambildung nach Geschlecht\relax }}{35}{figure.caption.38}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Die wichtigsten Operationen der Mengenlehre graphisch erl\IeC {\"a}utert mittels Venn-Diagrammen f\IeC {\"u}r $A,B \subset \Omega $.\relax }}{25}{figure.caption.26}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Binomialverteilung ($n=100, p=0.5$)\relax }}{38}{figure.caption.39}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Tabelle bedingter Wahrscheinlichkeiten.\relax }}{31}{figure.caption.33}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Wahrscheinlichkeitsverteilung beim M\IeC {\"u}nzwurf\relax }}{39}{figure.caption.40}
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Poissonverteilung f\IeC {\"u}r verschiedene $\lambda $\relax }}{40}{figure.caption.41}
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3.6}{\ignorespaces Poissonverteilung ($\lambda =50$)\relax }}{42}{figure.caption.42}
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3.7}{\ignorespaces Wahrscheinlichkeiten von Pixelfehlern pro Bild\relax }}{43}{figure.caption.44}
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3.8}{\ignorespaces Wahrscheinlichkeiten von Requests pro Woche\relax }}{45}{figure.caption.46}
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3.9}{\ignorespaces Lineare Transformation $Y = 3 \cdot X + 2$\relax }}{48}{figure.caption.47}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Hinweise zur Tabelle bedingter Wahrscheinlichkeiten.\relax }}{32}{figure.caption.34}
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Dichtefunktion $f(x)$ und kummulative Verteilungsfunktion $F(x)$ in der Gegen\IeC {\"u}berstellung.\relax }}{52}{figure.caption.52}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Hypergeometrische Verteilung ($m=100, n=100, k=100$)\relax }}{36}{figure.caption.36}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Quantil einer Dichtefunktion.\relax }}{55}{figure.caption.53}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Teambildung nach Geschlecht\relax }}{37}{figure.caption.38}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Uniforme Dichte $f(x)$ und Verteilung $F(x)$.\relax }}{56}{figure.caption.54}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Binomialverteilung ($n=100, p=0.5$)\relax }}{40}{figure.caption.39}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Uniforme Verteilung ($n=100, min=0, max=100$)\relax }}{59}{figure.caption.55}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Wahrscheinlichkeitsverteilung beim M\IeC {\"u}nzwurf\relax }}{41}{figure.caption.40}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Analog-to-Digital Converter, 8 Bit.\relax }}{60}{figure.caption.56}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Poissonverteilung f\IeC {\"u}r verschiedene $\lambda $\relax }}{42}{figure.caption.41}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.6}{\ignorespaces Quantifizierungfehler eines ADC.\relax }}{61}{figure.caption.57}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Poissonverteilung ($\lambda =50$)\relax }}{44}{figure.caption.42}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.7}{\ignorespaces Normalverteilung\relax }}{62}{figure.caption.58}
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Wahrscheinlichkeiten von Pixelfehlern pro Bild\relax }}{45}{figure.caption.44}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.8}{\ignorespaces Normalverteilung ($\mu =50, \sigma ^2=10$)\relax }}{64}{figure.caption.59}
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Wahrscheinlichkeiten von Requests pro Woche\relax }}{47}{figure.caption.46}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.9}{\ignorespaces Zufalls-Jitter\relax }}{65}{figure.caption.60}
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.10}{\ignorespaces Exponentialverteilung\relax }}{66}{figure.caption.61}
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.11}{\ignorespaces Exponentialverteilung\relax }}{69}{figure.caption.62}
+\contentsline {figure}{\numberline {3.9}{\ignorespaces Lineare Transformation $Y = 3 \cdot X + 2$\relax }}{50}{figure.caption.47}
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Konfidenzintervall\relax }}{77}{figure.caption.69}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Dichtefunktion $f(x)$ und kummulative Verteilungsfunktion $F(x)$ in der Gegen\IeC {\"u}berstellung.\relax }}{54}{figure.caption.52}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.2}{\ignorespaces P-Wert graphisch dargestellt\relax }}{78}{figure.caption.70}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Quantil einer Dichtefunktion.\relax }}{57}{figure.caption.53}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Fehler 1. Art\relax }}{79}{figure.caption.72}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Uniforme Dichte $f(x)$ und Verteilung $F(x)$.\relax }}{58}{figure.caption.54}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.4}{\ignorespaces Fehler 2. Art\relax }}{80}{figure.caption.73}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Uniforme Verteilung ($n=100, min=0, max=100$)\relax }}{61}{figure.caption.55}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.5}{\ignorespaces Vorschrift zur Modellauswahl als Flussdiagramm\relax }}{81}{figure.caption.74}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Analog-to-Digital Converter, 8 Bit.\relax }}{62}{figure.caption.56}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Quantifizierungfehler eines ADC.\relax }}{63}{figure.caption.57}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Normalverteilung\relax }}{64}{figure.caption.58}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Normalverteilung ($\mu =50, \sigma ^2=10$)\relax }}{66}{figure.caption.59}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Zufalls-Jitter\relax }}{67}{figure.caption.60}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.10}{\ignorespaces Exponentialverteilung\relax }}{68}{figure.caption.61}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Exponentialverteilung\relax }}{71}{figure.caption.62}
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {6.2}{\ignorespaces Analyse eines Boxplots\relax }}{95}{figure.caption.100}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Konfidenzintervall\relax }}{79}{figure.caption.69}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {6.3}{\ignorespaces Boxplots verschiedener Verteilungen\relax }}{97}{figure.caption.101}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces P-Wert graphisch dargestellt\relax }}{80}{figure.caption.70}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Fehler 1. Art\relax }}{81}{figure.caption.72}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Fehler 2. Art\relax }}{82}{figure.caption.73}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Vorschrift zur Modellauswahl als Flussdiagramm\relax }}{83}{figure.caption.74}
+\defcounter {refsection}{0}\relax 
+\addvspace {10\p@ }
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {6.2}{\ignorespaces Analyse eines Boxplots\relax }}{97}{figure.caption.100}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {6.3}{\ignorespaces Boxplots verschiedener Verteilungen\relax }}{99}{figure.caption.101}
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
