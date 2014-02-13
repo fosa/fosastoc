@@ -24,147 +24,147 @@
 \begin{theglossary}\glossaryheader
 \glsgroupheading{A}\relax\glsresetentrylist
 \glossaryentryfield{Abstraktion}{\glsnamefont{Abstraktion}}{Vereinfachung auf Wesentliches}{\relax }{\glossaryentrynumbers{\relax 
-\glsXpageXglsnumberformat{}{xi}, 
+\glsXpageXglsnumberformat{}{xiii}, 
 \glsXpageXglsnumberformat{}{22}}}\relax\glsresetentrylist
 \glossaryentryfield{Additivitaet}{\glsnamefont{Additivität}}{Bezeichnung für das zweite Axiom von Kolmogorov. Dieses besagt, dass die Wahrscheinlichkeiten sich ausschliessender Ereignisse addieren lassen}{\relax }{\glossaryentrynumbers{\relax 
-\glsXpageXglsnumberformat{}{xi}, 
+\glsXpageXglsnumberformat{}{xiii}, 
 \glsXpageXglsnumberformat{}{26}}}\relax\glsresetentrylist
 \glossaryentryfield{arithmetische Mittel}{\glsnamefont{Arithmetisches Mittel}}{Quotient aus der Summe aller Elemente und Anzahl Elemente}{\relax }{\glossaryentrynumbers{\relax 
-\glsXpageXglsnumberformat{}{xi}, 
+\glsXpageXglsnumberformat{}{xiii}, 
 \glsXpageXglsnumberformat{}{12}\delimN 
 \glsXpageXglsnumberformat{}{14}}}\relax\glsresetentrylist
 \glossaryentryfield{Axiome von Kolmogorov}{\glsnamefont{Axiome von Kolmogorov}}{Der russische Mathematiker Andrei N. Kolmogorov formulierte die drei grundlegenden Axiome der Wahrscheinlichkeitstheorie; Nichtnegativität, Normiertheit, Additivität}{\relax }{\glossaryentrynumbers{\relax 
-\glsXpageXglsnumberformat{}{xi}, 
+\glsXpageXglsnumberformat{}{xiii}, 
 \glsXpageXglsnumberformat{}{26}\delimN 
 \glsXpageXglsnumberformat{}{55}}}\glsgroupskip
 \glsgroupheading{B}\relax\glsresetentrylist
 \glossaryentryfield{Beyes'sche Theorem}{\glsnamefont{Beyes'sche Theorem}}{Das Beye'sche Theorem ist vom Mathematiker Thomas Beyes formulierter Satz, welcher die Berechnung bedingter Wahrscheinlichkeiten beschreibt}{\relax }{\glossaryentrynumbers{\relax 
-\glsXpageXglsnumberformat{}{xi}, 
+\glsXpageXglsnumberformat{}{xiii}, 
 \glsXpageXglsnumberformat{}{29}}}\relax\glsresetentrylist
 \glossaryentryfield{Binaer}{\glsnamefont{Binaer}}{Binär heisst wörtlich "`paarweise"' und beschreibt meist ein Zahlensysten (\emph {Binärsystem}, \emph {Dualsystem}) oder einen Zahlenraum der genau zwei Werte kennt}{\relax }{\glossaryentrynumbers{\relax 
-\glsXpageXglsnumberformat{}{xi}, 
+\glsXpageXglsnumberformat{}{xiii}, 
 \glsXpageXglsnumberformat{}{33}, \glsseeformat[\seename ]{Bit}{}}}\relax\glsresetentrylist
 \glossaryentryfield{Binomialkoeffizient}{\glsnamefont{Binomialkoeffizient}}{{Eine mathematische Formulierung und Funktion zur Ermittlung möglicher Kombinationen} see}{\relax }{\glossaryentrynumbers{\relax 
-\glsXpageXglsnumberformat{}{xi}, 
+\glsXpageXglsnumberformat{}{xiii}, 
 \glsXpageXglsnumberformat{}{29}}}\relax\glsresetentrylist
 \glossaryentryfield{Bit}{\glsnamefont{Bit}}{Das Bit ist eine Einheit aus der Informationstheorie welche den kleinstmöglichen Informationsgehalt beschreibt welcher durch die Wahl aus zwei gleichwahrscheinlichen Möglichkeiten beschreibt (oft \emph {1 oder 0} bzw. \emph {wahr oder falsch})}{\relax }{\glossaryentrynumbers{\relax 
-\glsXpageXglsnumberformat{}{xi}, \glsseeformat[\seename ]{Binaer}{}}}\relax\glsresetentrylist
+\glsXpageXglsnumberformat{}{xiii}, \glsseeformat[\seename ]{Binaer}{}}}\relax\glsresetentrylist
 \glossaryentryfield{Buffer Overflow}{\glsnamefont{Buffer Overflow}}{Ein \emph {Pufferüberlauf} ist ein Fehler in der Speicherallozierung von Computersystem welcher durch Fehler in der ausgeführten Software verursacht wird}{\relax }{\glossaryentrynumbers{\relax 
-\glsXpageXglsnumberformat{}{xi}, 
+\glsXpageXglsnumberformat{}{xiii}, 
 \glsXpageXglsnumberformat{}{46}}}\glsgroupskip
 \glsgroupheading{D}\relax\glsresetentrylist
 \glossaryentryfield{Differenzmenge}{\glsnamefont{Differenzmenge}}{Menge von Elementen einer Menge ohne jene Elemente, welche auch in einer weiteren Menge enthalten sind}{\relax }{\glossaryentrynumbers{\relax 
-\glsXpageXglsnumberformat{}{xi}, 
+\glsXpageXglsnumberformat{}{xiii}, 
 \glsXpageXglsnumberformat{}{24}}}\relax\glsresetentrylist
 \glossaryentryfield{Durchschnitt}{\glsnamefont{Durchschnitt}}{Durchschnitt ist eine Kurzform für das \emph {arithmetische Mittel}}{\relax }{\glossaryentrynumbers{\relax 
-\glsXpageXglsnumberformat{}{xi}, 
+\glsXpageXglsnumberformat{}{xiii}, 
 \glsXpageXglsnumberformat{}{12}}}\glsgroupskip
 \glsgroupheading{E}\relax\glsresetentrylist
 \glossaryentryfield{echte Teilmenge}{\glsnamefont{Echte Teilmenge}}{Menge von Elementen die alle Teil einer anderen Menge sind, diese aber noch weitere Elemente enthält, d.h. die Mengen sind nicht gleich}{\relax }{\glossaryentrynumbers{\relax 
-\glsXpageXglsnumberformat{}{xi}, 
+\glsXpageXglsnumberformat{}{xiii}, 
 \glsXpageXglsnumberformat{}{23}}}\relax\glsresetentrylist
 \glossaryentryfield{Embedded System}{\glsnamefont{Embedded System}}{Ein \emph {eingebettetes System} beschreibt eine spezifische Hardwareimplementierung innerhalb einer Applikation (Gerät, nicht Software) welche sich auf auf ein Mikrocontroller stütz}{\relax }{\glossaryentrynumbers{\relax 
-\glsXpageXglsnumberformat{}{xi}, 
+\glsXpageXglsnumberformat{}{xiii}, 
 \glsXpageXglsnumberformat{}{46}, \glsseeformat[\seename ]{Mikrocontroller}{}}}\relax\glsresetentrylist
 \glossaryentryfield{Ereignisraum}{\glsnamefont{Ereignisraum}}{Die Menge aller möglichen Ereignisse (oft mit $\Omega $ notiert)}{\relax }{\glossaryentrynumbers{\relax 
-\glsXpageXglsnumberformat{}{xi}, 
+\glsXpageXglsnumberformat{}{xiii}, 
 \glsXpageXglsnumberformat{}{22}}}\glsgroupskip
 \glsgroupheading{G}\relax\glsresetentrylist
 \glossaryentryfield{gleiche Menge}{\glsnamefont{Gleiche Menge}}{Eine Menge deren Inhalt identisch ist mit dem Inhalt einer anderen Menge}{\relax }{\glossaryentrynumbers{\relax 
-\glsXpageXglsnumberformat{}{xi}, 
+\glsXpageXglsnumberformat{}{xiii}, 
 \glsXpageXglsnumberformat{}{23}}}\glsgroupskip
 \glsgroupheading{K}\relax\glsresetentrylist
 \glossaryentryfield{Kolmogorov}{\glsnamefont{Kolmogorov}}{Bekannter russischer Mathemathiker, welche die Grundlegenden Axiome der Wahrscheinlichkeitstheorie formulierte}{\relax }{\glossaryentrynumbers{\relax 
-\glsXpageXglsnumberformat{}{xi}, 
+\glsXpageXglsnumberformat{}{xiii}, 
 \glsXpageXglsnumberformat{}{26}, \glsseeformat[\seename ]{Axiome von Kolmogorov}{}}}\relax\glsresetentrylist
 \glossaryentryfield{Kombination}{\glsnamefont{Kombination}}{{Eine spezielle Methode des Zählens. Sie wird angewandt zur Bestimmung von möglichen Ereignissen} see}{\relax }{\glossaryentrynumbers{\relax 
-\glsXpageXglsnumberformat{}{xi}, 
+\glsXpageXglsnumberformat{}{xiii}, 
 \glsXpageXglsnumberformat{}{28}}}\relax\glsresetentrylist
 \glossaryentryfield{Komplement}{\glsnamefont{Komplement}}{Differenzmenge einer Potenzmenge und einer Menge aus derselben Potenzenge}{\relax }{\glossaryentrynumbers{\relax 
-\glsXpageXglsnumberformat{}{xi}, 
+\glsXpageXglsnumberformat{}{xiii}, 
 \glsXpageXglsnumberformat{}{24}}}\relax\glsresetentrylist
 \glossaryentryfield{Korrelation}{\glsnamefont{Korrelation}}{Zusammenhang verschiedener Variablen}{\relax }{\glossaryentrynumbers{\relax 
-\glsXpageXglsnumberformat{}{xi}, 
+\glsXpageXglsnumberformat{}{xiii}, 
 \glsXpageXglsnumberformat{}{18}}}\relax\glsresetentrylist
 \glossaryentryfield{Korrelationskoeffizient}{\glsnamefont{Korrelationskoeffizient}}{Ein (prozentuales) Mass für den Zusammenhang verschiedener Variablen}{\relax }{\glossaryentrynumbers{\relax 
-\glsXpageXglsnumberformat{}{xi}, 
+\glsXpageXglsnumberformat{}{xiii}, 
 \glsXpageXglsnumberformat{}{18}}}\relax\glsresetentrylist
 \glossaryentryfield{Kovarianz}{\glsnamefont{Kovarianz}}{Mass der Ähnlichkeit von Datenreihen}{\relax }{\glossaryentrynumbers{\relax 
-\glsXpageXglsnumberformat{}{xi}, 
+\glsXpageXglsnumberformat{}{xiii}, 
 \glsXpageXglsnumberformat{}{17}}}\glsgroupskip
 \glsgroupheading{L}\relax\glsresetentrylist
 \glossaryentryfield{leere Menge}{\glsnamefont{Leere Menge}}{Eine Menge die keinerlei Elemente enthält}{\relax }{\glossaryentrynumbers{\relax 
-\glsXpageXglsnumberformat{}{xi}, 
+\glsXpageXglsnumberformat{}{xiii}, 
 \glsXpageXglsnumberformat{}{23}}}\glsgroupskip
 \glsgroupheading{M}\relax\glsresetentrylist
 \glossaryentryfield{Median}{\glsnamefont{Median}}{Das $50\%$-Quantil}{\relax }{\glossaryentrynumbers{\relax 
-\glsXpageXglsnumberformat{}{xi}, 
+\glsXpageXglsnumberformat{}{xiii}, 
 \glsXpageXglsnumberformat{}{13}}}\relax\glsresetentrylist
 \glossaryentryfield{Mengenlehre}{\glsnamefont{Mengenlehre}}{Ein Teilgebiet der Mathematik welches aus der Logik hervorgeht. In der Stochastik findet die Mengenlehre insbesondere in der Kombinatorik Verwendung}{\relax }{\glossaryentrynumbers{\relax 
-\glsXpageXglsnumberformat{}{xi}, 
+\glsXpageXglsnumberformat{}{xiii}, 
 \glsXpageXglsnumberformat{}{22}}}\relax\glsresetentrylist
 \glossaryentryfield{Mikrocontroller}{\glsnamefont{Mikrocontroller}}{Ein dediziertes Computersystem welches auf einem gemainsamen Chip implementiert ist (meist inklusive Peripherie und Speicher)}{\relax }{\glossaryentrynumbers{\relax 
-\glsXpageXglsnumberformat{}{xi}, 
+\glsXpageXglsnumberformat{}{xiii}, 
 \glsXpageXglsnumberformat{}{45}}}\relax\glsresetentrylist
 \glossaryentryfield{Mittel}{\glsnamefont{Mittel}}{Mittel ist eine Kurzform für das \emph {arithmetische Mittel}}{\relax }{\glossaryentrynumbers{\relax 
-\glsXpageXglsnumberformat{}{xi}, 
+\glsXpageXglsnumberformat{}{xiii}, 
 \glsXpageXglsnumberformat{}{12}}}\relax\glsresetentrylist
 \glossaryentryfield{Multiplikationsregel}{\glsnamefont{Multiplikationsregel}}{Eine Regel die Anwendung findet zur Bestimmung möglicher Ereignisse (Variation, Permutation, Kombination)}{\relax }{\glossaryentrynumbers{\relax 
-\glsXpageXglsnumberformat{}{xi}, 
+\glsXpageXglsnumberformat{}{xiii}, 
 \glsXpageXglsnumberformat{}{28}}}\glsgroupskip
 \glsgroupheading{N}\relax\glsresetentrylist
 \glossaryentryfield{Nichtnegativitaet}{\glsnamefont{Nichtnegativität}}{Bezeichnung für das erste Axiom von Kolmogorov. Dieses besagt, dass es [\dots ] keine negativen Wahrscheinlichkeiten gibt}{\relax }{\glossaryentrynumbers{\relax 
-\glsXpageXglsnumberformat{}{xi}, 
+\glsXpageXglsnumberformat{}{xiii}, 
 \glsXpageXglsnumberformat{}{26}}}\relax\glsresetentrylist
 \glossaryentryfield{Normiertheit}{\glsnamefont{Normiertheit}}{Bezeichnung für das zweite Axiom von Kolmogorov. Dieses besagt, dass der Grundraum $\Omega $ eine Wahrscheinlichkeit von $P(\Omega )=1$ hat und sich stets etwas ereignet ($P(\emptyset )=0$)}{\relax }{\glossaryentrynumbers{\relax 
-\glsXpageXglsnumberformat{}{xi}, 
+\glsXpageXglsnumberformat{}{xiii}, 
 \glsXpageXglsnumberformat{}{26}\delimN 
 \glsXpageXglsnumberformat{}{55}}}\glsgroupskip
 \glsgroupheading{P}\relax\glsresetentrylist
 \glossaryentryfield{Permutation}{\glsnamefont{Permutation}}{Ein Spezialfall der Variation bei welcher alle Ereignisse stattfinden}{\relax }{\glossaryentrynumbers{\relax 
-\glsXpageXglsnumberformat{}{xi}, 
+\glsXpageXglsnumberformat{}{xiii}, 
 \glsXpageXglsnumberformat{}{28}, \glsseeformat[\seename ]{Variation}{}}}\relax\glsresetentrylist
 \glossaryentryfield{Pixel}{\glsnamefont{Pixel}}{Ein Anglizismus für \emph {Bildpunkt}}{\relax }{\glossaryentrynumbers{\relax 
-\glsXpageXglsnumberformat{}{xi}, 
+\glsXpageXglsnumberformat{}{xiii}, 
 \glsXpageXglsnumberformat{}{45}}}\relax\glsresetentrylist
 \glossaryentryfield{Potenzmenge}{\glsnamefont{Potenzmenge}}{Eine Menge aus allen Teilmengen einer anderen Menge}{\relax }{\glossaryentrynumbers{\relax 
-\glsXpageXglsnumberformat{}{xi}, 
+\glsXpageXglsnumberformat{}{xiii}, 
 \glsXpageXglsnumberformat{}{24}}}\glsgroupskip
 \glsgroupheading{Q}\relax\glsresetentrylist
 \glossaryentryfield{Quantil}{\glsnamefont{Quantil}}{Prozentuale Grenze innerhalb einer Datenreihe}{\relax }{\glossaryentrynumbers{\relax 
-\glsXpageXglsnumberformat{}{xi}, 
+\glsXpageXglsnumberformat{}{xiii}, 
 \glsXpageXglsnumberformat{}{12}\delimN 
 \glsXpageXglsnumberformat{}{13}}}\relax\glsresetentrylist
 \glossaryentryfield{Quartil}{\glsnamefont{Quartil}}{Ein spezielles Quantil welches ein Vielfaches vom $25\%$-Quantil ist}{\relax }{\glossaryentrynumbers{\relax 
-\glsXpageXglsnumberformat{}{xi}, 
+\glsXpageXglsnumberformat{}{xiii}, 
 \glsXpageXglsnumberformat{}{13}}}\glsgroupskip
 \glsgroupheading{S}\relax\glsresetentrylist
 \glossaryentryfield{Schnittmenge}{\glsnamefont{Schnittmenge}}{Menge von Elementen, die alle in mehreren Mengen enthalten sind}{\relax }{\glossaryentrynumbers{\relax 
-\glsXpageXglsnumberformat{}{xi}, 
+\glsXpageXglsnumberformat{}{xiii}, 
 \glsXpageXglsnumberformat{}{23}}}\relax\glsresetentrylist
 \glossaryentryfield{Standardabweichung}{\glsnamefont{Standardabweichung}}{Mass der (linearen) Abweichung von Dantenpunkten und arithmetischem Mittel einer Datenreihe, d.h. die Quadratwurzel der Varianz}{\relax }{\glossaryentrynumbers{\relax 
-\glsXpageXglsnumberformat{}{xi}, 
+\glsXpageXglsnumberformat{}{xiii}, 
 \glsXpageXglsnumberformat{}{16}}}\relax\glsresetentrylist
 \glossaryentryfield{stochastisch unabhaengig}{\glsnamefont{Stochastische Unabhängigkeit}}{Ereignisse welche sich gegenseitig nicht beeinflussen nennt man stochastisch unabhängig}{\relax }{\glossaryentrynumbers{\relax 
-\glsXpageXglsnumberformat{}{xi}, 
+\glsXpageXglsnumberformat{}{xiii}, 
 \glsXpageXglsnumberformat{}{26}\delimN 
 \glsXpageXglsnumberformat{}{27}}}\glsgroupskip
 \glsgroupheading{T}\relax\glsresetentrylist
 \glossaryentryfield{Teilmenge}{\glsnamefont{Teilmenge}}{Menge von Elementen die alle Teil einer anderen Menge sind}{\relax }{\glossaryentrynumbers{\relax 
-\glsXpageXglsnumberformat{}{xi}, 
+\glsXpageXglsnumberformat{}{xiii}, 
 \glsXpageXglsnumberformat{}{23}}}\glsgroupskip
 \glsgroupheading{U}\relax\glsresetentrylist
 \glossaryentryfield{Urnenmodell}{\glsnamefont{Urnenmodell}}{Ein bekanntes Modell für Verteilungen welches das \emph {Ziehen ohne Zurücklegen} abbildet}{\relax }{\glossaryentrynumbers{\relax 
-\glsXpageXglsnumberformat{}{xi}, 
+\glsXpageXglsnumberformat{}{xiii}, 
 \glsXpageXglsnumberformat{}{34}}}\glsgroupskip
 \glsgroupheading{V}\relax\glsresetentrylist
 \glossaryentryfield{Varianz}{\glsnamefont{Varianz}}{Mass der (quadratischen) Abweichung von Datenpunkten und artihmetischem Mittel einer Datenreihe, d.h. das Quadrat der Standardabweichung}{\relax }{\glossaryentrynumbers{\relax 
-\glsXpageXglsnumberformat{}{xi}, 
+\glsXpageXglsnumberformat{}{xiii}, 
 \glsXpageXglsnumberformat{}{14}}}\relax\glsresetentrylist
 \glossaryentryfield{Variation}{\glsnamefont{Variation}}{Eine spezielle Methode des Zählens. Sie wird angewandt zur Bestimmung von möglichen Ereignissen}{\relax }{\glossaryentrynumbers{\relax 
-\glsXpageXglsnumberformat{}{xi}, 
+\glsXpageXglsnumberformat{}{xiii}, 
 \glsXpageXglsnumberformat{}{28}, \glsseeformat[\seename ]{Multiplikationsregel}{}}}\relax\glsresetentrylist
 \glossaryentryfield{Vereinigungsmenge}{\glsnamefont{Vereinigungsmenge}}{Menge der Elemente die in mindestens einer anderen Menge vorkommen}{\relax }{\glossaryentrynumbers{\relax 
-\glsXpageXglsnumberformat{}{xi}, 
+\glsXpageXglsnumberformat{}{xiii}, 
 \glsXpageXglsnumberformat{}{23}}}%
 \end{theglossary}\glossarypostamble
