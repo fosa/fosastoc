@@ -92,6 +92,29 @@
   \field{year}{2008}
 \endentry
 
+\entry{gandrud}{book}{}
+  \name{author}{1}{}{%
+    {{}%
+     {Gandrud}{G.}%
+     {Christopher}{C.}%
+     {}{}%
+     {}{}}%
+  }
+  \list{publisher}{1}{%
+    {CRC Press}%
+  }
+  \strng{namehash}{GC1}
+  \strng{fullhash}{GC1}
+  \field{labelyear}{2013}
+  \field{sortinit}{G}
+  \field{isbn}{978-1-4665-7284-3}
+  \field{title}{Reproducible Research with R and RStudio}
+  \list{location}{1}{%
+    {6000 Broken Sound Parkway NW, Boca Raton}%
+  }
+  \field{year}{2013}
+\endentry
+
 \entry{oreilly}{book}{}
   \name{author}{1}{}{%
     {{}%
