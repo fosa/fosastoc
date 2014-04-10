@@ -17,3 +17,18 @@ fosastoc.pdf
 # Script for building fosastoc from .Rnw files
 mkfosa.sh
 
+# ignore all R-created TeX-files
+begriffe.tex
+definitionen.tex
+kombinatorik.tex
+r-cmd.tex
+test.tex
+verteilungen.tex
+
+# ignore all R-created figures and plots
+begriffe-*.pdf
+definitionen-*.pdf
+kombinatorik-*.pdf
+r-cmd-*.pdf
+test-*.pdf
+verteilungen-*.pdf
