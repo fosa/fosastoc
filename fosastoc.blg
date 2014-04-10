@@ -1,0 +1,61 @@
+This is BibTeX, Version 0.99d (TeX Live 2013/Arch Linux)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: fosastoc.aux
+The style file: biblatex.bst
+Reallocated singl_function (elt_size=8) to 100 items from 50.
+Reallocated singl_function (elt_size=8) to 100 items from 50.
+Reallocated singl_function (elt_size=8) to 100 items from 50.
+Reallocated singl_function (elt_size=8) to 100 items from 50.
+Reallocated singl_function (elt_size=8) to 100 items from 50.
+Reallocated wiz_functions (elt_size=8) to 6000 items from 3000.
+Reallocated singl_function (elt_size=8) to 100 items from 50.
+Reallocated singl_function (elt_size=8) to 100 items from 50.
+Reallocated singl_function (elt_size=8) to 100 items from 50.
+Reallocated singl_function (elt_size=8) to 100 items from 50.
+Reallocated singl_function (elt_size=8) to 100 items from 50.
+Database file #1: fosastoc-blx.bib
+Database file #2: bibliographie.bib
+Biblatex version: 2.7
+Reallocated singl_function (elt_size=8) to 100 items from 50.
+Reallocated wiz_functions (elt_size=8) to 9000 items from 6000.
+You've used 9 entries,
+            6022 wiz_defined-function locations,
+            1173 strings with 9247 characters,
+and the built_in function-call counts, 33459 in all, are:
+= -- 1802
+> -- 1082
+< -- 460
++ -- 479
+- -- 303
+* -- 2018
+:= -- 1950
+add.period$ -- 0
+call.type$ -- 9
+change.case$ -- 339
+chr.to.int$ -- 34
+cite$ -- 16
+duplicate$ -- 3590
+empty$ -- 3228
+format.name$ -- 533
+if$ -- 7847
+int.to.chr$ -- 0
+int.to.str$ -- 30
+missing$ -- 0
+newline$ -- 248
+num.names$ -- 615
+pop$ -- 2614
+preamble$ -- 1
+purify$ -- 359
+quote$ -- 0
+skip$ -- 2181
+stack$ -- 0
+substring$ -- 1511
+swap$ -- 1201
+text.length$ -- 240
+text.prefix$ -- 8
+top$ -- 1
+type$ -- 330
+warning$ -- 0
+while$ -- 192
+width$ -- 0
+write$ -- 238

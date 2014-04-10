@@ -14,24 +14,64 @@
 %GNU General Public License for more details.
 %----------------------------------------
 
-\documentclass[a4paper,10pt,fleqn]{article}
+\documentclass[a5paper,10pt,fleqn]{book}
 \usepackage{layout}
+
+\bibliography{bibliographie}
 
 \title{Formelsammlung Stochastik}
 
-\author{Daniel Winz\\Ervin Mazlagic}
+\author{Daniel Winz\\Ervin Mazlagi\'c}
 \date{\today~\dtc}
+
+\usepackage[xindy,toc]{glossaries}
+\usepackage{makeidx}
+\usepackage{multicol}
+
+\makeglossaries
+
+\include{glossar}
 
 \begin{document}
 
 \maketitle
 \newpage
+
+\scriptsize
+\input{license}
+\normalsize
+\newpage
+
 \input{about}
+
+
+\newpage
+\shorttoc{Kapitelübersicht}{0}
+
 \newpage
 \tableofcontents
 \newpage
 
 \input{content}
+\clearpage
+\newpage
+
+\setlength\bibitemsep{1.5\itemsep}
+\nocite{*}	% alle Quellen auflisten
+%\bibliography{bibliographie}	% Bibliographie wählen (BibTex Datei)
+%\bibliographystyle{apacite}
+\printbibliography
+
+\newpage
+\listoffigures
+
+\newpage
+\scriptsize
+\begin{multicols}{2}
+	\glossarystyle{altlistgroup}
+	\glsaddall
+	\printglossary[title=Glossar]
+\end{multicols}
 
 \end{document}
 

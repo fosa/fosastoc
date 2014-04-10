@@ -79,19 +79,19 @@ rechnen das arithmetische Mittel als auch die Standardabweichung (\verb!sd()!).
 > x
 \end{Sinput}
 \begin{Soutput}
- [1]  8 10  4  8  2  8  9  8  5  1
+ [1]  2  6  7 10  7  1  5  8  4  4
 \end{Soutput}
 \begin{Sinput}
 > mean(x)
 \end{Sinput}
 \begin{Soutput}
-[1] 6.3
+[1] 5.4
 \end{Soutput}
 \begin{Sinput}
 > sd(x)
 \end{Sinput}
 \begin{Soutput}
-[1] 3.093003
+[1] 2.75681
 \end{Soutput}
 \end{Schunk}
 
@@ -119,28 +119,28 @@ in der Messreihe, wo x\% der Werte darunter liegen.
 > x
 \end{Sinput}
 \begin{Soutput}
- [1]  1  2  3  4  5  5  5  7  9 10 12 13 13 13 15 17 17 17 19 20
+ [1]  1  2  2  2  3  3  3  6  6  7  7  7  8  9 10 14 14 15 16 19
 \end{Soutput}
 \begin{Sinput}
 > quantile(x, prob=0.2)
 \end{Sinput}
 \begin{Soutput}
 20% 
-4.8 
+2.8 
 \end{Soutput}
 \begin{Sinput}
 > quantile(x, prob=0.2, type=1)
 \end{Sinput}
 \begin{Soutput}
 20% 
-  4 
+  2 
 \end{Soutput}
 \begin{Sinput}
 > quantile(x, prob=0.2, type=2)
 \end{Sinput}
 \begin{Soutput}
 20% 
-4.5 
+2.5 
 \end{Soutput}
 \end{Schunk}
 Im obigen Beispiel wird mit R das 20\%-Quantil bestimmt. Hier ist aber 
@@ -188,7 +188,7 @@ arithmetischen Mittelwert. Sie ist das Quadrat der Standardabweichung.
 > var(x)
 \end{Sinput}
 \begin{Soutput}
-[1] 0.1006804
+[1] 0.08022173
 \end{Soutput}
 \end{Schunk}
 
@@ -203,7 +203,7 @@ eines Vektors mit sich selbst entspricht der Varianz des Vektors.
 > cov(x,y)
 \end{Sinput}
 \begin{Soutput}
-[1] 0.004637608
+[1] 0.03989622
 \end{Soutput}
 \end{Schunk}
 
@@ -219,7 +219,7 @@ zueinander. Der Wertebereich des Korrelationskoeffizienten ist $[-1, 1]$.
 > cor(x,y)
 \end{Sinput}
 \begin{Soutput}
-[1] 0.0621717
+[1] 0.5110437
 \end{Soutput}
 \end{Schunk}
 
@@ -557,7 +557,7 @@ Dies impliziert, dass auch die folgenden Gesetzte gelten:
 
 \subsection{Exponentialverteilung}
 \[ \begin{array}{@{}ll}
-  \text{für }x \geq 0: & f(x) = \lambda \cdot e^{-\lambda \cdot x} \\
+  \text{für }x \leq 0: & f(x) = \lambda \cdot e^{-\lambda \cdot x} \\
   \text{für }x < 0:    & f(x) = 0
 \end{array} \]
 \begin{Schunk}
@@ -584,7 +584,7 @@ Dies impliziert, dass auch die folgenden Gesetzte gelten:
 
 \subsubsection{Kumulative Verteilungsfunktion}
 \[ \begin{array}{@{}ll}
-  \text{für }x \geq 0: & f(x) = 1 - e^{-\lambda \cdot x} \\
+  \text{für }x \leq 0: & f(x) = 1 - e^{-\lambda \cdot x} \\
   \text{für }x < 0:    & f(x) = 0
 \end{array} \]
 \begin{Schunk}
@@ -736,8 +736,8 @@ machen für jede Farbe einen statistischen Test.
 > round(1-pbinom(q=0:18, size=18, prob=1/6), 3)
 \end{Sinput}
 \begin{Soutput}
- [1] 0.962 0.827 0.597 0.352 0.168 0.065 0.021 0.005 0.001 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000 0.000
-[19] 0.000
+ [1] 0.962 0.827 0.597 0.352 0.168 0.065 0.021 0.005 0.001 0.000 0.000 0.000
+[13] 0.000 0.000 0.000 0.000 0.000 0.000 0.000
 \end{Soutput}
 \end{Schunk}
 	Vorsicht: Berechnet man den Verwerfungbereich mit R so muss man sehr
@@ -837,11 +837,12 @@ Wir möchten das auf einem Signifikanzniveau von $\alpha=0.05$ testen.
 \begin{Soutput}
 	One Sample z-test
 
-data:  weinmenge 
-z = 0.433, n = 12.000, Std. Dev. = 2.000, Std. Dev. of the sample mean = 0.577, p-value = 0.6675
-alternative hypothesis: true mean is less than 70 
+data:  weinmenge
+z = 0.433, n = 12.000, Std. Dev. = 2.000, Std. Dev. of the sample mean
+= 0.577, p-value = 0.6675
+alternative hypothesis: true mean is less than 70
 95 percent confidence interval:
-     -Inf 71.19966 
+     -Inf 71.19966
 sample estimates:
 mean of weinmenge 
             70.25 
@@ -915,11 +916,11 @@ von $\alpha=0.05$ testen.
 \begin{Soutput}
 	One Sample t-test
 
-data:  weinmenge 
+data:  weinmenge
 t = 0.4419, df = 11, p-value = 0.6664
-alternative hypothesis: true mean is less than 70 
+alternative hypothesis: true mean is less than 70
 95 percent confidence interval:
-     -Inf 71.26603 
+     -Inf 71.26603
 sample estimates:
 mean of x 
     70.25 
@@ -943,9 +944,9 @@ eingegangen. Berechnung in R:
 \begin{Soutput}
 	Wilcoxon signed rank test with continuity correction
 
-data:  weinmenge 
+data:  weinmenge
 V = 44.5, p-value = 0.6838
-alternative hypothesis: true location is less than 70 
+alternative hypothesis: true location is less than 70
 \end{Soutput}
 \end{Schunk}
 
@@ -969,14 +970,14 @@ werden. Das kann man in R mit \verb!>! gemacht werden. \\
 \begin{Soutput}
 	Exact binomial test
 
-data:  sum(data > mu) and length(data) 
-number of successes = 61, number of trials = 120, p-value = 0.6078
-alternative hypothesis: true probability of success is less than 0.5 
+data:  sum(data > mu) and length(data)
+number of successes = 53, number of trials = 120, p-value = 0.1176
+alternative hypothesis: true probability of success is less than 0.5
 95 percent confidence interval:
- 0.0000000 0.5867584 
+ 0.0000000 0.5208552
 sample estimates:
 probability of success 
-             0.5083333 
+             0.4416667 
 \end{Soutput}
 \end{Schunk}
 
@@ -1143,8 +1144,6 @@ es ermittelt $\beta_0$ und $\beta_1$.
 	$\beta_1$ & Estimate 'daten' & Steigung \\
 	$s.e.(\beta_0)$ & Std. Error (Intercept) & Standardabweichung der Verschiebung in y-Richtung\\
 	$s.e.(\beta_1)$ & Std. Error (Intercept) & Standardabweichung der Steigung\\
-	t-Wert für $\beta_0$ & t value (intercept) & t-Wert (t-Test auf $\beta_0$, d.h. $ \displaystyle t = \frac{\beta_0}{\sigma}$) \\
-	t-Wert für $\beta_1$ & t value & t-Wert (analog zum t für $\beta_0$) \\
 	P-Wert für $\beta_0$ & Pr(>|t|) (Intercept) & Wahrscheinlichkeit, dass Verschiebung in y-Richtung 0 ist \\
 	P-wert für $\beta_1$ & Pr(>|t|) & Wahrscheinlichkeit, dass die Steigung 0 ist\\
 	$\varepsilon_1$ & Residual standard error & Rauschen um die Steigung und Verschiebung zu y\\

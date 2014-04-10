@@ -14,28 +14,326 @@
 %GNU General Public License for more details.
 %----------------------------------------
 
-\section{R-Glossar}
+\newglossaryentry{arithmetische Mittel}{
+	name={Arithmetisches Mittel},
+	text={arithmetische Mittel},
+	description={Quotient aus der Summe aller Elemente und
+		Anzahl Elemente},
+	sort={Arithmetisches Mittel}
+}
 
-\begin{longtable}{llp{0.5 \textwidth}}
-\textbf{Aufruf} & \textbf{Name} & \textbf{Beschreibung} \\
-\verb|help(func)| & Hilfe & Hilfe zu Funktionen \\
-\verb|sum(x)| & Summe & Summe der Daten \\
-\verb|factorial(x)| & Fakultät & Wert der Fakultät von einer Zahl \\
-\verb|mean(x)| & Mittelwert & arithmetischer Mittelwert der Daten \\
-\verb|sd(x)| & Standardabweichung & Standardabweichung der Daten ($\sigma$) \\
-\verb|var(x)| & Varianz & Varianz der Daten 
-  (\verb|var(x)| = \verb|sd(x)^2| = \verb|cov(x,x)|) \\
-\verb|median(x)| & Median & 50 \% Quantil \\
-\verb|quantile(x,prob,type=2)| & y \% Quantil & Quantil der Daten 
-  \textbf{Achtung! type=2!} \\
-\verb|length(x)| & Länge & Länge des Datenvektors \\
-\verb|rep(x,times)| & Replicate & repliziert Elemente von Vektoren. Jedes 
-  \verb|x| wird \verb|times| mal aufgelistet \\
-\verb|cumsum(x)| & Kumulative Summe & Liefert einen Vektor, dessen Elemente die 
-  Summe aller vorhergehenden Summe des Eingangsvektors sind. \\
-\verb|scale(x)| & Standardisierung & Standardisiert Daten (mean=0, sd=1) \\
-\verb|unique(x)| & "'Einzigartig"' & entfernt doppelt vorhandene Werte \\
-\verb|apply(x)| & Anwenden & wendet eine Funktion auf jedes Element eines 
-Vektors an. \\
+\newglossaryentry{Mittel}{
+	name=Mittel,
+	description={Mittel ist eine Kurzform für das 
+		\emph{arithmetische Mittel}},
+	sort=Mittel
+}
 
-\end{longtable}
+\newglossaryentry{Durchschnitt}{
+	name=Durchschnitt,
+	description={Durchschnitt ist eine Kurzform für das
+		\emph{arithmetische Mittel}},
+	sort=Durchschnitt
+}
+
+\newglossaryentry{Quantil}{
+	name=Quantil,
+	description={Prozentuale Grenze innerhalb einer Datenreihe},
+	sort=Quantil
+}
+
+\newglossaryentry{Quartil}{
+	name=Quartil,
+	description={Ein spezielles Quantil welches ein Vielfaches
+		vom $25\%$-Quantil ist},
+	sort=Quartil
+}
+
+\newglossaryentry{Median}{
+	name=Median,
+	description={Das $50\%$-Quantil},
+	sort=Median
+}
+
+\newglossaryentry{Varianz}{
+	name=Varianz,
+	description={Mass der (quadratischen) Abweichung von Datenpunkten 
+		und artihmetischem Mittel einer Datenreihe, d.h. das
+		Quadrat der Standardabweichung},
+	sort=Varianz
+}
+
+\newglossaryentry{Standardabweichung}{
+	name=Standardabweichung,
+	description={Mass der (linearen) Abweichung von Dantenpunkten
+		und arithmetischem Mittel einer Datenreihe, d.h. die
+		Quadratwurzel der Varianz},
+	sort=Standardabweichung
+}
+
+\newglossaryentry{Kovarianz}{
+	name=Kovarianz,
+	description={Mass der Ähnlichkeit von Datenreihen},
+	sort=Kovarianz
+}
+
+\newglossaryentry{Korrelation}{
+	name=Korrelation,
+	description={Zusammenhang verschiedener Variablen},
+	sort=Korrelation
+}
+
+\newglossaryentry{Korrelationskoeffizient}{
+	name=Korrelationskoeffizient,
+	description={Ein (prozentuales) Mass für den Zusammenhang 
+		verschiedener Variablen},
+	sort=Korrelationskoeffizient
+}
+
+\newglossaryentry{Mengenlehre}{
+	name=Mengenlehre,
+	description={Ein Teilgebiet der Mathematik welches aus der
+		Logik hervorgeht. In der Stochastik findet die
+		Mengenlehre insbesondere in der Kombinatorik 
+		Verwendung},
+	sort=Mengenlehre
+}
+
+\newglossaryentry{Abstraktion}{
+	name=Abstraktion,
+	description={Vereinfachung auf Wesentliches}
+}
+
+\newglossaryentry{Ereignisraum}{
+	name=Ereignisraum,
+	description={Die Menge aller möglichen Ereignisse (oft mit
+		$\Omega$ notiert)},
+	sort=Ereignisraum
+}
+
+\newglossaryentry{Teilmenge}{
+	name=Teilmenge,
+	description={Menge von Elementen die alle Teil einer anderen
+		Menge sind},
+	sort=Teilmenge
+}
+
+\newglossaryentry{echte Teilmenge}{
+	name={Echte Teilmenge},
+	text={echte Teilmenge},
+	description={Menge von Elementen die alle Teil einer anderen
+		Menge sind, diese aber noch weitere Elemente enthält,
+		d.h. die Mengen sind nicht gleich},
+	sort={Echte Teilmenge}
+}
+
+\newglossaryentry{leere Menge}{
+	name={Leere Menge},
+	text={leere Menge},
+	description={Eine Menge die keinerlei Elemente enthält},
+	sort={Leere Menge}
+}
+
+\newglossaryentry{Schnittmenge}{
+	name=Schnittmenge,
+	description={Menge von Elementen, die alle in mehreren Mengen
+		enthalten sind},
+	sort=Schnittmenge
+}
+
+\newglossaryentry{Vereinigungsmenge}{
+	name=Vereinigungsmenge,
+	description={Menge der Elemente die in mindestens einer anderen
+		Menge vorkommen},
+	sort=Vereinigungsmenge
+}
+
+\newglossaryentry{gleiche Menge}{
+	name={Gleiche Menge},
+	text={gleiche Menge},
+	description={Eine Menge deren Inhalt identisch ist mit dem
+		Inhalt einer anderen Menge},
+	sort={Gleiche Menge}
+}
+
+\newglossaryentry{Differenzmenge}{
+	name=Differenzmenge,
+	description={Menge von Elementen einer Menge ohne jene Elemente,
+		welche auch in einer weiteren Menge enthalten sind},
+	sort=Differenzmenge
+}
+
+\newglossaryentry{Kolmogorov}{
+	name=Kolmogorov,
+	description={Bekannter russischer Mathemathiker, welche die
+		Grundlegenden Axiome der Wahrscheinlichkeitstheorie
+		formulierte},
+	see={Axiome von Kolmogorov},
+	sort=Kolmogorov
+}
+
+\newglossaryentry{Axiome von Kolmogorov}{
+	name={Axiome von Kolmogorov},
+	description={Der russische Mathematiker Andrei N. Kolmogorov
+		formulierte die drei 
+		grundlegenden Axiome der Wahrscheinlichkeitstheorie;
+		Nichtnegativität, Normiertheit, Additivität},
+	sort={Axiome von Kolmogorov}
+}
+
+\newglossaryentry{Nichtnegativitaet}{
+	name={Nichtnegativität},
+	text={Nichtnegativität},
+	description={Bezeichnung für das erste Axiom von Kolmogorov.
+		Dieses besagt, dass es [\dots] keine negativen 
+		Wahrscheinlichkeiten gibt},
+	sort={Nichtnegativitaet}
+}
+
+\newglossaryentry{Normiertheit}{
+	name=Normiertheit,
+	description={Bezeichnung für das zweite Axiom von Kolmogorov.
+		Dieses besagt, dass der Grundraum $\Omega$ eine
+		Wahrscheinlichkeit von $P(\Omega)=1$ hat und sich
+		stets etwas ereignet ($P(\emptyset)=0$)},
+	sort={Normiertheit}
+}
+
+\newglossaryentry{Additivitaet}{
+	name={Additivität},
+	text={Additivität},
+	description={Bezeichnung für das zweite Axiom von Kolmogorov.
+		Dieses besagt, dass die Wahrscheinlichkeiten sich
+		ausschliessender Ereignisse addieren lassen},
+	sort={Additivitaet}
+}
+
+\newglossaryentry{stochastisch unabhaengig}{
+	name={Stochastische Unabhängigkeit},
+	text={stochastisch unabhängig},
+	description={Ereignisse welche sich gegenseitig nicht
+		beeinflussen nennt man stochastisch unabhängig},
+	sort={Stochastisch Unabhaengig}
+}
+
+\newglossaryentry{Potenzmenge}{
+	name=Potenzmenge,
+	description={Eine Menge aus allen Teilmengen einer anderen 
+		Menge},
+	sort=Potenzmenge
+}
+
+\newglossaryentry{Komplement}{
+	name=Komplement,
+	description={Differenzmenge einer Potenzmenge und einer Menge
+		aus derselben Potenzenge},
+	sort=Komplement
+}
+
+\newglossaryentry{Beyes'sche Theorem}{
+	name={Beyes'sche Theorem},
+	description={Das Beye'sche Theorem ist vom Mathematiker
+		Thomas Beyes formulierter Satz, welcher die Berechnung
+		bedingter Wahrscheinlichkeiten beschreibt},
+	sort={Beyes'sche Theorem}
+}
+
+\newglossaryentry{Multiplikationsregel}{
+	name=Multiplikationsregel,
+	description={Eine Regel die Anwendung findet zur Bestimmung möglicher
+		Ereignisse (Variation, Permutation, Kombination)},
+	sort=Multiplikatiosnregel
+}
+
+\newglossaryentry{Variation}{
+	name=Variation,
+	description={Eine spezielle Methode des Zählens. Sie wird angewandt 
+		zur Bestimmung von möglichen Ereignissen},
+	see=Multiplikationsregel,
+	sort=Variation
+}
+
+\newglossaryentry{Permutation}{
+	name=Permutation,
+	description={Ein Spezialfall der Variation bei welcher alle
+		Ereignisse stattfinden},
+	see=Variation,
+	sort=Permutation
+}
+
+\newglossaryentry{Kombination}{
+	name=Kombination,
+	description={Eine spezielle Methode des Zählens. Sie wird angewandt
+		zur Bestimmung von möglichen Ereignissen}
+	see=Multiplikationsregel,
+	sort=Kombination
+}
+
+\newglossaryentry{Binomialkoeffizient}{
+	name=Binomialkoeffizient,
+	description={Eine mathematische Formulierung und Funktion zur
+		Ermittlung möglicher Kombinationen}
+	see=Multiplikationsregel,
+	sort=Binomialkoeffizient
+}
+
+\newglossaryentry{Binaer}{
+	name=Binaer,
+	text={Binär},
+	description={Binär heisst wörtlich "`paarweise"' und beschreibt
+		meist ein Zahlensysten (\emph{Binärsystem}, 
+		\emph{Dualsystem}) oder einen Zahlenraum der genau
+		zwei Werte kennt},
+	see=Bit,
+	sort=Binaer
+}
+
+\newglossaryentry{Bit}{
+	name=Bit,
+	description={Das Bit ist eine Einheit aus der Informationstheorie
+		welche den kleinstmöglichen Informationsgehalt beschreibt
+		welcher durch die Wahl aus zwei gleichwahrscheinlichen
+		Möglichkeiten beschreibt (oft \emph{1 oder 0} bzw. 
+		\emph{wahr oder falsch})},
+	see=Binaer,
+	sort=Bit
+}
+
+\newglossaryentry{Urnenmodell}{
+	name=Urnenmodell,
+	description={Ein bekanntes Modell für Verteilungen welches das
+		\emph{Ziehen ohne Zurücklegen} abbildet},
+	sort=Urnenmodell
+}
+
+\newglossaryentry{Pixel}{
+	name=Pixel,
+	description={Ein Anglizismus für \emph{Bildpunkt}},
+	sort=Pixel
+}
+
+\newglossaryentry{Mikrocontroller}{
+	name=Mikrocontroller,
+	description={Ein dediziertes Computersystem welches auf
+		einem gemainsamen Chip implementiert ist (meist 
+		inklusive Peripherie und Speicher)},
+	sort=Mikrocontroller
+}
+
+\newglossaryentry{Embedded System}{
+	name={Embedded System},
+	description={Ein \emph{eingebettetes System} beschreibt eine
+		spezifische Hardwareimplementierung innerhalb einer
+		Applikation (Gerät, nicht Software) welche sich auf
+		auf ein Mikrocontroller stütz},
+	see=Mikrocontroller,
+	sort={Embedded System}
+}
+
+\newglossaryentry{Buffer Overflow}{
+	name={Buffer Overflow},
+	description={Ein \emph{Pufferüberlauf} ist ein Fehler in der 
+		Speicherallozierung von Computersystem welcher durch 
+		Fehler in der ausgeführten Software verursacht wird},
+	sort={Buffer Overflow}
+}

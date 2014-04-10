@@ -1,0 +1,547 @@
+% coding:utf-8
+
+%FOSASTOC, a LaTeX-Code for a electrical summary of stochastic
+%Copyright (C) 2013, Daniel Winz, Ervin Mazlagic
+
+%This program is free software; you can redistribute it and/or
+%modify it under the terms of the GNU General Public License
+%as published by the Free Software Foundation; either version 2
+%of the License, or (at your option) any later version.
+
+%This program is distributed in the hope that it will be useful,
+%but WITHOUT ANY WARRANTY; without even the implied warranty of
+%MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+%GNU General Public License for more details.
+%----------------------------------------
+
+\chapter{R Grundlagen}
+\lstinline{R} ist eine multiparadigmatische Programmiersprache für 
+die Statistik und wird als Teil des GNU-Projektes entwickelt. Die 
+Besonderheit von R liegt in der Implementation vieler Algorithmen
+und Analysen der Statistik aber auch von vielseitigen Möglichkeiten 
+des Plottens. Diese Stärken und die Tatsache, dass \lstinline{R} 
+freie Software ist, haben es zu einem beliebten Tool in Wissenschaft
+und Industrie gemacht.
+
+\newpage
+
+\setkeys{Gin}{width=1\textwidth}
+
+\section*{Informationen finden}
+Dieses Kapitel soll eine kurze Zusammenfassung der wichtigsten 
+Funktionen in \lstinline{R} liefern. Möchte man spezifische und
+detaillierte Informationen so kann man diese mittels \lstinline{help()}
+erhalten. 
+
+Wieiterführende Literatur ist dem Literaturverzeichnis zu entnehmen.
+
+\section{Hilfe}
+\lstinline{R} bietet für jede Funktion eine Art Manpage an. 
+Diese kann in der Konsole mittels \lstinline{help(name-der-Funktion)}
+aufgerufen werden. 
+
+\section{Packages installieren}
+Der Funktionsumfang von \lstinline{R} kann erweitert werden mit der
+Installation von \lstinline{packages} mittels 
+\lstinline{install.packages("name-des-pakets")}.
+
+Um ein \lstinline{package} zu laden kann 
+\lstinline{require(name-des-pakets)} angewandt werden.
+
+
+\section{Vektoren \& Matrizen}
+
+\subsection{Vektoren definieren}
+
+\paragraph{Vektor mit beliebigen Inhalt}
+<<>>=
+x <- c(1, 3, 2, 8, 3, 6, 10, 7) 
+x
+@
+
+\paragraph{Vektor mit Intervall 1}
+<<>>=
+x <- c(6:14)
+x
+@
+
+\paragraph{Vektor mit beliebigem Intevall}
+<<>>=
+x <- seq(from=1, to=10, by=2)
+x
+y <- seq(1, 10, 2)
+y
+@
+
+\paragraph{Vektor repetieren}
+<<>>=
+x <- c(1:5)
+y <- rep(x, 3)
+x
+y
+@
+
+\subsection{Matrizen definieren}
+
+\paragraph{Matrix Spaltenweise definieren}
+<<>>=
+a <- seq(1, 9, 1); m <- matrix(a, 3)
+m
+@
+
+\paragraph{Matrix Reihenweise definieren}
+<<>>=
+a <- seq(1, 9, 1)
+m <- matrix(a, 3, byrow=TRUE)
+m
+@
+
+\subsection{Spezielle Matrizenfunktionen}
+
+\paragraph{Transponierung}
+<<>>=
+a <- seq(1, 8, 1)
+m <- matrix(a, 2)
+n <- t(m)
+m
+n
+@
+
+\paragraph{Erweiterung}
+<<>>=
+a <- matrix(c(1:3), nrow=3, ncol=1)
+b <- matrix(c(4:9), nrow=3, ncol=2)
+a
+b
+m <- cbind(a, b)
+m
+@
+
+\paragraph{Vektorisieren}
+<<>>=
+m <- matrix(c(1:9), nrow=3, ncol=3)
+v <- c(m)
+m
+v
+@
+
+\section{Arithmetik}
+\paragraph{Einfache Summen und Produkte}
+<<>>=
+a=15; b=3
+a+b; a*b; a-b; a/b
+@
+
+\paragraph{Operationen auf Vektoren}
+<<>>=
+a <- 1:10; b <- 2
+c <- b*a
+a
+c
+@
+
+\paragraph{Operationen auf Matrizen}
+<<>>=
+a <- seq(1, 9, 1); b <- 2
+m <- matrix(a, 3); n <- m*b
+m
+n
+@
+
+\section{Spezielle Berechnungen}
+
+\paragraph{Binomialkoeffizient}
+<<>>=
+choose(7,2)
+@
+
+\paragraph{Fakultät}
+<<>>=
+factorial(5)
+@
+
+\section{Kombinationen}
+
+\subsection{Kombinationen von Vektoren}
+Hat man mehrere Vektoren, von denen man jede mögliche
+Kombination möchte, so kann die Funktion 
+\lstinline{expand.grid()} angewendet werden.
+So kann beispielsweise eine Wahrheistabelle erstellt werden.
+<<>>=
+bit1 <- c(0,1)
+bit2 <- c(0,1)
+bit3 <- c(0,1)
+expand.grid(bit1, bit2, bit3)
+@
+
+<<>>=
+eyes <- c("blue", "brown", "green")
+gender <- c("male", "female")
+expand.grid(eyes, gender)
+@
+
+\subsection{Kombinationen eines Vektors}
+Braucht man die möglochen Kombinationen innerhalb eines
+Vektors, so kann die Funktion \lstinline{combn()} benutzt
+werden.
+<<>>=
+# install.packages("combinat")
+# require(combinat)
+seats <- c("driver", "codriver", "guest")
+passengers <- 2
+combn(seats, passengers)
+@
+Möchte man nur die Anzahl der möglichen Kombinationen
+wissen, so kann man dies mit dem Binomialkoeffizienten
+\lstinline{choose()} berechnen.
+<<>>=
+seats <- 3
+passengers <- 2
+choose(seats, passengers)
+@
+
+\section{Plots}\label{sec:plots}
+
+\subsection{Gewöhnlicher Plot}
+Um einen gewöhnlichen Plot zu erstellen kann \lstinline{plot()}
+verwendet werden. 
+
+<<plot, fig=FALSE>>=
+x <- c(1:20)
+y <- (runif(n=20))
+plot(x, y)
+@
+
+\subsubsection{Linien plotten}
+Möchte man einen Plot ergänzen mit Linien kann nach \lstinline{plot()}
+noch \lstinline{abline()} benutzt werden.
+
+<<abline, fig=FALSE>>=
+x <- c(1:20)
+y <- (runif(n=20))
+plot(x, y)
+abline(h=mean(y))
+@
+
+\subsubsection{Segmente plotten}
+Möchte man beispielsweise die Abweichung von Daten und Mittelwert
+zeigen, kann \lstinline{segments()} benutzt werden. Dieses ist in der
+Lage mehrere Liniensegmente zu einem Plot hinzuzufügen.
+
+<<segments, fig=FALSE>>=
+x <- c(1:20)
+y <- (runif(n=20))
+plot(x, y)
+abline(h=mean(y))
+segments(x0=x, y0=mean(y), x1=x, y1=y)
+@
+
+\subsubsection{Flächen plotten}
+Möchte man Rechtecke oder Flächen in einen Plot einfügen so kann man 
+\lstinline{rect()} benutzen. Im folgenden ein Beispiel zur Darstellung
+der Varianz.
+
+<<rect, fig=FALSE>>=
+x <- c(1:20)
+y <- (runif(n=20, min=3, max=7))
+plot(x, y, ylim=c(0, 10))
+abline(h=mean(y))
+diff <- sqrt((y-mean(y))^2)
+rect(xleft=x, xright=(x+diff), ybottom=mean(y), ytop=y, col='gray')
+@
+
+\begin{figure}[h!]
+\centering
+\begin{subfigure}[b]{0.48\textwidth}
+<<fig=TRUE, echo=FALSE>>=
+<<plot>>
+@
+\caption{Gewöhnlicher Plot mit \lstinline{plot()}}
+\end{subfigure}
+\begin{subfigure}[b]{0.48\textwidth}
+<<fig=TRUE, echo=FALSE>>=
+<<abline>>
+@
+\caption{Linie mit \lstinline{abline()}}
+\end{subfigure}
+
+\begin{subfigure}[b]{0.48\textwidth}
+<<fig=TRUE, echo=FALSE>>=
+<<segments>>
+@
+\caption{Segmente mit \lstinline{segments()}}
+\end{subfigure}
+\begin{subfigure}[b]{0.48\textwidth}
+<<fig=TRUE, echo=FALSE>>=
+<<rect>>
+@
+\caption{Flächen mit \lstinline{rect()}}
+\end{subfigure}
+
+\end{figure}
+
+\clearpage
+
+\subsection{Boxplot}
+Ein Boxplot zeigt sehr viele Informationen zur Statistik einer 
+Datenreihe in einem Plot auf. Insbesondere sind dies
+\begin{itemize}
+	\item extrem \emph{grosse} Beobachtungen
+	\item die grösste \emph{normale} Beobachtung
+	\item oberes Quartil ($75$\% Quantil)
+	\item Median ($50$\% Quantil)
+	\item unteres Quartil ($25$\% Quantil)
+	\item die kleinste \emph{normale} Beobachtung
+	\item extrem \emph{kleine} Beobachtungen
+\end{itemize}
+Die Abbildung \ref{fig:boxplot} zeigt einen Boxplot welches alle
+oben genannten Merkmale gut sichtbat enthält.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.5\textwidth]{boxplot.pdf}
+	\caption{Analyse eines Boxplots}
+	\label{fig:boxplot}
+\end{figure}
+
+\noindent
+Mit solch einem Plot lässt sich die Verteilung einer Datenreihe sehr
+schnell graphisch erfassen ohne dabei zu rechnen oder etwas 
+interpretieren zu müssen. Jede Verteilung hat ihre spezielle 
+Charakteristik die sich im Boxplot erkennen lässt.
+\begin{itemize}
+	\item Die uniforme Verteilung hat in etwa gleich grosse Bereiche
+		der Quartile, ist somit symetrisch und geht über den 
+		ganzen Bereich und hat somit keine Ausreisser 
+		(Extremweerte).
+	\item Die binomiale Verteilung hat enger beieinander liegende
+		$25$\% Quantile und kann Ausreisser haben.
+	\item Die normale Verteilung ist der binomialen sehr ähnlich.
+	\item Exponentiale Verteilungen haben unsymetrische Quantile
+		und grundsätzlich Ausreisser.
+\end{itemize}
+
+<<boxplot1, fig=FALSE, echo=FALSE>>=
+x <- runif(n=100)
+boxplot(x, cex.lab=1.5, cex.axis=1.5, cex.main=1.5, cex.sub=1.5, 
+	ylab='Wert x', xlab='', main='runif(n=100)')
+@
+
+<<boxplot2, fig=FALSE, echo=FALSE>>=
+x <- rbinom(n=100, size=100, prob=0.5)
+boxplot(x, cex.lab=1.5, cex.axis=1.5, cex.main=1.5, cex.sub=1.5, 
+	ylab='Wert x', xlab='', main='rbinom(n=100, size=100, prob=0.5)')
+@
+
+<<boxplot3, fig=FALSE, echo=FALSE>>=
+x <- rnorm(n=100)
+boxplot(x, cex.lab=1.5, cex.axis=1.5, cex.main=1.5, cex.sub=1.5, 
+	ylab='Wert x', xlab='', main='rnorm(n=100)')
+@
+
+<<boxplot4, fig=FALSE, echo=FALSE>>=
+x <- rexp(n=100)
+boxplot(x, cex.lab=1.5, cex.axis=1.5, cex.main=1.5, cex.sub=1.5, 
+	ylab='Wert x', xlab='', main='rexp(n=100)')
+@
+
+\begin{figure}[h!]
+\centering
+\begin{subfigure}[b]{0.48\textwidth}
+<<fig=TRUE, echo=FALSE>>=
+<<boxplot1>>
+@
+\caption{Uniforme Verteilung}
+\end{subfigure}
+\begin{subfigure}[b]{0.48\textwidth}
+<<fig=TRUE, echo=FALSE>>=
+<<boxplot2>>
+@
+\caption{Binomiale Verteilung}
+\end{subfigure}
+
+\begin{subfigure}[b]{0.48\textwidth}
+<<fig=TRUE, echo=FALSE>>=
+<<boxplot3>>
+@
+\caption{Normale Verteilung}
+\end{subfigure}
+\begin{subfigure}[b]{0.48\textwidth}
+<<fig=TRUE, echo=FALSE>>=
+<<boxplot4>>
+@
+\caption{Exponential Verteilung}
+\end{subfigure}
+\caption{Boxplots verschiedener Verteilungen}
+\end{figure}
+
+\clearpage
+\section{Daten benutzen}
+\lstinline{R} kennt neben einfachen Variablen, Vektoren und Matrizen
+auch sog. \emph{Data Frames}. Diese sind den Matrizen ähnlich mit dem
+Unterschied, dass man in einem solchen Data Frame verschiedene Typen
+ablegen kann (Zahlen, Buchstaben etc.) während Matrizen nur
+numerische Inhalte haben können.
+
+\subsection{Daten zusammenstellen}
+Ein Data Frame kann mit der Funktion \lstinline{data.frame()} erstellt
+werden.
+
+<<>>=
+a <- c(1.67, 1.82, 1.76, 1.94)
+b <- c("m", "f", "f", "m")
+c <- c(12, 19, 23, 17)
+team <- data.frame(a, b, c)
+team
+@
+
+\subsubsection{Daten benennen}
+Möchte man das Data Frame um sog. \emph{header} erweitern,
+so kann man die Funktion \lstinline{colnames()} nutuzen
+
+<<>>=
+a <- c(1.67, 1.82, 1.76, 1.94)
+b <- c("m", "f", "f", "m")
+c <- c(12, 19, 23, 17)
+team <- data.frame(a, b, c)
+colnames(team) <- c("Height", "Sex", "Age")
+team
+@
+
+\noindent
+Es ist aber auch möglich das komplette Data Frame mit Labels
+zu versehen mit der Funktion \lstinline{dimnames()}. Hierzu
+muss aber eine \emph{list} als Parameter übergeben werden
+welche je einen Vektor für Spalten und Reihen hat.
+
+<<>>=
+a <- c(1.67, 1.82, 1.76, 1.94)
+b <- c("m", "f", "f", "m")
+c <- c(12, 19, 23, 17)
+team <- data.frame(a, b, c)
+columns <- c("Babbage", "Lovelace", 
+	     "Noether", "Shannon")
+rows <- c("Height", "Sex", "Age")
+dimnames(team) <- list(columns, rows)
+team
+@
+
+\subsubsection{Daten faktorisieren}
+Bei der Erstellung von Data Frames ist es sinnvoll für typisierte
+Daten die Funktion \lstinline{factor()} zu nutzen, denn diese 
+ermöglicht es Datenreihen zu \emph{faktorisieren}. 
+
+Beispielsweise hat man einen Datensatz bei dem das Geschlecht 
+verzeichnet ist. Das Geschlecht kann zwei Werte annehmen, sog. 
+\emph{Levels}.
+
+<<>>=
+a <- c(1.67, 1.82, 1.76, 1.94, 1.86, 1.78)
+b <- factor(c("m", "f", "f", "m", "f", "m"))
+c <- c(12, 19, 23, 17, 20, 24)
+team <- data.frame(a, b, c)
+colnames(team) <- c("Alter", "Hoehe", "Geschlecht")
+team
+b
+@
+
+\subsection{Daten von URL einbinden}
+Steht ein Datensatz als Tabelle auf einer Webseite zur Verfügung,
+so kann man diese mit der Funktion \lstinline{read.table()} einbinden.
+
+Hierbei gilt es zu beachten, dass die Formatierung berücksichtigt
+werden muss. Bispielsweise ob die Daten kommasepariert 
+(\lstinline{sep}) sind oder ob die Daten je einen Titel 
+(\lstinline{header}) haben.
+
+<<>>=
+url <- "http://data.princeton.edu/wws509/datasets/effort.dat"
+data <- read.table(url, header=TRUE)
+data
+@
+
+\subsection{Daten verarbeiten}
+Um Daten eines Data Frame zu bearbeiten kann genau wie bei Matrizen
+vorgegenagen werden. Für die effiziente Bearbeitung ganzer Reihen
+oder Spalten gibt es neben den iterativen Methoden mit Schlaufen noch
+den funktionalen Ansatz mittels der \lstinline{apply()} Funktionen
+von denen es drei verschiedene gibt.
+
+\begin{itemize}
+	\item \lstinline{apply()}
+	\item \lstinline{lapply()}
+	\item \lstinline{sapply()}
+\end{itemize}
+
+Allen gemeinsam ist, dass diese eben funktional sind, d.h. man
+kann nur Funktionen auf etwas anwenden. Beispielsweise um Datenwerte
+um eine Dekade zu vergrössern müsste man eine Funktion definieren
+die dies bewerkstelligt.
+
+<<>>=
+a <- 13.5
+decadeUp <- function(x) {x*10}
+b <- decadeUp(a)
+b
+@
+
+Im Folgenden sind die einzelnen Funktionen nochmals mit kurzen 
+Beispielen erläutert.
+
+\subsubsection{\lstinline{apply()}}
+Die Funktion \lstinline{apply()} ermöglicht es, eine Funktion auf
+alle Elemente eines Arrays oder eines Data Frames anzuwenden.
+
+<<>>=
+age <- c(11, 24, 33, 17)
+weight <- c(53, 79, 68, 86)
+height <- c(1.39, 1.82, 1.67, 1.87)
+team <- data.frame(age, weight, height)
+team
+# die Hoehe vom Meter in Centimeter wandeln
+toCentimeter <- function(x) {x*100}
+team[3] <- apply(team[3], MARGIN=2, FUN=toCentimeter)
+team
+@
+
+\subsubsection{\lstinline{lapply()}}
+\subsubsection{\lstinline{sapply()}}
+
+\section{Funktionen definieren}
+In \lstinline{R} könnn eigene Funktionenen definiert werden.
+Dies ermöglicht effizienteren und allgemein besseren Code.
+Zudem muss es angewendet werden, wenn etwas die Funktionalen
+Elemente der Programmiersprache \lstinline{R} genutzt werden
+sollen.
+
+\subsection{Einfache Funktionen}
+
+<<>>=
+square <- function(x) {x^2}
+square(5)
+@
+
+\subsection{Mehrparametrige Funktionen}
+
+<<>>=
+volume <- function(a, b, c) {a*b*c}
+volume(2, 3, 5)
+@
+
+\subsection{Default Parameter}
+
+<<>>=
+weeklyWorkTime <- function(days=5, hours=8) {days*hours}
+weeklyWorkTime()
+weeklyWorkTime(3, 8)
+@
+
+\subsection{\lstinline{return()}-Funktion}
+
+<<>>=
+hypotenuse <- function(a=1, b=1) {
+		c <- sqrt((a^2)+(b^2)) 
+		return(c)
+	}
+hypotenuse()
+@
