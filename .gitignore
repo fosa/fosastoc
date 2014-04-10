@@ -5,6 +5,7 @@ fosastoc.pdf
 *.swp
 
 # ignore temporary tex files
+*.glg
 *.aux
 *.log
 *.toc
@@ -26,6 +27,7 @@ test.tex
 verteilungen.tex
 
 # ignore all R-created figures and plots
+Rplots.pdf
 begriffe-*.pdf
 definitionen-*.pdf
 kombinatorik-*.pdf
