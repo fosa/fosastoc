@@ -488,14 +488,14 @@ Räume sind möglich). Somit ergeben sich $\binom{7}{2}=21$
 Möglichkeiten.
 
 \section{Bedingte Wahrscheinlichkeit}
-Bei bedingten Wahrscheinlichkeiten kann das \gls{Beyes'sche Theorem} 
+Bei bedingten Wahrscheinlichkeiten kann das \gls{Bayes'sche Theorem} 
 angewandt werden. Mit Hilfe dieses Theorems kann die Wahrscheinlichkeit, 
 dass $A$ einritt wenn $B$ eingetreten ist umgekehrt werden zur 
 Formulierung dass $B$ eintritt, gegeben es sei $A$ eingetreten.
 
 
-\subsection{Beyes'sche Theorem}
-Aus dem Beyes'schen Theorem leiten sich die folgenden Aussagen ab.
+\subsection{Bayes'sche Theorem}
+Aus dem Bayes'schen Theorem leiten sich die folgenden Aussagen ab.
 \[ \begin{array}{c c l}
 	P_B(A) 
 		& = 
@@ -521,7 +521,7 @@ Aus dem Beyes'schen Theorem leiten sich die folgenden Aussagen ab.
 
 \newpage
 \subsection{Tabelle zur bedingten Wahrscheinlichkeit}
-Mit dem Beyes'schen Theorem kann eine tabellarische Übersicht von
+Mit dem Bayes'schen Theorem kann eine tabellarische Übersicht von
 zwei bedingten Ereignissen erstellt werden, welche wiederum mittels
 der Kolmogorv'schen Axiome bestimmt werden.
 

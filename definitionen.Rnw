@@ -157,7 +157,7 @@ $A$ und $B$ sind stochastisch unabhängig.
 
 \newpage
 \section{Bedingte Wahrscheinlichkeit}
-Bei bedingten Wahrscheinlichkeiten gilt das sog. Beyes'sche Theorem.
+Bei bedingten Wahrscheinlichkeiten gilt das sog. Bayes'sche Theorem.
 \[ \boxed{ P_B(A) = P(A|B) = \frac{P(A \cap B)}{P(B)} = \frac{P(B|A)\cdot P(A)}{P(B)} } \]
 \[ \boxed{P(B) = P(B|A) \cdot P(A) + P(B|A') \cdot P(A')} \]
 \[ \boxed{P(B) = P(B \cap A) \cdot P(A) + P(B|A') \cdot P(A')} \]
