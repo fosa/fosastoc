@@ -130,7 +130,7 @@ verdeutlicht, dass der Median umempfindlich ist gegenüber Extremwerten
 bzw. Ausreissern.
 <<>>=
 x <- c(1.6, 1.7, 1.75, 1.87, 1.94)
-y <- c(1.2, 1.4, 1.75, 1.99, 2.17)
+y <- c(1.6, 1.7, 1.75, 238549, 893105)
 # sort() wird ausgelassen, da bereits sortiert
 median(x); median(y)
 @
