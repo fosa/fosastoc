@@ -6,6 +6,9 @@ fosastoc.pdf
 
 # ignore temporary tex files
 *.glg
+*.glo
+*.gls
+*.lof
 *.aux
 *.log
 *.toc

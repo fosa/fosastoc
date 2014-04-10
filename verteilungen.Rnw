@@ -37,6 +37,7 @@ werden und beschreibt somit ein binäres Problem. Die Zahl der Antworten
 kann wiederum nur $\in \mathbb{N}$ sein. Somit sind die Bedingungen 
 für ein binäres Problem gegeben.
 
+\ifxtra
 \newpage
 \section{Hypergeometrische Verteilung}
 Die hypergeometrische Verteilung entspricht dem \gls{Urnenmodell}:
@@ -213,8 +214,9 @@ Die Plots aus der Abbildung \ref{fig:team} zeigen, dass es mit der
 höchsten Wahrscheinlichkeit
 4 Männer und 7 Frauen im Team hat, was die gewünschte Anzahl von Spielern
 ergibt für das Team ($4+7=11$). 
-
 \clearpage
+\fi
+
 \newpage
 \section{Binomialverteilung}
 Die Binomialverteilung ist eine Verteilung, welche bei binären Problemen
