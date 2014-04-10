@@ -15,13 +15,13 @@ Reallocated singl_function (elt_size=8) to 100 items from 50.
 Reallocated singl_function (elt_size=8) to 100 items from 50.
 Database file #1: fosastoc-blx.bib
 Database file #2: bibliographie.bib
-Biblatex version: 2.7
+Biblatex version: 2.8
 Reallocated singl_function (elt_size=8) to 100 items from 50.
 Reallocated wiz_functions (elt_size=8) to 9000 items from 6000.
 You've used 9 entries,
-            6022 wiz_defined-function locations,
-            1173 strings with 9247 characters,
-and the built_in function-call counts, 33459 in all, are:
+            6047 wiz_defined-function locations,
+            1178 strings with 9275 characters,
+and the built_in function-call counts, 33531 in all, are:
 = -- 1802
 > -- 1082
 < -- 460
@@ -34,16 +34,16 @@ call.type$ -- 9
 change.case$ -- 339
 chr.to.int$ -- 34
 cite$ -- 16
-duplicate$ -- 3590
-empty$ -- 3228
+duplicate$ -- 3606
+empty$ -- 3244
 format.name$ -- 533
-if$ -- 7847
+if$ -- 7863
 int.to.chr$ -- 0
 int.to.str$ -- 30
 missing$ -- 0
 newline$ -- 248
 num.names$ -- 615
-pop$ -- 2614
+pop$ -- 2638
 preamble$ -- 1
 purify$ -- 359
 quote$ -- 0
