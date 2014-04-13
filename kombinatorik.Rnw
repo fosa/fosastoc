@@ -153,29 +153,40 @@ Nimmt man zwei Würfel und würfelt mit diesen einzeln vier mal, so könnten
 die Ereignisse $A=\{1,4,5,6\}$ und $B=\{3,4,5,6\}$ lauten, wobei 
 $C=\{4,5,6\}$ dann die Schnittmenge von $A$ und $B$ ist.
 
-\paragraph{Vereinigungsmenge} Die Menge aller Elemente die entweder in
+\paragraph{Vereinigungsmenge} Die Menge aller Ereignisse die entweder in
 der Menge $A$, in der Menge $B$ oder in beiden Mengen $A,B$ vorkommen,
 wird als \gls{Vereinigungsmenge} bezeichnet.
 \[  
 	A \cup B
 \]
+Nimmt man zwei Würfel und würfelt einzeln die Ereignisse $A=\{1,4,5\}$
+und $B=\{2,3,6\}$ dann ist $C=\{1,2,3,4,5,6\}$ die Vereinigungsmenge
+von $A$ und $B$.
 
-\paragraph{Gleiche Menge} Wenn zwei Mengen die gleichen Elemente
+\ifxtra
+\paragraph{Gleiche Menge} Wenn zwei Mengen die gleichen Ereignisse
 enthalten und keine weiteren, so sind diese die \gls{gleiche Menge}.
 \[  
 	A = B 
 	\quad \Leftrightarrow \quad 
 	\forall x (x \in A \leftrightarrow x \in B)
 \]
+Nimmt man zwei Würfel und würfelt einzeln die Ereignisse $A=\{1,4\}$
+und $B=\{1,4\}$ so sind diese gleich.
+\fi
 
 \paragraph{Differenzmenge}
-Eine Menge die alle Elemente einer Menge enthält ohne jene die auch
-in einer weiteren Menge vorkommen, wird als \gls{Differenzmenge} 
-bezeichnet.
+Eine Menge die alle Ereignisse einer Menge $A$ enthält ohne jene 
+die auch in der Menge $B$ vorkommen, wird als \gls{Differenzmenge} 
+von $A$ und $B$ bezeichnet.
 \[
 	A \setminus B 
 \]
+Nimmt man zwei Würfel und würfelt einzeln die Ereignisse $A=\{1,2,3,4\}$
+und $B=\{3,4,5,6\}$, dann ist $C=\{1,2\}$ die Differenzmenge 
+$A \setminus B$.
 
+\ifxtra
 \paragraph{Potenzmenge}
 Für eine Menge $\Omega$ gibt es die sogenannte \gls{Potenzmenge} 
 $\mathcal{P}(\Omega)$, welche alle Teilmengen $\omega$ von $\Omega$ 
@@ -218,8 +229,11 @@ $\prod(\Omega)$
 	\end{tikzpicture}
 	\caption{Potenzmenge von $\{x,y,z\}$ als Hasse-Diagramm}
 \end{figure}
+\fi
+
 
 \paragraph{Komplement}
+\ifxtra
 Eine Menge welche alle Elemente aus einer Potenzmenge 
 $\mathcal{P}(\Omega)$
 enthält ohne Elemente einer Menge $A\in\Omega$ heisst \gls{Komplement} der 
@@ -228,12 +242,19 @@ der Mengenlehre sollte stets als $A^{\mathrm C}$ notiert werden obwohl
 oft diverse andere Schreibweisen anzutreffen sind wie z.B. $\bar{A}$.}. 
 Somit kann ein Komplement 
 als Differenzmenge einer Potenzmenge und einer Menge beschrieben werden.
+\fi
+Differenzmenge\footnote{Das Komplement in der Mengenlehre sollte stets als
+$A^{\mathrm C}$ notiert werden obwohl oft andere Schreibweisen anzutreffen 
+sind wie $\bar{A}$.} von einer Menge und der Grundmenge bzw. dem Grundraum. 
 \[  
-	A^{\mathrm C} 
-		\quad = \quad \Omega \setminus A 
-		\quad := \quad \{\omega\in\Omega \mid \omega\notin A\} 
-			\in\mathcal{P}(\Omega)
+	A^{\mathrm C} = \Omega \setminus A 
 \]
+\ifxtra
+\[
+	A^{\mathrm C} := \{\omega\in\Omega \mid \omega\notin A\} 
+		\in\mathcal{P}(\Omega)
+\]
+\fi
 
 \newpage
 \begin{figure}[h!]
