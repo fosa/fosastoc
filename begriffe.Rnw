@@ -312,24 +312,27 @@ cov(x,y)
 @
 
 \section{Korrelation}
-Die \gls{Korrelation} beschreibt den Zusammenhang verschiedener Variablen.
+Die \gls{Korrelation} beschreibt den linearen Zusammenhang verschiedener 
+Variablen.
 Dieser Zusammenhang kann mittels eines Koeffizienten, dem sog. 
-\gls{Korrelationskoeffizient} beschrieben werden. Dieser beschreibt den
-Zusammenhang mittels eines Wertes aus dem Intervall $[-1,1]$ und
-hat somit auch eine Richtung.
-\[ \begin{array}{r c l} 
-	r(X,Y) 
-		& := 
-		& \displaystyle \frac{C(X,Y)}{\sqrt{V(X) \cdot V(Y)}} \\
-	& & \\
-	r_{xy} = \displaystyle \frac{s_{xy}}{s_x \cdot s_y}
-		& = 
-		& \displaystyle \frac{\sum\limits_{i=1}^n (x_i-\bar{x}) \cdot (y_i-\bar{y})}{
-			\sqrt{\left(\sum\limits_{i=1}^n (x_i-\bar{x})^2\right)
-			\cdot \left( \sum\limits_{i=1}^n (y_i-\bar{y})^2\right) }} \\
-\end{array} \]
+\gls{Korrelationskoeffizient} beschrieben werden. 
+\ifxtra
+\[  
+	r(X,Y) := \frac{C(X,Y)}{\sqrt{V(X) \cdot V(Y)}} 
+\]
+\fi
+\[
+	r_{xy} = \frac{s_{xy}}{s_x \cdot s_y}
+		= \frac{\sum\limits_{i=1}^n (x_i-\bar{x}) \cdot (y_i-\bar{y})}{
+		\sqrt{\left(\sum\limits_{i=1}^n (x_i-\bar{x})^2\right)
+		\cdot \left( \sum\limits_{i=1}^n (y_i-\bar{y})^2\right) }}
+\]
+Dieser beschreibt den
+Zusammenhang mittels eines Wertes aus dem Intervall $[-1,1]$
+und hat somit auch eine Richtung.
+
 Mit dem Betrag und der Richtung des Korrelationskoeffizienten sind 
-Grundsätzlich drei Aussagen möglich:
+grundsätzlich drei Aussagen möglich:
 \[ \begin{array}{c c l r}	
 	r \rightarrow +1 
 		& \Rightarrow 
@@ -347,24 +350,24 @@ Grundsätzlich drei Aussagen möglich:
 \setkeys{Gin}{width=1\textwidth}
 <<korr1, include=FALSE, echo=FALSE>>=
 au <- (a=runif(n=1000, min=-10, max=10))
-bu <- (b=runif(n=1000, min=-10, max=10))
+bu <- (b=runif(n=1000, min=-5, max=5))
 a <- sort(au); b <- sort(bu)
 plot(a, b, cex.lab=1.5, cex.axis=1.5, cex.main=1.5, 
-     cex.sub=1.5, ylab='', xlab='', main='')
+     cex.sub=1.5, ylab='', xlab='', main='', ylim=c(-10,10))
 @
 <<korr2, include=FALSE, echo=FALSE>>=
 au <- (a=runif(n=1000, min=-10, max=10))
-bu <- (a=runif(n=1000, min=-10, max=10))
+bu <- (a=runif(n=1000, min=-5, max=5))
 plot(au, bu, cex.lab=1.5, cex.axis=1.5, cex.main=1.5, 
      cex.sub=1.5, ylab='', xlab='', main='')
 @
 <<korr3, include=FALSE, echo=FALSE>>=
 au <- (a=runif(n=1000, min=-10, max=10))
-bu <- (b=runif(n=1000, min=-10, max=10))
+bu <- (b=runif(n=1000, min=-20, max=20))
 a <- sort(a)
 b <- sort(b, decreasing=TRUE)
 plot(a, b, cex.lab=1.5, cex.axis=1.5, cex.main=1.5, 
-     cex.sub=1.5, ylab='', xlab='', main='')
+     cex.sub=1.5, ylab='', xlab='', main='', ylim=c(-10,10))
 @
 \begin{figure}[h!]
 \centering
@@ -391,6 +394,11 @@ plot(a, b, cex.lab=1.5, cex.axis=1.5, cex.main=1.5,
 \end{figure}
 
 \noindent
+Bilden die Daten eine Gerade im Plot (egal wie steil), so beträgt der
+Korrelationskoeffizient 1. Das Vorzeichen ist gemäss Steigung zu wählen
+($+$ steigend, $-$ fallend).
+
+\ifxtra
 Bei der Analyse der Korrelation mittels solcher Plots ist Vorsicht
 geboten, denn diese müssen natürlich nicht so mustergültig sein wie im 
 Bild \ref{fig:korrelation} gezeigt. 
@@ -401,11 +409,9 @@ mit annähernd $\pm1$ (Vorzeichen entsprechend der Steigung).
 Ergibt sich im Plot etwas anderes als eine Gerade (etwa ein Kreis, eine
 Kurve oder mehrere \emph{Wölkchen}) so ist der Korrelationskoeffizient
 Null anzunehmen.
+\fi
 
 \paragraph{Berechnung in R}
-In \lstinline{R} kann der Korrelationskoeffizient mit der Funktion
-\lstinline{cor()} berechnet werden.
-
 <<>>=
 x <- (runif(n=100)); y <- (rexp(n=100))
 cor(x,y)
