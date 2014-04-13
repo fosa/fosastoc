@@ -111,15 +111,11 @@ Der \gls{Median} ist wie das \gls{Quartil} ein spezielles \gls{Quantil},
 welches im Falle des Medians das $50\%$ Quantil beschreibt.
 
 In der Statistik hat der Median eine wichtige Bedeutung, denn er 
-beschreibt lediglich das mittlere Element einer sortierten Datenreihe.
-Somit ist der Median unenpfindlich gegenüber Extremwerten (anders etwa 
+beschreibt das mittlere Element einer sortierten Datenreihe.
+Somit ist der Median unempfindlich gegenüber Extremwerten (anders etwa 
 das \gls{arithmetische Mittel}).
 
 \paragraph{Berechnung in R}
-In \lstinline{R} lässt sich der Median mit der Funktion 
-\lstinline{median()} ermitteln. Im Folgenden ein Beispiel welches 
-verdeutlicht, dass der Median umempfindlich ist gegenüber Extremwerten 
-bzw. Ausreissern.
 <<>>=
 x <- c(1.6, 1.7, 1.75, 1.87, 1.94)
 y <- c(1.6, 1.7, 1.75, 238549, 893105)
