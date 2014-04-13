@@ -248,20 +248,18 @@ segments(x0=x, y0=mean(y), x1=x, y1=y, lwd=2)
 \fi
 
 \section{Kovarianz}
+\ifxtra
 Die Kovarianz (\emph{mit der Varianz}) ist ein Mass für den
 Zusammenhang zweier Zufallsvariablen.
-\[ \begin{array}{r c l} 
-	C(X,Y) 
-		&:= 
-		& E((X-E(X)) \cdot (Y-E(Y))) \\
-	& & \\
-	s_{xy} 
-		& = 
-		& \displaystyle \frac{1}{n-1} \cdot \left( 
-			\sum_{i=1}^n (x_i - \bar{x}) \cdot (y_i - \bar{y})
-		\right)
-
-\end{array} \]
+\[ C(X,Y) := E((X-E(X)) \cdot (Y-E(Y))) \]
+\fi
+Die Kovarianz ist eine Hilfsgrösse zur Berechnung der Korrelation.
+\[ 
+	s_{xy} = \frac{1}{n-1} \cdot \left( 
+		\sum_{i=1}^n (x_i - \bar{x}) \cdot (y_i - \bar{y})
+		\right) 
+\]
+\ifxtra
 Sie ist ein Term aus der Varianz zweier Zufallsvariablen,
 denn es gilt
 \[ \begin{array}{l c l} 
@@ -304,12 +302,9 @@ Es gibt fünf wichtige Rechenregeln für Kovarianzen.
 		& =
 		& 0 \qquad \text{falls } $X,Y$ \text{ stochastisch unabhängig} \\
 \end{array} \]
+\fi
 
 \paragraph{Berechnung in R}
-Die Kovarianz lässt sich in \lstinline{R} mit der Funktion 
-\lstinline{cov()} ermitteln. Im Folgenden ein extremes 
-Positiv-Beispiel, generiert mit je 1000 sortierten 
-exponentialverteilten Zufallszahlen. 
 <<>>=
 x <- sort(x=rexp(n=1000))
 y <- sort(x=rexp(n=1000))
