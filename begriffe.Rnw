@@ -54,7 +54,7 @@ Quantil}).
 	x_1 - x_n
 		& \text{Elemente sortiert nach grösse} \\
 	\alpha \cdot n 
-		& \text{Qunatil} \\
+		& \text{Quantil} \\
 \end{array} \]
 Bei der Berechnung des Quantils gilt es zu beachten ob die Elemente 
 der Datenreihe ganze oder gebrochene Zahlen beinhalten, denn dies 
