@@ -124,10 +124,8 @@ median(x); median(y)
 @
 
 \section{Varianz}\label{sec:varianz}
-Die \gls{Varianz} beschreibt die quadratische Abweichung von Daten und
-ihrem arithmetischen Mittelwert. Sie ist somit das Quadrat der 
-Standardabweichung und wird deshalb als $\sigma^2$, $\sigma_{x}^2$ 
-bzw. $s_{x}^2$ notiert.
+Die \gls{Varianz} beschreibt die Abweichung von Daten und
+ihrem arithmetischen Mittelwert.
 \[
 	\sigma_{x}^2 
 	= s_{x}^2 
