@@ -133,6 +133,7 @@ ihrem arithmetischen Mittelwert.
 		\sum_{i=1}^n (x_i-\bar{x})^2 
 	\right)
 \]
+\ifxtra
 Die obige Formel ergibt die sogenannte 
 \emph{korrigierte Stichprobenvarianz}, denn der Mittelwert $\bar{x}$ 
 wird durch die Stichproben berechnet. Sollte der \emph{wahre} Mittelwert
@@ -183,6 +184,7 @@ segments(x0=x, y0=mean(y), x1=x, y1=y, lwd=3)
 \end{subfigure}
 \caption{Varianz als Flächen dargestellt}
 \end{figure}
+\fi
 
 \section{Standardabweichung}
 Die \gls{Standardabweichung} beschreibt wie gross die die mittlere 
