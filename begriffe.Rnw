@@ -72,18 +72,12 @@ beeinflusst die Rechnung.
 \end{array} \]
 
 \paragraph{Berechnung in R}
-Die Brechnung von Qunatilen in \lstinline{R} lässt sich mittels 
-\lstinline{quantile()} durchführen. Hierbei gilt es zu beachten, dass
-\lstinline{R} neun verschiedene Algorithmen kennt um Quantile zu 
-berechnen. Ohne einen Parameter nimmt \lstinline{R} den 
-Default-Algorithmus (\lstinline{type=7}). Für sämtliche Aufgaben aus dem
-Stochastikunterricht der HSLU gilt der \lstinline{type=2} als einzig
-richtiger! 
-
-Im Folgenden eine Beispielrechnung vom 30\% \gls{Quantil} 10 zufälliger 
-ganzer Zahlen zwischen 1 und 20.
+Die Quantilfunktion hat neun verschiedene \lstinline{type}.
+Für sämtliche Aufgaben aus dem Stochastikunterricht der HSLU gilt 
+der \lstinline{type=2} als einzig richtiger!
 <<>>=
-x <- round(x=runif(n=10, min=1, max=20), digits=0)
+x <- round(x=runif(n=10, min=1, max=80), digits=0)
+x
 x <- sort(x)
 x
 quantile(x, prob=0.2, type=2)
