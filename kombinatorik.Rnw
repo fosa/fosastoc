@@ -97,21 +97,31 @@ Kombinationen in R siehe Abschnitt \ref{sec:kombinationen})
 \]
 \fi
 
+
 \paragraph{Teilmenge} 
+\ifxtra
 Eine Menge $A$ heisst \gls{Teilmenge} von $B$, wenn jedes Element aus 
 $A$ ein Element von $B$ ist. Somit kann eine solche Teilmenge $A$
 auch die ganze Menge $B$ sein, d.h. es kann $A=B$ gelten.
 \[ 
 	A \subseteq B
 \]
+\fi
+
+\ifxtra
 \paragraph{Echte Teilmenge}
 Eine \gls{echte Teilmenge} $A$ der Menge $B$ heisst echte Teilmenge, wenn
 alle Elemente von $A$ in $B$ enthalten sind, aber die Menge $B$ noch
 Elemente hat, die nicht in $A$ enthalten sind. In diesem Fall ist $B$ 
 auch eine \emph{echte} Obermenge von $A$ und es gilt $A \neq B$.
+\fi
+Ereignisse sind immer eine Teilmenge von $\Omega$.  
 \[
 	A \subset B
 \]
+Im Falle des zweifachen Münzwurfs is das Ereingis $A=\{KK\}$ eine Teilmenge
+vom $\Omega=\{KK, KZ, ZK, ZZ\}$, also $A \subset \Omega$ 
+
 
 \paragraph{Leere Menge} Eine \gls{leere Menge} ist eine Menge welche 
 keinerlei Elemente enthält. Sie wird entweder als $\{ \}$ oder 

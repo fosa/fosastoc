@@ -160,7 +160,7 @@ choose(7,2)
 factorial(5)
 @
 
-\section{Kombinationen}
+\section{Kombinationen}\label{sec:kombinationen}
 
 \subsection{Kombinationen von Vektoren}
 Hat man mehrere Vektoren, von denen man jede mögliche
