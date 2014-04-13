@@ -17,6 +17,7 @@
 \chapter{Kombinatorik}
 \newpage
 
+\ifxtra
 \section{Logik \& Mengenlehre}
 Die Logik ist ein Teilgebiet der Mathematik und bedgründete das relativ
 junge Teilgebiet der \gls{Mengenlehre} (engl. \emph{set theory}). 
@@ -71,22 +72,30 @@ heranzuziehen. Die Stochastik ist nur eines von diesen.
 	\caption{Junktoren der Logik und Operationen der 
 		Mengenlehre}
 \end{table}
+\fi
 
-\subsection{Begriffe der Mengenlehre}
+\section{Zufallsereignisse als Mengen}
 \paragraph{Grundmenge und Grundraum}
+Mögliche Ausgänge eines Zufallsexperiments.
+\ifxtra
 In der Mengenlehre spricht man von der Grundmenge als die Menge aller
 möglicher Elemente die in einer Menge erfasst werden können (von Neumann
 Universum etc). Im Teilgebiet der Stochastik betrachtet man die
 Elemente die in Mengen erfasst werden können als Eereignisse die eintreten
 können. Die Gesamtheit all dieser möglichen Ereignisse nennt man 
 \gls{Ereignisraum} oder Grundmenge, welche stets mit $\Omega$ 
-notiert wird. 
+notiert wird.
+\fi
 Bei der Betrachtung eines Spiels mit einem Spielwürfel mit sechs Seiten 
-wäre der Grundraum $\Omega=\{1,2,3,4,5,6\}$ und bei einem zweifachen
-Münzwurf $\Omega=\{KK, KZ, ZK, ZZ\}$ usw.
+wäre der Grundraum $\Omega=\{1,2,3,4,5,6\}$. Bei einem zweifachen
+Münzwurf $\Omega=\{KK, KZ, ZK, ZZ\}$ usw. (für die Berechnung von
+Kombinationen in R siehe Abschnitt \ref{sec:kombinationen})
+
+\ifxtra
 \[  
 	\Omega := \{x| P(x) \neq 0\}
 \]
+\fi
 
 \paragraph{Teilmenge} 
 Eine Menge $A$ heisst \gls{Teilmenge} von $B$, wenn jedes Element aus 
