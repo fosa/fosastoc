@@ -256,6 +256,7 @@ sind wie $\bar{A}$.} von einer Menge und der Grundmenge bzw. dem Grundraum.
 \]
 \fi
 
+\clearpage
 \newpage
 \begin{figure}[h!]
 	\centering
@@ -288,17 +289,11 @@ sind wie $\bar{A}$.} von einer Menge und der Grundmenge bzw. dem Grundraum.
 
 	\begin{subfigure}[b]{0.45\textwidth}
 		\centering
-		\begin{tikzpicture}[scale=0.7]
-			\fill[white] (-2.55,-1.7) rectangle (2.55,1.7);
-			\draw (-2.55,-1.7) rectangle (2.55,1.7);
-			\draw[dotted] (0,0) circle (1.5cm);
-			\fill[gray] (-0.2,0) circle (1cm);
-			\draw (-0.2,0) circle (1cm);
-			\draw (-0.2,0) node {$A$};
-			\draw (1.2,0) node {$B$};
-			\node at (-2.25, 1.4) {$\Omega$};
-		\end{tikzpicture}
-		\caption{$A \subseteq B$}
+		\begin{venndiagram2sets}[tikzoptions={scale=0.7}]
+			\fillANotB;
+			\node at (0.3, 3.1) {$\Omega$};
+		\end{venndiagram2sets}
+		\caption{$A \setminus B$}
 	\end{subfigure}
 	\begin{subfigure}[b]{0.45\textwidth}
 		\centering
