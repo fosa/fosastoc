@@ -211,8 +211,10 @@ notiert.
 <<>>=
 x <- round(x=runif(n=10, min=1, max=10), digits=0)
 x
+mean(x)
 sd(x)
 @
+\ifxtra
 Die Standardabweichung kann auch graphisch gezeigt werden mittels
 eines Plots mit \lstinline{segments()}. Dieses erlaubt es Linensegmente
 zwischen \lstinline{mean()} und den Daten zu zeichnen. Die Varianz
@@ -243,6 +245,7 @@ segments(x0=x, y0=mean(y), x1=x, y1=y, lwd=2)
 \end{subfigure}
 \caption{Standardabweichung (Daten zu \lstinline{mean()})}
 \end{figure}
+\fi
 
 \section{Kovarianz}
 Die Kovarianz (\emph{mit der Varianz}) ist ein Mass für den
