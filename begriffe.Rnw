@@ -208,9 +208,6 @@ notiert.
 \]
 
 \paragraph{Berechnung in R}
-In \lstinline{R} wird die Standardabweichung mittel \lstinline{sd()}
-ermittelt. Im Folgenden ein Beispiel welches die Standardabweichung
-10 zufälliger ganzer Zahlen ermittelt.
 <<>>=
 x <- round(x=runif(n=10, min=1, max=10), digits=0)
 x
