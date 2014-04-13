@@ -125,10 +125,14 @@ vom $\Omega=\{KK, KZ, ZK, ZZ\}$, also $A \subset \Omega$
 
 \paragraph{Leere Menge} Eine \gls{leere Menge} ist eine Menge welche 
 keinerlei Elemente enthält. Sie wird entweder als $\{ \}$ oder 
-$\emptyset$ notiert.
+$\emptyset$ notiert. Eine solche Menge beschreibt Ereignisse die nicht
+eintreten können.
 \[  
 	A = \{\} = \emptyset
 \]
+Bei einem einfachen Wurf eines Spielwürfels eine $9$ zu würfeln ergibt
+die leere Menge $\emptyset$ bzw. $\{\}$, denn dies ist ein unmögliches
+Ereignis mit $\Omega=\{1,2,3,4,5,6\}$.
 
 \paragraph{Schnittmenge} Eine Menge von Elementen die allesamt sowohl in
 der Menge $A$ als auch in der Menge $B$ vorkommen, wird \gls{Schnittmenge} 
