@@ -123,9 +123,13 @@ Im Falle des zweifachen Münzwurfs is das Ereingis $A=\{KK\}$ eine Teilmenge
 vom $\Omega=\{KK, KZ, ZK, ZZ\}$, also $A \subset \Omega$ 
 
 
-\paragraph{Leere Menge} Eine \gls{leere Menge} ist eine Menge welche 
+\paragraph{Leere Menge} 
+\ifxtra 
+Eine \gls{leere Menge} ist eine Menge welche 
 keinerlei Elemente enthält. Sie wird entweder als $\{ \}$ oder 
-$\emptyset$ notiert. Eine solche Menge beschreibt Ereignisse die nicht
+$\emptyset$ notiert. 
+\fi
+Eine solche Menge beschreibt Ereignisse die nicht
 eintreten können.
 \[  
 	A = \{\} = \emptyset
@@ -134,12 +138,20 @@ Bei einem einfachen Wurf eines Spielwürfels eine $9$ zu würfeln ergibt
 die leere Menge $\emptyset$ bzw. $\{\}$, denn dies ist ein unmögliches
 Ereignis mit $\Omega=\{1,2,3,4,5,6\}$.
 
-\paragraph{Schnittmenge} Eine Menge von Elementen die allesamt sowohl in
+\paragraph{Schnittmenge} 
+\ifxtra
+Eine Menge von Elementen die allesamt sowohl in
 der Menge $A$ als auch in der Menge $B$ vorkommen, wird \gls{Schnittmenge} 
 dieser Mengen genannt.
+\fi
+Ausgang eines Zufallsexperiments welches sowohl in $A$ als auch in $B$
+vorkommt bildet die Schnittmenge.
 \[ 
 	A \cap B
 \]
+Nimmt man zwei Würfel und würfelt mit diesen einzeln vier mal, so könnten
+die Ereignisse $A=\{1,4,5,6\}$ und $B=\{3,4,5,6\}$ lauten, wobei 
+$C=\{4,5,6\}$ dann die Schnittmenge von $A$ und $B$ ist.
 
 \paragraph{Vereinigungsmenge} Die Menge aller Elemente die entweder in
 der Menge $A$, in der Menge $B$ oder in beiden Mengen $A,B$ vorkommen,
