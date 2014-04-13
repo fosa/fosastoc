@@ -35,8 +35,6 @@ Ein allseits bekanntes Beispiel für das arithmetische Mittel ist der
 \emph{Notendurchschnitt}. 
 
 \paragraph{Berechnung in R}
-In \lstinline{R} wird das arithmetische Mittel mit der Funktion 
-\lstinline{mean()} ermittelt.
 <<>>=
 a <- c(6,4,5,5,4,5,6,3,4,5,6)
 mean(a)
