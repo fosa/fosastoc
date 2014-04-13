@@ -187,7 +187,7 @@ segments(x0=x, y0=mean(y), x1=x, y1=y, lwd=3)
 \fi
 
 \section{Standardabweichung}
-Die \gls{Standardabweichung} beschreibt wie gross die die mittlere 
+Die \gls{Standardabweichung} beschreibt wie gross die mittlere 
 Abweichung ist von den einzelnen Beobachtungen (Datenpunkten) zum 
 arithmetischen Mittel\footnote{Das arithmetische Mittel ist eine 
 Schätzung für den
