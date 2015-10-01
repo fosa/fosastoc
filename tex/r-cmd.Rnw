@@ -299,7 +299,7 @@ oben genannten Merkmale gut sichtbat enthält.
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.5\textwidth]{boxplot.pdf}
+	\includegraphics[width=0.5\textwidth]{../fig/boxplot.pdf}
 	\caption{Analyse eines Boxplots}
 	\label{fig:boxplot}
 \end{figure}

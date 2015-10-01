@@ -580,14 +580,14 @@ der Kolmogorv'schen Axiome bestimmt werden.
 	\centering
 	\begin{subfigure}[b]{0.75\textwidth}
 		\centering
-		\includegraphics[width=1\textwidth]{bedingte-wahrscheinlichkeit.pdf}
+		\includegraphics[width=1\textwidth]{../fig/bedingte-wahrscheinlichkeit.pdf}
 	\end{subfigure}
 
 	\rule[1mm]{0mm}{5mm}
 
 	\begin{subfigure}[b]{0.75\textwidth}
 		\centering
-		\includegraphics[width=1\textwidth]{bedingte-wahrscheinlichkeit-detail.pdf}
+		\includegraphics[width=1\textwidth]{../fig/bedingte-wahrscheinlichkeit-detail.pdf}
 	\end{subfigure}
 	\caption{Tabelle bedingter Wahrscheinlichkeiten.}
 \end{figure}
@@ -595,7 +595,7 @@ der Kolmogorv'schen Axiome bestimmt werden.
 \newpage
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.65\textwidth]{bedingte-wahrscheinlichkeit-tipps.pdf}
+	\includegraphics[width=0.65\textwidth]{../fig/bedingte-wahrscheinlichkeit-tipps.pdf}
 	\caption{Hinweise zur Tabelle bedingter Wahrscheinlichkeiten.}
 \end{figure}
 

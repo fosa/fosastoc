@@ -19,7 +19,7 @@ Diskrete Verteilungen beschreiben Probleme, welche
 Ergebnisse aus $\mathbb{N}$ liefern und binär sind.
 
 \paragraph{Binär}
-Binär bedeutet, dass ein Ereignis zwei Werte annehmen kann. Bekannte
+\gls{Binaer} bedeutet, dass ein Ereignis zwei Werte annehmen kann. Bekannte
 Beispiele binärer Probleme sind
 \begin{itemize}
 	\item Gewinnlose \hfill{} (\emph{Gewinn, Zonk})
@@ -37,9 +37,10 @@ werden und beschreibt somit ein binäres Problem. Die Zahl der Antworten
 kann wiederum nur $\in \mathbb{N}$ sein. Somit sind die Bedingungen 
 für ein binäres Problem gegeben.
 
+\ifxtra
 \newpage
 \section{Hypergeometrische Verteilung}
-Die hypergeometrische Verteilung entspricht dem Urnenmodell:
+Die hypergeometrische Verteilung entspricht dem \gls{Urnenmodell}:
 \begin{itemize}
 	\item Urne hat $r$ rote (postive) und $s$ schwarze (negative)
 		Kugeln
@@ -213,8 +214,9 @@ Die Plots aus der Abbildung \ref{fig:team} zeigen, dass es mit der
 höchsten Wahrscheinlichkeit
 4 Männer und 7 Frauen im Team hat, was die gewünschte Anzahl von Spielern
 ergibt für das Team ($4+7=11$). 
-
 \clearpage
+\fi
+
 \newpage
 \section{Binomialverteilung}
 Die Binomialverteilung ist eine Verteilung, welche bei binären Problemen
@@ -248,6 +250,19 @@ Kugeln gibt).
 		& \frac{\displaystyle n!}{\displaystyle x!\, (n-x)!} 
 			\cdot p^x \cdot (1-p)^{n-x}
 \end{array} \]
+
+\subsection{Addition}
+Mit dem Additionsgesetz für stochastisch unabhängige Zufallsvariablen 
+können auch binomiaverteilte Zufallsvariablen, welche die gleiche
+Eintrittswahrscheinlichkeit $p$ haben, zusammengefasst werden.
+\[  
+	\left.\begin{array}{l l }
+		X \sim Bin(n_1, p) & \\
+		& \\
+		Y \sim Bin(n_2, p) & \\
+	\end{array} \right\}
+	\Rightarrow (X+Y) \sim Bin((n_1 + n_2), p)
+\]
 
 \subsection{Erwartungswert}
 
@@ -336,6 +351,8 @@ plot(rbinom(n=100, size=100, prob=0.5), cex.lab=1.5, cex.axis=1.5,
 \label{fig:binom}
 \end{figure}
 
+\clearpage
+
 \subsection{Beispiel einer binomialen Verteilung}
 Jemand sagt Ihnen, dass er von 100 Münzwürfen 80 mal Kopf erhielt.
 Sie antworten spontan, dass Sie ihm 15 Treffer von 20 Versuchen ja 
@@ -375,6 +392,103 @@ plot(dbinom(x=c(1:20), size=20, prob=0.5), type='h', cex.lab=1.5, cex.axis=1.5, 
 \clearpage
 \newpage
 \section{Poissonverteilung}
+Die Poissonverteilung ist eine Verteilung welche Ereignisse
+innerhalb eines Intervalls beschreibt. Dieses Intervall kann
+eine beliebige skalare Grösse beschreiben wie Zeit, Länge oder
+Temperatur \parencite[307]{oreilly}.
+
+Die Poissonverteilung ist ein Spezialfall der Binomialverteilung
+wenn die Anzahl Versuche $n$ gross und die 
+Trefferwahrscheinlichkeit $p$ klein wird. Der Parameter $\lambda$
+der Poissonverteilung ist definiert durch die Parameter einer
+Binomialverteilung \parencite[197]{henze}.
+\[ 
+	\lambda := n \cdot p_n, \qquad Bin(n, p_n),\,n\geq1
+\]
+\[ 
+	Bin(n,p) \xrightarrow{
+		(n \rightarrow \infty) 
+		\land
+		(p \rightarrow 0)}
+	Pois(\lambda)
+\]
+
+\noindent
+Die Poissonverteilung beschreibt somit die Auftretenshäufigkeit 
+innerhalb eines Intervalls. Der Parameter $\lambda$ beschreibt
+sowohl den Erwartungswert als auch die Steuung. Dies definiert
+das spezielle Verhalten dieser Verteilung, denn je höher der
+Wert von $\lambda$ ist, desto flacher wird die Verteilung 
+(siehe Abbildung \ref{fig:poisfall}).
+
+<<pois1,fig=FALSE, echo=FALSE>>=
+a <- dpois(x=c(1:100), lambda=20)
+b <- dpois(x=c(1:100), lambda=50)
+c <- dpois(x=c(1:100), lambda=80)
+plot(a, type='h', cex.lab=1.5, cex.axis=1.5, cex.main=1.5, 
+     cex.sub=1.5, ylab='P(x)', xlab='x', ylim=c(0.00, 0.1),
+     main='dpois()')
+lines(b, type='l')
+lines(c, type='p')
+text(20, 0.095, "lambda=20", cex=1.5)
+text(50, 0.06, "lambda=40", cex=1.5)
+text(80, 0.05, "lambda=50", cex=1.5)
+@
+
+
+\begin{figure}[h!]
+\centering
+\begin{subfigure}[b]{0.48\textwidth}
+<<fig=TRUE, echo=FALSE>>=
+<<pois1>>
+@
+\end{subfigure}
+\caption{Poissonverteilung für verschiedene $\lambda$}
+\label{fig:poisfall}
+\end{figure}
+
+\newpage
+
+\subsection{Verteilungsfunktion}
+Die Verteilungsfunktion der Poissonverteilung ist definiert
+durch den Erwartungswert $\lambda$ und die Anzahl der eintretenden
+Ereignisse $x$.
+\[  
+	X \sim Pois(\lambda)
+\]
+\[  \begin{array}{l l}
+	\lambda	
+		& \text{Erwartungswert}
+\end{array} \]
+\[  
+	P(X=x) = e^{-\lambda} \cdot \frac{\lambda^x}{x!}
+\]
+
+\subsection{Addition}
+Mit dem Additionsgesetz für stochastisch unabhängige Zufallsvariablen 
+können auch poissonverteilte Zufallsvariablen zusammengefasst werden.
+\[  
+	\left.\begin{array}{l l}
+		X \sim Pois(\mu_1) & \\
+		& \\
+		Y \sim Pois(\mu_2) & \\
+	\end{array} \right\} 
+	\Rightarrow (X+Y) \sim Pois(\mu_1 + \mu_2)
+\]
+
+\subsection{Erwartungswert}
+Der Erwartungswert der Poissonverteilung ist direkt ein Parameter
+der Verteilungsfunktion selbst, nämlich $\lambda$.
+\[  
+	E(X) = \lambda = Var(X) 
+\]
+
+\subsection{Varianz}
+Die Varianz einer Poissonverteilung ist wie der Erwartungswert durch den 
+Parameter $\lambda$ der Verteilungsfunktion gegeben.
+\[  
+	Var(X) = \lambda = E(X)
+\]
 
 \subsection{Verwendung in R}
 \lstinline{R} stellt grundsätzlich vier Funktionen für die 
@@ -446,6 +560,147 @@ plot(rpois(n=100, lambda=50), cex.lab=1.5, cex.axis=1.5,
 
 \clearpage
 
+\subsection{Beispiel einer Poissonverteilung}
+
+\paragraph{Beispiel 1 - Pixelfehler}
+Ein \gls{Mikrocontroller} steuert ein Display an mit 320x240 
+\gls{Pixel}. Damit möglichst schnelle Bildfolgen erzielt werden, 
+haben sich die Programmierer bis an die Grenzen der Senderate und 
+leicht darüber bewegt. Sie stellen nämlich fest, dass im Schnitt 
+pro Bild (320x240 Pixel) ca. 12 Pixelfehler vorkommen.
+
+Die Programmierer besprechen die Lage und einer meint: 
+"`\emph{Rechnen wir doch mal die Wahrscheinlichkeit für höchstens 
+einen Fehler aus und für mindestens 16, was unsere Schmerzgrenze 
+sein soll.}"'
+
+<<>>=
+eps <- 12 # error per screen
+# probability of at most 1 error per screen
+ppois(q=1, lambda=eps)
+# probability of at least 16 errors per screen
+1-ppois(q=(16-1), lambda=eps)
+@
+
+<<pixel1, fig=FALSE, echo=FALSE>>=
+eps <- 12 # error per screen
+X <- ppois(q=c(1:20), lambda=eps)
+plot(X, cex.lab=1.5, cex.axis=1.5, cex.main=1.5, cex.sub=1.5, 
+     ylab='', xlab='', main='ppois()')
+@
+
+<<pixel2, fig=FALSE, echo=FALSE>>=
+eps <- 12 # error per screen
+Y <- (1-ppois(q=c(0:19), lambda=eps))
+plot(Y, cex.lab=1.5, cex.axis=1.5, cex.main=1.5, cex.sub=1.5, 
+     ylab='', xlab='', main='dpois()')
+@
+
+\begin{figure}[h!]
+\centering
+\begin{subfigure}[b]{0.48\textwidth}
+<<fig=TRUE, echo=FALSE>>=
+<<pixel1>>
+@
+\caption{Punktwahrscheinlichkeit}
+\end{subfigure}
+\begin{subfigure}[b]{0.48\textwidth}
+<<fig=TRUE, echo=FALSE>>=
+<<pixel2>>
+@
+\caption{$1-$kummulative Wahrsch.}
+\end{subfigure}
+\caption{Wahrscheinlichkeiten von Pixelfehlern pro Bild}
+\label{fig:embedded}
+\end{figure}
+
+\paragraph{Beispiel 2 --- Requests pro Woche}
+Ein Team hat ein \gls{Embedded System} entwickelt, welches
+Solarbetrieben an einem entlegenem Ort Geodaten sammelt und diese
+über einen auf dem Embedded System implementierten Webserver
+zur Verfügung stellt. Jedes Wochenende geht eine Gruppe von 
+Studenten hin und prüft das System, macht Resets und flasht Updates.
+
+Das Entwicklerteam erfährt am Montagmorgen, dass im letzten Update
+ein Bug drin ist. Dieser verursacht nach einer gewissen Anzahl
+an Requests einen \gls{Buffer Overflow}, welcher das System 
+zum Absturz bringt. Die Entwickler schätzen, dass schon nach ca. 15 
+Requests das dedizierte Embedded System abstürzen sollte.
+
+Nun müssen die Entwickler sich entscheiden ob sie bis zum nächsten
+Wochenende abwarten können um dem Bugfix zu flashen oder ob sie
+noch vor dem Wochenende losziehen müssen. Sie sehen sich die alten
+Logfiles an und bemerken, dass im Schnitt ca. zwei der kritischen
+Requests pro Tag stattfinden.
+
+Die Entwickler kennen mit diesen Informationen alles was sie
+brauchen um die Frage korrekt aufzustellen: "`\emph{Wie gross
+ist die Wahrscheinlichkeit, dass bis zum Wochenende mehr als 
+15 Requests eintreffen?}"'
+
+<<>>=
+hpd <- 2 # hits per day
+hpw <- hpd*7 # hits per week
+# probability of at least 15 hits in one week
+1-ppois(q=(15-1), lambda=hpw)
+@
+
+<<interrupt1, fig=FALSE, echo=FALSE>>=
+hpd <- 2 # hits per day
+hpw <- hpd*7 # hits per week
+X <- dpois(x=c(1:30), lambda=(7*2))
+plot(X, cex.lab=1.5, cex.axis=1.5, cex.main=1.5, cex.sub=1.5, 
+     ylab='P(X=x)', xlab='Anzahl Requests', main='dpois()')
+@
+
+<<interrupt2, fig=FALSE, echo=FALSE>>=
+hpd <- 2 # hits per day
+hpw <- hpd*7 # hits per week
+X <- 1-ppois(q=c(1:30), lambda=hpw)
+plot(X, cex.lab=1.5, cex.axis=1.5, cex.main=1.5, cex.sub=1.5, 
+     ylab='P(X<=x)', xlab='Anzahl Requests', main='ppois()')
+abline(h=(1-ppois(q=(15-1), lambda=hpw)))
+@
+
+Die Analyse mit \lstinline{R} hat ergeben, dass die 
+Wahrscheinlichkeit von mindestens 15 Requests bei ca. $0.43$ liegt
+($1-$kummulative Verteilung, siehe Plot aus Abbildung \ref{fig:embedded}).
+
+Die Entwickler lehnen sich also vorerst mal zurück mit dem Argument,
+dass die Wahrscheinlichkeit von mehr als 15 Request bis zum 
+Wochenende weniger als $50\%$ beträgt. Das seien ja schlechtere Chancen
+als bein Münzwurf\dots
+
+<<embedded3, fig=FALSE, echo=FALSE>>=
+hpd <- 2
+hpw <- hpd*7
+X <- ppois(q=c(1:30), lambda=hpw)
+plot(X, cex.lab=1.5, cex.axis=1.5, cex.main=1.5, cex.sub=1.5, 
+     ylab='', xlab='', main='ppois()')
+abline(h=0.5)
+@
+
+\begin{figure}[h!]
+\centering
+\begin{subfigure}[b]{0.48\textwidth}
+<<fig=TRUE, echo=FALSE>>=
+<<interrupt1>>
+@
+\caption{Punktwahrscheinlichkeit}
+\end{subfigure}
+\begin{subfigure}[b]{0.48\textwidth}
+<<fig=TRUE, echo=FALSE>>=
+<<interrupt2>>
+@
+\caption{$1-$kummulative Wahrsch.}
+\end{subfigure}
+\caption{Wahrscheinlichkeiten von Requests pro Woche}
+\label{fig:embedded}
+\end{figure}
+
+
+\clearpage
+
 \section{Erwartungswert}
 Der Erwartungswert einer diskreten Verteilung gibt jene Zahl an,
 welche die Zufallsvariable im \emph{Mittel} annimmt. Sie beschreibt
@@ -458,6 +713,16 @@ Wert der Zufallsvariable entspricht.
 $P(X=x)$ bedeutet \emph{Wahrscheinlichkeit, dass die Zufallsvariable $X$ 
 genau $x$ ist}.
 
+\subsection{Additivität von Erwartungswerten}
+Erwartungswerte stochastisch unabhängiger Zufallsvariablen lassen sich
+addieren
+\[  
+	E(X_1 + X_2) = E(X_1) + E(X_2)
+\]
+als auch subtrahieren
+\[  
+	E(X_1 - X_2) = E(X_1) - E(X_2)
+\]
 
 \section{Varianz}
 Die Varianz einer Wahrscheinlichkeitsverteilung gibt ein Mass an für 
@@ -475,6 +740,99 @@ von Zufallsvariable und Erwartungswert $(x-\mu)^2$
 		& = 
 		& \sum \left( (x-\mu)^2 \cdot P(X=x) \right)
 \end{array} \]
+
+\subsection{Additivität von Varianzen}
+Ähnlich wie Erwartungswerte lassen sich auch Varianzen addieren
+\[  
+	Var(X_1 + X_2) = Var(X_1) + Var(X_2)
+\]
+und auch subtrahieren. Bei der Subtraktion gilt es zu beachten,
+dass die eigentliche Rechnung, eine Addition darstellt
+\parencite[231]{oreilly}.
+\[  
+	Var(X_1 - X_2) = Var(X_1) + Var(X_2)
+\]
+
+\section{Lineare Transformation}
+Die lineare Transformation beschreibt die lineare Änderung
+der Verteilung einer Zufallsvariablen, wobei die Verteilung
+im eigentlichen Sinne beibehalten wird, jedoch Erwartungswert
+und Varianz sich verändern. Die Transformation wird linear
+genannt, wenn die Änderung mittels eines Polynoms vom 
+Grad 1 beschrieben wird.
+\[  
+	Y = a \cdot X + b
+\]
+Begrifflich kann die oben gezeigte lineare Transformation weiter
+unterteilt werden in 
+\begin{itemize}
+	\item Nullpunkttransformation \hfill{} ($+b$)
+	\item Einheitentransformation \hfill{} ($a \cdot X$)
+\end{itemize}
+
+Die lineare Transformation kann direkt auf den Erwartungswert
+und die Varianz übertragen werden.
+\[  
+	E(Y) = E(a \cdot X + b) = a \cdot E(X) + b
+\]
+Bei der Transformation der Varianz gilt es zu beachten, dass
+die Nullpunkttransformation hinfällig ist und die
+Einheitentransformation quadratisch wirkt.
+\[  
+	Var(Y) = Var(a \cdot X +b) = a^2 \cdot Var(X)
+\]
+Der mathematische Hintergrund für diese Berechnung der Varianz
+liegt in der sog. \emph{linearität des Integrals}, welche im 
+eigentlichen besagt, dass konstante Faktoren vor das Integral
+genommen werden können und Summen separierbar sind.
+
+Einfacher ist allerdings die graphische Erklärung. Die Abbildung
+\ref{fig:lintrans} zeigt auf, dass die Multiplikation mit $a$ 
+sich auf die Steuung auswirkt, nicht aber die Addition von $b$. 
+Wenn alle Punkte um den selben Wert in die selbe Richtung 
+verschoben werden, so ändert dies nicht deren Steuung.
+
+<<lintrans1, fig=FALSE, echo=FALSE>>=
+X <- runif(n=100, min=1, max=2)
+plot(X, cex.lab=1.5, cex.axis=1.5, cex.main=1.5, cex.sub=1.5, 
+     ylim=c(0, 12), ylab='', xlab='', main='X')
+abline(h=mean(X))
+@
+
+<<lintrans2, fig=FALSE, echo=FALSE>>=
+# X <- rbinom(n=100, size=100, prob=0.2)
+Y <- (3*X+2)
+plot(Y, cex.lab=1.5, cex.axis=1.5, cex.main=1.5, cex.sub=1.5, 
+     ylim=c(0, 12), ylab='', xlab='', main='Y')
+abline(h=mean(Y))
+@
+
+\begin{figure}[h!]
+\centering
+\begin{subfigure}[b]{0.48\textwidth}
+<<fig=TRUE, echo=FALSE>>=
+<<lintrans1>>
+@
+\caption{Zufallsvariable $X$}
+\end{subfigure}
+\begin{subfigure}[b]{0.48\textwidth}
+<<fig=TRUE, echo=FALSE>>=
+<<lintrans2>>
+@
+\caption{Zufallsvariable $Y=3\cdot X +2$}
+\end{subfigure}
+
+\rule[1mm]{0mm}{5mm}
+
+\begin{subfigure}[b]{1\textwidth}
+\centering
+\includegraphics[width=0.9\textwidth]{../fig/lintrans.pdf}
+\caption{Graphische Analyse der Transformation}
+\end{subfigure}
+
+\caption{Lineare Transformation $Y = 3 \cdot X + 2$}
+\label{fig:lintrans}
+\end{figure}
 
 \section{Standardabweichung}
 Die Standardabweichung einer Wahrscheinlichkeitsverteilung 
@@ -496,6 +854,53 @@ Standardabweichung der Quadratwurzel der Varianz entspricht.
 \end{array} \]
 
 \section{Zusammenfassung}
+Diskrete Verteilungen kommen bei Problemen vor die immer Ergebnisse
+aus $\mathbb{N}$ liefern. Von diesen gibt es drei elementare Verteilungen.
+
+\begin{itemize}
+	\item Hypergeometrische Verteilung 
+		\hfill{} (\emph{Ziehen ohne Zurücklegen})
+	\item Binomialverteilung 
+		\hfill{} (\emph{Münzwurf})
+	\item Poissonverteilung 
+		\hfill{} (\emph{nach oben offen})
+\end{itemize}
+
+\noindent
+Diese drei Verteilung stehen in einem engen Verhältnis, denn die
+Binomialverteilung ist ein Spezialfall der Hypergeometrischen 
+Verteilung und die Poissonverteilung ist ein Spezialfall der
+Binomialverteilung. Dies zeigt sich in der Reduktion der Parameter.
+\[ \begin{array}{c c c c c}
+	Hyp(n,r,s)
+		& \xrightarrow{n,s \rightarrow \infty}
+		& Bin(n,p)
+		& \xrightarrow{n,p_n \rightarrow \lambda}
+		& Pois(\lambda) \\
+	3 \text{ Parameter}
+		& 
+		& 2 \text{ Parameter}
+		& 
+		& 1 \text{ Parameter}
+\end{array} \]
+
+\noindent
+Um jeweils die richtige Verteilung zu wählen, kann man folgende Merkregeln 
+beachten.
+
+\begin{description}
+	\item[Hypergeometrisch]
+		Jedes Ereignis (Treffer oder Niete) verändert den 
+		Grundraum.
+	\item[Binomial] Jedes Ereignis hat die gleiche 
+		Wahrscheinlichkeit. Diese Verteilung ist zu wählen,
+		wenn man wissen möchte, wie viele Treffer für eine
+		bestimmte Anzahl Versuche eintreten.
+	\item[Poisson] Man hat eine Erwartung von der Anzahl 
+		eintretender Ereignisse (Treffer) und möchte wissen,
+		wie viele Treffer in einem bestimmten Intervall 
+		eintreten.
+\end{description}
 
 \subsection{Erwartungswert und Varianz}
 
@@ -533,23 +938,23 @@ Standardabweichung der Quadratwurzel der Varianz entspricht.
 
 \begin{table}[h!]
 	\begin{tabular}{l l l}
-	Hypergeometrisch & & \\ \hline
-		& genau 	& \verb!dhyper(x=A,...)! \\
-		& höchstens 	& \verb!phyper(q=A,...)! \\
-		& mindestens 	& \verb!1-phyper(q=A-1,...)! \\
-		& zufällig 	& \verb!rhyper(n=...)! \\
+	$X \sim Hyp(n,r,s)$ & & \\ %\hline
+		& genau $A$ 		& \verb!dhyper(x=A,...)! \\
+		& höchstens $A$		& \verb!phyper(q=A,...)! \\
+		& mindestens $A$	& \verb!1-phyper(q=A-1,...)! \\
+		& $A$ zufällige 	& \verb!rhyper(n=A...)! \\
 	& & \\
-	Binomial & & \\ \hline
-		& genau 	& \verb!dbinom(x=A,...)! \\
-		& höchstens 	& \verb!pbinom(q=A,...)! \\
-		& mindestens 	& \verb!1-pbinom(q=A-1,...)! \\
-		& zufällig 	& \verb!rbinom(n=...)! \\
+	$X \sim Bin(n,p)$ & & \\ %\hline
+		& genau $A$		& \verb!dbinom(x=A,...)! \\
+		& höchstens $A$		& \verb!pbinom(q=A,...)! \\
+		& mindestens $A$	& \verb!1-pbinom(q=A-1,...)! \\
+		& $A$ zufällige 	& \verb!rbinom(n=A...)! \\
 	& & \\
-	Poisson & & \\ \hline
-		& genau 	& \verb!dpois(x=A,...)! \\
-		& höchstens 	& \verb!phyper(q=A,...)! \\
-		& mindestens 	& \verb!1-ppois(q=A-1,...)! \\
-		& zufällig 	& \verb!rpois(n=...)! \\
+	$X \sim Pois(\lambda)$ & & \\ %\hline
+		& genau $A$		& \verb!dpois(x=A,...)! \\
+		& höchstens $A$		& \verb!ppois(q=A,...)! \\
+		& mindestens $A$	& \verb!1-ppois(q=A-1,...)! \\
+		& $A$ zufällige 	& \verb!rpois(n=A...)! \\
 	\end{tabular}
 \end{table}
 
@@ -588,7 +993,7 @@ in einem bestimmten Intervall $[a,b]$ annimmt (siehe Grafik
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.7\textwidth]{dichtefunktion.pdf}
+	\includegraphics[width=0.7\textwidth]{../fig/dichtefunktion.pdf}
 	\caption{Dichtefunktion $f(x)$ und kummulative Verteilungsfunktion 
 		$F(x)$ in der Gegenüberstellung.}
 	\label{fig:dichte}
@@ -678,7 +1083,7 @@ darunter liegt.
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.7\textwidth]{dichtefunktion-quantile.pdf}
+	\includegraphics[width=0.7\textwidth]{../fig/dichtefunktion-quantile.pdf}
 	\caption{Quantil einer Dichtefunktion.}
 	\label{fig:dichte-quantil}
 \end{figure}
@@ -708,7 +1113,7 @@ konstante Dichte hat.
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.7\textwidth]{uniform.pdf}
+	\includegraphics[width=0.7\textwidth]{../fig/uniform.pdf}
 	\caption{Uniforme Dichte $f(x)$ und Verteilung $F(x)$.}
 	\label{fig:uniform}
 \end{figure}
@@ -842,11 +1247,13 @@ Erfassung elektronischer Messgrössen als digitale Werte, so
 \emph{quantifziert} dieser die Messung und es entsteht ein Messfehler. 
 Ist die zu erfassende Grösse viel grösser als die kleinstmögliche 
 Auflösung des ADC, so ist dieser Fehler uniform verteilt 
-\parencite[615]{taoe}.
+\parencite[615]{taoe}. Typische Fehler beim Messverfahren werden oft
+vom Hersteller für den jeweiligen ADC angegeben 
+(siehe Anhang \ref{sec:stm32f21xx-adc}).
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.95\textwidth]{adc-system.pdf}
+	\includegraphics[width=0.95\textwidth]{../fig/adc-system.pdf}
 	\caption{Analog-to-Digital Converter, 8 Bit.}
 \end{figure}
 
@@ -864,7 +1271,7 @@ s
 \noindent
 Mit Hilfe von R lässt sich dieses Beispiel relativ leicht rechnen und
 plotten. Die Plots aus der Abbildung \ref{fig:adc} zeigen, dass die 
-Quantifizireung des Eingangsignal einen uniformen Fehler verusrsacht.
+Quantifizireung des Eingangsignals einen uniformen Fehler verusrsacht.
 Die Grafik \ref{fig:adc-d} zeigt den Beweis für die uniforme Verteilung
 anhand eines Quantilenvergleichs mit einer ideal uniform verteilten
 Datenreihe.
@@ -956,7 +1363,7 @@ macht sie zu einer der wichtigsten Verteilungen überhaupt
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.7\textwidth]{normal.pdf}
+	\includegraphics[width=0.7\textwidth]{../fig/normal.pdf}
 	\caption{Normalverteilung}
 	\label{fig:normal}
 \end{figure}
@@ -997,24 +1404,317 @@ der Normalverteilung.
 
 \subsection{Varianz}
 Die Varianz einer Normalverteilung ist wie der Erwartungswert
-$\mu$ gleich eine Parameter der Dichtefunktion und beschreibt
+$\mu$ gleich ein Parameter der Dichtefunktion und beschreibt
 wie flach die \emph{Glockenkurve} ist.
 \[  
 	Var(X) = \sigma^2
 \]
 
 \subsection{Verwendung in R}
+\lstinline{R} stellt grundsätzlich vier Funktionen für die 
+Normalverteilung zur Verfügung. 
+\begin{itemize}
+	\item \lstinline{dnorm()} \hfill{} 
+		(\emph{Wahrscheinlichkeitsverteilung})
+	\item \lstinline{pnorm()} \hfill{}
+		(\emph{kumulative Wahrscheinlichkeit})
+	\item \lstinline{qnorm()} \hfill{}
+		(\emph{Verteilung der Quantile})
+	\item \lstinline{rnorm()} \hfill{}
+		(\emph{Zufallszahlen})
+\end{itemize}
+Die Abbildung \ref{fig:norm} zeigt jeweils einen Plot zu den gegebenen
+Funktionen aus \lstinline{R}. Für weitere Informationen zu Plots siehe
+Kapitel \ref{sec:plots}.
 
+<<dnorm, fig=FALSE, echo=FALSE>>=
+plot(dnorm(x=c(1:100), mean=50, sd=10), type='l', cex.lab=1.5, 
+     cex.axis=1.5, cex.main=1.5, cex.sub=1.5, 
+     ylab='P(x)', xlab='Wert x', 
+     main='dnorm()')
+@
+
+<<pnorm, fig=FALSE, echo=FALSE>>=
+plot(pnorm(q=c(1:100), mean=50, sd=10), type='l', cex.lab=1.5, 
+     cex.axis=1.5, cex.main=1.5, cex.sub=1.5, 
+     ylab='P(X<=x)', xlab='Wert x', 
+     main='pnorm()')
+@
+
+<<qnorm, fig=FALSE, echo=FALSE>>=
+plot(qnorm(p=seq(from=0, to=1, by=0.001), mean=50, sd=10), type='l',
+     cex.lab=1.5, cex.axis=1.5, cex.main=1.5, cex.sub=1.5, ylab='Wert x', 
+     xlab='Quantil in Promille', main='qnorm()')
+@
+
+<<rnorm, fig=FALSE, echo=FALSE>>=
+plot(rnorm(n=100, mean=50, sd=10), cex.lab=1.5, cex.axis=1.5, 
+     cex.main=1.5, cex.sub=1.5, ylab='Wert x', xlab='x-te Zahl', 
+     main='rnorm()')
+@
+
+\begin{figure}[h!]
+\centering
+\begin{subfigure}[b]{0.48\textwidth}
+<<fig=TRUE, echo=FALSE>>=
+<<dnorm>>
+@
+\caption{Wahrscheinlichkeitsverteilung}
+\end{subfigure}
+\begin{subfigure}[b]{0.48\textwidth}
+<<fig=TRUE, echo=FALSE>>=
+<<pnorm>>
+@
+\caption{kumulative Wahrscheinlichkeit}
+\end{subfigure}
+
+\begin{subfigure}[b]{0.48\textwidth}
+<<fig=TRUE, echo=FALSE>>=
+<<qnorm>>
+@
+\caption{Quantile}
+\end{subfigure}
+\begin{subfigure}[b]{0.48\textwidth}
+<<fig=TRUE, echo=FALSE>>=
+<<rnorm>>
+@
+\caption{Zufallszahlen}
+\end{subfigure}
+\caption{Normalverteilung ($\mu=50, \sigma^2=10$)}
+\label{fig:norm}
+\end{figure}
+
+\clearpage
 
 \subsection{Beispiel einer Normalverteilung}
+Bei digitalen Übertragungen entsteht durch diverse Umwelteinflüsse 
+ein sog. \emph{Jitter}. Dieser beschreibt ein variieren der 
+Taktzeiten einer Übertragung. Ein Teil des gesamten Jitters bildet 
+der sogenannte \emph{zufällige Jitter} welcher Normalverteilt ist.
+D.h. die zeitliche Grenze eines Zyklus folgt einer bestimmten
+Verteilung, wobei die Ränder dieser Grenzen normalverteilt abweichen.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.7\textwidth]{../fig/jitter.pdf}
+	\caption{Zufalls-Jitter}
+	\label{fig:jitter}
+\end{figure}
+
+In vielen Anwendung von Mikrocontrollern  wird dieser Jitter ausführlich
+beschrieben (siehe Anhang \ref{sec:stm32f21xx}).
+
+\clearpage
 
 \newpage
 \section{Exponentialverteilung}
+Die Exponentialverteilung (auch \emph{negative Exponentialverteilung}) ist 
+eine stetige Verteilung welche angewandt wird um die Zeit beschreiben, welche
+zwischen Ereignissen verstreicht. Dies gilt für Ereignisse  welche 
+kontinuierlich, unabhängig und mit konstanter Rate ($\lambda$) eintreten.
+
+\[  
+	f(x) = \left\{ 
+	\begin{array}{c c l}
+		\displaystyle 
+		\lambda \cdot e^{-\lambda \cdot x}
+			& \text{falls}
+			& x \geq 0 \\
+		& & \\
+		\displaystyle 
+		0
+			& \text{falls}
+			& x < 0
+	\end{array}
+	\right.
+\]
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.7\textwidth]{../fig/exponential.pdf}
+	\caption{Exponentialverteilung}
+	\label{fig:exponential}
+\end{figure}
+
+Eine wichtige Eigenschaft der Exponentialverteilung ist die sog. 
+\emph{Gedächtnislosigkeit} \parencite[296]{henze}. Diese besagt, dass die 
+Wahrscheinlichkeit eines Ereignisses ab einem Zeitpunkt $t$ innerhalb des 
+Intervalls $[a,b]$ nicht dadurch beeinflusst wird, ob und wann das letzte
+Ereignis eingetreten ist.
+
 \subsection{Verteilungsfunktion}
+\[ 
+	F(x) = \left\{ 
+	\begin{array}{c c l}
+		1-e^{-\lambda \cdot x}
+			& \text{falls}
+			& x \geq 0 \\
+		& & \\
+		0
+			& \text{falls}
+			& x < 0
+	\end{array}
+	\right.
+\]
+
 \subsection{Erwartungswert}
+\[ 
+	E(X) = \frac{1}{\lambda}
+\]
+
 \subsection{Varianz}
+\[  
+	Var(X) = \frac{1}{\lambda^2}
+\]
+
+\subsection{Standardabweichung}
+Die Standardabweichung der Exponentialverteilung entspricht dem 
+Erwartungswert.
+\[  
+	\sigma_x = \sqrt{\sigma^2} = \sqrt{Var(X)} = E(X) = \frac{1}{\lambda}
+\]
+
+\subsection{Transformation}
+Die Verteilung $X \sim Exp(\lambda)$ mit beliebigem $\lambda \in \mathbb{R}$
+kann aus der Grundform $X \sim Exp(1)$ transformeirt werden, denn die 
+Änderung des Parameters bewirkt lediglich eine Skalenänderung 
+\parencite[296]{henze}. Hierfür wird die Grundform mit dem reziproken Wert
+des Parameters multipliziert.
+\[  
+	X \sim Exp(1) \Rightarrow \frac{1}{\lambda} \cdot X \sim Exp(\lambda)	
+\]
+
+\subsection{Zusammenhang mit uniformer Verteilung}
+Die Exponentialverteilung hat einen direkten Zusammenhang mit der uniformen
+Verteilung innerhalb des Intervalls $[0,1]$ mit 
+$x \rightarrow -\frac{1}{\lambda} \cdot \log(1-x)$ und somit
+\[  
+	X \sim \mathcal{U}(0,1) 
+		\Rightarrow 
+		-\frac{1}{\lambda} \cdot \log(1-X) \sim Exp(\lambda)
+\]
+Mit diesem Zusammenhang lässt sich aus einer uniform verteilten Zufallszahl 
+eine Exponentialverteilte Zufallszahl erzeugen \parencite[297]{henze}.
+
 \subsection{Verwendung in R}
+\lstinline{R} stellt grundsätzlich vier Funktionen für die 
+Exponentialverteilung zur Verfügung. 
+\begin{itemize}
+	\item \lstinline{dexp()} \hfill{} 
+		(\emph{Wahrscheinlichkeitsverteilung})
+	\item \lstinline{pexp()} \hfill{}
+		(\emph{kumulative Wahrscheinlichkeit})
+	\item \lstinline{qexp()} \hfill{}
+		(\emph{Verteilung der Quantile})
+	\item \lstinline{rexp()} \hfill{}
+		(\emph{Zufallszahlen})
+\end{itemize}
+Die Abbildung \ref{fig:exp} zeigt jeweils einen Plot zu den gegebenen
+Funktionen aus \lstinline{R}. Für weitere Informationen zu Plots siehe
+Kapitel \ref{sec:plots}.
+
+<<dexp, fig=FALSE, echo=FALSE>>=
+plot(dexp(x=seq(0, 10, 0.001), rate=1), type='l', cex.lab=1.5, 
+     cex.axis=1.5, cex.main=1.5, cex.sub=1.5, 
+     ylab='P(x)', xlab='Wert x', 
+     main='dexp()')
+@
+
+<<pexp, fig=FALSE, echo=FALSE>>=
+plot(pexp(q=seq(0, 10, 0.001), rate=1), type='l', cex.lab=1.5, 
+     cex.axis=1.5, cex.main=1.5, cex.sub=1.5, 
+     ylab='P(X<=x)', xlab='Wert x', 
+     main='pexp()')
+@
+
+<<qexp, fig=FALSE, echo=FALSE>>=
+plot(qexp(p=seq(from=0, to=1, by=0.001), rate=1), type='l',
+     cex.lab=1.5, cex.axis=1.5, cex.main=1.5, cex.sub=1.5, ylab='Wert x', 
+     xlab='Quantil in Promille', main='qexp()')
+@
+
+<<rexp, fig=FALSE, echo=FALSE>>=
+plot(rexp(n=100, rate=1), cex.lab=1.5, cex.axis=1.5, 
+     cex.main=1.5, cex.sub=1.5, ylab='Wert x', xlab='x-te Zahl', 
+     main='rexp()')
+@
+
+\begin{figure}[h!]
+\centering
+\begin{subfigure}[b]{0.48\textwidth}
+<<fig=TRUE, echo=FALSE>>=
+<<dexp>>
+@
+\caption{Wahrscheinlichkeitsverteilung}
+\end{subfigure}
+\begin{subfigure}[b]{0.48\textwidth}
+<<fig=TRUE, echo=FALSE>>=
+<<pexp>>
+@
+\caption{kumulative Wahrscheinlichkeit}
+\end{subfigure}
+
+\begin{subfigure}[b]{0.48\textwidth}
+<<fig=TRUE, echo=FALSE>>=
+<<qexp>>
+@
+\caption{Quantile}
+\end{subfigure}
+\begin{subfigure}[b]{0.48\textwidth}
+<<fig=TRUE, echo=FALSE>>=
+<<rexp>>
+@
+\caption{Zufallszahlen}
+\end{subfigure}
+\caption{Exponentialverteilung}
+\label{fig:exp}
+\end{figure}
+
+\clearpage
+
 \subsection{Beispiel einer Exponentialverteilung}
+\paragraph{Beispiel 1 - Gerätedefekt}
+Die Entwickler eines Sicherheitssystems möchten eine Gerätekomponente
+einkaufen, statt diese selber zu entwicklen. Die favorisierte Komponente
+hat laut Hersteller eine Ausfallrate von ca. $0.2\%$ pro Tag bei 
+Dauerbetrieb.
+
+Die Entwickler müssen nun folgende Frage beantworten für Ihren 
+Entwicklungsbericht: "`\emph{Wie gross ist die Wahrscheinlichkeit, dass
+die eingekaufte Komponente mindestens ein Jahr im Dauerbetrieb arbeitet?}"'
+
+<<>>=
+dpd <- 0.002 # rate of defects per day
+ttd <- 1/dpd # time till defect
+ttd
+1-pexp(q=365, rate=dpd)
+@
+
+\paragraph{Beispiel 2 - Reboot}
+Der Administrator der Telefondatenbank der Firma Umbrella Corp. soll ein 
+Update der Software machen. Hierzu muss der Service kurz abgestellt werden. 
+Für den Reboot und das aufsarten des Service benötigt der Administrator ca. 
+2 Minuten. 
+
+Er überlegt sich nun, ob er den Reboot jetzt während den regulären 
+Arbeitszeiten machen oder bis nach Feierabend warten soll. Da er nicht
+sonderlich lust hat so lange im Betrieb zu sein, entschliesst er sich die
+sache mal zu rechnen. Hierzu sieht er sich die Logfiles des Dienstes an und
+bemerkt, dass ca. 15 Requests pro Stunde an den Dienst gehen. Also fragt er
+sich nun: "`\emph{Wie wahrscheinlich ist es, dass ich innerhalb von zwei 
+Minuten ab den Zeitpunkt $x$ einen Request erhalte?}"'
+
+<<>>=
+rph <- 15 # requests per hour
+rt <- (1/30) # time for reboot and service start in hours
+pexp(q=rt, rate=rph)
+@
+
+Bei Berechnungen von Exponentialverteilten Wahrscheinlichkeiten ist die 
+sog. \emph{Gedächtnislosigkeit} der Verteilung zu beachten. Für das obige
+Beispiel heisst dies, dass die Wahrscheinlichkeit eines Requests innert
+der nächsten $x$ Minuten nicht davon beieinflusst wird, ob gerade eben
+ein Request stattfand oder nicht.
 
 \newpage
 \section{Zusammenfassung}
@@ -1086,3 +1786,25 @@ wie flach die \emph{Glockenkurve} ist.
 
 
 \subsection{Berechnungen in R}
+
+\begin{table}[h!]
+	\begin{tabular}{l l l}
+	$X \sim \mathcal{U}(a,b)$ & & \\ %\hline
+		& genau $A$ 		& \verb!dunif(x=A,...)! \\
+		& höchstens $A$		& \verb!punif(q=A,...)! \\
+		& mindestens $A$	& \verb!1-punif(q=A-1,...)! \\
+		& $A$ zufällige 	& \verb!runif(n=A...)! \\
+	& & \\
+	$X \sim \mathcal{N}(\mu, \sigma^2)$ & & \\ %\hline
+		& genau $A$		& \verb!dnorm(x=A,...)! \\
+		& höchstens $A$		& \verb!pnorm(q=A,...)! \\
+		& mindestens $A$	& \verb!1-pnorm(q=A-1,...)! \\
+		& $A$ zufällige 	& \verb!rnorm(n=A...)! \\
+	& & \\
+	$X \sim Exp(\lambda)$ & & \\ %\hline
+		& genau $A$		& \verb!dexp(x=A,...)! \\
+		& höchstens $A$		& \verb!pexp(q=A,...)! \\
+		& mindestens $A$	& \verb!1-pexp(q=A-1,...)! \\
+		& $A$ zufällige 	& \verb!rexp(n=A...)! \\
+	\end{tabular}
+\end{table}

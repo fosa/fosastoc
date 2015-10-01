@@ -62,7 +62,7 @@ benannt.
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.7\textwidth]{konfidenzintervall.pdf}
+	\includegraphics[width=0.7\textwidth]{../fig/konfidenzintervall.pdf}
 	\caption{Konfidenzintervall}
 	\label{fig:konfidenzintervall}
 \end{figure}
@@ -100,7 +100,7 @@ oder extremere Beobachtungen zu erhalten.
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.7\textwidth]{p-value.pdf}
+	\includegraphics[width=0.7\textwidth]{../fig/p-value.pdf}
 	\caption{P-Wert graphisch dargestellt}
 	\label{fig:p-wert}
 \end{figure}
@@ -160,7 +160,7 @@ sie wahr ist.
 
 \begin{figure}[h!]
 	\centering
-        \includegraphics[width=0.7\textwidth]{fehler-erster-art.pdf}
+        \includegraphics[width=0.7\textwidth]{../fig/fehler-erster-art.pdf}
 	\caption{Fehler 1. Art}
 	\label{fig:fehler1}
 \end{figure}
@@ -178,7 +178,7 @@ obwohl sie falsch ist bzw. die Alternative wahr ist.
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.85\textwidth]{fehler-zweiter-art.pdf}
+	\includegraphics[width=0.85\textwidth]{../fig/fehler-zweiter-art.pdf}
 	\caption{Fehler 2. Art}
 	\label{fig:fehler2}
 \end{figure}
